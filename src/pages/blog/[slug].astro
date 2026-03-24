@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={`${post.data.title} — SympleHost`} description={post.data.description}>
+  <article>
+    <a href="/blog" class="back-link">&larr; Back to blog</a>
+
+    <h1 class="article-title">{post.data.title}</h1>
+
+    <div class="article-meta">
+      {post.data.date && <time>{post.data.date}</time>}
+      {post.data.author && <span>by {post.data.author}</span>}
+    </div>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <style>
+    .back-link {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      font-weight: 500;
+    }
+    .back-link:hover { color: var(--primary); }
+    .article-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--foreground);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .prose :global(h2) { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--foreground); }
+    .prose :global(h3) { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--foreground); }
+    .prose :global(p) { margin-bottom: 1rem; color: var(--foreground); }
+    .prose :global(ul), .prose :global(ol) { margin-bottom: 1rem; padding-left: 1.5rem; }
+    .prose :global(li) { margin-bottom: 0.25rem; }
+    .prose :global(code) { background: var(--muted); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+    .prose :global(pre) { background: hsl(0 0% 3.9%); color: hsl(0 0% 98%); padding: 1rem; border-radius: var(--radius); overflow-x: auto; margin-bottom: 1rem; }
+    .prose :global(pre code) { background: none; padding: 0; color: inherit; }
+    .prose :global(blockquote) { border-left: 3px solid var(--primary); padding-left: 1rem; color: var(--muted-foreground); margin-bottom: 1rem; }
+    .prose :global(a) { color: var(--primary); }
+    .prose :global(a:hover) { color: var(--primary-700); }
+    .prose :global(img) { max-width: 100%; border-radius: var(--radius); margin: 1rem 0; }
+    .prose :global(hr) { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  </style>
+</Base>

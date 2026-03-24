@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const sortedPosts = posts.sort((a, b) =>
+  new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()
+);
+---
+
+<Base title="Blog — SympleHost">
+  <h1 class="page-title">Blog</h1>
+
+  {sortedPosts.length === 0 ? (
+    <div class="empty-state">
+      <p>No posts yet.</p>
+      <a href="/keystatic" class="btn-primary">Create your first post</a>
+    </div>
+  ) : (
+    <ul class="card-list">
+      {sortedPosts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}`} class="card">
+            <h2>{post.data.title}</h2>
+            {post.data.description && <p class="card-desc">{post.data.description}</p>}
+            <div class="card-meta">
+              {post.data.date && <time>{post.data.date}</time>}
+              {post.data.author && <span>by {post.data.author}</span>}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <style>
+    .page-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--foreground);
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+    .empty-state {
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--muted-foreground);
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: var(--primary-700); color: white; }
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card {
+      display: block;
+      padding: 1.25rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--foreground);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .card:hover {
+      border-color: var(--primary-300);
+      box-shadow: 0 1px 3px rgba(147, 51, 234, 0.08);
+    }
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .card-desc {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+    }
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--muted-foreground);
+    }
+  </style>
+</Base>
