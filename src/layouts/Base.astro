@@ -41,8 +41,6 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
         --border-light: #f2f4f7;
         --primary: #7F56D9;
 
-        --login-color: #344054;
-        --login-border: #D0D5DD;
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,21 +73,17 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
       <div class="header-inner">
         <a href="https://www.symplehost.ai" class="logo">
           <img src="/SH_Logo.svg" alt="SympleHost" class="logo-img" />
-          <span>Symple Host</span>
+          <span>SYMPLE HOST</span>
         </a>
 
         <nav class="nav">
           <a href="/" class="nav-link">Knowledge Base</a>
-          <a href="https://www.symplehost.ai/signal" class="nav-link">Signal</a>
+      <!--  <a href="https://www.symplehost.ai/signal" class="nav-link">Signal</a> -->
           <a href="https://www.symplehost.ai/pricing" class="nav-link">Pricing</a>
           <a href="https://www.symplehost.ai/blog" class="nav-link">Blog</a>
           <a href="https://www.symplehost.ai/contact-us" class="nav-link">Contact us</a>
         </nav>
 
-        <div class="header-actions">
-          <a href="https://app.symplehost.ai" class="btn-login">Log in</a>
-          <a href="https://app.symplehost.ai/en/onboarding/signup" class="btn-signup">Sign Up Now</a>
-        </div>
       </div>
       <div class="header-gradient"></div>
     </header>
@@ -123,12 +117,13 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
         display: flex;
         align-items: center;
         gap: 0.6rem;
-        color: var(--foreground);
-        font-weight: 600;
-        font-size: 1rem;
+        color: #2E2E2E;
+        font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: 1.25rem;
         white-space: nowrap;
       }
-      .logo:hover { color: var(--foreground); }
+      .logo:hover { color: #2E2E2E; }
       .logo-img {
         width: 32px;
         height: 32px;
@@ -139,45 +134,12 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
         gap: 1.75rem;
       }
       .nav-link {
-        color: #000000;
-        font-size: 0.875rem;
+        color: #2E2E2E;
+        font-size: 1.2rem;
         font-weight: 400;
         transition: color 0.15s;
       }
       .nav-link:hover { color: var(--primary); }
-      .header-actions {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      .btn-login {
-        color: var(--login-color);
-        font-size: 0.875rem;
-        font-weight: 500;
-        padding: 0.5rem 1rem;
-        border: 1px solid var(--login-border);
-        border-radius: 8px;
-        background: #ffffff;
-        transition: all 0.15s;
-      }
-      .btn-login:hover {
-        border-color: var(--primary-300);
-        color: var(--primary);
-      }
-      .btn-signup {
-        color: white;
-        font-size: 0.875rem;
-        font-weight: 500;
-        padding: 0.5rem 1.25rem;
-        background: var(--primary);
-        border-radius: 8px;
-        transition: background 0.15s;
-      }
-      .btn-signup:hover {
-        background: var(--primary-700);
-        color: white;
-      }
       .header-gradient {
         height: 3px;
         background: linear-gradient(90deg, var(--primary-400), var(--primary), var(--primary-400));
