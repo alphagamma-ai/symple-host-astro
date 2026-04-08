@@ -1,0 +1,118 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return categories.map((cat) => ({
+    params: { category: cat.id },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const articles = await getCollection('articles', ({ data }) =>
+  !data.draft && data.category === category.id
+);
+
+// Sort by date descending
+articles.sort((a, b) =>
+  new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()
+);
+---
+
+<Base title={category.data.title}>
+  <nav class="breadcrumb">
+    <a href="/">All Topics</a>
+    <span class="sep">/</span>
+    <span>{category.data.title}</span>
+  </nav>
+
+  <header class="cat-header">
+    {category.data.emoji && <span class="cat-emoji">{category.data.emoji}</span>}
+    <h1 class="cat-title">{category.data.title}</h1>
+    {category.data.description && <p class="cat-desc">{category.data.description}</p>}
+  </header>
+
+  <section class="articles">
+    {articles.length === 0 ? (
+      <p class="empty">No articles in this category yet.</p>
+    ) : (
+      articles.map((article) => (
+        <a href={`/${category.id}/${article.id}`} class="article-row">
+          <h2 class="article-title">{article.data.title}</h2>
+          {article.data.description && (
+            <p class="article-desc">{article.data.description}</p>
+          )}
+        </a>
+      ))
+    )}
+  </section>
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a {
+      color: var(--muted-foreground);
+    }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .cat-header {
+      margin-bottom: 2.5rem;
+    }
+    .cat-emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .cat-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .cat-desc {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+    }
+
+    .articles {
+      display: flex;
+      flex-direction: column;
+    }
+    .article-row {
+      display: block;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--foreground);
+      transition: opacity 0.15s;
+    }
+    .article-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .article-row:hover { opacity: 0.75; }
+
+    .article-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.25rem;
+    }
+    .article-desc {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .empty {
+      color: var(--muted-foreground);
+      font-size: 0.95rem;
+      padding: 2rem 0;
+    }
+  </style>
+</Base>

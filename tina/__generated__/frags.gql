@@ -1,0 +1,18 @@
+fragment CategoryParts on Category {
+  __typename
+  title
+  description
+  emoji
+  order
+}
+
+fragment ArticleParts on Article {
+  __typename
+  title
+  description
+  category
+  tags
+  date
+  draft
+  body
+}

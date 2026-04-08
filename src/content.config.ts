@@ -1,24 +1,26 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const posts = defineCollection({
-  loader: glob({ pattern: '**/*.mdoc', base: './src/content/posts' }),
+const categories = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/categories' }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    emoji: z.string().optional(),
+    order: z.number().optional().default(0),
+  }),
+});
+
+const articles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    category: z.string(),
+    tags: z.array(z.string()).optional().default([]),
     date: z.string().optional(),
-    author: z.string().optional(),
-    image: z.string().optional(),
     draft: z.boolean().optional().default(false),
   }),
 });
 
-const pages = defineCollection({
-  loader: glob({ pattern: '**/*.mdoc', base: './src/content/pages' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-  }),
-});
-
-export const collections = { posts, pages };
+export const collections = { categories, articles };
