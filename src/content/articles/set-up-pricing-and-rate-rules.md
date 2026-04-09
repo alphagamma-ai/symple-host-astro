@@ -24,7 +24,11 @@ Think of it like setting a thermostat: the Standard Rate is your default tempera
 
 2. Click on the listing you want to price.
 
+   ![Listing detail page with tabs](/uploads/set-up-pricing-and-rate-rules/01.png)
+
 3. Click the **Price Settings** tab.
+
+   ![Price Settings tab with Base Rate](/uploads/set-up-pricing-and-rate-rules/02.png)
 
 You'll see the **Rate Plans** section. This is where all your pricing lives. You'll also see the **Currency** displayed on the right (this uses your account currency, e.g., £ GBP).
 
@@ -35,6 +39,8 @@ You'll see the **Rate Plans** section. This is where all your pricing lives. You
 Your **Standard Rate** is the default rate plan — it's created automatically and applies when no other rate plan is active.
 
 1. On the **Price Settings** tab, click the **Standard Rate (Base)** tab if it isn't already selected.
+
+   ![Standard Rate with weekday/weekend tabs](/uploads/set-up-pricing-and-rate-rules/03.png)
 
 2. Set the **Rate Plan Name** — this defaults to "Standard Rate" but you can rename it.
 
@@ -64,6 +70,8 @@ Rate plans let you set different prices for specific periods — summer, winter 
 
 Your new rate plan appears as a tab alongside your Standard Rate. You can click between tabs to view and edit each plan.
 
+![Rate Plans with weekend plan, length of stay discounts, and advanced settings](/uploads/set-up-pricing-and-rate-rules/04.png)
+
 ---
 
 ## How to Edit or Delete a Rate Plan
@@ -85,6 +93,8 @@ To delete a rate plan, open it and click the **trash icon** (🗑️) on the rig
 ## Using the Pricing Calendar
 
 To see how your rate plans map to specific dates, click the **Pricing Calendar** tab (next to Price Settings). This gives you a visual calendar showing which rate plan applies on each date, so you can spot gaps or overlaps.
+
+![Pricing Calendar with bookings and rate plans](/uploads/set-up-pricing-and-rate-rules/05.png)
 
 ---
 
