@@ -40,6 +40,8 @@ Think of roles like keys to different rooms in your house — everyone on your t
 
    You'll see a list of everyone currently on your team, with their name, email, role, and status.
 
+   ![Team Management members list](/uploads/add-team-members-and-roles/01-members-list.png)
+
 3. Click **Add Team Member** (the button in the top right).
 
 4. Fill in their **Basic Information**:
@@ -48,6 +50,8 @@ Think of roles like keys to different rooms in your house — everyone on your t
    - **Phone Number** — for account recovery and notifications
 
 5. Choose their **Role**:
+
+   ![Add Team Member form with basic info and role selection](/uploads/add-team-members-and-roles/02-add-member-form.png)
    - **Account Admin** — full access to all features including team management
    - **Account Manager** — manage listings, bookings, and guest communications
    - **Booking Coordinator** — handle bookings and guest inquiries
