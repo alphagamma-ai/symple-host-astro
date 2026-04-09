@@ -22,11 +22,17 @@ Think of it like a shared checklist that everyone on your team can see — but e
 
 1. Click **Operations** in the sidebar to expand it.
 
+   ![Sidebar with Operations expanded and Tasks highlighted](/uploads/create-and-assign-tasks/01-sidebar-operations.png)
+
 2. Click **Tasks**.
+
+   ![Tasks page with calendar view and team members](/uploads/create-and-assign-tasks/02-tasks-page.png)
 
 3. Click **New Task** in the top area.
 
 4. The **Create New Task** modal opens. Fill in:
+
+   ![Create New Task modal with fields](/uploads/create-and-assign-tasks/03-create-task-modal.png)
    - **Title** (required) — a clear description of what needs to be done (placeholder: "e.g., Review guest inquiry for Villa Rosa")
    - **Description** (required) — more details about the task (placeholder: "Provide details about what needs to be done...")
    - **Assign To** (required) — select a team member from the dropdown
