@@ -35,6 +35,8 @@ Think of it like adding a cash register to your SympleHost account — Stripe ha
 
 3. You'll see the **Payment Gateway** page with the heading "Connect a payment gateway to accept payments from guests securely." Find the **Stripe Connect** card.
 
+   ![Payment Gateway page with Stripe Connect card](/uploads/set-up-payments-stripe/01.png)
+
 The Settings sidebar is organized into sections: **Account** (Profile, Team Members), **Workspace** (General, Company, Channel Manager, Billing, Transactions, Financial Report, Profit & Loss), **Direct Bookings** (Host Description, Payment Gateway), **Automation** (Integrations, Autopilot, AI Memories, Task Reminders), and **Preferences** (Notifications, Security, Legal).
 
 4. Click **Connect with Stripe** (blue button with the Stripe icon).
@@ -51,6 +53,8 @@ The Settings sidebar is organized into sections: **Account** (Profile, Team Memb
    - **Payouts Enabled:** Yes (green)
    - **Connected:** [date, e.g., Mar 6, 2026]
 
+   ![Stripe connected with Active status](/uploads/set-up-payments-stripe/03.png)
+
 ---
 
 ## Managing Your Stripe Connection
@@ -66,6 +70,8 @@ Once connected, you'll see two buttons below the status details:
 
 - **Restricted** — Your Stripe account has restrictions. You'll see a warning: "Your Stripe account has restrictions. Open the Stripe Dashboard to view and resolve any outstanding requirements."
 - **Pending** — Your setup isn't complete. You'll see: "Open the Stripe Dashboard to complete your account setup and start accepting payments."
+
+   ![Stripe pending setup state](/uploads/set-up-payments-stripe/02.png)
 
 In either case, click **Open Stripe Dashboard** and follow Stripe's instructions to finish your verification.
 
