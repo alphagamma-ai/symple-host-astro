@@ -35,9 +35,13 @@ OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com wh
 
 3. Select **Import**.
 
+   ![New Property screen showing Manual and Import from Airbnb options](/uploads/import-listings-from-ota/01-new-property-options.png)
+
 4. On the **Import Property** screen, click the **Airbnb** card.
 
 5. Click **Authorize with Airbnb**. This opens a pop-up where you log in to your Airbnb account and grant SympleHost permission to access your listings.
+
+   ![Airbnb authorization popup](/uploads/import-listings-from-ota/02-airbnb-authorization.png)
 
 6. Once authorized, you'll see a list of your Airbnb listings. Tick the ones you want to import.
 
