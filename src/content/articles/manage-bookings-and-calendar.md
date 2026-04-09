@@ -20,7 +20,11 @@ The calendar is your central view of all upcoming, current, and past reservation
 
 1. Click **Properties** in the sidebar to expand it.
 
+   ![Properties page showing listings](/uploads/manage-bookings-and-calendar/01-properties-listings.png)
+
 2. Click **Calendar**.
+
+   ![Property Calendar Overview with color-coded bookings](/uploads/manage-bookings-and-calendar/02-calendar-overview.png)
 
 You'll see the **Property Bookings** page with the heading "Manage availability and reservations for all your properties." The **Property Calendar Overview** shows your listings along the left side and dates across the top. Bookings appear as color-coded horizontal bars.
 
@@ -43,7 +47,11 @@ The current date range is shown in the center (e.g., "Apr 8 - May 7, 2026").
 
 1. Click on any booking bar in the calendar.
 
-This opens the **Reservation Details** page. The page shows a status badge (e.g., "Confirmed") and the booking platform (e.g., "booking.com") at the top, along with the booking reference number (e.g., #RES-202603-2F92).
+   ![Calendar with booking detail popup](/uploads/manage-bookings-and-calendar/03-booking-detail-popup.png)
+
+   This opens the **Reservation Details** page.
+
+   ![Reservation details page](/uploads/manage-bookings-and-calendar/04-reservation-details.png) The page shows a status badge (e.g., "Confirmed") and the booking platform (e.g., "booking.com") at the top, along with the booking reference number (e.g., #RES-202603-2F92).
 
 The page is organized into these sections:
 
