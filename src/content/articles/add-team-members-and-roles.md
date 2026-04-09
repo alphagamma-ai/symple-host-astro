@@ -21,12 +21,10 @@ Think of roles like keys to different rooms in your house — everyone on your t
 
 ## Available Roles
 
-| Role | What They Can Do |
-|------|-----------------|
-| **Account Admin** | Full access to everything — listings, bookings, billing, team management, and settings. This is for business partners or operations managers who need complete control. |
-| **Account Manager** | Manage listings, bookings, and guest communications. Can handle day-to-day operations but can't manage team members or billing. |
-| **Booking Coordinator** | Handle bookings and guest inquiries. Great for front-desk staff or virtual assistants focused on reservations. |
-| **Staff** | Limited access for support and operational tasks. Ideal for cleaners, maintenance workers, or part-time helpers who need to see schedules but not change settings. |
+- **Account Admin** — Full access to everything — listings, bookings, billing, team management, and settings. For business partners or operations managers who need complete control.
+- **Account Manager** — Manage listings, bookings, and guest communications. Can handle day-to-day operations but can't manage team members or billing.
+- **Booking Coordinator** — Handle bookings and guest inquiries. Great for front-desk staff or virtual assistants focused on reservations.
+- **Staff** — Limited access for support and operational tasks. Ideal for cleaners, maintenance workers, or part-time helpers who need to see schedules but not change settings.
 
 **Tip:** The **Account Owner** (that's you, if you created the account) has full access that can't be restricted. Only Account Admins can manage team members.
 
