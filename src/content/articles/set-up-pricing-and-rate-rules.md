@@ -2,6 +2,8 @@
 title: 'How to Set Up Your Pricing & Rate Rules'
 description: 'Configure your nightly rates, create rate plans for different seasons, and set guest-based pricing so your listings are priced correctly year-round.'
 category: platform-guides
+section: Listings & pricing
+sectionOrder: 1
 tags:
   - Pricing
   - Rate Plans

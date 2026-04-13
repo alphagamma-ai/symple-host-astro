@@ -2,6 +2,8 @@
 title: How to Create and Manage Quotations
 description: Learn how to create professional price proposals, send them to guests, track their status, and collect payments — all from within SympleHost.
 category: platform-guides
+section: Quotes & payments
+sectionOrder: 1
 tags:
   - Quotations
   - Pricing

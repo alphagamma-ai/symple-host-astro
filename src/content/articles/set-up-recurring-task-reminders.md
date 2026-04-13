@@ -2,6 +2,8 @@
 title: 'How to Set Up Recurring Task Reminders'
 description: 'Automate repeat tasks like post-checkout cleanings or monthly inspections, and configure WhatsApp reminders so nothing falls through the cracks.'
 category: platform-guides
+section: Tasks & operations
+sectionOrder: 2
 tags:
   - Tasks
   - Automations

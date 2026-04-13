@@ -2,6 +2,8 @@
 title: 'How to Create & Assign Tasks to Your Team'
 description: 'Create cleaning, maintenance, or custom tasks, assign them to team members, and set due dates to keep your operations running smoothly.'
 category: platform-guides
+section: Tasks & operations
+sectionOrder: 1
 tags:
   - Tasks
   - Operations

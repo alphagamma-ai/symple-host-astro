@@ -2,6 +2,8 @@
 title: 'How to Manage Bookings & Your Calendar'
 description: 'View all your reservations in one calendar, create manual bookings, and update reservation statuses as guests check in and out.'
 category: platform-guides
+section: Bookings & reservations
+sectionOrder: 1
 tags:
   - Bookings
   - Calendar

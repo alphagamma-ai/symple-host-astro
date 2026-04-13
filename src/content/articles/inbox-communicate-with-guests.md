@@ -2,6 +2,8 @@
 title: 'How to Use the Inbox to Communicate with Guests'
 description: 'View all guest conversations in one place, reply across channels, use AI-assisted responses, and keep your communication organized.'
 category: platform-guides
+section: Messaging & guest communication
+sectionOrder: 1
 tags:
   - Inbox
   - Messaging

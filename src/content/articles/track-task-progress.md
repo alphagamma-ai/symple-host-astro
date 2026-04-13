@@ -2,6 +2,8 @@
 title: 'How to Track Task Progress & Completion'
 description: "See what's done, what's overdue, and what's still in progress — filter by team member or date to stay on top of operations."
 category: platform-guides
+section: Tasks & operations
+sectionOrder: 3
 tags:
   - Tasks
   - Operations
