@@ -167,5 +167,36 @@ const formattedDate = article.data.date
       border-top: 1px solid var(--border);
       margin: 2rem 0;
     }
+    .article-content :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      display: block;
+      overflow-x: auto;
+    }
+    .article-content :global(thead) {
+      background: var(--primary-50);
+    }
+    .article-content :global(th) {
+      text-align: left;
+      font-weight: 600;
+      color: var(--heading-color);
+      padding: 0.65rem 0.9rem;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    .article-content :global(td) {
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--foreground);
+    }
+    .article-content :global(tbody tr:last-child td) {
+      border-bottom: none;
+    }
+    .article-content :global(tbody tr:hover) {
+      background: var(--primary-50);
+    }
   </style>
 </Base>
