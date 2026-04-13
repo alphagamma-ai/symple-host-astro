@@ -43,7 +43,7 @@ There are three places a new reservation will show up:
    - **Channel** — Airbnb, Booking.com, Direct, or Manual
 4. Click any row to open the reservation's detail view.
 
-[Screenshot: The Reservations list showing filters at the top and a row highlighted on hover]
+![The Reservations list showing KPIs, filters, and all bookings across properties](/screenshots/viewing-your-first-reservation/reservations-list.png)
 
 ---
 
@@ -62,7 +62,7 @@ At the top of the reservation you'll see:
 - **Channel** — where the booking came from (e.g., Airbnb, Direct)
 - **Booking reference** — a unique ID you can share with the guest or your team
 
-[Screenshot: The reservation header showing guest name, dates, status badge, and channel pill]
+![The Reservation Details page — header with status and channel badges, Customer Information, Listing Details, Reservation Source, Price Breakdown, and action buttons top-right](/screenshots/viewing-your-first-reservation/reservation-details.png)
 
 ---
 

@@ -158,9 +158,15 @@ const formattedDate = article.data.date
       padding: 0;
     }
     .article-content :global(img) {
+      display: block;
       max-width: 100%;
+      max-height: 480px;
+      width: auto;
+      height: auto;
+      margin: 1.25rem auto;
+      border: 1px solid var(--border);
       border-radius: 6px;
-      margin: 1rem 0;
+      object-fit: contain;
     }
     .article-content :global(hr) {
       border: none;
