@@ -84,6 +84,18 @@ export default defineConfig({
           },
           {
             type: 'string',
+            name: 'section',
+            label: 'Section (sub-group within category)',
+            description: 'Optional sub-heading to group articles under on the category page (e.g. "Start here", "Set up your account")',
+          },
+          {
+            type: 'number',
+            name: 'sectionOrder',
+            label: 'Order within section',
+            description: 'Lower numbers appear first within the same section',
+          },
+          {
+            type: 'string',
             name: 'tags',
             label: 'Tags',
             list: true,

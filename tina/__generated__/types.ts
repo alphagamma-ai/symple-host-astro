@@ -236,6 +236,8 @@ export type Article = Node & Document & {
   title: Scalars['String']['output'];
   description?: Maybe<Scalars['String']['output']>;
   category: Scalars['String']['output'];
+  section?: Maybe<Scalars['String']['output']>;
+  sectionOrder?: Maybe<Scalars['Float']['output']>;
   tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   date?: Maybe<Scalars['String']['output']>;
   draft?: Maybe<Scalars['Boolean']['output']>;
@@ -268,6 +270,8 @@ export type ArticleFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   category?: InputMaybe<StringFilter>;
+  section?: InputMaybe<StringFilter>;
+  sectionOrder?: InputMaybe<NumberFilter>;
   tags?: InputMaybe<StringFilter>;
   date?: InputMaybe<DatetimeFilter>;
   draft?: InputMaybe<BooleanFilter>;
@@ -379,6 +383,8 @@ export type ArticleMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Scalars['String']['input']>;
+  sectionOrder?: InputMaybe<Scalars['Float']['input']>;
   tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   date?: InputMaybe<Scalars['String']['input']>;
   draft?: InputMaybe<Scalars['Boolean']['input']>;
@@ -387,7 +393,7 @@ export type ArticleMutation = {
 
 export type CategoryPartsFragment = { __typename: 'Category', title: string, description?: string | null, emoji?: string | null, order?: number | null };
 
-export type ArticlePartsFragment = { __typename: 'Article', title: string, description?: string | null, category: string, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null };
+export type ArticlePartsFragment = { __typename: 'Article', title: string, description?: string | null, category: string, section?: string | null, sectionOrder?: number | null, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null };
 
 export type CategoryQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -413,7 +419,7 @@ export type ArticleQueryVariables = Exact<{
 }>;
 
 
-export type ArticleQuery = { __typename?: 'Query', article: { __typename: 'Article', id: string, title: string, description?: string | null, category: string, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ArticleQuery = { __typename?: 'Query', article: { __typename: 'Article', id: string, title: string, description?: string | null, category: string, section?: string | null, sectionOrder?: number | null, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type ArticleConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -425,7 +431,7 @@ export type ArticleConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ArticleConnectionQuery = { __typename?: 'Query', articleConnection: { __typename?: 'ArticleConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArticleConnectionEdges', cursor: string, node?: { __typename: 'Article', id: string, title: string, description?: string | null, category: string, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ArticleConnectionQuery = { __typename?: 'Query', articleConnection: { __typename?: 'ArticleConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArticleConnectionEdges', cursor: string, node?: { __typename: 'Article', id: string, title: string, description?: string | null, category: string, section?: string | null, sectionOrder?: number | null, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const CategoryPartsFragmentDoc = gql`
     fragment CategoryParts on Category {
@@ -442,6 +448,8 @@ export const ArticlePartsFragmentDoc = gql`
   title
   description
   category
+  section
+  sectionOrder
   tags
   date
   draft

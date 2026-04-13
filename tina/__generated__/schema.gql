@@ -139,6 +139,8 @@ type Article implements Node & Document {
   title: String!
   description: String
   category: String!
+  section: String
+  sectionOrder: Float
   tags: [String]
   date: String
   draft: Boolean
@@ -171,6 +173,8 @@ input ArticleFilter {
   title: StringFilter
   description: StringFilter
   category: StringFilter
+  section: StringFilter
+  sectionOrder: NumberFilter
   tags: StringFilter
   date: DatetimeFilter
   draft: BooleanFilter
@@ -222,6 +226,8 @@ input ArticleMutation {
   title: String
   description: String
   category: String
+  section: String
+  sectionOrder: Float
   tags: [String]
   date: String
   draft: Boolean

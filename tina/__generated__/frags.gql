@@ -11,6 +11,8 @@ fragment ArticleParts on Article {
   title
   description
   category
+  section
+  sectionOrder
   tags
   date
   draft

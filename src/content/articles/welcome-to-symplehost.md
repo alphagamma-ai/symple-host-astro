@@ -2,6 +2,8 @@
 title: Welcome to SympleHost — Your First 15 Minutes
 description: Get oriented fast — here's what SympleHost does, where everything lives, and what to set up first.
 category: getting-started
+section: Start here
+sectionOrder: 1
 tags:
   - Onboarding
   - Overview

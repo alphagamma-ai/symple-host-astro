@@ -15,10 +15,47 @@ const articles = await getCollection('articles', ({ data }) =>
   !data.draft && data.category === category.id
 );
 
-// Sort by date descending
-articles.sort((a, b) =>
-  new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()
-);
+// Per-category section ordering. Sections not listed appear after, in first-seen order.
+const SECTION_ORDER: Record<string, string[]> = {
+  'getting-started': [
+    'Start here',
+    'Set up your account',
+    'Know your workspace',
+    'Connect & automate',
+    'Your first reservations',
+  ],
+};
+
+const UNGROUPED = '__ungrouped__';
+const explicitOrder = SECTION_ORDER[category.id] ?? [];
+
+// Group articles by section
+const groups = new Map<string, typeof articles>();
+for (const article of articles) {
+  const key = article.data.section ?? UNGROUPED;
+  if (!groups.has(key)) groups.set(key, []);
+  groups.get(key)!.push(article);
+}
+
+// Sort within each group: sectionOrder asc, then date desc
+for (const [, list] of groups) {
+  list.sort((a, b) => {
+    const ao = a.data.sectionOrder ?? Infinity;
+    const bo = b.data.sectionOrder ?? Infinity;
+    if (ao !== bo) return ao - bo;
+    return new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime();
+  });
+}
+
+// Order groups: explicit order first, then any other sections alphabetically, then ungrouped last
+const remaining = [...groups.keys()]
+  .filter((k) => k !== UNGROUPED && !explicitOrder.includes(k))
+  .sort();
+const orderedSectionKeys = [
+  ...explicitOrder.filter((k) => groups.has(k)),
+  ...remaining,
+];
+const hasUngrouped = groups.has(UNGROUPED);
 ---
 
 <Base title={category.data.title}>
@@ -34,20 +71,41 @@ articles.sort((a, b) =>
     {category.data.description && <p class="cat-desc">{category.data.description}</p>}
   </header>
 
-  <section class="articles">
-    {articles.length === 0 ? (
-      <p class="empty">No articles in this category yet.</p>
-    ) : (
-      articles.map((article) => (
-        <a href={`/${category.id}/${article.id}`} class="article-row">
-          <h2 class="article-title">{article.data.title}</h2>
-          {article.data.description && (
-            <p class="article-desc">{article.data.description}</p>
-          )}
-        </a>
-      ))
-    )}
-  </section>
+  {articles.length === 0 ? (
+    <p class="empty">No articles in this category yet.</p>
+  ) : (
+    <>
+      {orderedSectionKeys.map((sectionKey) => (
+        <section class="section-group">
+          <h2 class="section-heading">{sectionKey}</h2>
+          <div class="articles">
+            {groups.get(sectionKey)!.map((article) => (
+              <a href={`/${category.id}/${article.id}`} class="article-row">
+                <h3 class="article-title">{article.data.title}</h3>
+                {article.data.description && (
+                  <p class="article-desc">{article.data.description}</p>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+      {hasUngrouped && (
+        <section class="section-group">
+          <div class="articles">
+            {groups.get(UNGROUPED)!.map((article) => (
+              <a href={`/${category.id}/${article.id}`} class="article-row">
+                <h3 class="article-title">{article.data.title}</h3>
+                {article.data.description && (
+                  <p class="article-desc">{article.data.description}</p>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </>
+  )}
 
   <style>
     .breadcrumb {
@@ -81,6 +139,17 @@ articles.sort((a, b) =>
       font-size: 1rem;
     }
 
+    .section-group {
+      margin-bottom: 2.5rem;
+    }
+    .section-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin-bottom: 0.75rem;
+    }
     .articles {
       display: flex;
       flex-direction: column;

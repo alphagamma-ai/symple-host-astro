@@ -17,6 +17,8 @@ const articles = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     category: z.string(),
+    section: z.string().optional(),
+    sectionOrder: z.number().optional(),
     tags: z.array(z.string()).optional().default([]),
     date: z.union([z.string(), z.date()]).optional().transform(val =>
       val instanceof Date ? val.toISOString().split('T')[0] : val
