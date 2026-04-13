@@ -40,7 +40,7 @@ When you log in, you'll see a **sidebar on the left**. This is how you navigate 
 
 **Overview** — Your dashboard. Shows revenue, occupancy, upcoming check-ins, and payment activity at a glance.
 
-**Messages** — Your unified inbox. Guest messages from WhatsApp, Instagram, Facebook, and Gmail all land here.
+**Messages** — Your unified inbox. Guest messages from WhatsApp, Instagram, and Facebook all land here.
 
 **Operations** — Where your team's work lives. Create tasks, schedule jobs, manage your workforce, and set up automations (like auto-creating a cleaning task after checkout).
 

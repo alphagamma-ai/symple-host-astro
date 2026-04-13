@@ -1,6 +1,6 @@
 ---
 title: Connecting Your First Messaging Integration
-description: Link WhatsApp, Instagram, Facebook Messenger, or Gmail to SympleHost so all your guest conversations land in one inbox.
+description: Link WhatsApp, Instagram, or Facebook Messenger to SympleHost so all your guest conversations land in one inbox.
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 2
@@ -8,14 +8,13 @@ tags:
   - Messaging
   - Integrations
   - WhatsApp
-  - Gmail
 date: '2026-04-13'
 draft: false
 ---
 
 ## What Are Integrations?
 
-Integrations are the connections between SympleHost and the messaging platforms your guests use. Once connected, messages from WhatsApp, Instagram, Facebook Messenger, or Gmail flow directly into your SympleHost **Messages** inbox — no more switching between apps to reply to guests.
+Integrations are the connections between SympleHost and the messaging platforms your guests use. Once connected, messages from WhatsApp, Instagram, or Facebook Messenger flow directly into your SympleHost **Messages** inbox — no more switching between apps to reply to guests.
 
 Think of it like forwarding your mail to one address. Guests message you wherever they prefer; you see and reply to everything in one place.
 
@@ -33,14 +32,13 @@ Set this up as soon as you've added your first listing. Messaging integrations a
 
 ## Available Platforms
 
-SympleHost currently supports four messaging integrations:
+SympleHost currently supports three messaging integrations:
 
 | Platform | What It Connects |
 |----------|-----------------|
 | **WhatsApp** | Your WhatsApp Business account — guests who message your business number |
 | **Instagram** | Direct messages from your Instagram business profile |
 | **Facebook Messenger** | Messages from your Facebook business page |
-| **Gmail** | Email conversations from your Gmail account |
 
 ---
 
@@ -77,20 +75,6 @@ Instagram and Facebook are managed together since they're both part of the same 
 
 ---
 
-## How to Connect Gmail
-
-If your guests also reach you by email, connecting Gmail keeps those conversations in the same inbox:
-
-1. Go to **Settings → Integrations**.
-2. Find the **Gmail** card and click **Connect**.
-3. You'll be redirected to Google's authorization screen — sign in and grant SympleHost permission to read and send emails on your behalf.
-4. After authorizing, you'll return to SympleHost. The Gmail card will show **Connected**.
-5. Optionally, go to **Settings → Integrations → Gmail → Labels** to configure which email labels map to SympleHost categories.
-
-[Screenshot: The Gmail card showing "Connected" status with a link to the Gmail dashboard]
-
----
-
 ## Verifying Your Connection
 
 After connecting any platform:
@@ -113,9 +97,6 @@ Go to **Settings → Integrations**, find the platform card, and click **Disconn
 
 ### Instagram messages aren't coming through but Facebook is working
 Make sure your Instagram account is a **Business** or **Creator** account (not a personal account) and that it's linked to your Facebook Business Page. You can check this in Instagram's settings under **Account Type and Tools**.
-
-### Gmail shows "Connected" but I don't see emails
-Check your label configuration in **Settings → Integrations → Gmail → Labels**. You may need to map specific Gmail labels to ensure the right emails appear in SympleHost.
 
 ---
 

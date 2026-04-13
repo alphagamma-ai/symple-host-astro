@@ -29,7 +29,7 @@ Here's every item in the sidebar and what it's for:
 | Menu Item | What It's For |
 |-----------|--------------|
 | **Overview** | Your main dashboard — revenue, occupancy, bookings, and daily activity |
-| **Messages** | Unified inbox for all guest conversations (WhatsApp, Instagram, Facebook, Gmail) |
+| **Messages** | Unified inbox for all guest conversations (WhatsApp, Instagram, Facebook) |
 | **Customers** | Your guest and customer database |
 | **Quotes** | Create and send quotations to guests |
 | **Reviews** | Monitor and respond to guest reviews |
@@ -110,7 +110,6 @@ Click **Settings** in the sidebar (usually at the bottom, shown as a gear icon) 
 
 ### Integrations
 - **WhatsApp** — Connect your WhatsApp Business account
-- **Gmail** — Link your Gmail for email-based guest communication
 - **OTA** — Connect Airbnb, Booking.com, and other travel platforms
 
 ### Notifications & Automation

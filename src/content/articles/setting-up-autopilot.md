@@ -36,7 +36,7 @@ Autopilot is ideal when:
 
 Make sure you've completed these steps first:
 
-- **Connected at least one messaging integration** (WhatsApp, Instagram, Facebook, or Gmail) — Autopilot needs a message channel to work with. See: *Connecting Your First Messaging Integration*
+- **Connected at least one messaging integration** (WhatsApp, Instagram, or Facebook) — Autopilot needs a message channel to work with. See: *Connecting Your First Messaging Integration*
 - **Added at least one listing** — Autopilot uses listing details to provide accurate responses
 
 ---
