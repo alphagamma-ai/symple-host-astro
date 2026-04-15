@@ -179,7 +179,6 @@ if (category.id === 'faqs') {
               <span class="faq-src">{item.articleTitle}{item.section ? ` · ${item.section}` : ''}</span>
             </summary>
             <div class="faq-a" set:html={faqAnswerHtml(item.a)} />
-            <a class="faq-link" href={`${item.articleUrl}#${slugify(item.q)}`}>Open in full article →</a>
           </details>
         ))}
       </div>
