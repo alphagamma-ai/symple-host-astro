@@ -76,6 +76,7 @@ var config_default = defineConfig({
             options: [
               { value: "getting-started", label: "Getting Started" },
               { value: "platform-guides", label: "Platform Guides" },
+              { value: "faqs", label: "FAQs" },
               { value: "messaging", label: "Messaging" }
             ]
           },
