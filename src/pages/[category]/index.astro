@@ -62,6 +62,81 @@ const orderedSectionKeys = [
   ...remaining,
 ];
 const hasUngrouped = groups.has(UNGROUPED);
+
+function slugify(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function faqAnswerHtml(md: string): string {
+  // Minimal markdown → HTML for FAQ answers: bold, code, links, line breaks,
+  // and arrow-prefixed cross-references italicized.
+  let html = md
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  html = html.replace(/→ See: <em>([^<]+)<\/em>/g, '<span class="xref">→ See: <em>$1</em></span>');
+  // Paragraph breaks on blank lines
+  const paras = html.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+  return paras.map((p) => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+}
+
+// FAQ-only: extract flat list of Q&As from article bodies for the searchable panel
+type FaqItem = {
+  q: string;
+  a: string;
+  articleTitle: string;
+  articleUrl: string;
+  section: string | null;
+};
+const faqItems: FaqItem[] = [];
+if (category.id === 'faqs') {
+  for (const article of articles) {
+    const body = article.body ?? '';
+    const articleUrl = `/${category.id}/${article.id}`;
+    let currentSection: string | null = null;
+    // Split by lines and walk them, tracking current ## section, collecting ### question + answer.
+    const lines = body.split('\n');
+    let i = 0;
+    while (i < lines.length) {
+      const line = lines[i];
+      const secMatch = line.match(/^##\s+(.+?)\s*$/);
+      const qMatch = line.match(/^###\s+(.+?)\s*$/);
+      if (secMatch) {
+        currentSection = secMatch[1];
+        i++;
+        continue;
+      }
+      if (qMatch) {
+        const question = qMatch[1];
+        i++;
+        const answerLines: string[] = [];
+        while (i < lines.length && !lines[i].match(/^#{2,3}\s/) && lines[i].trim() !== '---') {
+          answerLines.push(lines[i]);
+          i++;
+        }
+        // Strip markdown artifacts for search/preview: bold, links, cross-ref arrows
+        const answer = answerLines.join('\n').trim();
+        faqItems.push({
+          q: question,
+          a: answer,
+          articleTitle: article.data.title,
+          articleUrl,
+          section: currentSection,
+        });
+        continue;
+      }
+      i++;
+    }
+  }
+}
 ---
 
 <Base title={category.data.title}>
@@ -76,6 +151,45 @@ const hasUngrouped = groups.has(UNGROUPED);
     <h1 class="cat-title">{category.data.title}</h1>
     {category.data.description && <p class="cat-desc">{category.data.description}</p>}
   </header>
+
+  {category.id === 'faqs' && faqItems.length > 0 && (
+    <section class="faq-search-wrap">
+      <div class="faq-search">
+        <input
+          id="faq-search-input"
+          type="search"
+          placeholder="Search frequently asked questions…"
+          autocomplete="off"
+          aria-label="Search FAQs"
+        />
+        <p class="faq-search-meta" id="faq-search-meta">
+          {faqItems.length} questions
+        </p>
+      </div>
+      <div id="faq-results" class="faq-results">
+        {faqItems.map((item, idx) => (
+          <details
+            class="faq-item"
+            data-q={item.q.toLowerCase()}
+            data-a={item.a.toLowerCase()}
+            data-article={item.articleTitle.toLowerCase()}
+          >
+            <summary>
+              <span class="faq-q">{item.q}</span>
+              <span class="faq-src">{item.articleTitle}{item.section ? ` · ${item.section}` : ''}</span>
+            </summary>
+            <div class="faq-a" set:html={faqAnswerHtml(item.a)} />
+            <a class="faq-link" href={`${item.articleUrl}#${slugify(item.q)}`}>Open in full article →</a>
+          </details>
+        ))}
+      </div>
+      <p id="faq-empty" class="faq-empty" hidden>No questions match your search.</p>
+    </section>
+  )}
+
+  {category.id === 'faqs' && articles.length > 0 && (
+    <h2 class="browse-heading">Browse by topic</h2>
+  )}
 
   {articles.length === 0 ? (
     <p class="empty">No articles in this category yet.</p>
@@ -189,5 +303,171 @@ const hasUngrouped = groups.has(UNGROUPED);
       font-size: 0.95rem;
       padding: 2rem 0;
     }
+
+    /* FAQ search */
+    .faq-search-wrap {
+      margin-bottom: 3rem;
+    }
+    .faq-search {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    #faq-search-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--foreground);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    #faq-search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-50);
+    }
+    .faq-search-meta {
+      margin: 0.5rem 0 0;
+      font-size: 0.8rem;
+      color: var(--muted-foreground);
+    }
+    .faq-results {
+      display: flex;
+      flex-direction: column;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0;
+    }
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .faq-item[hidden] { display: none; }
+    .faq-item > summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .faq-item > summary::-webkit-details-marker { display: none; }
+    .faq-item > summary::before {
+      content: "+";
+      color: var(--muted-foreground);
+      font-weight: 400;
+      margin-right: 0.6rem;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .faq-item[open] > summary::before {
+      content: "−";
+    }
+    .faq-q {
+      font-weight: 600;
+      color: var(--foreground);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .faq-src {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      white-space: nowrap;
+    }
+    .faq-a {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      padding: 0.75rem 0 0.25rem 1.4rem;
+    }
+    .faq-a :global(p) { margin: 0 0 0.6rem; }
+    .faq-a :global(strong) { color: var(--foreground); }
+    .faq-a :global(code) {
+      background: var(--primary-50);
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.85em;
+    }
+    .faq-a :global(.xref) {
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.85em;
+    }
+    .faq-link {
+      display: inline-block;
+      margin: 0.35rem 0 0 1.4rem;
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+    .faq-empty {
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+    }
+    .browse-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin: 0 0 1rem;
+    }
   </style>
+
+  <script is:inline>
+    (function () {
+      const input = document.getElementById('faq-search-input');
+      if (!input) return;
+      const results = document.getElementById('faq-results');
+      const empty = document.getElementById('faq-empty');
+      const meta = document.getElementById('faq-search-meta');
+      const items = Array.from(results.querySelectorAll('.faq-item'));
+      const total = items.length;
+
+      function norm(s) { return s.toLowerCase().trim(); }
+
+      function apply() {
+        const query = norm(input.value);
+        if (!query) {
+          items.forEach((el) => { el.hidden = false; el.open = false; });
+          empty.hidden = true;
+          meta.textContent = total + ' questions';
+          return;
+        }
+        const terms = query.split(/\s+/).filter(Boolean);
+        let visible = 0;
+        items.forEach((el) => {
+          const hay = (el.dataset.q + ' ' + el.dataset.a + ' ' + el.dataset.article);
+          const match = terms.every((t) => hay.includes(t));
+          el.hidden = !match;
+          if (match) {
+            visible++;
+            // Auto-expand when filtering to make answers visible
+            el.open = visible <= 8;
+          } else {
+            el.open = false;
+          }
+        });
+        empty.hidden = visible > 0;
+        meta.textContent = visible + ' of ' + total + ' questions';
+      }
+
+      input.addEventListener('input', apply);
+      // '/' to focus, Esc to clear
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== input) {
+          e.preventDefault();
+          input.focus();
+        } else if (e.key === 'Escape' && document.activeElement === input) {
+          input.value = '';
+          apply();
+          input.blur();
+        }
+      });
+    })();
+  </script>
 </Base>
