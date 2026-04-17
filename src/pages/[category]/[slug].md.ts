@@ -31,10 +31,8 @@ export const GET: APIRoute = ({ props }) => {
   const titleLine = `# ${article.data.title}\n`;
   const body = `${titleLine}\n${rawBody}${rawBody.endsWith("\n") ? "" : "\n"}`;
 
-  return new Response(body, {
-    headers: {
-      "Content-Type": "text/markdown; charset=utf-8",
-      "Cache-Control": "public, max-age=300",
-    },
-  });
+  // With prerender=true, Astro writes only the body to a static .md file. Response
+  // headers are discarded — Render serves the file and derives Content-Type from the
+  // .md extension. Cache-Control is set in Render dashboard / render.yaml, not here.
+  return new Response(body);
 };
