@@ -1,0 +1,180 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import EventCard from '../../components/EventCard.astro';
+import { partitionEvents, EVENT_TYPE_PLURAL, type EventType } from '../../lib/events';
+
+const allEvents = await getCollection('events', ({ data }) => !data.draft);
+const { upcoming, past } = partitionEvents(allEvents);
+
+const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as EventType[];
+---
+
+<Base title="Webinars & Videos" description="Live sessions, customer success hours, and on-demand recordings from the SympleHost team.">
+  <nav class="breadcrumb">
+    <a href="/">All Topics</a>
+    <span class="sep">/</span>
+    <span>Webinars &amp; Videos</span>
+  </nav>
+
+  <header class="page-header">
+    <h1 class="page-title">Webinars &amp; Videos</h1>
+    <p class="page-desc">Live sessions, customer success hours, and on-demand recordings from the SympleHost team.</p>
+  </header>
+
+  {upcoming.length > 0 && (
+    <section class="upcoming">
+      <h2 class="section-heading">Upcoming</h2>
+      <div class="grid grid-upcoming">
+        {upcoming.map((ev) => <EventCard event={ev} />)}
+      </div>
+    </section>
+  )}
+
+  {past.length > 0 ? (
+    <section class="past">
+      <div class="past-header">
+        <h2 class="section-heading">On-demand recordings</h2>
+        {typesPresent.length > 1 && (
+          <div class="filter-tabs" role="tablist" aria-label="Filter by event type">
+            <button class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            {typesPresent.map((t) => (
+              <button class="filter-tab" data-filter={t} role="tab" aria-selected="false">{EVENT_TYPE_PLURAL[t]}</button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="grid grid-past" id="past-grid">
+        {past.map((ev) => <EventCard event={ev} />)}
+      </div>
+      <p class="empty" id="past-empty" hidden>No recordings in this category yet.</p>
+    </section>
+  ) : (
+    upcoming.length === 0 && (
+      <p class="empty">No events scheduled yet. Check back soon.</p>
+    )
+  )}
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: var(--muted-foreground); }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+    }
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .page-desc {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+      max-width: 42rem;
+    }
+
+    .upcoming {
+      margin-bottom: 3rem;
+    }
+
+    .section-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin: 0 0 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .grid-upcoming {
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+    .grid-past {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .past-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .past-header .section-heading { margin: 0; }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    .filter-tab {
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
+    }
+    .filter-tab:hover {
+      color: var(--foreground);
+      border-color: var(--primary-300);
+    }
+    .filter-tab.is-active {
+      color: #ffffff;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .empty {
+      color: var(--muted-foreground);
+      font-size: 0.95rem;
+      padding: 2rem 0;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const tabs = document.querySelectorAll('.filter-tab');
+      if (!tabs.length) return;
+      const grid = document.getElementById('past-grid');
+      const empty = document.getElementById('past-empty');
+      if (!grid || !empty) return;
+      const cards = Array.from(grid.querySelectorAll('[data-event-type]'));
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const filter = tab.getAttribute('data-filter');
+          tabs.forEach((t) => {
+            const active = t === tab;
+            t.classList.toggle('is-active', active);
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          let visible = 0;
+          cards.forEach((el) => {
+            const match = filter === 'all' || el.getAttribute('data-event-type') === filter;
+            el.style.display = match ? '' : 'none';
+            if (match) visible++;
+          });
+          empty.hidden = visible > 0;
+        });
+      });
+    })();
+  </script>
+</Base>
