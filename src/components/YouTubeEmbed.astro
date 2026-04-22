@@ -5,6 +5,13 @@ interface Props {
 }
 
 const { videoId, title } = Astro.props;
+
+if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+  throw new Error(
+    `YouTubeEmbed: invalid videoId "${videoId}". Expected the 11-character ID from a YouTube URL (e.g. "dQw4w9WgXcQ"), not the full URL.`
+  );
+}
+
 const src = `https://www.youtube-nocookie.com/embed/${videoId}`;
 ---
 
