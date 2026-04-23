@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { partitionEvents, isUpcoming } from '../lib/events';
 
 const categories = await getCollection('categories');
 const articles = await getCollection('articles', ({ data }) => !data.draft);
+const events = await getCollection('events', ({ data }) => !data.draft);
 
 // Count articles per category
 const articleCounts = new Map<string, number>();
@@ -14,6 +16,11 @@ for (const article of articles) {
 
 // Sort categories by order
 const sortedCategories = categories.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+
+// Events card stats
+const { past: pastEvents } = partitionEvents(events);
+const recordingsCount = pastEvents.length;
+const upcomingCount = events.filter((e) => isUpcoming(e)).length;
 ---
 
 <Base title="How can we help?">
@@ -34,6 +41,16 @@ const sortedCategories = categories.sort((a, b) => (a.data.order ?? 0) - (b.data
         </a>
       );
     })}
+    <a href="/webinars-and-videos/" class="category-card">
+      <span class="category-emoji">🎥</span>
+      <h2 class="category-title">Webinars &amp; Videos</h2>
+      <p class="category-desc">Live sessions, customer success hours, and on-demand recordings.</p>
+      <span class="category-count">
+        {upcomingCount > 0
+          ? `${upcomingCount} upcoming · ${recordingsCount} ${recordingsCount === 1 ? 'recording' : 'recordings'}`
+          : `${recordingsCount} ${recordingsCount === 1 ? 'recording' : 'recordings'}`}
+      </span>
+    </a>
   </section>
 
   <style>
