@@ -47,7 +47,7 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
           <h2 class="register-title">Reserve your spot</h2>
           <p class="register-meta">{dateLabel} at {timeLabel}{durationLabel ? ` · ${durationLabel}` : ''}</p>
           {event.data.registerUrl ? (
-            <a class="register-btn" href={event.data.registerUrl} target="_blank" rel="noopener">Register on Zoom</a>
+            <a class="register-btn" href={event.data.registerUrl} target="_blank" rel="noopener noreferrer">Register now</a>
           ) : (
             <p class="register-note">Registration opens soon.</p>
           )}

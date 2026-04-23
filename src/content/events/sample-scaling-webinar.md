@@ -11,7 +11,7 @@ speakers:
 tags:
   - growth
   - operations
-draft: false
+draft: true
 ---
 
 ## What you'll learn

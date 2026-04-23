@@ -11,7 +11,7 @@ speakers:
 tags:
   - messaging
   - ai
-draft: false
+draft: true
 ---
 
 ## Recap

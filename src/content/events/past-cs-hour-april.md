@@ -12,7 +12,7 @@ speakers:
     role: "Customer Success Manager"
 tags:
   - office-hours
-draft: false
+draft: true
 ---
 
 ## What was covered

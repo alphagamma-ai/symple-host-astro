@@ -11,7 +11,7 @@ speakers:
 tags:
   - in-person
   - community
-draft: false
+draft: true
 ---
 
 ## Highlights
