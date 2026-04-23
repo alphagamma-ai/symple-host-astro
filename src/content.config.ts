@@ -43,6 +43,11 @@ const events = defineCollection({
       role: z.string().optional(),
       avatar: z.string().optional(),
     })).optional().default([]),
+    cohosts: z.array(z.object({
+      name: z.string(),
+      logo: z.string(),
+      url: z.string().url().optional(),
+    })).optional().default([]),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
   }),

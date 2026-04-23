@@ -41,6 +41,25 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
       {event.data.description && <p class="event-desc">{event.data.description}</p>}
     </header>
 
+    {event.data.cohosts.length > 0 && (
+      <div class="cohosts" aria-label="Co-hosted by">
+        <span class="cohosts-label">Co-hosted by</span>
+        <div class="cohosts-logos">
+          {event.data.cohosts.map((co) => (
+            co.url ? (
+              <a href={co.url} target="_blank" rel="noopener noreferrer" class="cohost-logo" aria-label={co.name}>
+                <img src={co.logo} alt={co.name} />
+              </a>
+            ) : (
+              <span class="cohost-logo">
+                <img src={co.logo} alt={co.name} />
+              </span>
+            )
+          ))}
+        </div>
+      </div>
+    )}
+
     <div class="event-media">
       {upcoming ? (
         <div class="register-card">
@@ -126,6 +145,45 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
 
     .event-media {
       margin-bottom: 2rem;
+    }
+
+    .cohosts {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.75rem;
+      background: var(--primary-50);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .cohosts-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+    }
+    .cohosts-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cohost-logo {
+      display: inline-flex;
+      align-items: center;
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+    .cohost-logo:hover { opacity: 1; }
+    .cohost-logo img {
+      height: 32px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
     }
 
     .register-card {

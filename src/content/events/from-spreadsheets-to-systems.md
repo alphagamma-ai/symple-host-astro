@@ -15,6 +15,13 @@ speakers:
   - name: "Agung Juliarta"
     role: "Moderator · CEO, Puri Asia (BVRMA)"
     avatar: "/speakers/agung.jpg"
+cohosts:
+  - name: "Symplehost.ai"
+    logo: "/logos/symplehost.png"
+    url: "https://www.symplehost.ai"
+  - name: "BVRMA"
+    logo: "/logos/bvrma.png"
+    url: "https://bvrma.org"
 tags:
   - bali
   - pms
@@ -57,6 +64,15 @@ Free webinar for Bali villa owners and small operators, co-hosted by **Symplehos
 | 3:45 – 4:00 | AI for small operators: where it helps, where it doesn't | Dave Singh |
 | 4:00 – 4:05 | Choosing the right system: a 6-point framework | Max Del Vita |
 | 4:05 – 4:15 | Live Q&A with all speakers | All speakers |
+
+## Curious about Symplehost?
+
+New to the platform? Here's a short intro filmed in Bali, walking through what Symplehost does for small villa operators.
+
+<video controls preload="metadata" width="100%" poster="/screenshots/events/from-spreadsheets-to-systems.png" style="border-radius:10px;background:#000;">
+  <source src="/videos/symplehost-intro-bali.mp4" type="video/mp4">
+  Your browser doesn't support embedded video. <a href="/videos/symplehost-intro-bali.mp4">Download the intro</a>.
+</video>
 
 ## FAQ
 

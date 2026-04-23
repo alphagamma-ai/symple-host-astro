@@ -86,6 +86,8 @@ export type Query = {
   categoryConnection: CategoryConnection;
   article: Article;
   articleConnection: ArticleConnection;
+  event: Event;
+  eventConnection: EventConnection;
 };
 
 
@@ -139,9 +141,25 @@ export type QueryArticleConnectionArgs = {
   filter?: InputMaybe<ArticleFilter>;
 };
 
+
+export type QueryEventArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryEventConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<EventFilter>;
+};
+
 export type DocumentFilter = {
   category?: InputMaybe<CategoryFilter>;
   article?: InputMaybe<ArticleFilter>;
+  event?: InputMaybe<EventFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -181,7 +199,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Category | Article | Folder;
+export type DocumentNode = Category | Article | Event | Folder;
 
 export type Category = Node & Document & {
   __typename?: 'Category';
@@ -291,6 +309,88 @@ export type ArticleConnection = Connection & {
   edges?: Maybe<Array<Maybe<ArticleConnectionEdges>>>;
 };
 
+export type EventSpeakers = {
+  __typename?: 'EventSpeakers';
+  name: Scalars['String']['output'];
+  role?: Maybe<Scalars['String']['output']>;
+  avatar?: Maybe<Scalars['String']['output']>;
+};
+
+export type EventCohosts = {
+  __typename?: 'EventCohosts';
+  name: Scalars['String']['output'];
+  logo: Scalars['String']['output'];
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+export type Event = Node & Document & {
+  __typename?: 'Event';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  eventType: Scalars['String']['output'];
+  eventDate: Scalars['String']['output'];
+  duration?: Maybe<Scalars['Float']['output']>;
+  youtubeId?: Maybe<Scalars['String']['output']>;
+  registerUrl?: Maybe<Scalars['String']['output']>;
+  thumbnail?: Maybe<Scalars['String']['output']>;
+  speakers?: Maybe<Array<Maybe<EventSpeakers>>>;
+  cohosts?: Maybe<Array<Maybe<EventCohosts>>>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  draft?: Maybe<Scalars['Boolean']['output']>;
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type ImageFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type EventSpeakersFilter = {
+  name?: InputMaybe<StringFilter>;
+  role?: InputMaybe<StringFilter>;
+  avatar?: InputMaybe<ImageFilter>;
+};
+
+export type EventCohostsFilter = {
+  name?: InputMaybe<StringFilter>;
+  logo?: InputMaybe<ImageFilter>;
+  url?: InputMaybe<StringFilter>;
+};
+
+export type EventFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  eventType?: InputMaybe<StringFilter>;
+  eventDate?: InputMaybe<DatetimeFilter>;
+  duration?: InputMaybe<NumberFilter>;
+  youtubeId?: InputMaybe<StringFilter>;
+  registerUrl?: InputMaybe<StringFilter>;
+  thumbnail?: InputMaybe<ImageFilter>;
+  speakers?: InputMaybe<EventSpeakersFilter>;
+  cohosts?: InputMaybe<EventCohostsFilter>;
+  tags?: InputMaybe<StringFilter>;
+  draft?: InputMaybe<BooleanFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type EventConnectionEdges = {
+  __typename?: 'EventConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Event>;
+};
+
+export type EventConnection = Connection & {
+  __typename?: 'EventConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<EventConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -302,6 +402,8 @@ export type Mutation = {
   createCategory: Category;
   updateArticle: Article;
   createArticle: Article;
+  updateEvent: Event;
+  createEvent: Event;
 };
 
 
@@ -361,15 +463,29 @@ export type MutationCreateArticleArgs = {
   params: ArticleMutation;
 };
 
+
+export type MutationUpdateEventArgs = {
+  relativePath: Scalars['String']['input'];
+  params: EventMutation;
+};
+
+
+export type MutationCreateEventArgs = {
+  relativePath: Scalars['String']['input'];
+  params: EventMutation;
+};
+
 export type DocumentUpdateMutation = {
   category?: InputMaybe<CategoryMutation>;
   article?: InputMaybe<ArticleMutation>;
+  event?: InputMaybe<EventMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
   category?: InputMaybe<CategoryMutation>;
   article?: InputMaybe<ArticleMutation>;
+  event?: InputMaybe<EventMutation>;
 };
 
 export type CategoryMutation = {
@@ -391,9 +507,39 @@ export type ArticleMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type EventSpeakersMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
+  avatar?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EventCohostsMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EventMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  eventType?: InputMaybe<Scalars['String']['input']>;
+  eventDate?: InputMaybe<Scalars['String']['input']>;
+  duration?: InputMaybe<Scalars['Float']['input']>;
+  youtubeId?: InputMaybe<Scalars['String']['input']>;
+  registerUrl?: InputMaybe<Scalars['String']['input']>;
+  thumbnail?: InputMaybe<Scalars['String']['input']>;
+  speakers?: InputMaybe<Array<InputMaybe<EventSpeakersMutation>>>;
+  cohosts?: InputMaybe<Array<InputMaybe<EventCohostsMutation>>>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  draft?: InputMaybe<Scalars['Boolean']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
+
 export type CategoryPartsFragment = { __typename: 'Category', title: string, description?: string | null, emoji?: string | null, order?: number | null };
 
 export type ArticlePartsFragment = { __typename: 'Article', title: string, description?: string | null, category: string, section?: string | null, sectionOrder?: number | null, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null };
+
+export type EventPartsFragment = { __typename: 'Event', title: string, description?: string | null, eventType: string, eventDate: string, duration?: number | null, youtubeId?: string | null, registerUrl?: string | null, thumbnail?: string | null, tags?: Array<string | null> | null, draft?: boolean | null, body?: any | null, speakers?: Array<{ __typename: 'EventSpeakers', name: string, role?: string | null, avatar?: string | null } | null> | null, cohosts?: Array<{ __typename: 'EventCohosts', name: string, logo: string, url?: string | null } | null> | null };
 
 export type CategoryQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -433,6 +579,25 @@ export type ArticleConnectionQueryVariables = Exact<{
 
 export type ArticleConnectionQuery = { __typename?: 'Query', articleConnection: { __typename?: 'ArticleConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArticleConnectionEdges', cursor: string, node?: { __typename: 'Article', id: string, title: string, description?: string | null, category: string, section?: string | null, sectionOrder?: number | null, tags?: Array<string | null> | null, date?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
+export type EventQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type EventQuery = { __typename?: 'Query', event: { __typename: 'Event', id: string, title: string, description?: string | null, eventType: string, eventDate: string, duration?: number | null, youtubeId?: string | null, registerUrl?: string | null, thumbnail?: string | null, tags?: Array<string | null> | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, speakers?: Array<{ __typename: 'EventSpeakers', name: string, role?: string | null, avatar?: string | null } | null> | null, cohosts?: Array<{ __typename: 'EventCohosts', name: string, logo: string, url?: string | null } | null> | null } };
+
+export type EventConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<EventFilter>;
+}>;
+
+
+export type EventConnectionQuery = { __typename?: 'Query', eventConnection: { __typename?: 'EventConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'EventConnectionEdges', cursor: string, node?: { __typename: 'Event', id: string, title: string, description?: string | null, eventType: string, eventDate: string, duration?: number | null, youtubeId?: string | null, registerUrl?: string | null, thumbnail?: string | null, tags?: Array<string | null> | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, speakers?: Array<{ __typename: 'EventSpeakers', name: string, role?: string | null, avatar?: string | null } | null> | null, cohosts?: Array<{ __typename: 'EventCohosts', name: string, logo: string, url?: string | null } | null> | null } | null } | null> | null } };
+
 export const CategoryPartsFragmentDoc = gql`
     fragment CategoryParts on Category {
   __typename
@@ -452,6 +617,34 @@ export const ArticlePartsFragmentDoc = gql`
   sectionOrder
   tags
   date
+  draft
+  body
+}
+    `;
+export const EventPartsFragmentDoc = gql`
+    fragment EventParts on Event {
+  __typename
+  title
+  description
+  eventType
+  eventDate
+  duration
+  youtubeId
+  registerUrl
+  thumbnail
+  speakers {
+    __typename
+    name
+    role
+    avatar
+  }
+  cohosts {
+    __typename
+    name
+    logo
+    url
+  }
+  tags
   draft
   body
 }
@@ -570,6 +763,63 @@ export const ArticleConnectionDocument = gql`
   }
 }
     ${ArticlePartsFragmentDoc}`;
+export const EventDocument = gql`
+    query event($relativePath: String!) {
+  event(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...EventParts
+  }
+}
+    ${EventPartsFragmentDoc}`;
+export const EventConnectionDocument = gql`
+    query eventConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: EventFilter) {
+  eventConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...EventParts
+      }
+    }
+  }
+}
+    ${EventPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -584,6 +834,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     articleConnection(variables?: ArticleConnectionQueryVariables, options?: C): Promise<{data: ArticleConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ArticleConnectionQueryVariables, query: string}> {
         return requester<{data: ArticleConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ArticleConnectionQueryVariables, query: string}, ArticleConnectionQueryVariables>(ArticleConnectionDocument, variables, options);
+      },
+    event(variables: EventQueryVariables, options?: C): Promise<{data: EventQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: EventQueryVariables, query: string}> {
+        return requester<{data: EventQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: EventQueryVariables, query: string}, EventQueryVariables>(EventDocument, variables, options);
+      },
+    eventConnection(variables?: EventConnectionQueryVariables, options?: C): Promise<{data: EventConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: EventConnectionQueryVariables, query: string}> {
+        return requester<{data: EventConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: EventConnectionQueryVariables, query: string}, EventConnectionQueryVariables>(EventConnectionDocument, variables, options);
       }
     };
   }
@@ -632,7 +888,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "https://content.tinajs.io/2.2/content/dummy/github/main",
+        url: "http://localhost:4001/graphql",
         queries,
       })
     )

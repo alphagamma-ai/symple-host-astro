@@ -190,6 +190,21 @@ var config_default = defineConfig({
             ]
           },
           {
+            type: "object",
+            name: "cohosts",
+            label: "Co-hosts / Partners",
+            description: 'Optional. Shown as a "Co-hosted by" banner near the page hero.',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name || "Co-host" })
+            },
+            fields: [
+              { type: "string", name: "name", label: "Organisation Name", required: true },
+              { type: "image", name: "logo", label: "Logo", required: true },
+              { type: "string", name: "url", label: "Website URL" }
+            ]
+          },
+          {
             type: "string",
             name: "tags",
             label: "Tags",

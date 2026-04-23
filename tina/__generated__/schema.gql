@@ -58,11 +58,14 @@ type Query {
   categoryConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CategoryFilter): CategoryConnection!
   article(relativePath: String): Article!
   articleConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ArticleFilter): ArticleConnection!
+  event(relativePath: String): Event!
+  eventConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: EventFilter): EventConnection!
 }
 
 input DocumentFilter {
   category: CategoryFilter
   article: ArticleFilter
+  event: EventFilter
 }
 
 type DocumentConnectionEdges {
@@ -88,7 +91,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Category | Article | Folder
+union DocumentNode = Category | Article | Event | Folder
 
 type Category implements Node & Document {
   title: String!
@@ -192,6 +195,83 @@ type ArticleConnection implements Connection {
   edges: [ArticleConnectionEdges]
 }
 
+type EventSpeakers {
+  name: String!
+  role: String
+  avatar: String
+}
+
+type EventCohosts {
+  name: String!
+  logo: String!
+  url: String
+}
+
+type Event implements Node & Document {
+  title: String!
+  description: String
+  eventType: String!
+  eventDate: String!
+  duration: Float
+  youtubeId: String
+  registerUrl: String
+  thumbnail: String
+  speakers: [EventSpeakers]
+  cohosts: [EventCohosts]
+  tags: [String]
+  draft: Boolean
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input EventSpeakersFilter {
+  name: StringFilter
+  role: StringFilter
+  avatar: ImageFilter
+}
+
+input EventCohostsFilter {
+  name: StringFilter
+  logo: ImageFilter
+  url: StringFilter
+}
+
+input EventFilter {
+  title: StringFilter
+  description: StringFilter
+  eventType: StringFilter
+  eventDate: DatetimeFilter
+  duration: NumberFilter
+  youtubeId: StringFilter
+  registerUrl: StringFilter
+  thumbnail: ImageFilter
+  speakers: EventSpeakersFilter
+  cohosts: EventCohostsFilter
+  tags: StringFilter
+  draft: BooleanFilter
+  body: RichTextFilter
+}
+
+type EventConnectionEdges {
+  cursor: String!
+  node: Event
+}
+
+type EventConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [EventConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -202,17 +282,21 @@ type Mutation {
   createCategory(relativePath: String!, params: CategoryMutation!): Category!
   updateArticle(relativePath: String!, params: ArticleMutation!): Article!
   createArticle(relativePath: String!, params: ArticleMutation!): Article!
+  updateEvent(relativePath: String!, params: EventMutation!): Event!
+  createEvent(relativePath: String!, params: EventMutation!): Event!
 }
 
 input DocumentUpdateMutation {
   category: CategoryMutation
   article: ArticleMutation
+  event: EventMutation
   relativePath: String
 }
 
 input DocumentMutation {
   category: CategoryMutation
   article: ArticleMutation
+  event: EventMutation
 }
 
 input CategoryMutation {
@@ -230,6 +314,34 @@ input ArticleMutation {
   sectionOrder: Float
   tags: [String]
   date: String
+  draft: Boolean
+  body: JSON
+}
+
+input EventSpeakersMutation {
+  name: String
+  role: String
+  avatar: String
+}
+
+input EventCohostsMutation {
+  name: String
+  logo: String
+  url: String
+}
+
+input EventMutation {
+  title: String
+  description: String
+  eventType: String
+  eventDate: String
+  duration: Float
+  youtubeId: String
+  registerUrl: String
+  thumbnail: String
+  speakers: [EventSpeakersMutation]
+  cohosts: [EventCohostsMutation]
+  tags: [String]
   draft: Boolean
   body: JSON
 }

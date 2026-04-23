@@ -18,3 +18,30 @@ fragment ArticleParts on Article {
   draft
   body
 }
+
+fragment EventParts on Event {
+  __typename
+  title
+  description
+  eventType
+  eventDate
+  duration
+  youtubeId
+  registerUrl
+  thumbnail
+  speakers {
+    __typename
+    name
+    role
+    avatar
+  }
+  cohosts {
+    __typename
+    name
+    logo
+    url
+  }
+  tags
+  draft
+  body
+}
