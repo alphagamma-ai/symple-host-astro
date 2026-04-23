@@ -212,5 +212,77 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
       color: var(--primary);
       text-decoration: underline;
     }
+    .event-content :global(blockquote) {
+      border-left: 3px solid var(--primary-300);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: var(--muted-foreground);
+      font-style: italic;
+    }
+    .event-content :global(code) {
+      background: var(--primary-50);
+      padding: 0.15rem 0.35rem;
+      border-radius: 3px;
+      font-size: 0.875em;
+    }
+    .event-content :global(pre) {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    .event-content :global(pre code) {
+      background: none;
+      padding: 0;
+    }
+    .event-content :global(img) {
+      display: block;
+      max-width: 100%;
+      max-height: 480px;
+      width: auto;
+      height: auto;
+      margin: 1.25rem auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      object-fit: contain;
+    }
+    .event-content :global(hr) {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .event-content :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      display: block;
+      overflow-x: auto;
+    }
+    .event-content :global(thead) {
+      background: var(--primary-50);
+    }
+    .event-content :global(th) {
+      text-align: left;
+      font-weight: 600;
+      color: var(--heading-color);
+      padding: 0.65rem 0.9rem;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    .event-content :global(td) {
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--foreground);
+    }
+    .event-content :global(tbody tr:last-child td) {
+      border-bottom: none;
+    }
+    .event-content :global(tbody tr:hover) {
+      background: var(--primary-50);
+    }
   </style>
 </Base>
