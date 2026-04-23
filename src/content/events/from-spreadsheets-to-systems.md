@@ -4,6 +4,7 @@ description: "A 75-minute, no-fluff session for Bali villa owners and small oper
 eventType: webinar
 eventDate: "2026-05-04T07:00:00Z"
 duration: 75
+registerUrl: "https://us06web.zoom.us/meeting/register/PrdJ_aUKQF2MJP5WAIWxyg"
 thumbnail: "/screenshots/events/from-spreadsheets-to-systems.png"
 speakers:
   - name: "Max Del Vita"
