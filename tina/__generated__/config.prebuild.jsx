@@ -115,6 +115,113 @@ var config_default = defineConfig({
             isBody: true
           }
         ]
+      },
+      {
+        name: "event",
+        label: "Webinars & Events",
+        path: "src/content/events",
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: { component: "textarea" }
+          },
+          {
+            type: "string",
+            name: "eventType",
+            label: "Event Type",
+            required: true,
+            options: [
+              { value: "webinar", label: "Webinar" },
+              { value: "customer-success-hour", label: "Customer Success Hour" },
+              { value: "meet-up", label: "Meet-up" }
+            ]
+          },
+          {
+            type: "datetime",
+            name: "eventDate",
+            label: "Event Date & Time",
+            required: true
+          },
+          {
+            type: "number",
+            name: "duration",
+            label: "Duration (minutes)"
+          },
+          {
+            type: "string",
+            name: "youtubeId",
+            label: "YouTube Video ID",
+            description: "The part after v= in a YouTube URL. Leave empty for upcoming events with no recording yet."
+          },
+          {
+            type: "string",
+            name: "registerUrl",
+            label: "Registration URL",
+            description: "Zoom registration link for upcoming events. Zoom auto-generates this per webinar."
+          },
+          {
+            type: "image",
+            name: "thumbnail",
+            label: "Custom Thumbnail",
+            description: "Optional. If empty, the YouTube video thumbnail is used."
+          },
+          {
+            type: "object",
+            name: "speakers",
+            label: "Speakers",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name || "Speaker" })
+            },
+            fields: [
+              { type: "string", name: "name", label: "Name", required: true },
+              { type: "string", name: "role", label: "Role / Title" },
+              { type: "image", name: "avatar", label: "Avatar" }
+            ]
+          },
+          {
+            type: "object",
+            name: "cohosts",
+            label: "Co-hosts / Partners",
+            description: 'Optional. Shown as a "Co-hosted by" banner near the page hero.',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name || "Co-host" })
+            },
+            fields: [
+              { type: "string", name: "name", label: "Organisation Name", required: true },
+              { type: "image", name: "logo", label: "Logo", required: true },
+              { type: "string", name: "url", label: "Website URL" }
+            ]
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Draft"
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Content",
+            isBody: true
+          }
+        ]
       }
     ]
   }

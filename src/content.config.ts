@@ -27,4 +27,30 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { categories, articles };
+const events = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    eventType: z.enum(['webinar', 'customer-success-hour', 'meet-up']),
+    eventDate: z.coerce.date(),
+    duration: z.number().optional(),
+    youtubeId: z.string().optional(),
+    registerUrl: z.string().url().optional(),
+    thumbnail: z.string().optional(),
+    speakers: z.array(z.object({
+      name: z.string(),
+      role: z.string().optional(),
+      avatar: z.string().optional(),
+    })).optional().default([]),
+    cohosts: z.array(z.object({
+      name: z.string(),
+      logo: z.string(),
+      url: z.string().url().optional(),
+    })).optional().default([]),
+    tags: z.array(z.string()).optional().default([]),
+    draft: z.boolean().optional().default(false),
+  }),
+});
+
+export const collections = { categories, articles, events };
