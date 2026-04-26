@@ -53,13 +53,15 @@ export function formatEventDate(d: Date): string {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
+    timeZone: 'Asia/Singapore',
   });
 }
 
 export function formatEventTime(d: Date): string {
-  return d.toLocaleTimeString('en-US', {
+  const time = d.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
-    timeZoneName: 'short',
+    timeZone: 'Asia/Singapore',
   });
+  return `${time} SGT`;
 }

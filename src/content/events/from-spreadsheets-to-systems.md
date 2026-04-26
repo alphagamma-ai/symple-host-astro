@@ -2,7 +2,7 @@
 title: "From Spreadsheets to Systems: Find the Right PMS for Your Villa Business"
 description: "A 75-minute, no-fluff session for Bali villa owners and small operators — co-hosted by Symplehost.ai and BVRMA. Learn when to move beyond spreadsheets, what a PMS should actually do, and where AI genuinely helps."
 eventType: webinar
-eventDate: "2026-05-04T07:00:00Z"
+eventDate: "2026-05-04T08:00:00Z"
 duration: 75
 registerUrl: "https://us06web.zoom.us/meeting/register/PrdJ_aUKQF2MJP5WAIWxyg"
 thumbnail: "/screenshots/events/from-spreadsheets-to-systems.png"
@@ -35,7 +35,7 @@ draft: false
 
 ## Stop firefighting. Start running the business.
 
-Free webinar for Bali villa owners and small operators, co-hosted by **Symplehost.ai × BVRMA**. 75 minutes on Monday 4 May, 3:00 PM WITA, live on Zoom. Replay included.
+Free webinar for Bali villa owners and small operators, co-hosted by **Symplehost.ai × BVRMA**. 75 minutes on Monday 4 May, 4:00 PM WITA, live on Zoom. Replay included.
 
 ## What you'll learn
 
@@ -59,12 +59,10 @@ Free webinar for Bali villa owners and small operators, co-hosted by **Symplehos
 
 | Time | Topic | Led by |
 |---|---|---|
-| 3:00 – 3:05 | Welcome & why this matters for Bali's villa community | Agung Juliarta |
-| 3:05 – 3:20 | The spreadsheet trap: signs you've outgrown manual management | Max Del Vita |
-| 3:20 – 3:45 | What a PMS actually does — live demo + plain walkthrough | Dave Singh |
-| 3:45 – 4:00 | AI for small operators: where it helps, where it doesn't | Dave Singh |
-| 4:00 – 4:05 | Choosing the right system: a 6-point framework | Max Del Vita |
-| 4:05 – 4:15 | Live Q&A with all speakers | All speakers |
+| 4:00 – 4:05 | Welcome | Agung Juliarta |
+| 4:05 – 4:25 | Outgrowing spreadsheets + a 6-point PMS framework | Max Del Vita |
+| 4:25 – 5:00 | PMS walkthrough & where AI actually helps | Dave Singh |
+| 5:00 – 5:15 | Live Q&A | All speakers |
 
 ## Curious about Symplehost?
 
