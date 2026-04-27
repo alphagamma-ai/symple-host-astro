@@ -25,6 +25,7 @@ cohosts:
     url: "https://bvrma.org"
   - name: "Puri Asia"
     logo: "/logos/puriasia.png"
+    nameInLogo: true
 tags:
   - bali
   - pms
