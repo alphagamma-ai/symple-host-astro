@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
-    "build": "tinacms build && astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist",
     "verify:build": "node scripts/verify-build.mjs",
     "preview": "astro preview",
     "astro": "astro"
