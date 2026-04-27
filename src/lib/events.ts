@@ -7,12 +7,14 @@ export const EVENT_TYPE_LABEL: Record<EventType, string> = {
   'webinar': 'Webinar',
   'customer-success-hour': 'Customer Success Hour',
   'meet-up': 'Meet-up',
+  'tutorial': 'Tutorial',
 };
 
 export const EVENT_TYPE_PLURAL: Record<EventType, string> = {
   'webinar': 'Webinars',
   'customer-success-hour': 'Customer Success Hours',
   'meet-up': 'Meet-ups',
+  'tutorial': 'Tutorials',
 };
 
 export function isUpcoming(event: Event, now: Date = new Date()): boolean {

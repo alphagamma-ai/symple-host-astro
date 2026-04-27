@@ -32,7 +32,7 @@ const events = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    eventType: z.enum(['webinar', 'customer-success-hour', 'meet-up']),
+    eventType: z.enum(['webinar', 'customer-success-hour', 'meet-up', 'tutorial']),
     eventDate: z.coerce.date(),
     duration: z.number().optional(),
     youtubeId: z.string().optional(),
