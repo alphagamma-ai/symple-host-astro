@@ -143,7 +143,8 @@ var config_default = defineConfig({
             options: [
               { value: "webinar", label: "Webinar" },
               { value: "customer-success-hour", label: "Customer Success Hour" },
-              { value: "meet-up", label: "Meet-up" }
+              { value: "meet-up", label: "Meet-up" },
+              { value: "tutorial", label: "Tutorial" }
             ]
           },
           {
