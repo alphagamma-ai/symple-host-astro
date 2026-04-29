@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- OTA commissions cost 15–20% per booking — direct bookings are pure margin
+- Use OTAs for discovery, build a direct channel for retention; don't fight, funnel
+- Offer a clear incentive (5–10% off, flexible cancellation, or free extras)
+- Your guest email/phone list is the only marketing asset you truly own
+- Even converting 20% of OTA guests to direct repeats meaningfully improves margins
+
+---
+
 Let's start with a number that should bother you: if you made $50,000 in bookings last year through Airbnb and Booking.com, you paid roughly $7,500-$10,000 in commissions. That's not a marketing cost — that's a tax on not having an alternative.
 
 Direct bookings already account for about 34% of all U.S. vacation rental bookings and generate 38% of industry revenue. Guests who book directly tend to stay longer, spend more, and return more often than OTA-sourced guests. The economics are clear. The question is how to get there without losing the visibility OTAs provide.

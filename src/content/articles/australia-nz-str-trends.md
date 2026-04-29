@@ -16,6 +16,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- Australian Airbnb hosts earn $71,770/year on average; national occupancy sits at 62–64%
+- New national registration rules cap rental days at 60–180 — compliance is mandatory
+- Guests book later and expect hotel-level service; 42% of operators already use AI
+- Rural and regional properties are an underserved growth opportunity
+- New Zealand is smaller and more seasonal but less competitive per listing
+
+---
+
 Australia's short-term rental market isn't the Wild West. It's a mature, data-rich industry growing at a steady 11.5% compound annual rate, projected to keep climbing through 2030. National occupancy sits around 62–64%, with standout cities like South Brisbane (89%), Perth (85%), and Surfers Paradise (83%) well above average.
 
 The Australian host earned an average of $71,770 in 2025 — up 4.5% from the year before. Not a gold rush, but consistent returns in a market that rewards operational discipline.

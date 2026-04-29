@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- Supply nearly doubled in some Thai markets but rates still went up — demand outpaces inventory
+- Island markets (Koh Samui, Krabi) earn premium rates; Chiang Mai runs on volume
+- The 5-year Destination Thailand Visa makes it a formalized digital nomad hub
+- Sharp seasonality and low regulation mean dynamic pricing and operational systems matter
+- Multi-platform listing with real calendar sync is table stakes
+
+---
+
 Thailand is one of the few Asian short-term rental markets where new supply is growing fast and revenue is *still* going up. In Ao Nang (Krabi), supply jumped 97% year-over-year — and nightly rates trended upward anyway. In Baan Plai Laem (Koh Samui), supply grew 76%, and hosts are averaging $27,337/year at a $358 nightly rate.
 
 That's a signal worth paying attention to. When supply doubles and prices don't drop, it means traveler demand is genuinely outpacing inventory. Thailand isn't just popular — it's underbuilt relative to demand in key areas.

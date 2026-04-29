@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- Bali has 84,000+ vacation rental listings — supply has nearly 5×'d in a few years
+- Average occupancy is 46%, but well-run villas in prime areas still hit 75–85%
+- Mid-range Canggu is oversaturated; Uluwatu and Nusa Lembongan offer better margins
+- Dynamic pricing, fast response times, and clear differentiation separate winners from price-cutters
+- Regulation is tightening — formalized, licensed operations will have an edge
+
+---
+
 Bali welcomed over 16 million visitors in 2024. International arrivals hit 2.64 million in just the first five months of 2025. On paper, demand has never been stronger.
 
 But here's the part most "invest in Bali" articles skip: supply exploded too. Total villa listings jumped from around 18,000 to nearly 98,000 in the space of a few years. On Airbnb alone, there are now 38,000+ listings fighting for attention. The average occupancy across the island sits at 46%, with an average daily rate of $145.

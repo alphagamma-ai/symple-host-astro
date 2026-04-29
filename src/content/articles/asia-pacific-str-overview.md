@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- Asia-Pacific vacation rentals hit $33.8B in 2026 — the world's fastest-growing region
+- Guests book later, expect hotel-level service, and pick stays based on emotion over features
+- AI adoption in STR operations jumped from 60% to 84% in a single year
+- Each market is different (Bali, Australia, India, Thailand), but systems beat hustle everywhere
+- Hosts who professionalize early capture disproportionate value as their market matures
+
+---
+
 Asia-Pacific is the fastest-growing vacation rental market in the world. The market hit $29.85 billion in 2025 and is on track for $33.8 billion in 2026. Airbnb bookings in the region surged 27% year-over-year. India alone saw first-time users jump 60%.
 
 But growth numbers don't tell you how to run a better rental business. The interesting stuff is in the behavioral shifts — what guests want, how they book, and what separates the hosts making real money from the ones struggling to fill calendars.

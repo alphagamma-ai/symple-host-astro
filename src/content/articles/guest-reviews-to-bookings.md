@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- 93% of travelers say online reviews influence their booking decisions
+- The 12–24 hour post-checkout window is the sweet spot for review requests
+- Repurpose your best reviews across Instagram, Facebook, your booking page, and inquiry replies
+- A 4.7–4.8 average converts better than a perfect 5.0 — authenticity matters
+- Reviews compound over time — early movers build a moat that competitors can't easily replicate
+
+---
+
 Here's a stat that should shape your marketing priorities: 93% of travelers say online reviews influence their booking decisions. Not "occasionally consider" — influence. A single property with 50 five-star reviews will outsell a prettier property with 5 reviews almost every time.
 
 Reviews are the bridge between a stranger finding your listing and trusting you enough to pay for a stay. They're also the most underleveraged marketing asset most vacation rental hosts have. You're probably collecting reviews on Airbnb and Booking.com, but are you actually using them to drive more bookings across every channel?

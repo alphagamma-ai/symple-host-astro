@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- India's vacation rental market is growing at 17.66% CAGR — the fastest segment globally
+- 91% of Airbnb guests in India are domestic; first-time users surged 60% YoY
+- User penetration is just 3.8% — massive headroom vs. mature markets at 15–20%
+- WhatsApp is the default booking channel; OTA landscape is fragmented across MakeMyTrip, Airbnb, Booking.com
+- Early professionalization = structural advantage as the market scales
+
+---
+
 Here's a number that should make every vacation rental operator pay attention: in 2024, domestic travelers accounted for 91% of Airbnb guests in India. That's up from 79% in 2019. This isn't a market driven by international tourism — it's powered by Indians traveling their own country, spending more, and increasingly choosing vacation rentals over hotels.
 
 Domestic nights booked on Airbnb grew over 30% in the first three quarters of 2024. First-time Airbnb users from India surged 60%. The India online accommodation market is worth $9.85 billion in 2026 and growing at 10% annually — but the vacation rental slice is galloping at 17.66% CAGR, steadily eating into the hotel segment's share.

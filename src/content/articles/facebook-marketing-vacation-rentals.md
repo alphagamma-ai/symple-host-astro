@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- Facebook drives more vacation rental bookings than Instagram for most STR hosts in 2026
+- Destination travel Groups can generate 10–30% of direct bookings — be helpful first, not spammy
+- Ads work at $50–200/month; carousel and short video formats convert best
+- Messenger is a critical guest channel — late replies cost bookings
+- Connect Messenger to your PMS so common questions get instant, accurate answers
+
+---
+
 If you're a vacation rental host who thinks Facebook is "for older people" and doesn't matter anymore — your competitors hope you keep thinking that.
 
 Facebook has 3 billion monthly active users. More importantly for STR hosts, it has the richest targeting tools of any social platform, the most active travel-related Groups, and a Messenger ecosystem that handles more customer service conversations than any other channel outside of WhatsApp.

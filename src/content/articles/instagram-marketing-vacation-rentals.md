@@ -15,6 +15,16 @@ draft: false
 
 ---
 
+## TL;DR
+
+- Followers don't equal bookings — 400 targeted followers can outperform 5,000 random ones
+- Three posts per week (mostly Reels) outperform daily spam over the long run
+- Use 3–5 location-specific hashtags, not 30 generic ones — the algorithm now penalizes spam blocks
+- Instagram DMs are warm leads; response speed directly affects conversion
+- Connect Instagram to a unified inbox so Autopilot handles routine inquiries 24/7
+
+---
+
 Most Instagram advice for vacation rental hosts reads like it was written for fashion influencers. Post daily. Use 30 hashtags. Collaborate with creators. Film aesthetic Reels.
 
 That's fine if Instagram is your job. But you're running a rental business. You have check-ins to manage, cleaners to coordinate, and guests messaging at midnight asking for the Wi-Fi password. You need an Instagram strategy that works in the background — not one that becomes a second full-time job.
