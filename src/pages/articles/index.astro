@@ -1,0 +1,124 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const categories = await getCollection('categories');
+const articles = await getCollection('articles', ({ data }) => !data.draft);
+
+const articleCounts = new Map<string, number>();
+for (const article of articles) {
+  const cat = article.data.category;
+  articleCounts.set(cat, (articleCounts.get(cat) || 0) + 1);
+}
+
+const HUB_IDS = ['str-market-trends', 'marketing-for-hosts'] as const;
+const categoryById = new Map(categories.map((c) => [c.id, c]));
+const hubCategories = HUB_IDS.map((id) => categoryById.get(id)).filter(Boolean) as NonNullable<
+  ReturnType<typeof categoryById.get>
+>[];
+---
+
+<Base title="Articles" description="Industry insights and marketing playbooks for short-term rental hosts.">
+  <nav class="breadcrumb">
+    <a href="/">All Topics</a>
+    <span class="sep">/</span>
+    <span>Articles</span>
+  </nav>
+
+  <header class="hub-header">
+    <span class="hub-emoji">📰</span>
+    <h1 class="hub-title">Articles</h1>
+    <p class="hub-desc">Industry insights and marketing playbooks for short-term rental hosts.</p>
+  </header>
+
+  <section class="categories">
+    {hubCategories.map((cat) => {
+      const count = articleCounts.get(cat.id) || 0;
+      return (
+        <a href={`/${cat.id}`} class="category-card">
+          {cat.data.emoji && <span class="category-emoji">{cat.data.emoji}</span>}
+          <h2 class="category-title">{cat.data.title}</h2>
+          {cat.data.description && <p class="category-desc">{cat.data.description}</p>}
+          <span class="category-count">{count} {count === 1 ? 'article' : 'articles'}</span>
+        </a>
+      );
+    })}
+  </section>
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: var(--muted-foreground); }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .hub-header {
+      margin-bottom: 2rem;
+    }
+    .hub-emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .hub-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hub-desc {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 56rem;
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--foreground);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      min-height: 140px;
+    }
+    .category-card:hover {
+      border-color: var(--primary-300);
+      box-shadow: 0 2px 8px rgba(127, 86, 217, 0.1);
+    }
+
+    .category-emoji {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .category-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 0.35rem;
+    }
+    .category-desc {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .category-count {
+      color: var(--muted-light);
+      font-size: 0.8125rem;
+      margin-top: 0.75rem;
+    }
+  </style>
+</Base>
