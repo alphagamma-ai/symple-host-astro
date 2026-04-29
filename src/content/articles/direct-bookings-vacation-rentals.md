@@ -11,17 +11,12 @@ date: '2026-04-29'
 draft: false
 ---
 
+
 **OTA commissions cost you 15-20% per booking. Here's how to keep more of what you earn.**
 
 ---
 
-## TL;DR
-
-- OTA commissions cost 15–20% per booking — direct bookings are pure margin
-- Use OTAs for discovery, build a direct channel for retention; don't fight, funnel
-- Offer a clear incentive (5–10% off, flexible cancellation, or free extras)
-- Your guest email/phone list is the only marketing asset you truly own
-- Even converting 20% of OTA guests to direct repeats meaningfully improves margins
+> **TL;DR:** Direct bookings account for 34% of U.S. vacation rental bookings and generate 38% of revenue. Don't fight OTAs — use them for discovery, then convert guests to direct repeat bookers. Offer a 5-10% discount, flexible cancellation, or free extras. Build a guest email/phone list (it's the only asset you own). Even converting 20% of OTA guests to direct bookers meaningfully improves margins. Make the booking process as frictionless as Airbnb: instant pricing, instant confirmation.
 
 ---
 
@@ -33,7 +28,7 @@ Here's the practical playbook. It doesn't require a big budget. It does require 
 
 ---
 
-## Step 1: Stop Thinking of It as OTA vs. Direct
+## Step 1: Why Direct Bookings and OTAs Work Together (Not Against Each Other)
 
 The biggest mistake hosts make is treating direct bookings as a replacement for OTAs. It's not either/or — it's a funnel.
 
@@ -45,7 +40,7 @@ This mindset shift matters because it changes your strategy. You're not trying t
 
 ---
 
-## Step 2: Give Guests a Reason to Book Direct
+## Step 2: Best Incentives to Get Guests to Book Direct
 
 Nobody switches from the convenience of Airbnb without an incentive. You need a clear, simple answer to: "Why should I book with you directly instead of through the platform?"
 
@@ -84,7 +79,7 @@ Most hosts who build an email list of 200+ past guests report that 15-25% of the
 
 ---
 
-## Step 4: Create a Simple Direct Booking Presence
+## Step 4: How to Create a Direct Booking Website for Your Vacation Rental
 
 You don't need a $5,000 custom website. You need a page that answers three questions: What does the place look like? When is it available? How do I book?
 
@@ -127,7 +122,7 @@ Every Instagram Reel, every Facebook Group post, every Story should have a clear
 
 ---
 
-## The Math That Makes This Work
+## Direct Booking ROI: The Math for Vacation Rental Hosts
 
 Let's say you currently get 100 bookings per year through OTAs at an average of $500 each. That's $50,000 in revenue and roughly $7,500-$10,000 in commissions.
 
@@ -148,6 +143,10 @@ This doesn't happen overnight. But hosts who start building this system now will
 - Make the booking process as frictionless as OTAs: instant pricing, instant confirmation
 - Social media drives direct traffic when every post has a clear next step
 - Even converting 20% of OTA guests to direct bookers meaningfully improves your margins
+
+---
+
+**Related reading:** [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [Facebook Groups and ads strategy for STR hosts](/marketing-for-hosts/facebook-marketing-vacation-rentals) · [Turn guest reviews into a booking engine](/marketing-for-hosts/guest-reviews-to-bookings) · [Asia-Pacific vacation rental market trends 2026](/str-market-trends/asia-pacific-str-overview)
 
 ---
 
