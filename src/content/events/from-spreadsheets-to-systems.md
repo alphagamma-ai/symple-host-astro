@@ -1,5 +1,5 @@
 ---
-title: "From Spreadsheets to Systems: Find the Right PMS for Your Villa Business"
+title: "From Spreadsheets to Systems: Find the Right PMS for Your Short-Term Rental Business"
 description: "A 75-minute, no-fluff session for villa owners and small short-term rental operators — co-hosted by Symplehost.ai and BVRMA. Get the latest STR market trends, learn when to move beyond spreadsheets, what a PMS should actually do, and where AI genuinely helps."
 eventType: webinar
 eventDate: "2026-05-04T08:00:00Z"
