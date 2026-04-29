@@ -16,6 +16,7 @@ for (const article of articles) {
 const categoryById = new Map(categories.map((c) => [c.id, c]));
 const gettingStarted = categoryById.get('getting-started');
 const platformGuides = categoryById.get('platform-guides');
+const faqs = categoryById.get('faqs');
 
 const articlesHubCount =
   (articleCounts.get('str-market-trends') || 0) +
@@ -71,6 +72,17 @@ const upcomingCount = events.filter((e) => isUpcoming(e)).length;
       <p class="category-desc">STR market trends and marketing playbooks for short-term rental hosts.</p>
       <span class="category-count">{articlesHubCount} {articlesHubCount === 1 ? 'article' : 'articles'}</span>
     </a>
+    {faqs && (
+      <a href={`/${faqs.id}`} class="category-card">
+        {faqs.data.emoji && <span class="category-emoji">{faqs.data.emoji}</span>}
+        <h2 class="category-title">{faqs.data.title}</h2>
+        {faqs.data.description && <p class="category-desc">{faqs.data.description}</p>}
+        {(() => {
+          const count = articleCounts.get(faqs.id) || 0;
+          return <span class="category-count">{count} {count === 1 ? 'article' : 'articles'}</span>;
+        })()}
+      </a>
+    )}
   </section>
 
   <style>
