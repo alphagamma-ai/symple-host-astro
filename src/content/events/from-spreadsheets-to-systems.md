@@ -1,6 +1,6 @@
 ---
 title: "From Spreadsheets to Systems: Find the Right PMS for Your Villa Business"
-description: "A 75-minute, no-fluff session for Bali villa owners and small operators — co-hosted by Symplehost.ai and BVRMA. Learn when to move beyond spreadsheets, what a PMS should actually do, and where AI genuinely helps."
+description: "A 75-minute, no-fluff session for villa owners and small short-term rental operators — co-hosted by Symplehost.ai and BVRMA. Get the latest STR market trends, learn when to move beyond spreadsheets, what a PMS should actually do, and where AI genuinely helps."
 eventType: webinar
 eventDate: "2026-05-04T08:00:00Z"
 duration: 75
@@ -27,10 +27,10 @@ cohosts:
     logo: "/logos/puriasia.png"
     nameInLogo: true
 tags:
-  - bali
   - pms
   - ai
   - villa-management
+  - str-trends
   - bvrma
   - partnership
 draft: false
@@ -38,16 +38,17 @@ draft: false
 
 ## Stop firefighting. Start running the business.
 
-Free webinar for Bali villa owners and small operators, co-hosted by **Symplehost.ai × BVRMA**. 75 minutes on Monday 4 May, 4:00 PM WITA, live on Zoom. Replay included.
+Free webinar for villa owners and small short-term rental operators, co-hosted by **Symplehost.ai × BVRMA**. 75 minutes on Monday 4 May, 4:00 PM WITA, live on Zoom. Replay included.
 
 ## What you'll learn
 
-1. **When you've outgrown spreadsheets** — clear signals it's time to move on, and the real cost of waiting.
-2. **What a PMS actually does** — plain-language walkthrough. No jargon, no vendor speak.
-3. **Where AI genuinely helps** — and where it's hype. Real examples in guest messaging, pricing, and daily ops.
-4. **A framework to choose your system** — six questions that cut through marketing pages. Works for any PMS, not just Symplehost.
-5. **Lessons from Bali operators** — live Q&A with people who've helped villas in Seminyak, Canggu, Ubud, and Uluwatu make the switch.
-6. **A practical one-pager** — every registrant gets our PMS Selection Checklist.
+1. **STR trends and insights** — the data shaping the short-term rental market in 2026 and what it means for independent operators.
+2. **When you've outgrown spreadsheets** — clear signals it's time to move on, and the real cost of waiting.
+3. **What a PMS actually does** — plain-language walkthrough. No jargon, no vendor speak.
+4. **Where AI genuinely helps** — and where it's hype. Real examples in guest messaging, pricing, and daily ops.
+5. **A framework to choose your system** — six questions that cut through marketing pages. Works for any PMS, not just Symplehost.
+6. **Live Q&A** — bring your real-world questions to operators and platform builders who've helped villas of every size make the switch.
+7. **A practical one-pager** — every registrant gets our PMS Selection Checklist.
 
 ## Who it's for
 
@@ -56,20 +57,21 @@ Free webinar for Bali villa owners and small operators, co-hosted by **Symplehos
 - Operators tired of WhatsApp chaos and double bookings
 - Anyone curious about AI but unsure where to start
 - BVRMA members and non-members — all welcome
-- Hosts in Seminyak, Canggu, Ubud, Uluwatu & beyond
+- Short-term rental hosts anywhere — the playbook is the same
 
 ## Agenda (all times WITA)
 
 | Time | Topic | Led by |
 |---|---|---|
 | 4:00 – 4:05 | Welcome | Agung Juliarta |
-| 4:05 – 4:25 | Outgrowing spreadsheets + a 6-point PMS framework | Max Del Vita |
-| 4:25 – 5:00 | PMS walkthrough & where AI actually helps | Dave Singh |
+| 4:05 – 4:20 | STR trends and insights | Max Del Vita |
+| 4:20 – 4:35 | Outgrowing spreadsheets + a 6-point PMS framework | Max Del Vita |
+| 4:35 – 5:00 | PMS walkthrough & where AI actually helps | Dave Singh |
 | 5:00 – 5:15 | Live Q&A | All speakers |
 
 ## Curious about Symplehost?
 
-New to the platform? Here's a short intro filmed in Bali, walking through what Symplehost does for small villa operators.
+New to the platform? Here's a short intro walking through what Symplehost does for small villa operators.
 
 <video controls preload="metadata" width="100%" poster="/screenshots/events/from-spreadsheets-to-systems.png" style="border-radius:10px;background:#000;">
   <source src="/videos/symplehost-intro-bali.mp4" type="video/mp4">
@@ -80,7 +82,7 @@ New to the platform? Here's a short intro filmed in Bali, walking through what S
 
 ### Is this really free?
 
-Yes — 100% free. BVRMA and Symplehost.ai are running this as a community learning session for Bali's villa industry.
+Yes — 100% free. BVRMA and Symplehost.ai are running this as a community learning session for the villa and short-term rental industry.
 
 ### Will it be in English or Bahasa Indonesia?
 
@@ -96,4 +98,4 @@ No. We'll show what a PMS looks like using Symplehost as an example, but the fra
 
 ### Do I need to be a BVRMA member?
 
-Not at all. This webinar is open to anyone operating villas or short-term rentals in Bali and beyond.
+Not at all. This webinar is open to anyone operating villas or short-term rentals, anywhere.
