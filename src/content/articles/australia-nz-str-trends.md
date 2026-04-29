@@ -12,7 +12,12 @@ date: '2026-04-29'
 draft: false
 ---
 
+
 **Stable, regulated, and quietly rewarding — if you operate like a professional.**
+
+---
+
+> **TL;DR:** Australian hosts earn $71,770/year average with 62-64% national occupancy. New registration rules cap rental days at 60-180 days depending on jurisdiction. Guests expect hotel-level service and book later than ever. 42% of operators now use AI for operations. Rural and regional properties are an underserved growth opportunity. New Zealand is smaller but less competitive.
 
 ---
 
@@ -65,6 +70,10 @@ The key challenge is seasonality. Hosts who can attract shoulder-season traveler
 - 42% of Australian hospitality operators already use AI for operations — adoption is accelerating
 - Rural and regional properties are an underserved growth opportunity
 - New Zealand is smaller but less competitive, with strong experiential travel demand
+
+---
+
+**Related reading:** [Asia-Pacific vacation rental market overview](/str-market-trends/asia-pacific-str-overview) · [Turn guest reviews into a booking engine](/marketing-for-hosts/guest-reviews-to-bookings) · [How to reduce OTA commissions with direct bookings](/marketing-for-hosts/direct-bookings-vacation-rentals)
 
 ---
 
