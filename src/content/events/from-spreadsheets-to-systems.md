@@ -2,7 +2,7 @@
 title: "From Spreadsheets to Systems: Find the Right PMS for Your Villa Business"
 description: "A 75-minute, no-fluff session for Bali villa owners and small operators — co-hosted by Symplehost.ai and BVRMA. Learn when to move beyond spreadsheets, what a PMS should actually do, and where AI genuinely helps."
 eventType: webinar
-eventDate: "2026-05-04T08:00:00Z"
+eventDate: "2026-06-01T08:00:00Z"
 duration: 75
 registerUrl: "https://us06web.zoom.us/meeting/register/PrdJ_aUKQF2MJP5WAIWxyg"
 thumbnail: "/screenshots/events/from-spreadsheets-to-systems.png"
@@ -35,7 +35,7 @@ draft: false
 
 ## Stop firefighting. Start running the business.
 
-Free webinar for Bali villa owners and small operators, co-hosted by **Symplehost.ai × BVRMA**. 75 minutes on Monday 4 May, 4:00 PM WITA, live on Zoom. Replay included.
+Free webinar for Bali villa owners and small operators, co-hosted by **Symplehost.ai × BVRMA**. 75 minutes on Monday 1 June, 4:00 PM WITA, live on Zoom. Replay included.
 
 ## What you'll learn
 
