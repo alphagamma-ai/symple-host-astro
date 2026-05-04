@@ -107,6 +107,34 @@ If you don't see the email, check your spam folder. You can also click **Resend*
 
 ---
 
+## Make SympleHost Feel Like Yours
+
+Your profile photo and your company logo are the two fastest wins for branding your workspace. They show up across the dashboard, team activity, and guest-facing pages — so the platform stops feeling like generic software and starts feeling like *your* business.
+
+### Change your profile photo
+
+Your profile photo appears next to your name in messages, comments, and activity feeds, so teammates and guests can put a face to your name.
+
+1. Go to **Settings → Profile**.
+2. Click your current photo (or the placeholder avatar) to upload a new one.
+3. Choose a JPG or PNG up to 5MB.
+4. Click **Save**.
+
+### Add or change your company logo
+
+Your company logo appears in the workspace sidebar and across guest-facing surfaces like your direct booking website and guest emails — making everything feel branded as yours, not SympleHost.
+
+1. Go to **Settings → General**.
+2. Click **Edit**.
+3. In the **Workspace Branding** section, upload your logo (JPG or PNG; high-resolution recommended).
+4. Click **Save**.
+
+💡 **Tip:** Use a clean, square image for your profile photo and a wider horizontal logo (transparent background if possible) for your company logo — they're rendered at different sizes and aspect ratios.
+
+[Screenshot: The Workspace Branding section in Settings → General showing the logo upload area]
+
+---
+
 ## Troubleshooting
 
 ### I didn't receive the verification email
