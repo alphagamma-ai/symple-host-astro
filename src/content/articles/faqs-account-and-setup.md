@@ -51,8 +51,8 @@ Go to **Settings → General → Regional Settings**. You can choose between MM/
 ### How do I change my business name?
 Go to **Settings → Company** to update your **Legal Name** or **Business Name**. The legal name is used on invoices; the business name is what your team sees in the workspace.
 
-### How do I add my company logo?
-Go to **Settings → General**, click **Edit**, and upload a logo in the **Workspace Branding** section. Supported formats are JPG and PNG.
+### How do I add my workspace logo?
+Go to **Settings → General**, and in the **Workspace Branding** section click **Upload Logo**. Use a square image at least 256×256px (JPG or PNG, max 10MB). Changes save automatically.
 
 ### What does "Support Access" do in Settings?
 When enabled, the SympleHost support team can view your account to help troubleshoot issues. When disabled, no one outside your team can access your data. You can toggle this on or off at any time in **Settings → General**.
