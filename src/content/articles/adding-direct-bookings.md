@@ -140,7 +140,7 @@ Because direct bookings aren't held by an OTA, you decide the cancellation polic
 ## Troubleshooting
 
 ### I can't see the "+ Add Booking" or the side panel won't open
-You need the **can_manage_bookings** permission. Ask your account admin in **Settings → Team → Members**.
+The **+ Add Booking** button is only available to roles that can manage bookings — **Account Owner**, **Account Admin**, **Account Manager**, or **Booking Coordinator**. If your role is **Staff**, ask your account admin to update your role in **Settings → Team → Members**.
 
 ### I picked the wrong listing
 Click the booking → **Edit Reservation** → change the **Property** dropdown → **Save**. SympleHost will move the booking to the correct listing's row.

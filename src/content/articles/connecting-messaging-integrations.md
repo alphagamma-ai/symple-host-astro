@@ -52,17 +52,15 @@ The whole flow happens in two places: the **SympleHost Integrations page** to ki
 2. Open **Integrations**.
 3. Find the **WhatsApp** card and click **Connect**.
 
-A pop-up window opens. This is Meta's Embedded Signup — everything from here through the success screen happens in Meta's window, not in SympleHost.
+![The Integrations page in Settings, showing WhatsApp, Instagram, Messenger, and Gmail cards side by side — each card has a Connect button when not yet linked, and a Manage or Disconnect button once connected](/screenshots/connecting-messaging-integrations/integrations-page-overview.png)
 
-[Screenshot: SympleHost Settings → Integrations page with the WhatsApp card and "Connect" button highlighted]
+A pop-up window opens. This is Meta's Embedded Signup — everything from here through the success screen happens in Meta's window, not in SympleHost.
 
 > ⚠️ **Don't close the popup.** The session expires after about 60 minutes. If you close or refresh the popup mid-flow, you'll lose your progress and have to start over.
 
 ### Step 2: Log in with Facebook
 
 The first screen asks you to log in with Facebook. Click **Continue as [Your Name]** (if you're already logged in to Facebook in this browser) or sign in with your Facebook credentials.
-
-[Screenshot: Meta Embedded Signup "Continue as [Name]" login screen]
 
 ### Step 3: Accept Meta's terms
 
@@ -76,8 +74,6 @@ If you don't have a Business Portfolio yet, click **Create a Meta Business Portf
 - **Business name** — your legal or trading name.
 - **Your name**.
 - **Business email** — use a real address; Meta sends notices here.
-
-[Screenshot: Business Portfolio selection screen with the "Create new" option visible]
 
 ### Step 5: Create or select your WhatsApp Business Account (WABA)
 
@@ -94,8 +90,6 @@ Meta now asks for the WhatsApp number guests will message:
 2. Enter the phone number including the country code (e.g. `+62 812 3456 7890` for Indonesia).
 3. Enter your **WhatsApp Display Name** — this is what guests see at the top of the chat. Use your business name; emojis and generic words like "support" are blocked by Meta.
 
-[Screenshot: Phone number entry screen with country code, number field, and Display Name field]
-
 > 💡 **Tip:** If the popup rejects the number with "This number is already registered with WhatsApp," it means the number is still active in the consumer WhatsApp app or WhatsApp Business mobile app. Open WhatsApp on the phone holding that number, go to **Settings → Account → Delete my account**, and delete the WhatsApp account on that number. Then return to the Embedded Signup popup and try again.
 
 ### Step 7: Verify ownership of the phone number
@@ -109,8 +103,6 @@ Meta needs to confirm the number is yours by sending a one-time code to it.
 3. Within a few seconds, the number receives the **6-digit code**. Type it into the verification field on the popup.
 4. Click **Next**.
 
-[Screenshot: OTP entry screen showing the 6-digit code field and "Verify" button]
-
 > ⚠️ **You only get a few attempts.** Meta limits how many times you can request a code per day per number. If verification fails repeatedly, wait 24 hours before trying again.
 
 ### Step 8: Review the permissions and finish
@@ -123,27 +115,28 @@ Meta shows you exactly what SympleHost will be allowed to do — typically:
 
 Review the list, then click **Continue**. Meta confirms with a "**You've successfully connected your WhatsApp account**" success screen showing your business portfolio, WABA, phone number, and display profile. Click **Finish** (or **Next**).
 
-[Screenshot: Final success screen showing all created assets — portfolio, WABA, phone, display profile]
-
-The popup closes automatically and you'll land back on the SympleHost Integrations page. The WhatsApp card now shows **Connected** with the phone number you registered.
-
-[Screenshot: Integrations page with WhatsApp card now showing "Connected" status]
+The popup closes automatically and you'll land back on the SympleHost Integrations page. The WhatsApp card now shows **Connected** with the phone number you registered, and the **Connect** button changes to **Manage** (compare with the screenshot above).
 
 ---
 
 ## How to Connect Facebook Messenger & Instagram
 
-Both run through the same popup — Meta's **Login for Business** flow — because Instagram messaging on a business account is delivered through the linked Facebook Page.
+Messenger and Instagram show up as **two separate cards** on the Integrations page, each with its own Connect (or Disconnect) button:
 
-### Step 1: Open the Facebook integration in SympleHost
+- **Messenger** — page messaging from your Facebook Business Page.
+- **Instagram** — direct messages on your Instagram Business or Creator profile.
+
+Both run through Meta's **Login for Business** popup. The popup is the same for both, and a single sign-in can authorize both Page and Instagram access at once — so most hosts connect them back-to-back in one sitting.
+
+### Step 1: Open the integration in SympleHost
 
 1. Go to **Settings → Integrations** in SympleHost.
-2. Find the **Facebook Integrations** card (this single card covers both Messenger and Instagram).
-3. Click **Connect**.
+2. Find the card for the channel you want — **Messenger** or **Instagram**.
+3. Click **Connect** on that card.
 
 A Meta popup opens.
 
-[Screenshot: Settings → Integrations page with the "Facebook Integrations" card]
+> 💡 **Connecting both?** Whichever card you click first, Meta's popup lets you grant both Page and Instagram access in one flow. After you finish, the other card will also flip to **Connected** without a separate sign-in. You can also connect them one at a time if you'd rather.
 
 ### Step 2: Log in with Facebook
 
@@ -160,8 +153,6 @@ This is the most important screen. Meta shows a checklist of:
 - **Facebook Pages** — tick the rental business Page(s) you want to use.
 - **Instagram accounts** — only Instagram accounts that are (a) Business or Creator type and (b) already linked to one of the Pages above will appear. Tick the one you want to connect.
 
-[Screenshot: Meta Login for Business asset selection — Pages list with checkboxes and Instagram accounts list]
-
 > ⚠️ **Don't see your Instagram account?** It means it's not yet linked to your Facebook Page or it's still a Personal account. Cancel the popup, switch your Instagram to **Professional → Business** in the Instagram app, link it to your Facebook Page (Instagram → Settings → Account → Linked Accounts → Facebook), and try connecting again.
 
 ### Step 5: Review and grant permissions
@@ -176,18 +167,11 @@ Meta shows the full list of permissions SympleHost is requesting. For Pages + In
 
 Each permission has its own toggle. **Leave them all on** — toggling any of them off will break messaging. Click **Continue**.
 
-[Screenshot: Permissions review screen showing each permission with an on/off toggle]
-
 ### Step 6: Confirm and return to SympleHost
 
-Meta closes the popup and returns you to SympleHost. The Facebook Integrations card now shows two toggle switches:
+Meta closes the popup and returns you to SympleHost. The **Messenger** card and the **Instagram** card both flip to **Connected / Active**, each with its own **Disconnect** button.
 
-- **Facebook Messenger** — turn this on to receive Page messages in your inbox.
-- **Instagram** — turn this on to receive Instagram DMs in your inbox.
-
-Toggle on the ones you want. You can turn either off at any time without disconnecting the whole integration.
-
-[Screenshot: Facebook Integrations card after connection, showing Messenger and Instagram toggle switches]
+You can disconnect either card independently — turning off Messenger does not affect Instagram, and vice versa. To stop messages from a channel without removing the connection entirely, use the channel's per-card controls (or simply disconnect and reconnect later).
 
 > 💡 **Instagram's 24-hour rule.** Meta only lets you reply to an Instagram DM within 24 hours of the guest's last message. After that, the conversation is closed until the guest messages you again. SympleHost will show a notice in the inbox if a thread is outside the 24-hour window. This is a Meta restriction, not a SympleHost limitation.
 

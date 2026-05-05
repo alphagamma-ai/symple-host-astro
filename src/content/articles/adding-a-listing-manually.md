@@ -65,7 +65,7 @@ You'll be taken to the pricing configuration page to set your nightly rates, sea
 ## Troubleshooting
 
 ### I don't see the "+ New Property" button
-You need the **can_manage_listings** permission. Ask your account owner to grant it under **Settings** → **Team Members**.
+The **+ New Property** button is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
 
 ### Address search isn't working
 Switch to manual entry — fill in the **Street Address**, **City**, and **Country** fields directly instead of using the search bar.

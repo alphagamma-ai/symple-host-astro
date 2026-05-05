@@ -107,7 +107,7 @@ The bottom of the Payment Gateway page explains key features:
 ## Troubleshooting
 
 ### I don't see the Payment Gateway option in Settings
-This setting is under **Direct Bookings** in the Settings sidebar. If you still don't see it, check that you have the **can_manage_finances** permission — ask your account owner to grant it under **Settings** → **Team Members**.
+This setting is under **Direct Bookings** in the Settings sidebar. If you still don't see it, it's a role issue — finance and billing settings are only visible to the **Account Owner** and **Account Admins**. Ask your account owner to update your role under **Settings** → **Team** → **Members**.
 
 ### Stripe says "Charges Enabled: No"
 This usually means your Stripe account setup isn't complete. Click **Open Stripe Dashboard** and check for any pending verification steps — Stripe sometimes needs additional identity or banking documents.

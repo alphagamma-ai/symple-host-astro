@@ -36,7 +36,7 @@ Autopilot is ideal when:
 
 Make sure you've completed these steps first:
 
-- **Connected at least one messaging integration** (WhatsApp, Instagram, or Facebook) — Autopilot needs a message channel to work with. See: *Connecting Your First Messaging Integration*
+- **Connected at least one messaging integration** (WhatsApp, Instagram, or Facebook) — Autopilot needs a message channel to work with. See: *Connecting WhatsApp, Instagram & Facebook Messenger*
 - **Added at least one listing** — Autopilot uses listing details to provide accurate responses
 
 ---
@@ -145,6 +145,6 @@ This means no categories are enabled. Autopilot won't respond to any messages un
 
 ## Related Articles
 
-- Connecting Your First Messaging Integration
+- Connecting WhatsApp, Instagram & Facebook Messenger
 - How to Use the Inbox to Communicate with Guests
 - Welcome to SympleHost — Your First 15 Minutes

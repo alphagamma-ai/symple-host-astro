@@ -111,7 +111,7 @@ To see how your rate plans map to specific dates, click the **Pricing Calendar**
 ## Troubleshooting
 
 ### I don't see the Price Settings tab on my listing
-Make sure you've saved the listing first. The Price Settings tab only appears on listings that have been fully created (not drafts). You also need the **can_manage_listings** permission.
+Make sure you've saved the listing first — the Price Settings tab only appears on listings that have been fully created (not drafts). The tab is also only visible to roles that can manage listings (**Account Owner**, **Account Admin**, or **Account Manager**); if your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
 
 ### I can't delete the Standard Rate
 The Standard Rate (Base) is your default rate plan and can't be removed — it ensures there's always a fallback price. You can edit its price and name, but not delete it.
