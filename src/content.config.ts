@@ -56,4 +56,18 @@ const events = defineCollection({
   }),
 });
 
-export const collections = { categories, articles, events };
+const walkthroughs = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/walkthroughs' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    youtubeId: z.string().optional(),
+    videoFile: z.string().optional(),
+    poster: z.string().optional(),
+    duration: z.string().optional(),
+    order: z.number().optional().default(0),
+    draft: z.boolean().optional().default(false),
+  }),
+});
+
+export const collections = { categories, articles, events, walkthroughs };

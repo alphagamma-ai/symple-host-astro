@@ -1,0 +1,138 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
+
+const all = await getCollection('walkthroughs', ({ data }) => !data.draft);
+const walkthroughs = all.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+
+<Base title="Product walkthroughs" description="Short, focused video walkthroughs of every section of SympleHost — from listings and calendar to messages, guide books, team ops, and financial reporting.">
+  <nav class="breadcrumb">
+    <a href="/">All Topics</a>
+    <span class="sep">/</span>
+    <a href="/webinars-and-videos/">Webinars &amp; Videos</a>
+    <span class="sep">/</span>
+    <span>Walkthroughs</span>
+  </nav>
+
+  <header class="page-header">
+    <h1 class="page-title">Product walkthroughs</h1>
+    <p class="page-desc">Short, focused video tours of every section of SympleHost. Pick a topic, hit play, and follow along.</p>
+  </header>
+
+  <div class="walkthrough-list">
+    {walkthroughs.map((w) => (
+      <article class="walkthrough" id={w.id}>
+        <div class="walkthrough-player">
+          {w.data.youtubeId ? (
+            <YouTubeEmbed videoId={w.data.youtubeId} title={w.data.title} />
+          ) : w.data.videoFile ? (
+            <video controls preload="metadata" poster={w.data.poster}>
+              <source src={w.data.videoFile} type="video/mp4" />
+            </video>
+          ) : (
+            <p class="empty">Video coming soon.</p>
+          )}
+        </div>
+        <div class="walkthrough-meta">
+          <h2 class="walkthrough-title">{w.data.title}</h2>
+          {w.data.duration && <span class="walkthrough-duration">{w.data.duration}</span>}
+          {w.data.description && <p class="walkthrough-desc">{w.data.description}</p>}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: var(--muted-foreground); }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+    }
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .page-desc {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+      max-width: 42rem;
+    }
+
+    .walkthrough-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+
+    .walkthrough {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .walkthrough:hover {
+      border-color: var(--primary-300);
+      box-shadow: 0 4px 14px rgba(127, 86, 217, 0.08);
+    }
+
+    .walkthrough-player video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .walkthrough-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0 0.25rem 0.25rem;
+    }
+    .walkthrough-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .walkthrough-duration {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+    }
+    .walkthrough-desc {
+      color: var(--muted-foreground);
+      font-size: 0.93rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .empty {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      padding: 2rem;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+    }
+  </style>
+</Base>
