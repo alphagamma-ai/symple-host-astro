@@ -28,10 +28,10 @@ Yes. Click on a conversation in the **Messages** inbox to see the entire thread,
 
 ### How do I connect WhatsApp to SympleHost?
 Go to **Settings → Integrations**, find the **WhatsApp** card, and click **Connect**. Follow the authorization steps to link your WhatsApp Business account.
-→ See: *Connecting Your First Messaging Integration*
+→ See: *Connecting WhatsApp, Instagram & Facebook Messenger*
 
 ### How do I connect Instagram or Facebook Messenger?
-Go to **Settings → Integrations**, find the **Facebook Integrations** card, and click **Connect**. After authorizing, toggle on **Instagram** and/or **Messenger**.
+Go to **Settings → Integrations**. Messenger and Instagram have their own cards — click **Connect** on either one. Meta's Login for Business popup lets you grant Page and Instagram access in one go, so connecting one will usually flip the other to **Connected** as well.
 
 ### Messages aren't showing up in my inbox. What's wrong?
 Check that the integration is still connected in **Settings → Integrations**. If the status changed, try disconnecting and reconnecting. For WhatsApp, the webhook (the real-time connection) may need to be reconfigured.

@@ -111,7 +111,7 @@ After importing, it's a good idea to check that everything came over correctly:
 ## Troubleshooting
 
 ### I don't see the "Import" option
-You need the **can_manage_listings** permission. Ask your account owner to grant it under **Settings** → **Team Members**.
+The **+ New Property** button (and the **Import** option inside it) is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
 
 ### Authorization failed for Airbnb
 Make sure you're logging in with the correct Airbnb account — the one that owns the listings. If you manage listings on behalf of someone else, the account owner needs to authorize the connection.

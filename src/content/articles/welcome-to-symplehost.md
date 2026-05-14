@@ -76,7 +76,7 @@ Here's the recommended order to get your account ready. Each step links to a det
    → See: *How to Set Up Your Pricing & Rate Rules*
 
 4. **Connect a messaging platform** — Link WhatsApp, Instagram, or Facebook so guest messages flow into SympleHost.
-   → See: *Connecting Your First Messaging Integration*
+   → See: *Connecting WhatsApp, Instagram & Facebook Messenger*
 
 5. **Turn on Autopilot** — Let AI handle common guest questions automatically.
    → See: *Setting Up Autopilot — Automate Guest Messaging*
@@ -105,4 +105,4 @@ Here's the recommended order to get your account ready. Each step links to a det
 - Setting Up Your Company Profile
 - Adding a Listing Manually
 - How to Import Listings from an OTA
-- Connecting Your First Messaging Integration
+- Connecting WhatsApp, Instagram & Facebook Messenger

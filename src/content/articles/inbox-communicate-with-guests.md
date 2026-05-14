@@ -177,6 +177,7 @@ Auto-translate requires the conversation to have messages in a detectable langua
 ---
 
 Related Articles
+- Connecting WhatsApp, Instagram & Facebook Messenger
 - How to Manage Bookings & Your Calendar
 - How to Add Team Members & Assign Roles
 - Adding a Listing Manually

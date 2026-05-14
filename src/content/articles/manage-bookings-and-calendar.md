@@ -148,7 +148,7 @@ If you manage multiple listings, the calendar can get busy. Click the **filter i
 ## Troubleshooting
 
 ### I can't create a manual booking
-You need the **can_manage_bookings** permission. Ask your account owner to grant it under **Settings** → **Team Members**.
+Manual booking creation is only available to roles that can manage bookings — **Account Owner**, **Account Admin**, **Account Manager**, or **Booking Coordinator**. If your role is **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
 
 ### A booking isn't showing on the calendar
 Check the date range — you may need to navigate forward or backward. Also confirm the booking status isn't set to **Cancelled**, which may be filtered out depending on your view settings.

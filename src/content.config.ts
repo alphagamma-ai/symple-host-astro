@@ -32,7 +32,7 @@ const events = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    eventType: z.enum(['webinar', 'customer-success-hour', 'meet-up']),
+    eventType: z.enum(['webinar', 'customer-success-hour', 'meet-up', 'tutorial']),
     eventDate: z.coerce.date(),
     duration: z.number().optional(),
     youtubeId: z.string().optional(),
@@ -47,6 +47,9 @@ const events = defineCollection({
       name: z.string(),
       logo: z.string(),
       url: z.string().url().optional(),
+      // True when the logo artwork already contains the brand name —
+      // suppresses the text label next to the logo to avoid duplication.
+      nameInLogo: z.boolean().optional().default(false),
     })).optional().default([]),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),

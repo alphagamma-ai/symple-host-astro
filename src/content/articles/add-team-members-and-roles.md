@@ -95,7 +95,7 @@ Click the **Delete** button (trash icon) next to the member. This removes their 
 
 ### I don't see the Team settings
 
-Team management requires the **can\_manage\_team** permission, which is only available to **Account Admins** and the account owner. If you don't see it, ask your account owner to upgrade your role.
+Team management is only available to the **Account Owner** and **Account Admins**. If you don't see it, ask your account owner to upgrade your role.
 
 ### My team member says the invitation email never arrived
 
