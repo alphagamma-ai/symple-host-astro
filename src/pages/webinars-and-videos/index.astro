@@ -22,6 +22,15 @@ const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as E
     <p class="page-desc">Live sessions, customer success hours, and on-demand recordings from the SympleHost team.</p>
   </header>
 
+  <a class="walkthroughs-banner" href="/webinars-and-videos/walkthroughs/">
+    <div class="walkthroughs-banner-text">
+      <span class="walkthroughs-banner-eyebrow">New</span>
+      <h2 class="walkthroughs-banner-title">Product walkthroughs</h2>
+      <p class="walkthroughs-banner-desc">Short video tours of every section — Overview, Listings, Calendar, Messages, Guide Books, Team Ops, and Financial Report.</p>
+    </div>
+    <span class="walkthroughs-banner-cta" aria-hidden="true">Watch →</span>
+  </a>
+
   {upcoming.length > 0 && (
     <section class="upcoming">
       <h2 class="section-heading">Upcoming</h2>
@@ -83,6 +92,61 @@ const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as E
 
     .upcoming {
       margin-bottom: 3rem;
+    }
+
+    .walkthroughs-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, var(--primary-50), #ffffff);
+      border: 1px solid var(--primary-300);
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+    }
+    .walkthroughs-banner:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(127, 86, 217, 0.12);
+    }
+    .walkthroughs-banner-text { flex: 1; }
+    .walkthroughs-banner-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: #ffffff;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .walkthroughs-banner-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 0 0 0.35rem;
+    }
+    .walkthroughs-banner-desc {
+      color: var(--muted-foreground);
+      font-size: 0.92rem;
+      margin: 0;
+      max-width: 38rem;
+    }
+    .walkthroughs-banner-cta {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .walkthroughs-banner { flex-direction: column; align-items: flex-start; }
+      .walkthroughs-banner-cta { align-self: flex-end; }
     }
 
     .section-heading {
