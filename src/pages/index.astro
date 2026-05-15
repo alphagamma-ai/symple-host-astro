@@ -6,6 +6,7 @@ import { partitionEvents, isUpcoming } from '../lib/events';
 const categories = await getCollection('categories');
 const articles = await getCollection('articles', ({ data }) => !data.draft);
 const events = await getCollection('events', ({ data }) => !data.draft);
+const walkthroughs = await getCollection('walkthroughs', ({ data }) => !data.draft);
 
 const articleCounts = new Map<string, number>();
 for (const article of articles) {
@@ -22,9 +23,12 @@ const articlesHubCount =
   (articleCounts.get('str-market-trends') || 0) +
   (articleCounts.get('marketing-for-hosts') || 0);
 
-const { past: pastEvents } = partitionEvents(events);
-const recordingsCount = pastEvents.length;
-const upcomingCount = events.filter((e) => isUpcoming(e)).length;
+const webinarEvents = events.filter((e) => e.data.eventType !== 'tutorial');
+const videoEvents = events.filter((e) => e.data.eventType === 'tutorial');
+const { past: pastWebinars } = partitionEvents(webinarEvents);
+const upcomingWebinarsCount = webinarEvents.filter((e) => isUpcoming(e)).length;
+const videoCount = videoEvents.length;
+const walkthroughCount = walkthroughs.length;
 ---
 
 <Base title="How can we help?">
@@ -56,14 +60,22 @@ const upcomingCount = events.filter((e) => isUpcoming(e)).length;
         })()}
       </a>
     )}
-    <a href="/webinars-and-videos/" class="category-card">
-      <span class="category-emoji">🎥</span>
-      <h2 class="category-title">Webinars &amp; Videos</h2>
-      <p class="category-desc">Live sessions, customer success hours, and on-demand recordings.</p>
+    <a href="/webinars/" class="category-card">
+      <span class="category-emoji">🎙️</span>
+      <h2 class="category-title">Webinars</h2>
+      <p class="category-desc">Live sessions, customer success hours, and webinar recordings.</p>
       <span class="category-count">
-        {upcomingCount > 0
-          ? `${upcomingCount} upcoming · ${recordingsCount} ${recordingsCount === 1 ? 'recording' : 'recordings'}`
-          : `${recordingsCount} ${recordingsCount === 1 ? 'recording' : 'recordings'}`}
+        {upcomingWebinarsCount > 0
+          ? `${upcomingWebinarsCount} upcoming · ${pastWebinars.length} ${pastWebinars.length === 1 ? 'recording' : 'recordings'}`
+          : `${pastWebinars.length} ${pastWebinars.length === 1 ? 'recording' : 'recordings'}`}
+      </span>
+    </a>
+    <a href="/videos/" class="category-card">
+      <span class="category-emoji">🎥</span>
+      <h2 class="category-title">Videos</h2>
+      <p class="category-desc">Welcome videos, product tutorials, and focused walkthroughs.</p>
+      <span class="category-count">
+        {videoCount} {videoCount === 1 ? 'video' : 'videos'} · {walkthroughCount} {walkthroughCount === 1 ? 'walkthrough' : 'walkthroughs'}
       </span>
     </a>
     <a href="/articles/" class="category-card">

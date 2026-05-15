@@ -3,8 +3,8 @@ import { getCollection } from 'astro:content';
 import EventDetail from '../../components/EventDetail.astro';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events', ({ data }) => !data.draft && data.eventType !== 'tutorial');
-  return events.map((event) => ({
+  const videos = await getCollection('events', ({ data }) => !data.draft && data.eventType === 'tutorial');
+  return videos.map((event) => ({
     params: { slug: event.id },
     props: { event },
   }));
@@ -13,4 +13,4 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 ---
 
-<EventDetail event={event} sectionTitle="Webinars & Videos" sectionHref="/webinars-and-videos/" />
+<EventDetail event={event} sectionTitle="Videos" sectionHref="/videos/" />
