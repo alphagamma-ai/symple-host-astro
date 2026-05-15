@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import EventCard from '../../components/EventCard.astro';
+import { partitionEvents } from '../../lib/events';
+
+const webinarEvents = await getCollection('events', ({ data }) => !data.draft && data.eventType !== 'tutorial');
+const { upcoming, past } = partitionEvents(webinarEvents);
+---
+
+<Base title="Webinars" description="Live webinars, customer success hours, and event recordings from the SympleHost team.">
+  <nav class="breadcrumb">
+    <a href="/">All Topics</a>
+    <span class="sep">/</span>
+    <span>Webinars</span>
+  </nav>
+
+  <header class="page-header">
+    <p class="eyebrow">Live sessions</p>
+    <h1 class="page-title">Webinars</h1>
+    <p class="page-desc">Join upcoming SympleHost sessions, or catch up on webinar recordings when you have time.</p>
+  </header>
+
+  {upcoming.length > 0 && (
+    <section class="section">
+      <h2 class="section-heading">Upcoming Webinars</h2>
+      <div class="grid grid-upcoming">
+        {upcoming.map((ev) => <EventCard event={ev} hrefBase="/webinars" />)}
+      </div>
+    </section>
+  )}
+
+  {past.length > 0 && (
+    <section class="section">
+      <h2 class="section-heading">Webinar Recordings</h2>
+      <div class="grid grid-past">
+        {past.map((ev) => <EventCard event={ev} hrefBase="/webinars" />)}
+      </div>
+    </section>
+  )}
+
+  {upcoming.length === 0 && past.length === 0 && (
+    <p class="empty">No webinars scheduled yet. Check back soon.</p>
+  )}
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: var(--muted-foreground); }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+      max-width: 48rem;
+    }
+    .eyebrow {
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .page-desc {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .section-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin: 0 0 1rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .grid-upcoming {
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+    .grid-past {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .empty {
+      color: var(--muted-foreground);
+      font-size: 0.95rem;
+      padding: 2rem 0;
+    }
+  </style>
+</Base>

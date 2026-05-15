@@ -1,16 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-import EventCard from '../../components/EventCard.astro';
-import { partitionEvents, EVENT_TYPE_PLURAL, type EventType } from '../../lib/events';
+import { partitionEvents, isUpcoming } from '../../lib/events';
 
-const allEvents = await getCollection('events', ({ data }) => !data.draft);
-const { upcoming, past } = partitionEvents(allEvents);
-
-const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as EventType[];
+const events = await getCollection('events', ({ data }) => !data.draft);
+const walkthroughs = await getCollection('walkthroughs', ({ data }) => !data.draft);
+const webinarEvents = events.filter((event) => event.data.eventType !== 'tutorial');
+const videoEvents = events.filter((event) => event.data.eventType === 'tutorial');
+const { past: pastWebinars } = partitionEvents(webinarEvents);
+const upcomingWebinarsCount = webinarEvents.filter((event) => isUpcoming(event)).length;
 ---
 
-<Base title="Webinars & Videos" description="Live sessions, customer success hours, and on-demand recordings from the SympleHost team.">
+<Base title="Webinars & Videos" description="Choose webinars for live sessions and recordings, or videos for product tutorials and walkthroughs.">
   <nav class="breadcrumb">
     <a href="/">All Topics</a>
     <span class="sep">/</span>
@@ -19,50 +20,32 @@ const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as E
 
   <header class="page-header">
     <h1 class="page-title">Webinars &amp; Videos</h1>
-    <p class="page-desc">Live sessions, customer success hours, and on-demand recordings from the SympleHost team.</p>
+    <p class="page-desc">These now live in separate spaces so you can find live sessions or product videos without the mixed layout.</p>
   </header>
 
-  <a class="walkthroughs-banner" href="/webinars-and-videos/walkthroughs/">
-    <div class="walkthroughs-banner-text">
-      <span class="walkthroughs-banner-eyebrow">New</span>
-      <h2 class="walkthroughs-banner-title">Product walkthroughs</h2>
-      <p class="walkthroughs-banner-desc">Short video tours of every section — Overview, Listings, Calendar, Messages, Guide Books, Team Ops, and Financial Report.</p>
-    </div>
-    <span class="walkthroughs-banner-cta" aria-hidden="true">Watch →</span>
-  </a>
+  <section class="split-grid" aria-label="Choose a section">
+    <a href="/webinars/" class="split-card">
+      <span class="split-kicker">Live sessions</span>
+      <h2 class="split-title">Webinars</h2>
+      <p class="split-desc">Upcoming sessions, customer success hours, and webinar recordings.</p>
+      <span class="split-count">
+        {upcomingWebinarsCount > 0
+          ? `${upcomingWebinarsCount} upcoming · ${pastWebinars.length} ${pastWebinars.length === 1 ? 'recording' : 'recordings'}`
+          : `${pastWebinars.length} ${pastWebinars.length === 1 ? 'recording' : 'recordings'}`}
+      </span>
+      <span class="split-cta">View webinars -></span>
+    </a>
 
-  {upcoming.length > 0 && (
-    <section class="upcoming">
-      <h2 class="section-heading">Upcoming</h2>
-      <div class="grid grid-upcoming">
-        {upcoming.map((ev) => <EventCard event={ev} />)}
-      </div>
-    </section>
-  )}
-
-  {past.length > 0 ? (
-    <section class="past">
-      <div class="past-header">
-        <h2 class="section-heading">On-demand recordings</h2>
-        {typesPresent.length > 1 && (
-          <div class="filter-tabs" role="tablist" aria-label="Filter by event type">
-            <button class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
-            {typesPresent.map((t) => (
-              <button class="filter-tab" data-filter={t} role="tab" aria-selected="false">{EVENT_TYPE_PLURAL[t]}</button>
-            ))}
-          </div>
-        )}
-      </div>
-      <div class="grid grid-past" id="past-grid">
-        {past.map((ev) => <EventCard event={ev} />)}
-      </div>
-      <p class="empty" id="past-empty" hidden>No recordings in this category yet.</p>
-    </section>
-  ) : (
-    upcoming.length === 0 && (
-      <p class="empty">No events scheduled yet. Check back soon.</p>
-    )
-  )}
+    <a href="/videos/" class="split-card">
+      <span class="split-kicker">Watch and learn</span>
+      <h2 class="split-title">Videos</h2>
+      <p class="split-desc">Welcome videos, tutorials, and focused product walkthroughs.</p>
+      <span class="split-count">
+        {videoEvents.length} {videoEvents.length === 1 ? 'video' : 'videos'} · {walkthroughs.length} {walkthroughs.length === 1 ? 'walkthrough' : 'walkthroughs'}
+      </span>
+      <span class="split-cta">View videos -></span>
+    </a>
+  </section>
 
   <style>
     .breadcrumb {
@@ -75,7 +58,8 @@ const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as E
     .sep { margin: 0 0.4rem; }
 
     .page-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
+      max-width: 48rem;
     }
     .page-title {
       font-size: 2rem;
@@ -87,158 +71,58 @@ const typesPresent = Array.from(new Set(past.map((e) => e.data.eventType))) as E
     .page-desc {
       color: var(--muted-foreground);
       font-size: 1rem;
-      max-width: 42rem;
     }
-
-    .upcoming {
-      margin-bottom: 3rem;
-    }
-
-    .walkthroughs-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2.5rem;
-      background: linear-gradient(135deg, var(--primary-50), #ffffff);
-      border: 1px solid var(--primary-300);
-      border-radius: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
-    }
-    .walkthroughs-banner:hover {
-      border-color: var(--primary);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(127, 86, 217, 0.12);
-    }
-    .walkthroughs-banner-text { flex: 1; }
-    .walkthroughs-banner-eyebrow {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--primary);
-      background: #ffffff;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-    }
-    .walkthroughs-banner-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--heading-color);
-      margin: 0 0 0.35rem;
-    }
-    .walkthroughs-banner-desc {
-      color: var(--muted-foreground);
-      font-size: 0.92rem;
-      margin: 0;
-      max-width: 38rem;
-    }
-    .walkthroughs-banner-cta {
-      font-weight: 600;
-      color: var(--primary);
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
-    @media (max-width: 600px) {
-      .walkthroughs-banner { flex-direction: column; align-items: flex-start; }
-      .walkthroughs-banner-cta { align-self: flex-end; }
-    }
-
-    .section-heading {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted-foreground);
-      margin: 0 0 1rem;
-    }
-
-    .grid {
+    .split-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.25rem;
     }
-    .grid-upcoming {
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    }
-    .grid-past {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-
-    .past-header {
+    .split-card {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .past-header .section-heading { margin: 0; }
-
-    .filter-tabs {
-      display: flex;
-      gap: 0.25rem;
-      flex-wrap: wrap;
-    }
-    .filter-tab {
-      font-family: inherit;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--muted-foreground);
-      background: transparent;
+      flex-direction: column;
+      min-height: 220px;
+      padding: 1.5rem;
+      background: #ffffff;
       border: 1px solid var(--border);
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: color 0.15s, background 0.15s, border-color 0.15s;
-    }
-    .filter-tab:hover {
+      border-radius: 12px;
       color: var(--foreground);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .split-card:hover {
       border-color: var(--primary-300);
+      box-shadow: 0 2px 8px rgba(127, 86, 217, 0.1);
     }
-    .filter-tab.is-active {
-      color: #ffffff;
-      background: var(--primary);
-      border-color: var(--primary);
+    .split-kicker {
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
-
-    .empty {
+    .split-title {
+      color: var(--heading-color);
+      font-size: 1.35rem;
+      line-height: 1.3;
+      margin-bottom: 0.45rem;
+    }
+    .split-desc {
       color: var(--muted-foreground);
-      font-size: 0.95rem;
-      padding: 2rem 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .split-count {
+      color: var(--muted-light);
+      font-size: 0.82rem;
+      margin-top: 1rem;
+    }
+    .split-cta {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.75rem;
     }
   </style>
-
-  <script is:inline>
-    (function () {
-      const tabs = document.querySelectorAll('.filter-tab');
-      if (!tabs.length) return;
-      const grid = document.getElementById('past-grid');
-      const empty = document.getElementById('past-empty');
-      if (!grid || !empty) return;
-      const cards = Array.from(grid.querySelectorAll('[data-event-type]'));
-
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-          const filter = tab.getAttribute('data-filter');
-          tabs.forEach((t) => {
-            const active = t === tab;
-            t.classList.toggle('is-active', active);
-            t.setAttribute('aria-selected', active ? 'true' : 'false');
-          });
-          let visible = 0;
-          cards.forEach((el) => {
-            const match = filter === 'all' || el.getAttribute('data-event-type') === filter;
-            el.style.display = match ? '' : 'none';
-            if (match) visible++;
-          });
-          empty.hidden = visible > 0;
-        });
-      });
-    })();
-  </script>
 </Base>

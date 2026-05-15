@@ -4,12 +4,13 @@ import { EVENT_TYPE_LABEL, thumbnailUrl, formatEventDate, formatEventTime, isUpc
 
 interface Props {
   event: Event;
+  hrefBase?: string;
 }
 
-const { event } = Astro.props;
+const { event, hrefBase = '/webinars-and-videos' } = Astro.props;
 const upcoming = isUpcoming(event);
 const thumb = thumbnailUrl(event);
-const href = `/webinars-and-videos/${event.id}`;
+const href = `${hrefBase}/${event.id}`;
 const typeLabel = EVENT_TYPE_LABEL[event.data.eventType];
 const dateLabel = formatEventDate(event.data.eventDate);
 const timeLabel = upcoming ? formatEventTime(event.data.eventDate) : null;
