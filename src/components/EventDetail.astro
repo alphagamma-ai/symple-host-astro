@@ -75,6 +75,10 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
             <p class="register-note">Registration opens soon.</p>
           )}
         </div>
+      ) : event.data.videoFile ? (
+        <video class="local-video" controls preload="metadata">
+          <source src={event.data.videoFile} type="video/mp4" />
+        </video>
       ) : event.data.youtubeId ? (
         <YouTubeEmbed videoId={event.data.youtubeId} title={event.data.title} />
       ) : (
@@ -148,6 +152,13 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
     }
     .event-media {
       margin-bottom: 2rem;
+    }
+    .local-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      border-radius: 10px;
+      display: block;
     }
     .cohosts {
       display: flex;
