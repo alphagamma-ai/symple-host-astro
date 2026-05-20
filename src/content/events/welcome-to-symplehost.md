@@ -12,4 +12,4 @@ draft: false
 
 A short walkthrough of what Symplehost does and how it fits into your day.
 
-If you're new to the platform, start here. Then follow the **Getting Started** series — four short videos that take you from zero to a live property with a working checkout.
+If you're new to the platform, [start here](https://app.symplehost.ai/en/onboarding/signup). Then follow the **Getting Started** series — four short videos that take you from zero to a live property with a working checkout.
