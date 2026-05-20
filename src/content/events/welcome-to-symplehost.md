@@ -3,7 +3,7 @@ title: "Welcome to Symplehost"
 description: "A quick intro to Symplehost — what it is, who it's for, and what you can do with it."
 eventType: tutorial
 eventDate: "2026-04-21T06:09:45Z"
-youtubeId: "2qPKQsiB-NY"
+videoFile: "/videos/symplehost-intro-bali.mp4"
 tags:
   - intro
   - getting-started
