@@ -5,7 +5,7 @@ eventType: webinar
 eventDate: "2026-06-12T04:00:00Z"
 duration: 90
 registerUrl: "https://us06web.zoom.us/meeting/register/PrdJ_aUKQF2MJP5WAIWxyg"
-thumbnail: "/screenshots/events/from-spreadsheets-to-systems.png"
+thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
 speakers:
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
@@ -89,6 +89,15 @@ Stay connected:
 | 12:15 – 12:45 | Simplifying your operations with AI automations | Max Del Vita |
 | 12:45 – 1:10 | Scaling markets, branding, and marketing | Julie George |
 | 1:10 – 1:30 | Live Q&A | All speakers |
+
+## See Symplehost in action
+
+Your AI co-host never sleeps, so you can. Here is a quick look at how Symplehost keeps guest operations moving across channels.
+
+<video controls preload="metadata" width="100%" poster="/screenshots/events/symplehost-ai-cohost-thumbnail.svg" style="border-radius:10px;background:#000;">
+  <source src="/videos/symplehost-booth-loop.mp4" type="video/mp4">
+  Your browser doesn't support embedded video. <a href="/videos/symplehost-booth-loop.mp4">Download the booth loop</a>.
+</video>
 
 ## FAQ
 
