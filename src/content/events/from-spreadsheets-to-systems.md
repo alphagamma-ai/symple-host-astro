@@ -9,6 +9,7 @@ thumbnail: "/screenshots/events/from-spreadsheets-to-systems.png"
 speakers:
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
+    avatar: "/speakers/julie-george.png"
   - name: "Max Del Vita"
     role: "CEO, Symplehost.ai"
     avatar: "/speakers/max.jpg"
