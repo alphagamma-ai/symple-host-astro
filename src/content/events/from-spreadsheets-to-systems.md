@@ -86,10 +86,6 @@ New to the platform? Here's a short intro walking through what Symplehost does f
 
 Yes — 100% free. Million Dollar Host and Symplehost.ai are running this as a community learning session for the villa and short-term rental industry.
 
-### Will it be in English or Bahasa Indonesia?
-
-Primary delivery is in English, with Bahasa support available during Q&A. Slides will be bilingual where possible.
-
 ### What if I can't attend live?
 
 Register anyway — we'll send you the recording and the PMS selection checklist within 48 hours after the event.
