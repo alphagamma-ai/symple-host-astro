@@ -42,7 +42,7 @@ You learned a lot at [Bali Villa Connect](https://bvrma.org/). Now it is time to
 
 Free webinar for villa owners and small short-term rental operators, co-hosted by **Symplehost.ai × Million Dollar Host**. Let the after party continue with a practical 90-minute working session on Friday 12 June, 12:00 PM Bali Time, live on Zoom. Replay included.
 
-Follow Symplehost for more product tips, webinar updates, and short-term rental operations ideas:
+Stay connected:
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;margin:1rem 0 1.5rem;">
   <a href="https://www.instagram.com/symplehost/" target="_blank" rel="noopener noreferrer" aria-label="Follow Symplehost on Instagram" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,#f58529 0%,#dd2a7b 42%,#8134af 72%,#515bd4 100%);color:#fff;font-weight:800;text-decoration:none;box-shadow:0 12px 28px rgba(129,52,175,.24);">
