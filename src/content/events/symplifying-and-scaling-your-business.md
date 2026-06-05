@@ -90,15 +90,6 @@ Stay connected:
 | 12:45 – 1:10 | Scaling markets, branding, and marketing | Julie George |
 | 1:10 – 1:30 | Live Q&A | All speakers |
 
-## Curious about Symplehost?
-
-New to the platform? Here's a short intro walking through what Symplehost does for small villa operators.
-
-<video controls preload="metadata" width="100%" poster="/screenshots/events/from-spreadsheets-to-systems.png" style="border-radius:10px;background:#000;">
-  <source src="/videos/symplehost-intro-bali.mp4" type="video/mp4">
-  Your browser doesn't support embedded video. <a href="/videos/symplehost-intro-bali.mp4">Download the intro</a>.
-</video>
-
 ## FAQ
 
 ### Is this really free?
