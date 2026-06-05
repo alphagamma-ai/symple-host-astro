@@ -1,6 +1,6 @@
 ---
-title: "Bali Villa Connect Afterparty: Turn Insights Into AI-Powered Operations"
-description: "A 90-minute, no-fluff session for villa owners and short-term rental operators — co-hosted by Symplehost.ai and Million Dollar Host. You learned a lot at Bali Villa Connect; now it is time to implement it with AI automations, stronger operations, and sharper marketing."
+title: "Symplifying and Scaling Your Business"
+description: "A 90-minute, no-fluff Bali Villa Connect afterparty session for villa owners and short-term rental operators — co-hosted by Symplehost.ai and Million Dollar Host. Turn event insights into AI automations, stronger operations, and sharper marketing."
 eventType: webinar
 eventDate: "2026-06-12T04:00:00Z"
 duration: 90
@@ -36,11 +36,16 @@ tags:
 draft: false
 ---
 
-## Stop firefighting. Start running the business.
+## Symplify your systems. Scale your business.
 
 You learned a lot at [Bali Villa Connect](https://bvrma.org/). Now it is time to implement it.
 
 Free webinar for villa owners and small short-term rental operators, co-hosted by **Symplehost.ai × Million Dollar Host**. Let the after party continue with a practical 90-minute working session on Friday 12 June, 12:00 PM Bali Time, live on Zoom. Replay included.
+
+Follow Symplehost for more product tips, webinar updates, and short-term rental operations ideas:
+
+- [Instagram](https://www.instagram.com/symplehost/)
+- [Facebook](https://www.facebook.com/profile.php?id=61578460135688o)
 
 ## What you'll learn
 
