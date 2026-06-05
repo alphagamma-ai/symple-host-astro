@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">SympleHost AI Co-Host thumbnail</title>
+  <desc id="desc">A white SympleHost hero graphic saying Your AI Co-Host never sleeps. So You Can. with booking notification cards over a dotted globe.</desc>
+  <defs>
+    <style>
+      .serif{font-family:Georgia,"Times New Roman",serif;font-weight:700}
+      .sans{font-family:Inter,Arial,sans-serif}
+      .ink{fill:#111827}
+      .muted{fill:#536073}
+      .purple{fill:#7f56d9}
+      .stroke{stroke:#7f56d9;stroke-width:4;fill:none}
+      .card{fill:#fff;stroke:#d9dee8;stroke-width:1.5}
+      .shadow{filter:url(#shadow)}
+    </style>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#1f2937" flood-opacity=".12"/>
+    </filter>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.1" fill="#111827" opacity=".58"/>
+    </pattern>
+    <radialGradient id="globeShade" cx="45%" cy="38%" r="64%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="66%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e7e9ef"/>
+    </radialGradient>
+    <linearGradient id="fadeRight" x1="0" x2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="45%" stop-color="#fff" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity=".86"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#fff"/>
+
+  <g transform="translate(72 128)">
+    <text class="serif ink" x="0" y="96" font-size="104">Your AI Co-Host</text>
+    <text class="serif ink" x="0" y="202" font-size="104">never sleeps.</text>
+    <text class="serif purple" x="0" y="310" font-size="104">So You Can.</text>
+    <text class="sans muted" x="0" y="420" font-size="36">
+      <tspan x="0" dy="0">Symplehost is the AI co-host that answers your guests,</tspan>
+      <tspan x="0" dy="48">prices your nights, fills your calendar, and runs your ops</tspan>
+      <tspan x="0" dy="48">across every channel, every OTA, in every language.</tspan>
+    </text>
+    <g transform="translate(0 650)">
+      <rect width="350" height="74" rx="12" fill="#7f56d9"/>
+      <text class="sans" x="35" y="48" font-size="25" font-weight="700" fill="#fff">Start your 30-day free trial</text>
+    </g>
+    <text class="sans muted" x="0" y="792" font-size="25">30-day free trial - No card required - No hidden costs</text>
+  </g>
+
+  <g transform="translate(1110 145)">
+    <circle cx="390" cy="420" r="335" fill="url(#globeShade)"/>
+    <circle cx="390" cy="420" r="302" fill="url(#dots)" opacity=".52"/>
+    <ellipse cx="390" cy="420" rx="332" ry="335" fill="url(#fadeRight)"/>
+    <path class="stroke" d="M105 317 C285 335 545 455 655 665"/>
+    <path class="stroke" d="M356 186 C392 118 447 116 487 182"/>
+
+    <g class="shadow" transform="translate(435 0)">
+      <rect class="card" width="405" height="90" rx="16"/>
+      <rect x="20" y="22" width="44" height="44" rx="10" fill="#d8f8e8"/>
+      <text class="sans" x="84" y="33" font-size="14" font-weight="700" letter-spacing="6" fill="#64748b">CHECK-IN</text>
+      <text class="sans ink" x="84" y="62" font-size="23">Check-in complete - Barcelona</text>
+      <text class="sans muted" x="350" y="31" font-size="14" font-weight="700">0230</text>
+    </g>
+    <g class="shadow" transform="translate(440 108)">
+      <rect class="card" width="405" height="90" rx="16"/>
+      <rect x="20" y="22" width="44" height="44" rx="10" fill="#fff0db"/>
+      <text class="sans" x="84" y="33" font-size="14" font-weight="700" letter-spacing="6" fill="#64748b">BOOKING</text>
+      <text class="sans ink" x="84" y="62" font-size="23">Booked: 5 nights at Villa Azul ...</text>
+      <text class="sans muted" x="350" y="31" font-size="14" font-weight="700">0229</text>
+    </g>
+    <g class="shadow" transform="translate(440 216)">
+      <rect class="card" width="405" height="90" rx="16"/>
+      <rect x="20" y="22" width="44" height="44" rx="10" fill="#fff0db"/>
+      <text class="sans" x="84" y="33" font-size="14" font-weight="700" letter-spacing="6" fill="#64748b">BOOKING</text>
+      <text class="sans ink" x="84" y="62" font-size="23">Booked: 4 nights at Beach House ...</text>
+      <text class="sans muted" x="350" y="31" font-size="14" font-weight="700">0228</text>
+    </g>
+
+    <g class="shadow" transform="translate(18 178)">
+      <rect width="86" height="30" rx="14" fill="#fff" stroke="#dadfea"/>
+      <circle cx="19" cy="15" r="8" fill="#7f56d9"/>
+      <text class="sans ink" x="34" y="20" font-size="15" font-weight="700">Paris</text>
+    </g>
+    <g class="shadow" transform="translate(92 212)">
+      <rect width="128" height="30" rx="14" fill="#fff" stroke="#dadfea"/>
+      <circle cx="20" cy="15" r="8" fill="#475569"/>
+      <text class="sans ink" x="34" y="20" font-size="15" font-weight="700">Barcelona</text>
+    </g>
+    <g class="shadow" transform="translate(628 650)">
+      <rect width="78" height="30" rx="14" fill="#fff" stroke="#d6eadf"/>
+      <circle cx="19" cy="15" r="8" fill="#20c77a"/>
+      <text class="sans ink" x="34" y="20" font-size="15" font-weight="700">Bali</text>
+    </g>
+    <g class="shadow" transform="translate(56 790)">
+      <rect width="120" height="30" rx="14" fill="#fff" stroke="#f4d0a3"/>
+      <circle cx="20" cy="15" r="8" fill="#f59e0b"/>
+      <text class="sans ink" x="35" y="20" font-size="15" font-weight="700">Cape Town</text>
+    </g>
+  </g>
+</svg>
