@@ -42,7 +42,7 @@ export function partitionEvents(events: Event[], now: Date = new Date()) {
   const past: Event[] = [];
   for (const ev of events) {
     if (isUpcoming(ev, now)) upcoming.push(ev);
-    else if (hasRecording(ev)) past.push(ev); // archived (past, no video) hidden
+    else past.push(ev);
   }
   upcoming.sort((a, b) => a.data.eventDate.getTime() - b.data.eventDate.getTime());
   past.sort((a, b) => b.data.eventDate.getTime() - a.data.eventDate.getTime());
