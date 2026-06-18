@@ -17,12 +17,9 @@ const articles = await getCollection('articles', ({ data }) =>
 const isIntegrations = category.id === 'integrations';
 const integrationFilters = [
   'All',
+  'Revenue management',
   'Dynamic pricing',
-  'Payments',
-  'Channel managers',
-  'Messaging',
-  'Guest experience',
-  'Operations',
+  'Coming soon',
 ];
 
 // Per-category section ordering. Sections not listed appear after, in first-seen order.
@@ -167,11 +164,11 @@ if (category.id === 'faqs') {
   {isIntegrations && (
     <section class="integrations-hero" aria-labelledby="integrations-title">
       <div class="integrations-kicker">SympleHost integrations</div>
-      <h2 id="integrations-title">Connect the tools behind a cleaner rental operation</h2>
+      <h2 id="integrations-title">Revenue management integrations for smarter pricing</h2>
       <p>
-        Bring pricing, payments, messaging, channels, and guest workflows into the same operating rhythm.
-        Start with the integrations that matter for Southeast Asia hosts, then keep expanding without turning
-        your stack into another spreadsheet.
+        SympleHost already handles bookings, guest messaging, payments, tasks, and day-to-day operations
+        inside the platform. This section is specifically for external revenue management tools that help
+        hosts bring dynamic pricing intelligence into the same calendar and booking workflow.
       </p>
       <div class="integration-filters" aria-label="Integration categories">
         {integrationFilters.map((filter) => (
