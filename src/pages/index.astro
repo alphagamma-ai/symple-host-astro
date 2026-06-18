@@ -18,6 +18,7 @@ const categoryById = new Map(categories.map((c) => [c.id, c]));
 const gettingStarted = categoryById.get('getting-started');
 const platformGuides = categoryById.get('platform-guides');
 const faqs = categoryById.get('faqs');
+const integrations = categoryById.get('integrations');
 
 const articlesHubCount =
   (articleCounts.get('str-market-trends') || 0) +
@@ -84,6 +85,17 @@ const walkthroughCount = walkthroughs.length;
       <p class="category-desc">STR market trends and marketing playbooks for short-term rental hosts.</p>
       <span class="category-count">{articlesHubCount} {articlesHubCount === 1 ? 'article' : 'articles'}</span>
     </a>
+    {integrations && (
+      <a href={`/${integrations.id}`} class="category-card">
+        {integrations.data.emoji && <span class="category-emoji">{integrations.data.emoji}</span>}
+        <h2 class="category-title">{integrations.data.title}</h2>
+        {integrations.data.description && <p class="category-desc">{integrations.data.description}</p>}
+        {(() => {
+          const count = articleCounts.get(integrations.id) || 0;
+          return <span class="category-count">{count} {count === 1 ? 'integration' : 'integrations'}</span>;
+        })()}
+      </a>
+    )}
     {faqs && (
       <a href={`/${faqs.id}`} class="category-card">
         {faqs.data.emoji && <span class="category-emoji">{faqs.data.emoji}</span>}
