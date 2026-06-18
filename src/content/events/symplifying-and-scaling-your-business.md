@@ -6,6 +6,7 @@ eventDate: "2026-06-12T04:00:00Z"
 duration: 90
 registerUrl: "https://us06web.zoom.us/meeting/register/PrdJ_aUKQF2MJP5WAIWxyg"
 thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
+youtubeId: "fCGdoqihKNM"
 speakers:
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
