@@ -287,7 +287,7 @@ That immediately revokes access on SympleHost's side — the token stops working
 
 ## Related Articles
 
-- Connecting WhatsApp, Instagram & Facebook Messenger
-- Setting Up Autopilot — Automate Guest Messaging
-- How to Use the Inbox to Communicate with Guests
-- Navigating SympleHost
+- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations)
+- [Setting Up Autopilot — Automate Guest Messaging](/platform-guides/setting-up-autopilot)
+- [How to Use the Inbox to Communicate with Guests](/platform-guides/inbox-communicate-with-guests)
+- [Navigating SympleHost](/getting-started/navigating-symplehost)
