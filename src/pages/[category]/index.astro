@@ -14,13 +14,6 @@ const { category } = Astro.props;
 const articles = await getCollection('articles', ({ data }) =>
   !data.draft && data.category === category.id
 );
-const isIntegrations = category.id === 'integrations';
-const integrationFilters = [
-  'All',
-  'Revenue management',
-  'Dynamic pricing',
-  'Coming soon',
-];
 
 // Per-category section ordering. Sections not listed appear after, in first-seen order.
 const SECTION_ORDER: Record<string, string[]> = {
@@ -38,6 +31,9 @@ const SECTION_ORDER: Record<string, string[]> = {
     'Quotes & payments',
     'Tasks & operations',
     'AI & integrations',
+  ],
+  integrations: [
+    'Revenue management',
   ],
 };
 
@@ -161,23 +157,6 @@ if (category.id === 'faqs') {
     {category.data.description && <p class="cat-desc">{category.data.description}</p>}
   </header>
 
-  {isIntegrations && (
-    <section class="integrations-hero" aria-labelledby="integrations-title">
-      <div class="integrations-kicker">SympleHost integrations</div>
-      <h2 id="integrations-title">Revenue management integrations for smarter pricing</h2>
-      <p>
-        SympleHost already handles bookings, guest messaging, payments, tasks, and day-to-day operations
-        inside the platform. This section is specifically for external revenue management tools that help
-        hosts bring dynamic pricing intelligence into the same calendar and booking workflow.
-      </p>
-      <div class="integration-filters" aria-label="Integration categories">
-        {integrationFilters.map((filter) => (
-          <span class="integration-filter">{filter}</span>
-        ))}
-      </div>
-    </section>
-  )}
-
   {category.id === 'faqs' && faqItems.length > 0 && (
     <section class="faq-search-wrap">
       <div class="faq-search">
@@ -216,18 +195,7 @@ if (category.id === 'faqs') {
     <h2 class="browse-heading">Browse by topic</h2>
   )}
 
-  {isIntegrations && articles.length > 0 ? (
-    <section class="integrations-grid" aria-label="Available and upcoming integrations">
-      {articles.map((article) => (
-        <a href={`/${category.id}/${article.id}`} class="integration-card">
-          <span class="integration-status">Coming soon</span>
-          <h3>{article.data.title.replace('SympleHost + ', '')}</h3>
-          {article.data.description && <p>{article.data.description}</p>}
-          <span class="integration-type">{article.data.section ?? 'Integration'}</span>
-        </a>
-      ))}
-    </section>
-  ) : articles.length === 0 ? (
+  {articles.length === 0 ? (
     <p class="empty">No articles in this category yet.</p>
   ) : (
     <>
@@ -277,9 +245,6 @@ if (category.id === 'faqs') {
 
     .cat-header {
       margin-bottom: 2.5rem;
-    }
-    .cat-header:has(+ .integrations-hero) {
-      display: none;
     }
     .cat-emoji {
       font-size: 2rem;
@@ -341,139 +306,6 @@ if (category.id === 'faqs') {
       color: var(--muted-foreground);
       font-size: 0.95rem;
       padding: 2rem 0;
-    }
-
-    .integrations-hero {
-      min-height: 430px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 5rem 1rem 4rem;
-      margin: -1rem 0 2.5rem;
-      position: relative;
-    }
-    .integrations-hero::before {
-      content: "";
-      position: absolute;
-      inset: 1rem auto auto 50%;
-      width: 44px;
-      height: 44px;
-      transform: translateX(-50%);
-      border-radius: 999px;
-      background: var(--primary);
-      box-shadow: 0 14px 30px rgba(127, 86, 217, 0.24);
-    }
-    .integrations-hero::after {
-      content: "↔";
-      position: absolute;
-      top: 1.55rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .integrations-kicker {
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-    .integrations-hero h2 {
-      max-width: 860px;
-      color: var(--heading-color);
-      font-size: clamp(2.4rem, 7vw, 5.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      margin: 0 0 1.2rem;
-    }
-    .integrations-hero p {
-      max-width: 720px;
-      color: var(--muted-foreground);
-      font-size: 1.02rem;
-      line-height: 1.75;
-      margin: 0 auto 4.5rem;
-    }
-    .integration-filters {
-      max-width: 780px;
-      display: flex;
-      justify-content: center;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-    }
-    .integration-filter {
-      display: inline-flex;
-      align-items: center;
-      min-height: 46px;
-      padding: 0.7rem 1.1rem;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid var(--border-light);
-      color: var(--foreground);
-      font-size: 0.92rem;
-      font-weight: 600;
-      box-shadow: 0 10px 28px rgba(24, 24, 27, 0.04);
-    }
-    .integrations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-    .integration-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 240px;
-      padding: 1.35rem;
-      color: var(--foreground);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.86)),
-        radial-gradient(circle at 85% 15%, var(--primary-100), transparent 40%);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 18px 50px rgba(24, 24, 27, 0.06);
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-    .integration-card:hover {
-      color: var(--foreground);
-      transform: translateY(-3px);
-      border-color: var(--primary-200);
-      box-shadow: 0 22px 60px rgba(127, 86, 217, 0.13);
-    }
-    .integration-status {
-      align-self: flex-start;
-      padding: 0.28rem 0.55rem;
-      border-radius: 999px;
-      background: var(--primary-50);
-      color: var(--primary-700);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-    .integration-card h3 {
-      color: var(--heading-color);
-      font-size: 1.25rem;
-      line-height: 1.25;
-      margin: 0 0 0.75rem;
-    }
-    .integration-card p {
-      color: var(--muted-foreground);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      margin: 0;
-    }
-    .integration-type {
-      margin-top: auto;
-      padding-top: 1.5rem;
-      color: var(--primary);
-      font-size: 0.82rem;
-      font-weight: 700;
     }
 
     /* FAQ search */
