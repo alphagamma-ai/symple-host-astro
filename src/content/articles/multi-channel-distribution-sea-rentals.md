@@ -8,7 +8,7 @@ tags:
   - OTAs
   - Southeast Asia
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **More channels can mean more bookings. It can also mean more mistakes. The difference is whether your operations are ready before you expand.**

@@ -8,7 +8,7 @@ tags:
   - Guest Communication
   - Automation
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **Guests do not care that you are busy. They care whether you answer when they need you.**

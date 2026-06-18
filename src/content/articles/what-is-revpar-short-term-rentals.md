@@ -8,7 +8,7 @@ tags:
   - Metrics
   - Revenue Management
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **A full calendar can still be a pricing problem. RevPAR helps you see it.**

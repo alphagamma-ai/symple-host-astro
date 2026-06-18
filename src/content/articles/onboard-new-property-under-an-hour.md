@@ -9,7 +9,7 @@ tags:
   - Listings
   - Operations
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **A new property should not take a week of admin before it can accept bookings. Most delays come from missing information, not difficult software.**

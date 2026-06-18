@@ -8,7 +8,7 @@ tags:
   - Automation
   - Operations
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **Manual messaging feels free because no invoice arrives. That does not mean it has no cost.**

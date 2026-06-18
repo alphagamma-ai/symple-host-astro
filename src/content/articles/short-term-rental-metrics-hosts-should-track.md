@@ -8,7 +8,7 @@ tags:
   - RevPAR
   - Revenue Management
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **You cannot improve a rental business you only understand through bank deposits and gut feel.**

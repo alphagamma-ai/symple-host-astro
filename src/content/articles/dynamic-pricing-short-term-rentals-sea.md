@@ -8,7 +8,7 @@ tags:
   - Revenue Management
   - Southeast Asia
 date: '2026-06-18'
-draft: true
+draft: false
 ---
 
 **The right nightly rate is not a number. It is a moving target.**
