@@ -124,9 +124,9 @@ For sync workflows, seed the first request with `updated_since`, then follow the
 
 The full interactive reference is maintained from the platform app's OpenAPI spec:
 
-- [Open the Partner API reference](https://platform.symplehost.ai/partner-api-scalar.html)
-- [Open the standalone Partner API reference](https://platform.symplehost.ai/partner-api.html)
-- [Download the OpenAPI spec](https://platform.symplehost.ai/partner-api/openapi.yaml)
+- [Open the Partner API reference](/partner-api-scalar.html)
+- [Open the standalone Partner API reference](/partner-api.html)
+- [Download the OpenAPI spec](/partner-api/openapi.yaml)
 
 Use the full reference for endpoint details, request parameters, response schemas, and code samples.
 
