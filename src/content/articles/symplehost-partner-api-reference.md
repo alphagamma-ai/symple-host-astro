@@ -21,6 +21,16 @@ draft: false
 
 ---
 
+## Open the Interactive Reference
+
+[Open the Partner API reference](/partner-api-scalar.html)
+
+Use the interactive reference for endpoint details, request parameters, response schemas, and code samples.
+
+> **Note:** HMAC-protected endpoints may not work directly from an interactive "try it" console unless the client can generate the correct request signature. For sensitive endpoints, use the code samples or your own API client.
+
+---
+
 ## Who This Is For
 
 This guide is for:
@@ -117,18 +127,6 @@ Developers should expect these conventions:
 - **PII masking:** restricted fields return masked values and are listed in response metadata
 
 For sync workflows, seed the first request with `updated_since`, then follow the cursor returned by `meta.next_cursor`. Feeds are designed to be at-least-once, so partner systems should deduplicate by record ID.
-
----
-
-## Open the Full API Reference
-
-The full interactive reference is maintained from the platform app's OpenAPI spec:
-
-- [Open the Partner API reference](/partner-api-scalar.html)
-
-Use the full reference for endpoint details, request parameters, response schemas, and code samples.
-
-> **Note:** HMAC-protected endpoints may not work directly from an interactive "try it" console unless the client can generate the correct request signature. For sensitive endpoints, use the code samples or your own API client.
 
 ---
 
