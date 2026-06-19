@@ -17,6 +17,7 @@ for (const article of articles) {
 const categoryById = new Map(categories.map((c) => [c.id, c]));
 const gettingStarted = categoryById.get('getting-started');
 const platformGuides = categoryById.get('platform-guides');
+const aiAndApi = categoryById.get('ai-and-api');
 const faqs = categoryById.get('faqs');
 const integrations = categoryById.get('integrations');
 
@@ -57,6 +58,17 @@ const walkthroughCount = walkthroughs.length;
         {platformGuides.data.description && <p class="category-desc">{platformGuides.data.description}</p>}
         {(() => {
           const count = articleCounts.get(platformGuides.id) || 0;
+          return <span class="category-count">{count} {count === 1 ? 'article' : 'articles'}</span>;
+        })()}
+      </a>
+    )}
+    {aiAndApi && (
+      <a href={`/${aiAndApi.id}`} class="category-card">
+        {aiAndApi.data.emoji && <span class="category-emoji">{aiAndApi.data.emoji}</span>}
+        <h2 class="category-title">{aiAndApi.data.title}</h2>
+        {aiAndApi.data.description && <p class="category-desc">{aiAndApi.data.description}</p>}
+        {(() => {
+          const count = articleCounts.get(aiAndApi.id) || 0;
           return <span class="category-count">{count} {count === 1 ? 'article' : 'articles'}</span>;
         })()}
       </a>
