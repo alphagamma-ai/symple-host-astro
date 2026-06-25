@@ -23,7 +23,7 @@ draft: false
 
 ## Open the Interactive Reference
 
-[Open the Partner API reference](/partner-api-scalar.html)
+[Open the Partner API reference](https://app.symplehost.ai/partner-api-scalar.html#description/introduction)
 
 Use the interactive reference for endpoint details, request parameters, response schemas, and code samples.
 
