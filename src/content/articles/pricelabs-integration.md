@@ -1,6 +1,6 @@
 ---
 title: "How to Integrate PriceLabs with SympleHost"
-description: "Connect PriceLabs to SympleHost so PriceLabs can send rates, minimum stay rules, check-in and check-out restrictions, and weekly or monthly discounts to your SympleHost listings."
+description: "Connect PriceLabs to SympleHost so your listings can sync pricing, availability, restrictions, reservations, blocks, and revenue-management settings between both systems."
 category: integrations
 section: Revenue management
 sectionOrder: 1
@@ -17,13 +17,20 @@ draft: false
 
 ---
 
-> **TL;DR:** First enable SympleHost inside PriceLabs. Then open **Settings → Integrations** in SympleHost, connect PriceLabs using your PriceLabs registered email address, add the listings you want to sync, review your pricing inside PriceLabs, and enable price syncing.
+> **TL;DR:** First enable SympleHost inside PriceLabs. Then open **Settings → Integrations** in SympleHost, click **Connect PriceLabs**, enter your **PriceLabs Account Email**, click **Manage**, add the listings you want to enrol, review them in PriceLabs, and enable syncing when the rates look right.
 
 ---
 
-## What PriceLabs Can Send to SympleHost
+## What Syncs Between PriceLabs and SympleHost
 
-Once connected, PriceLabs can send pricing updates to SympleHost for up to **365 days in advance**.
+The connection has two jobs:
+
+- SympleHost sends listing and calendar context to PriceLabs so PriceLabs can model pricing correctly.
+- PriceLabs sends pricing decisions back to SympleHost so your calendar reflects the revenue-management settings you approve.
+
+When you enrol a listing, SympleHost pushes listing metadata, rates, calendar data, reservations, and blocks to PriceLabs. In the SympleHost app, the PriceLabs manage page lists these synced capabilities: nightly rates, availability, minimum stay, check-in and check-out restrictions, weekly and monthly discounts, extra-person fees, and amenities.
+
+PriceLabs can send pricing updates back to SympleHost for up to **365 days in advance**.
 
 Supported updates include:
 
@@ -34,7 +41,7 @@ Supported updates include:
 - Weekly discounts
 - Monthly discounts
 
-PriceLabs remains the place where you review pricing recommendations and revenue management settings. SympleHost receives the synced pricing data so your listings and calendar stay aligned with the pricing rules you choose.
+PriceLabs remains the place where you review pricing recommendations and revenue-management settings. SympleHost remains the place where you manage listings, calendars, reservations, guest communication, tasks, and operations around those prices.
 
 ---
 
@@ -63,6 +70,8 @@ Start inside PriceLabs.
 6. Enable the option that allows SympleHost to add listings to your PriceLabs account.
 7. Save the connection.
 
+![PriceLabs connection settings with SympleHost selected and the option enabled to allow SympleHost to add listings to PriceLabs](/screenshots/pricelabs-integration/pricelabs-allow-symplehost.png)
+
 This prepares PriceLabs to accept listings from SympleHost during the next step.
 
 ---
@@ -75,11 +84,19 @@ Now switch to SympleHost.
 2. Open **Settings**.
 3. Go to **Integrations**.
 4. Find the **PriceLabs** integration.
-5. Click **Connect**.
-6. Enter the email address registered to your PriceLabs account.
-7. Complete the connection.
+5. Click **Connect PriceLabs**.
+6. In the **Connect PriceLabs** dialog, enter your **PriceLabs Account Email**.
+7. Click **Connect**.
+
+![SympleHost account menu with Settings selected](/screenshots/pricelabs-integration/symplehost-settings-menu.png)
+
+![SympleHost Integrations page showing the PriceLabs card and Connect PriceLabs button](/screenshots/pricelabs-integration/symplehost-connect-pricelabs.png)
+
+![Connect PriceLabs dialog asking for the PriceLabs Account Email](/screenshots/pricelabs-integration/pricelabs-account-email-dialog.png)
 
 After the connection succeeds, the PriceLabs card changes from **Connect** to **Manage**.
+
+![Connected PriceLabs integration card showing the Manage button](/screenshots/pricelabs-integration/symplehost-manage-pricelabs.png)
 
 ---
 
@@ -89,10 +106,18 @@ After PriceLabs is connected:
 
 1. Click **Manage** on the PriceLabs integration card in SympleHost.
 2. Click **Add listings**.
-3. Select the SympleHost listings you want to connect with PriceLabs.
-4. Confirm the listing connection.
+3. Select the SympleHost listings or room-type units you want to enrol in PriceLabs.
+4. Click **Enrol** to send the selected listings to PriceLabs.
+
+![PriceLabs manage page in SympleHost with the Add listings button](/screenshots/pricelabs-integration/add-listings-button.png)
+
+![Add listings drawer showing available SympleHost listings to enrol in PriceLabs](/screenshots/pricelabs-integration/select-listings-drawer.png)
+
+![PriceLabs manage page showing enrolled listings and sync status](/screenshots/pricelabs-integration/listings-enrolled.png)
 
 Only add listings that you want PriceLabs to manage. If a listing should keep using SympleHost pricing rules only, leave it out of the PriceLabs connection.
+
+> **Multi-unit note:** In SympleHost, multi-unit parent listings act as groups. PriceLabs enrolment happens at the room-type or unit level, so you may see child units listed under a parent property.
 
 ---
 
