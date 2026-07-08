@@ -5,28 +5,35 @@ eventType: webinar
 eventDate: "2026-08-05T00:00:00Z"
 duration: 60
 timezoneDisplay:
-  primary: "Tuesday, August 4, 2026 · 5:00 PM PT"
+  primary: "Tuesday, August 4, 2026 · 5:00 PM PST"
   secondary:
     - "Wednesday, August 5, 2026 · 8:00 AM Singapore"
     - "Wednesday, August 5, 2026 · 10:00 AM AEST"
 registerUrl: "https://us02web.zoom.us/meeting/register/82mni-11T9KEbJQ3rnsbEA"
+attendeeOffer:
+  title: "Free attendee gift: Million Dollar Host e-book"
+  description: "Every attendee receives a free copy of the Million Dollar Host e-book, valued at $25 USD."
+  url: "https://www.milliondollarhost.com.au/shop"
 thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
 speakers:
   - name: "Brian King"
     role: "STR Wealth Conference"
+    url: "https://www.linkedin.com/in/brian-king-6b544b68"
     avatar: "/speakers/brian-king.jpg"
     topic: "Start"
-    bio: "Brian opens the session with a practical founder story on getting started in short-term rentals, what new operators should look for early, and the lessons that matter before trying to scale."
+    bio: "Brian is a short-term rental operator and STR Wealth Conference host who helps new and growing operators understand what to focus on early, what to avoid, and how to build momentum before scaling."
   - name: "Max Del Vita"
     role: "CEO, Symplehost.ai"
+    url: "https://www.linkedin.com/in/mdelvita/?skipRedirect=true"
     avatar: "/speakers/max.jpg"
     topic: "Streamline"
-    bio: "Max will show how hosts can connect PMS, channel manager, guest messaging, task handoffs, and daily workflows so operations become easier to run as bookings increase."
+    bio: "Max leads Symplehost.ai and works with hosts to connect PMS, channel management, guest messaging, task handoffs, and AI-assisted daily workflows into one cleaner operating system."
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
+    url: "https://www.milliondollarhost.com.au/shop"
     avatar: "/speakers/julie-george-vrma.jfif"
     topic: "Scale"
-    bio: "Julie brings the scaling lens: sales, marketing, team structure, and the operating habits that help short-term rental businesses grow without creating day-to-day chaos."
+    bio: "Julie is the founder of Million Dollar Host and brings the scaling lens: sales, marketing, team structure, and the operating habits that help short-term rental businesses grow without creating day-to-day chaos."
 cohosts:
   - name: "Symplehost.ai"
     logo: "/logos/symplehost.png"
@@ -49,7 +56,9 @@ Short-term rental growth is no longer just about adding more listings. Hosts and
 
 This free webinar brings Brian King, Julie George, and the Symplehost.ai team together for a practical conversation on how to start with the right mindset, streamline the work that slows you down, and scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
 
-Live on Tuesday, August 4, 2026 at **5:00 PM PT** — Wednesday, August 5 at **8:00 AM Singapore / 10:00 AM AEST**.
+Live on Tuesday, August 4, 2026 at **5:00 PM PST** — Wednesday, August 5 at **8:00 AM Singapore / 10:00 AM AEST**.
+
+Every attendee will receive a **free copy of the Million Dollar Host e-book**, valued at **$25 USD**.
 
 ## What you'll learn
 
@@ -124,7 +133,7 @@ Yes. This is a free community learning session for short-term rental hosts, owne
 
 ### When is the live session?
 
-The live session is on Tuesday, August 4, 2026 from 5:00–6:00 PM PT. For Singapore and Australia, it is Wednesday, August 5 from 8:00–9:00 AM Singapore / 10:00–11:00 AM AEST.
+The live session is on Tuesday, August 4, 2026 from 5:00–6:00 PM PST. For Singapore and Australia, it is Wednesday, August 5 from 8:00–9:00 AM Singapore / 10:00–11:00 AM AEST.
 
 ### Is this only for Million Dollar Host members?
 

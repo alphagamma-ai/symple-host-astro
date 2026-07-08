@@ -73,6 +73,15 @@ const scheduleLabel = dateTbd
             ) : (
               <p class="register-note">Registration opens soon.</p>
             )}
+            {event.data.attendeeOffer && (
+              <div class="attendee-offer">
+                <strong>{event.data.attendeeOffer.title}</strong>
+                <p>{event.data.attendeeOffer.description}</p>
+                {event.data.attendeeOffer.url && (
+                  <a href={event.data.attendeeOffer.url} target="_blank" rel="noopener noreferrer">View e-book</a>
+                )}
+              </div>
+            )}
           </div>
         ) : event.data.videoFile ? (
           <video class="local-video" controls preload="metadata">
@@ -118,7 +127,7 @@ const scheduleLabel = dateTbd
         </div>
         <div class="speaker-grid">
           {event.data.speakers.map((s) => (
-            <SpeakerCard name={s.name} role={s.role} avatar={s.avatar} topic={s.topic} bio={s.bio} />
+            <SpeakerCard name={s.name} role={s.role} avatar={s.avatar} topic={s.topic} bio={s.bio} url={s.url} />
           ))}
         </div>
       </section>
@@ -383,6 +392,33 @@ const scheduleLabel = dateTbd
       color: var(--muted-foreground);
       font-size: 0.95rem;
       margin: 0;
+    }
+    .attendee-offer {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(245, 158, 11, 0.34);
+      border-radius: 12px;
+      background: rgba(255, 247, 237, 0.8);
+      color: #4b2e05;
+    }
+    .attendee-offer strong {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+    .attendee-offer p {
+      margin: 0.35rem 0 0;
+      color: #694515;
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+    .attendee-offer a {
+      display: inline-flex;
+      margin-top: 0.45rem;
+      color: #9a3412;
+      font-size: 0.82rem;
+      font-weight: 750;
+      text-decoration: underline;
     }
     .speakers {
       margin: 2.75rem 0;

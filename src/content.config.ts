@@ -43,6 +43,11 @@ const events = defineCollection({
     youtubeId: z.string().optional(),
     videoFile: z.string().optional(),
     registerUrl: z.string().url().optional(),
+    attendeeOffer: z.object({
+      title: z.string(),
+      description: z.string(),
+      url: z.string().url().optional(),
+    }).optional(),
     thumbnail: z.string().optional(),
     speakers: z.array(z.object({
       name: z.string(),
@@ -50,6 +55,7 @@ const events = defineCollection({
       avatar: z.string().optional(),
       topic: z.string().optional(),
       bio: z.string().optional(),
+      url: z.string().url().optional(),
     })).optional().default([]),
     cohosts: z.array(z.object({
       name: z.string(),

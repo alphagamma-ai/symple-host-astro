@@ -5,9 +5,10 @@ interface Props {
   avatar?: string;
   topic?: string;
   bio?: string;
+  url?: string;
 }
 
-const { name, role, avatar, topic, bio } = Astro.props;
+const { name, role, avatar, topic, bio, url } = Astro.props;
 const initials = name
   .split(' ')
   .map((part) => part[0]?.toUpperCase() ?? '')
@@ -23,7 +24,11 @@ const initials = name
   )}
   <div class="speaker-text">
     {topic && <div class="speaker-topic">{topic}</div>}
-    <div class="speaker-name">{name}</div>
+    {url ? (
+      <a class="speaker-name speaker-link" href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+    ) : (
+      <div class="speaker-name">{name}</div>
+    )}
     {role && <div class="speaker-role">{role}</div>}
     {bio && <p class="speaker-bio">{bio}</p>}
   </div>
@@ -74,10 +79,17 @@ const initials = name
     text-transform: uppercase;
   }
   .speaker-name {
+    display: inline-flex;
     font-size: 1.2rem;
     font-weight: 850;
     color: var(--foreground);
     line-height: 1.18;
+  }
+  .speaker-link {
+    text-decoration: none;
+  }
+  .speaker-link:hover {
+    color: var(--primary);
   }
   .speaker-role {
     margin-top: 0.22rem;
