@@ -9,7 +9,7 @@ timezoneDisplay:
   secondary:
     - "Wednesday, August 5, 2026 · 8:00 AM Singapore"
     - "Wednesday, August 5, 2026 · 10:00 AM AEST"
-registerUrl: "https://us02web.zoom.us/j/4144469920?omn=84341341766"
+registerUrl: "https://us02web.zoom.us/meeting/register/82mni-11T9KEbJQ3rnsbEA"
 thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
 speakers:
   - name: "Brian King"
