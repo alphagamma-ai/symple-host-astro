@@ -38,6 +38,8 @@ Short-term rental growth in the USA is no longer just about adding more listings
 
 This free webinar brings Julie George and Symplehost.ai together for a practical conversation on how to start with the right systems, streamline the work that slows you down, and scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
 
+Live on Wednesday, August 5, 2026 at **8:00 AM SGT / 10:00 AM AET** — and Tuesday, August 4 at **5:00 PM Pacific Time**.
+
 ## What you'll learn
 
 1. **A real scaling case study** — what changes when an operator moves from early traction into a business that needs stronger systems.
@@ -56,15 +58,15 @@ This free webinar brings Julie George and Symplehost.ai together for a practical
 - Million Dollar Host community members and independent STR operators
 - Anyone exploring how AI can simplify short-term rental operations without adding more complexity
 
-## Agenda (all times SGT)
+## Agenda
 
 | Time | Topic | Led by |
 |---|---|---|
-| 8:00 – 8:10 AM | Welcome and USA STR context | Julie George |
-| 8:10 – 8:20 AM | Start: scaling case study | Guest speaker to be announced |
-| 8:20 – 8:35 AM | Streamline: from PMS and channel manager to operational workflows | Symplehost.ai team |
-| 8:35 – 8:50 AM | Scale: scaling your operations | Julie George |
-| 8:50 – 9:00 AM | Live Q&A | All speakers |
+| 8:00 – 8:10 AM SGT | Welcome and USA STR context | Julie George |
+| 8:10 – 8:20 AM SGT | Start: scaling case study | Guest speaker to be announced |
+| 8:20 – 8:35 AM SGT | Streamline: from PMS and channel manager to operational workflows | Symplehost.ai team |
+| 8:35 – 8:50 AM SGT | Scale: scaling your operations | Julie George |
+| 8:50 – 9:00 AM SGT | Live Q&A | All speakers |
 
 ## See Symplehost in action
 
@@ -83,7 +85,7 @@ Yes. This is a free community learning session for short-term rental hosts, owne
 
 ### When is the live session?
 
-The live session is on Wednesday, August 5, 2026 from 8:00–9:00 AM SGT. The Zoom registration link will be updated once Julie shares the final link.
+The live session is on Wednesday, August 5, 2026 from 8:00–9:00 AM SGT / 10:00–11:00 AM AET. For Pacific Time, it is Tuesday, August 4 from 5:00–6:00 PM. The Zoom registration link will be updated once Julie shares the final link.
 
 ### Is this only for Million Dollar Host members?
 
