@@ -14,8 +14,10 @@ const href = `${hrefBase}/${event.id}`;
 const typeLabel = EVENT_TYPE_LABEL[event.data.eventType];
 const dateLabel = formatEventDate(event.data.eventDate);
 const timeLabel = upcoming ? formatEventTime(event.data.eventDate) : null;
+const dateTbd = event.data.dateTbd;
 const durationLabel = event.data.duration ? `${event.data.duration} min` : null;
 const speakerNames = event.data.speakers.map((s) => s.name).join(', ');
+const scheduleLabel = dateTbd ? 'Date and time coming soon' : `${dateLabel}${timeLabel ? ` · ${timeLabel}` : ''}`;
 ---
 
 <a href={href} class={`event-card ${upcoming ? 'is-upcoming' : 'is-past'}`} data-event-type={event.data.eventType}>
@@ -28,13 +30,13 @@ const speakerNames = event.data.speakers.map((s) => s.name).join(', ');
   <div class="event-body">
     <div class="event-meta">
       <span class="event-type">{typeLabel}</span>
-      <span class="event-date">{dateLabel}{timeLabel ? ` · ${timeLabel}` : ''}</span>
+      <span class="event-date">{scheduleLabel}</span>
     </div>
     <h3 class="event-title">{event.data.title}</h3>
     {event.data.description && <p class="event-desc">{event.data.description}</p>}
     {speakerNames && <p class="event-speakers">{speakerNames}</p>}
     {upcoming && (
-      <span class="event-cta">Register →</span>
+      <span class="event-cta">{event.data.registerUrl ? 'Register' : 'View details'} →</span>
     )}
   </div>
 </a>

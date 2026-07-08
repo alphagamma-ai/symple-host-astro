@@ -18,7 +18,11 @@ const upcoming = isUpcoming(event);
 const typeLabel = EVENT_TYPE_LABEL[event.data.eventType];
 const dateLabel = formatEventDate(event.data.eventDate);
 const timeLabel = formatEventTime(event.data.eventDate);
+const dateTbd = event.data.dateTbd;
 const durationLabel = event.data.duration ? `${event.data.duration} minutes` : null;
+const scheduleLabel = dateTbd
+  ? `Date and time coming soon${durationLabel ? ` · ${durationLabel}` : ''}`
+  : `${dateLabel} · ${timeLabel}${durationLabel ? ` · ${durationLabel}` : ''}`;
 ---
 
 <Base title={event.data.title} description={event.data.description}>
@@ -34,7 +38,7 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
     <header class="event-header">
       <div class="event-meta">
         <span class="event-type">{typeLabel}</span>
-        <span class="event-date">{dateLabel} · {timeLabel}{durationLabel ? ` · ${durationLabel}` : ''}</span>
+        <span class="event-date">{scheduleLabel}</span>
       </div>
       <h1 class="event-title">{event.data.title}</h1>
       {event.data.description && <p class="event-desc">{event.data.description}</p>}
@@ -68,7 +72,7 @@ const durationLabel = event.data.duration ? `${event.data.duration} minutes` : n
       {upcoming ? (
         <div class="register-card">
           <h2 class="register-title">Reserve your spot</h2>
-          <p class="register-meta">{dateLabel} at {timeLabel}{durationLabel ? ` · ${durationLabel}` : ''}</p>
+          <p class="register-meta">{dateTbd ? 'Date and time coming soon' : `${dateLabel} at ${timeLabel}`}{durationLabel ? ` · ${durationLabel}` : ''}</p>
           {event.data.registerUrl ? (
             <a class="register-btn" href={event.data.registerUrl} target="_blank" rel="noopener noreferrer">Register now</a>
           ) : (

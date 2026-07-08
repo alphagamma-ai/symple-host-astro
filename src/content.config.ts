@@ -34,6 +34,7 @@ const events = defineCollection({
     description: z.string().optional(),
     eventType: z.enum(['webinar', 'customer-success-hour', 'meet-up', 'tutorial']),
     eventDate: z.coerce.date(),
+    dateTbd: z.boolean().optional().default(false),
     duration: z.number().optional(),
     youtubeId: z.string().optional(),
     videoFile: z.string().optional(),
