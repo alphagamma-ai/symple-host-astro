@@ -48,7 +48,6 @@ const scheduleLabel = dateTbd
       <div class="event-hero-panel">
         {upcoming ? (
           <div class="register-card">
-            <p class="register-eyebrow">Live webinar</p>
             <h2 class="register-title">Reserve your spot</h2>
             <p class="register-meta">{dateTbd ? 'Date and time coming soon' : `${dateLabel} at ${timeLabel}`}{durationLabel ? ` · ${durationLabel}` : ''}</p>
             {event.data.registerUrl ? (
@@ -285,14 +284,6 @@ const scheduleLabel = dateTbd
       padding: 2rem;
       text-align: left;
       box-shadow: 0 18px 48px rgba(88, 28, 135, 0.16);
-    }
-    .register-eyebrow {
-      color: var(--hero-accent-dark);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin: 0 0 0.65rem;
     }
     .register-title {
       font-size: 1.55rem;
