@@ -54,21 +54,49 @@ Live on Tuesday, August 4, 2026 at **5:00 PM PT** — Wednesday, August 5 at **8
 
 ## What you'll learn
 
-1. **Starting in STR** — Brian King's personal story and what new operators should understand before they scale.
-2. **How to streamline the work behind every booking** — how PMS, channel manager, and operational workflows connect in Symplehost.
-3. **Guest communication that does not depend on memory** — how to build repeatable workflows for pre-arrival, in-stay, issue handling, and review follow-up.
-4. **How to scale your operations** — Julie George's practical lens on building a short-term rental business that can grow without day-to-day chaos.
-5. **Where AI can help today** — realistic automation opportunities across messaging, task creation, reporting, and daily operations.
-6. **Live Q&A with all speakers** — bring your questions on starting, streamlining, scaling, and simplifying the day-to-day work of STR operations.
+<div class="learn-grid">
+  <div class="learn-card">
+    <span>01</span>
+    <strong>Starting in STR</strong>
+    <p>Brian King's personal story and what new operators should understand before they scale.</p>
+  </div>
+  <div class="learn-card">
+    <span>02</span>
+    <strong>Streamline every booking</strong>
+    <p>How PMS, channel manager, and operational workflows connect in Symplehost.</p>
+  </div>
+  <div class="learn-card">
+    <span>03</span>
+    <strong>Guest communication without memory</strong>
+    <p>Repeatable workflows for pre-arrival, in-stay, issue handling, and review follow-up.</p>
+  </div>
+  <div class="learn-card">
+    <span>04</span>
+    <strong>Scale your operations</strong>
+    <p>Julie George's practical lens on building a business that can grow without day-to-day chaos.</p>
+  </div>
+  <div class="learn-card">
+    <span>05</span>
+    <strong>Where AI can help today</strong>
+    <p>Realistic automation opportunities across messaging, task creation, reporting, and daily operations.</p>
+  </div>
+  <div class="learn-card">
+    <span>06</span>
+    <strong>Live Q&A with all speakers</strong>
+    <p>Bring your questions on starting, streamlining, scaling, and simplifying STR operations.</p>
+  </div>
+</div>
 
 ## Who it's for
 
-- USA short-term rental hosts moving from one property to a real operating business
-- Owners and managers running small or growing portfolios
-- Operators tired of coordinating everything through texts, spreadsheets, and memory
-- Teams that want cleaner handoffs between guest communication, housekeeping, maintenance, and reporting
-- Million Dollar Host community members and independent STR operators
-- Anyone exploring how AI can simplify short-term rental operations without adding more complexity
+<div class="audience-grid">
+  <div>USA short-term rental hosts moving from one property to a real operating business</div>
+  <div>Owners and managers running small or growing portfolios</div>
+  <div>Operators tired of coordinating everything through texts, spreadsheets, and memory</div>
+  <div>Teams that want cleaner handoffs between guest communication, housekeeping, maintenance, and reporting</div>
+  <div>Million Dollar Host community members and independent STR operators</div>
+  <div>Anyone exploring how AI can simplify STR operations without adding more complexity</div>
+</div>
 
 ## Agenda
 
