@@ -27,6 +27,14 @@ const articles = defineCollection({
   }),
 });
 
+const localizedArticles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/localized-articles' }),
+  schema: z.object({
+    sourceId: z.string(),
+    locale: z.enum(['jp', 'id']),
+  }),
+});
+
 const events = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: z.object({
@@ -84,4 +92,4 @@ const walkthroughs = defineCollection({
   }),
 });
 
-export const collections = { categories, articles, events, walkthroughs };
+export const collections = { categories, articles, localizedArticles, events, walkthroughs };

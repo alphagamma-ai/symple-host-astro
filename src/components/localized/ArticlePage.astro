@@ -10,6 +10,7 @@ import {
   type Locale,
   uiCopy,
 } from '../../lib/locales';
+import { getLocalizedArticleBody } from '../../lib/localized-article-bodies';
 
 interface Props {
   article: Awaited<ReturnType<typeof getCollection<'articles'>>>[number];
@@ -19,7 +20,8 @@ interface Props {
 
 const { article, category, locale = DEFAULT_LOCALE } = Astro.props;
 const copy = uiCopy[locale];
-const { Content } = await render(article);
+const localizedArticleBody = await getLocalizedArticleBody(article.id, locale);
+const { Content } = await render(localizedArticleBody ?? article);
 const articleTitle = getArticleTitle(article, locale);
 const articleDescription = getArticleDescription(article, locale);
 
@@ -40,7 +42,7 @@ const formattedDate = article.data.date
     <span>{articleTitle}</span>
   </nav>
 
-  {locale !== DEFAULT_LOCALE && (
+  {locale !== DEFAULT_LOCALE && !localizedArticleBody && (
     <aside class="locale-notice">
       <strong>{copy.localeNoticeTitle}</strong>
       <span>{copy.localeNoticeBody}</span>
