@@ -1,20 +1,21 @@
 ---
-title: "Start. Streamline. Scale."
-description: "A practical USA-focused webinar for short-term rental hosts, owners, and small operators who want cleaner systems, less manual work, and a business that can scale without day-to-day chaos."
+title: "Start, Streamline, and Scale Your Short-Term Rental Business"
+description: "A practical webinar for short-term rental hosts, owners, and small operators who want to start stronger, streamline operations, and scale without day-to-day chaos."
 eventType: webinar
 eventDate: "2026-08-05T00:00:00Z"
 duration: 60
-registerUrl: "https://zoom.us/webinar/register/placeholder"
+registerUrl: "https://us02web.zoom.us/j/4144469920?omn=84341341766"
 thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
 speakers:
-  - name: "Start speaker to be announced"
-    role: "Short-term rental operator"
+  - name: "Brian King"
+    role: "STR Wealth Conference"
+    avatar: "/speakers/brian-king.jpg"
   - name: "Max Del Vita"
     role: "CEO, Symplehost.ai"
     avatar: "/speakers/max.jpg"
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
-    avatar: "/speakers/julie-george.png"
+    avatar: "/speakers/julie-george-vrma.jfif"
 cohosts:
   - name: "Symplehost.ai"
     logo: "/logos/symplehost.png"
@@ -32,17 +33,17 @@ tags:
 draft: false
 ---
 
-## Build short-term rental operations that can keep up with growth.
+## Start stronger. Streamline the work. Scale with control.
 
-Short-term rental growth in the USA is no longer just about adding more listings. Hosts and operators are under pressure to respond faster, run tighter teams, protect margins, and give guests a smoother experience across every stay.
+Short-term rental growth is no longer just about adding more listings. Hosts and operators are under pressure to respond faster, run tighter teams, protect margins, and give guests a smoother experience across every stay.
 
-This free webinar brings Julie George and Symplehost.ai together for a practical conversation on how to start with the right systems, streamline the work that slows you down, and scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
+This free webinar brings Brian King, Julie George, and the Symplehost.ai team together for a practical conversation on how to start with the right mindset, streamline the work that slows you down, and scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
 
-Live on Wednesday, August 5, 2026 at **8:00 AM SGT / 10:00 AM AET** — and Tuesday, August 4 at **5:00 PM Pacific Time**.
+Live on Wednesday, August 5, 2026 at **8:00 AM Singapore / 10:00 AM AEST** — and Tuesday, August 4 at **5:00 PM Pacific Time**.
 
 ## What you'll learn
 
-1. **A real scaling case study** — what changes when an operator moves from early traction into a business that needs stronger systems.
+1. **Starting in STR** — Brian King's personal story and what new operators should understand before they scale.
 2. **How to streamline the work behind every booking** — how PMS, channel manager, and operational workflows connect in Symplehost.
 3. **Guest communication that does not depend on memory** — how to build repeatable workflows for pre-arrival, in-stay, issue handling, and review follow-up.
 4. **How to scale your operations** — Julie George's practical lens on building a short-term rental business that can grow without day-to-day chaos.
@@ -62,10 +63,10 @@ Live on Wednesday, August 5, 2026 at **8:00 AM SGT / 10:00 AM AET** — and Tues
 
 | Time | Topic | Led by |
 |---|---|---|
-| 8:00 – 8:10 AM SGT | Welcome and USA STR context | Julie George |
-| 8:10 – 8:20 AM SGT | Start: scaling case study | Guest speaker to be announced |
+| 8:00 – 8:10 AM SGT | Welcome and STR context | Julie George |
+| 8:10 – 8:20 AM SGT | Start: starting in STR and Brian's personal story | Brian King |
 | 8:20 – 8:35 AM SGT | Streamline: from PMS and channel manager to operational workflows | Symplehost.ai team |
-| 8:35 – 8:50 AM SGT | Scale: scaling your operations | Julie George |
+| 8:35 – 8:50 AM SGT | Scale: sales, marketing, and scaling your operations | Julie George |
 | 8:50 – 9:00 AM SGT | Live Q&A | All speakers |
 
 ## See Symplehost in action
@@ -85,7 +86,7 @@ Yes. This is a free community learning session for short-term rental hosts, owne
 
 ### When is the live session?
 
-The live session is on Wednesday, August 5, 2026 from 8:00–9:00 AM SGT / 10:00–11:00 AM AET. For Pacific Time, it is Tuesday, August 4 from 5:00–6:00 PM. The Zoom registration link will be updated once Julie shares the final link.
+The live session is on Wednesday, August 5, 2026 from 8:00–9:00 AM Singapore / 10:00–11:00 AM AEST. For Pacific Time, it is Tuesday, August 4 from 5:00–6:00 PM.
 
 ### Is this only for Million Dollar Host members?
 
