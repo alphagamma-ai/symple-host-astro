@@ -1,6 +1,6 @@
 ---
-title: "SympleHost + PriceLabs: Revenue Management Integration"
-description: "A coming-soon integration for hosts who want to connect PriceLabs dynamic pricing workflows with SympleHost calendars, bookings, and operations."
+title: "How to Integrate PriceLabs with SympleHost"
+description: "Connect PriceLabs to SympleHost so PriceLabs can send rates, minimum stay rules, check-in and check-out restrictions, and weekly or monthly discounts to your SympleHost listings."
 category: integrations
 section: Revenue management
 sectionOrder: 1
@@ -9,130 +9,167 @@ tags:
   - Dynamic Pricing
   - Revenue Management
   - Integrations
-date: '2026-06-18'
+date: '2026-07-08'
 draft: false
 ---
 
-**Coming soon: connect PriceLabs with SympleHost so dynamic pricing decisions stay close to your calendars, bookings, and day-to-day rental operations.**
+**Connect PriceLabs with SympleHost to bring dynamic pricing recommendations into your SympleHost listings and calendar workflow.**
 
 ---
 
-> **Status:** This integration is planned and not yet available inside SympleHost. This page explains what we are building toward and when it will be useful for hosts.
+> **TL;DR:** First enable SympleHost inside PriceLabs. Then open **Settings → Integrations** in SympleHost, connect PriceLabs using your PriceLabs registered email address, add the listings you want to sync, review your pricing inside PriceLabs, and enable price syncing.
 
 ---
 
-## What This Integration Will Help With
+## What PriceLabs Can Send to SympleHost
 
-PriceLabs is used by short-term rental operators for dynamic pricing and revenue management.
+Once connected, PriceLabs can send pricing updates to SympleHost for up to **365 days in advance**.
 
-The planned SympleHost integration is for hosts who want external pricing intelligence to connect cleanly with the operational system they already use for:
+Supported updates include:
 
-- Listings and calendars
-- Booking records
-- Availability
-- Direct bookings
-- Revenue visibility
-- Team workflows
+- Daily rates
+- Minimum stay rules
+- Check-in restrictions
+- Check-out restrictions
+- Weekly discounts
+- Monthly discounts
 
-The goal is not to replace SympleHost's built-in pricing tools. The goal is to give hosts a clean path when they want a dedicated revenue management tool connected to their SympleHost workflow.
-
----
-
-## Who It Will Be For
-
-This integration will be useful for:
-
-- Villa managers handling several listings
-- Hosts operating in seasonal markets like Bali, Phuket, Bandung, Da Nang, and other SEA destinations
-- Operators who want pricing recommendations informed by demand, booking pace, and market movement
-- Teams that want fewer manual pricing updates
-- Hosts who want pricing decisions connected to real booking activity
-
-If you manage one property with simple rates, SympleHost's built-in pricing and rate plans may be enough. If you manage a growing portfolio or operate in a market with sharp seasonality, a dedicated revenue management tool can become more useful.
+PriceLabs remains the place where you review pricing recommendations and revenue management settings. SympleHost receives the synced pricing data so your listings and calendar stay aligned with the pricing rules you choose.
 
 ---
 
-## Before the Integration
+## Before You Start
 
-Without a connected workflow, hosts often deal with:
+Make sure you have:
 
-- Manual rate updates
-- Pricing decisions separated from actual booking activity
-- More risk of inconsistent rates across dates and channels
-- Harder reporting on whether pricing changes improved performance
-- Extra admin during peak season, holidays, and last-minute demand shifts
+- A SympleHost account with permission to manage integrations
+- A PriceLabs account
+- At least one listing already created in SympleHost
+- The email address used for your PriceLabs account
 
-Dynamic pricing is only useful if the recommendations make it into the operational workflow cleanly.
-
----
-
-## After the Integration
-
-Once available, the intended workflow is:
-
-- Use PriceLabs for dynamic pricing and revenue management intelligence
-- Keep SympleHost as the operating system for listings, calendars, bookings, and team workflows
-- Reduce manual pricing follow-up
-- Keep rate decisions closer to real availability and booking data
-- Help hosts respond faster to demand changes, seasonality, and booking pace
-
-That is where the integration becomes valuable: not just better pricing, but cleaner execution around pricing.
+If you still need to create or review your SympleHost pricing setup, see [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules).
 
 ---
 
-## Why This Matters for SEA Hosts
+## Step 1: Enable SympleHost in PriceLabs
 
-Southeast Asian short-term rental markets can move fast.
+Start inside PriceLabs.
 
-Demand changes around:
+1. Log in to your PriceLabs account.
+2. Click **Add your listings** if this is your first listing import.
+3. If you already have listings in PriceLabs, click **Add/Re-Import Listings**.
+4. Choose **PMS / Channel Manager** as the connection type.
+5. Select **SympleHost** from the dropdown.
+6. Enable the option that allows SympleHost to add listings to your PriceLabs account.
+7. Save the connection.
 
-- School holidays
-- Long weekends
-- Flight patterns
-- Weather seasons
-- Local events
-- Digital nomad demand
-- Regional travel trends
-
-Static pricing can leave money on the table in high-demand periods and leave calendars empty when demand softens. External revenue management tools help with pricing intelligence; SympleHost helps keep that intelligence connected to the actual work of hosting.
+This prepares PriceLabs to accept listings from SympleHost during the next step.
 
 ---
 
-## Current Status
+## Step 2: Connect PriceLabs in SympleHost
 
-The PriceLabs integration is **coming soon**.
+Now switch to SympleHost.
 
-Until it is available, hosts can use SympleHost's built-in pricing tools to manage:
+1. Log in to your SympleHost account.
+2. Open **Settings**.
+3. Go to **Integrations**.
+4. Find the **PriceLabs** integration.
+5. Click **Connect**.
+6. Enter the email address registered to your PriceLabs account.
+7. Complete the connection.
 
-- Standard rates
-- Rate plans
-- Weekend and seasonal pricing
-- Guest-based pricing
-- Pricing calendar review
+After the connection succeeds, the PriceLabs card changes from **Connect** to **Manage**.
 
-For setup guidance, see [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules).
+---
+
+## Step 3: Add Listings to PriceLabs
+
+After PriceLabs is connected:
+
+1. Click **Manage** on the PriceLabs integration card in SympleHost.
+2. Click **Add listings**.
+3. Select the SympleHost listings you want to connect with PriceLabs.
+4. Confirm the listing connection.
+
+Only add listings that you want PriceLabs to manage. If a listing should keep using SympleHost pricing rules only, leave it out of the PriceLabs connection.
+
+---
+
+## Step 4: Review Pricing in PriceLabs
+
+Once the listings are connected, return to PriceLabs and review each listing before turning on syncing.
+
+Check:
+
+- Base price
+- Minimum price
+- Maximum price
+- Seasonality
+- Occupancy settings
+- Minimum stay rules
+- Check-in and check-out restrictions
+- Weekly and monthly discount settings
+
+Do not turn on automatic syncing until the recommendations look right for the listing.
+
+---
+
+## Step 5: Sync Prices
+
+When you are ready:
+
+1. In PriceLabs, open the connected listing.
+2. Review the recommended rates and rules.
+3. Enable **Sync Prices** for automatic syncing.
+4. Use **Sync Now** if you want to push updates immediately.
+
+After sync is enabled, PriceLabs sends pricing updates to SympleHost according to your PriceLabs settings.
+
+---
+
+## What to Check After Syncing
+
+After your first sync, review the listing in SympleHost.
+
+Check that:
+
+- Rates appear on the expected dates
+- Minimum stay rules match your PriceLabs setup
+- Check-in and check-out restrictions are correct
+- Weekly or monthly discounts are behaving as expected
+- Your connected OTA channels show the intended pricing after downstream sync
+
+If something looks wrong, pause syncing in PriceLabs, review the listing settings, and sync again after correcting the issue.
 
 ---
 
 ## Common Questions
 
-### Is the PriceLabs integration live?
+### Does PriceLabs replace SympleHost pricing rules?
 
-Not yet. It is planned, but not currently available inside SympleHost.
+No. PriceLabs manages the synced pricing recommendations for connected listings. SympleHost still remains your operating system for listings, calendars, bookings, guest communication, tasks, and operational workflows.
 
-### Can I still manage pricing in SympleHost?
+### How far ahead can PriceLabs send prices to SympleHost?
 
-Yes. SympleHost already supports pricing setup, rate plans, and pricing calendar workflows.
+PriceLabs can send supported pricing data to SympleHost up to **365 days in advance**.
 
-### Should I use PriceLabs or SympleHost pricing rules?
+### Which listings should I connect?
 
-Use SympleHost pricing rules if you need a clear manual pricing structure. A revenue management integration becomes more useful when you manage multiple listings, face strong seasonality, or want external pricing recommendations.
+Connect listings where you want PriceLabs to control pricing recommendations. Keep simple or manually priced listings outside PriceLabs if you prefer to manage them directly in SympleHost.
 
-### Will this replace SympleHost pricing tools?
+### What should I do before enabling automatic sync?
 
-No. The goal is to connect external revenue management intelligence with SympleHost's calendar, booking, and operations workflows.
+Review each listing inside PriceLabs first. Confirm the base price, minimum price, maximum price, seasonality, stay restrictions, and discounts before enabling **Sync Prices**.
+
+### Where do I manage dynamic pricing after connecting?
+
+Use PriceLabs to manage dynamic pricing strategy and recommendations. Use SympleHost to manage the listing, calendar, reservations, guest messages, tasks, and day-to-day operations around that pricing.
 
 ---
 
-**Related reading:** [Dynamic Pricing for Short-Term Rentals](/str-market-trends/dynamic-pricing-short-term-rentals-sea) · [What Is RevPAR](/str-market-trends/what-is-revpar-short-term-rentals) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
+## Related Articles
 
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
+- [Dynamic Pricing for Short-Term Rentals](/str-market-trends/dynamic-pricing-short-term-rentals-sea)
+- [What Is RevPAR](/str-market-trends/what-is-revpar-short-term-rentals)
