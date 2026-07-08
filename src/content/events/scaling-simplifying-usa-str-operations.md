@@ -4,6 +4,11 @@ description: "A practical webinar for short-term rental hosts, owners, and small
 eventType: webinar
 eventDate: "2026-08-05T00:00:00Z"
 duration: 60
+timezoneDisplay:
+  primary: "Tuesday, August 4, 2026 · 5:00 PM PT"
+  secondary:
+    - "Wednesday, August 5, 2026 · 8:00 AM Singapore"
+    - "Wednesday, August 5, 2026 · 10:00 AM AEST"
 registerUrl: "https://us02web.zoom.us/j/4144469920?omn=84341341766"
 thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
 speakers:
@@ -45,7 +50,7 @@ Short-term rental growth is no longer just about adding more listings. Hosts and
 
 This free webinar brings Brian King, Julie George, and the Symplehost.ai team together for a practical conversation on how to start with the right mindset, streamline the work that slows you down, and scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
 
-Live on Wednesday, August 5, 2026 at **8:00 AM Singapore / 10:00 AM AEST** — and Tuesday, August 4 at **5:00 PM Pacific Time**.
+Live on Tuesday, August 4, 2026 at **5:00 PM PT** — Wednesday, August 5 at **8:00 AM Singapore / 10:00 AM AEST**.
 
 ## What you'll learn
 
@@ -92,7 +97,7 @@ Yes. This is a free community learning session for short-term rental hosts, owne
 
 ### When is the live session?
 
-The live session is on Wednesday, August 5, 2026 from 8:00–9:00 AM Singapore / 10:00–11:00 AM AEST. For Pacific Time, it is Tuesday, August 4 from 5:00–6:00 PM.
+The live session is on Tuesday, August 4, 2026 from 5:00–6:00 PM PT. For Singapore and Australia, it is Wednesday, August 5 from 8:00–9:00 AM Singapore / 10:00–11:00 AM AEST.
 
 ### Is this only for Million Dollar Host members?
 

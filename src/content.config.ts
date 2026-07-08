@@ -36,6 +36,10 @@ const events = defineCollection({
     eventDate: z.coerce.date(),
     dateTbd: z.boolean().optional().default(false),
     duration: z.number().optional(),
+    timezoneDisplay: z.object({
+      primary: z.string(),
+      secondary: z.array(z.string()).optional().default([]),
+    }).optional(),
     youtubeId: z.string().optional(),
     videoFile: z.string().optional(),
     registerUrl: z.string().url().optional(),
