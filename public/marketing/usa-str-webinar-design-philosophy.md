@@ -1,11 +1,11 @@
-# Operational Momentum
+# Co-Host Clarity
 
-Operational Momentum treats growth as a precise, visible system rather than a vague promise. Space is arranged like an operating room for a business: calm fields, clean divisions, and clear directional rhythm. The work should feel meticulously crafted, as if every margin, portrait crop, and typographic shift has been adjusted by a designer with deep expertise and a patient hand.
+Co-Host Clarity follows the Symplehost product language: crisp white surfaces, deep violet hierarchy, warm orange action, and calm SaaS spacing. The work should feel like an extension of the product website, not a standalone poster. Every margin, card, and label should be meticulously crafted and deliberate.
 
-The palette is built from Symplehost's deep violet, warm amber, and soft off-white. Violet carries trust and strategic clarity, while amber signals practical action and momentum. Surfaces should feel polished and editorial rather than loud, with pattern used sparingly to imply workflow, infrastructure, and repeatable systems.
+The visual system is built around UI confidence. Information appears in rounded cards, compact labels, and structured rows that make the webinar feel practical and easy to join. Violet carries the brand and strategic message; orange appears only where action matters. The composition must look like the product team itself made it with painstaking attention.
 
-Scale does the storytelling. A compact label establishes context, the title becomes the main architectural form, and supporting details sit in disciplined clusters. Speaker portraits act as proof and human warmth, but never as clutter. The final composition must look labored over with care, with crisp alignment and master-level restraint.
+The key object is the registration card. It should mirror the landing page's "Reserve your spot" area, with US time first and Singapore/Australia underneath. Speaker portraits are proof points, treated as tidy profile chips rather than decorative imagery. The result should be conversion-ready and master-level in alignment.
 
-The visual reference is the short-term rental operator's path from one listing to a functioning business. This should be felt through the sequence Start, Streamline, Scale: three points of movement, three speakers, three operational states. The piece should communicate that the webinar is practical, modern, and designed for hosts who want clarity instead of chaos.
+Text is concise, direct, and brand-aligned. The headline can be large, but the surrounding details should feel like a polished interface: readable, calm, and easy to scan. The subtle reference remains Start, Streamline, Scale, expressed as three operational states rather than a noisy slogan.
 
-Text remains essential only: title, time, speakers, and action. The design carries the rest through rhythm, confidence, and contrast. Every asset should feel ready for a real campaign, not like a decorated document.
+The final assets must feel consistent with Symplehost's homepage: clean, practical, AI co-host energy, and no visual clutter. They should be ready for a real campaign and feel native to the brand.

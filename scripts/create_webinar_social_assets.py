@@ -15,10 +15,11 @@ DEEP = (45, 23, 79)
 VIOLET = (127, 86, 217)
 AMBER = (245, 158, 11)
 ORANGE = (249, 115, 22)
-PAPER = (255, 250, 240)
+PAPER = (250, 250, 250)
 LILAC = (245, 243, 255)
-INK = (34, 24, 48)
-MUTED = (94, 80, 107)
+INK = (24, 24, 27)
+MUTED = (82, 82, 91)
+SOFT_BORDER = (228, 228, 231)
 WHITE = (255, 255, 255)
 
 FONT_SF = Path("/System/Library/Fonts/SFNS.ttf")
@@ -149,73 +150,117 @@ def draw_pill(draw: ImageDraw.ImageDraw, xy: tuple[int, int], text: str, fnt: Im
     draw.text((x + 16, y + 9), text, font=fnt, fill=WHITE)
 
 
+def paste_brand(draw: ImageDraw.ImageDraw, img: Image.Image, xy: tuple[int, int], scale: int = 42):
+    x, y = xy
+    logo = Image.open(ROOT / "public/logos/symplehost.png").convert("RGBA").resize((scale, scale), Image.Resampling.LANCZOS)
+    img.alpha_composite(logo, (x, y))
+    draw.text((x + scale + 12, y + 8), "SYMPLE HOST", font=font(FONT_SF, int(scale * 0.42)), fill=INK)
+
+
+def card(draw: ImageDraw.ImageDraw, box, radius=28, fill=(255, 255, 255, 244)):
+    rounded_rect(draw, box, radius, fill, SOFT_BORDER, 2)
+
+
+def time_card(draw: ImageDraw.ImageDraw, box, compact=False):
+    x1, y1, x2, y2 = box
+    card(draw, box, 28)
+    title = font(FONT_SF, 40 if not compact else 32)
+    label = font(FONT_SF, 20 if not compact else 17)
+    body = font(FONT_SF, 24 if not compact else 19)
+    row_gap = 66 if not compact else 54
+
+    draw.text((x1 + 30, y1 + 28), "Reserve your spot", font=title, fill=DEEP)
+    rows = [
+        ("USA", "Tue, Aug 4", "5:00 PM PT"),
+        ("Singapore", "Wed, Aug 5", "8:00 AM SGT"),
+        ("Australia", "Wed, Aug 5", "10:00 AM AEST"),
+    ]
+    start_y = y1 + (100 if not compact else 86)
+    for i, (region, date, time) in enumerate(rows):
+        row_y = start_y + i * row_gap
+        rounded_rect(draw, (x1 + 30, row_y, x2 - 30, row_y + row_gap - 12), 16, (250, 250, 250, 255), SOFT_BORDER, 1)
+        draw.text((x1 + 52, row_y + 17), region, font=label, fill=ORANGE if i == 0 else DEEP)
+        draw.text((x1 + (220 if not compact else 174), row_y + 17), date, font=body, fill=MUTED)
+        tw, _ = text_size(draw, time, body)
+        draw.text((x2 - 54 - tw, row_y + 17), time, font=body, fill=INK)
+
+    btn_h = 54 if not compact else 46
+    rounded_rect(draw, (x1 + 30, y2 - btn_h - 28, x2 - 30, y2 - 28), 14, ORANGE)
+    draw.text((x1 + 54, y2 - btn_h - 14), "Register now", font=font(FONT_SF, 23 if not compact else 19), fill=WHITE)
+
+
 def instagram() -> Image.Image:
     img = gradient_bg((1080, 1080)).convert("RGBA")
-    img.alpha_composite(add_grid(ImageDraw.Draw(img), img.size, 36, 20))
-    add_glow(img, (165, 170), 260, AMBER, 64)
-    add_glow(img, (955, 225), 300, VIOLET, 52)
+    d = ImageDraw.Draw(img)
+    img.alpha_composite(add_grid(d, img.size, 42, 14))
+    add_glow(img, (960, 130), 260, VIOLET, 40)
+    add_glow(img, (110, 900), 240, AMBER, 34)
 
     d = ImageDraw.Draw(img)
-    rounded_rect(d, (54, 54, 1026, 1026), 34, (255, 255, 255, 216), (127, 86, 217, 54), 2)
-    rounded_rect(d, (84, 84, 996, 996), 24, (255, 255, 255, 48), (245, 158, 11, 60), 1)
+    rounded_rect(d, (48, 48, 1032, 1032), 36, WHITE, (228, 228, 231), 2)
+    paste_brand(d, img, (88, 88), 46)
 
-    draw_pill(d, (104, 112), "FREE LIVE WEBINAR", font(FONT_DIN, 31))
-    d.text((104, 178), "START,", font=font(FONT_NEWYORK, 112), fill=DEEP)
-    d.text((104, 292), "STREAMLINE", font=font(FONT_NEWYORK, 112), fill=DEEP)
-    d.text((104, 406), "& SCALE", font=font(FONT_NEWYORK, 112), fill=DEEP)
-    d.text((108, 526), "YOUR SHORT-TERM RENTAL BUSINESS", font=font(FONT_DIN, 45), fill=ORANGE)
+    rounded_rect(d, (88, 170, 315, 215), 999, LILAC)
+    d.text((108, 183), "FREE LIVE WEBINAR", font=font(FONT_SF, 19), fill=DEEP)
 
-    rounded_rect(d, (104, 596, 976, 704), 22, (45, 23, 79, 238))
-    d.text((132, 619), "TUE AUG 4  ·  5:00 PM PT", font=font(FONT_SF, 39), fill=WHITE)
-    d.text((132, 667), "WED AUG 5  ·  8AM SGT  ·  10AM AEST", font=font(FONT_SF, 27), fill=(238, 230, 255))
+    d.text((88, 252), "Start, Streamline", font=font(FONT_SF, 72), fill=DEEP)
+    d.text((88, 332), "& Scale", font=font(FONT_SF, 72), fill=DEEP)
+    d.text((91, 424), "Short-term rental operations", font=font(FONT_SF, 32), fill=MUTED)
 
     speakers = [
         ("public/speakers/brian-king.jpg", "START", "Brian King"),
         ("public/speakers/max.jpg", "STREAMLINE", "Max Del Vita"),
         ("public/speakers/julie-george-vrma.jfif", "SCALE", "Julie George"),
     ]
-    for i, (p, label, name) in enumerate(speakers):
-        paste_speaker(img, ROOT / p, (130 + i * 303, 728), 122, label, name, compact=True)
+    time_card(d, (88, 500, 992, 872), compact=False)
 
-    d = ImageDraw.Draw(img)
-    rounded_rect(d, (104, 956, 692, 1006), 18, (245, 158, 11, 240))
-    d.text((130, 969), "REGISTER: help.symplehost.ai/webinars", font=font(FONT_DIN, 27), fill=DEEP)
-    d.text((737, 969), "SYMPLEHOST x MDH", font=font(FONT_DIN, 27), fill=DEEP)
+    for i, (p, label, name) in enumerate(speakers):
+        x = 112 + i * 310
+        rounded_rect(d, (x - 14, 894, x + 240, 994), 20, (250, 250, 250, 255), SOFT_BORDER, 1)
+        portrait = crop_circle(ROOT / p, 58)
+        img.alpha_composite(portrait, (x + 6, 915))
+        d.text((x + 78, 914), label, font=font(FONT_SF, 13), fill=ORANGE)
+        d.text((x + 78, 938), name, font=font(FONT_SF, 22), fill=DEEP)
+
+    d.text((88, 1000), "help.symplehost.ai/webinars", font=font(FONT_SF, 22), fill=VIOLET)
+    d.text((746, 1000), "Symplehost x MDH", font=font(FONT_SF, 22), fill=MUTED)
     return img
 
 
 def linkedin() -> Image.Image:
     img = gradient_bg((1200, 627)).convert("RGBA")
-    img.alpha_composite(add_grid(ImageDraw.Draw(img), img.size, 34, 20))
-    add_glow(img, (120, 120), 220, AMBER, 58)
-    add_glow(img, (1050, 420), 270, VIOLET, 48)
+    d = ImageDraw.Draw(img)
+    img.alpha_composite(add_grid(d, img.size, 40, 14))
+    add_glow(img, (1070, 110), 250, VIOLET, 36)
+    add_glow(img, (160, 560), 220, AMBER, 30)
 
     d = ImageDraw.Draw(img)
-    rounded_rect(d, (36, 36, 1164, 591), 28, (255, 255, 255, 222), (127, 86, 217, 52), 2)
-    draw_pill(d, (72, 72), "FREE LIVE WEBINAR", font(FONT_DIN, 28))
+    rounded_rect(d, (34, 34, 1166, 593), 30, WHITE, SOFT_BORDER, 2)
+    paste_brand(d, img, (74, 72), 42)
 
-    d.text((72, 130), "Start, Streamline", font=font(FONT_NEWYORK, 78), fill=DEEP)
-    d.text((72, 210), "& Scale", font=font(FONT_NEWYORK, 78), fill=DEEP)
-    d.text((76, 302), "YOUR SHORT-TERM RENTAL BUSINESS", font=font(FONT_DIN, 38), fill=ORANGE)
-
-    summary = "A practical session for STR hosts ready to simplify operations and grow with more control."
-    draw_wrapped(d, (76, 350), summary, font(FONT_SF, 25), MUTED, 520, 8)
-
-    rounded_rect(d, (72, 458, 620, 540), 20, (45, 23, 79, 238))
-    d.text((98, 475), "TUE AUG 4  ·  5:00 PM PT", font=font(FONT_SF, 30), fill=WHITE)
-    d.text((98, 511), "WED AUG 5  ·  8AM SGT  ·  10AM AEST", font=font(FONT_SF, 21), fill=(238, 230, 255))
+    rounded_rect(d, (74, 142, 291, 184), 999, LILAC)
+    d.text((94, 154), "FREE LIVE WEBINAR", font=font(FONT_SF, 17), fill=DEEP)
+    d.text((74, 218), "Start, Streamline", font=font(FONT_SF, 58), fill=DEEP)
+    d.text((74, 284), "& Scale", font=font(FONT_SF, 58), fill=DEEP)
+    d.text((76, 363), "Short-term rental operations", font=font(FONT_SF, 25), fill=MUTED)
 
     speakers = [
         ("public/speakers/brian-king.jpg", "START", "Brian King"),
         ("public/speakers/max.jpg", "STREAMLINE", "Max Del Vita"),
         ("public/speakers/julie-george-vrma.jfif", "SCALE", "Julie George"),
     ]
-    for i, (p, label, name) in enumerate(speakers):
-        paste_speaker(img, ROOT / p, (700 + i * 150, 94), 116, label, name, compact=True)
+    time_card(d, (650, 72, 1126, 430), compact=True)
 
-    rounded_rect(d, (700, 456, 1116, 542), 20, (255, 247, 237, 238), (245, 158, 11, 100), 2)
-    d.text((724, 474), "Brian King  ·  Max Del Vita  ·  Julie George", font=font(FONT_SF, 24), fill=DEEP)
-    d.text((724, 510), "Register at help.symplehost.ai/webinars", font=font(FONT_DIN, 30), fill=ORANGE)
+    for i, (p, label, name) in enumerate(speakers):
+        x = 74 + i * 185
+        rounded_rect(d, (x, 456, x + 164, 548), 18, (250, 250, 250, 255), SOFT_BORDER, 1)
+        portrait = crop_circle(ROOT / p, 54)
+        img.alpha_composite(portrait, (x + 14, 475))
+        d.text((x + 80, 475), label, font=font(FONT_SF, 12), fill=ORANGE)
+        d.text((x + 80, 498), name, font=font(FONT_SF, 18), fill=DEEP)
+
+    d.text((672, 476), "Register at help.symplehost.ai/webinars", font=font(FONT_SF, 25), fill=VIOLET)
+    d.text((672, 518), "Brian King · Max Del Vita · Julie George", font=font(FONT_SF, 21), fill=MUTED)
     return img
 
 
