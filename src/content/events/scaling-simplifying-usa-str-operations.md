@@ -1,5 +1,5 @@
 ---
-title: "Scaling and Simplifying Your Short-Term Rental Operations"
+title: "Start. Streamline. Scale."
 description: "A practical USA-focused webinar for short-term rental hosts, owners, and small operators who want cleaner systems, less manual work, and a business that can scale without day-to-day chaos."
 eventType: webinar
 eventDate: "2026-08-05T00:00:00Z"
@@ -27,11 +27,11 @@ tags:
 draft: false
 ---
 
-## Build operations that can keep up with growth.
+## Build short-term rental operations that can keep up with growth.
 
 Short-term rental growth in the USA is no longer just about adding more listings. Hosts and operators are under pressure to respond faster, run tighter teams, protect margins, and give guests a smoother experience across every stay.
 
-This free webinar brings Julie George and Symplehost.ai together for a practical conversation on how to scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
+This free webinar brings Julie George and Symplehost.ai together for a practical conversation on how to start with the right systems, streamline the work that slows you down, and scale without turning your business into a maze of spreadsheets, inboxes, and last-minute decisions.
 
 ## What you'll learn
 
