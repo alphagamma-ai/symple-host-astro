@@ -7,6 +7,11 @@ duration: 120
 registerUrl: "https://zoom.us/webinar/register/placeholder"
 thumbnail: "/screenshots/events/symplehost-ai-cohost-thumbnail.svg"
 speakers:
+  - name: "Start speaker to be announced"
+    role: "Short-term rental operator"
+  - name: "Max Del Vita"
+    role: "CEO, Symplehost.ai"
+    avatar: "/speakers/max.jpg"
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
     avatar: "/speakers/julie-george.png"
@@ -35,12 +40,12 @@ This free webinar brings Julie George and Symplehost.ai together for a practical
 
 ## What you'll learn
 
-1. **The operational bottlenecks that show up as you scale** — the small manual habits that become expensive once you manage more guests, cleaners, owners, and channels.
-2. **How to simplify your tech stack** — what belongs in your core operating system, what can stay lightweight, and what creates avoidable double work.
+1. **Start with the right operating foundation** — what to put in place before growth makes the business harder to control.
+2. **Streamline the work that slows you down** — how Max and the Symplehost.ai team think about reducing manual work across guest communication, tasks, reporting, and daily operations.
 3. **Guest communication that does not depend on memory** — how to build repeatable workflows for pre-arrival, in-stay, issue handling, and review follow-up.
 4. **Team workflows that reduce owner/operator drag** — practical ways to assign, track, and close the loop on cleaning, maintenance, inspections, and guest tasks.
 5. **Where AI can help today** — realistic automation opportunities across messaging, task creation, reporting, and daily operations.
-6. **Live Q&A with Julie George** — bring your questions on scaling, systems, and simplifying the day-to-day work of STR operations.
+6. **Live Q&A with all speakers** — bring your questions on starting, streamlining, scaling, and simplifying the day-to-day work of STR operations.
 
 ## Who it's for
 
@@ -56,10 +61,10 @@ This free webinar brings Julie George and Symplehost.ai together for a practical
 | Time | Topic | Led by |
 |---|---|---|
 | 8:00 – 8:10 AM | Welcome and USA STR context | Julie George |
-| 8:10 – 8:35 AM | The scaling problems most operators feel first | Julie George |
-| 8:35 – 9:10 AM | Simplifying guest, task, and team operations | Symplehost.ai |
-| 9:10 – 9:35 AM | Practical AI workflows for STR operators | Symplehost.ai |
-| 9:35 – 10:00 AM | Live Q&A | Julie George and Symplehost.ai |
+| 8:10 – 8:35 AM | Start: building the right operating foundation | Speaker to be announced |
+| 8:35 – 9:10 AM | Streamline: simplifying guest, task, and team operations | Max Del Vita |
+| 9:10 – 9:35 AM | Scale: growing without day-to-day chaos | Julie George |
+| 9:35 – 10:00 AM | Live Q&A | All speakers |
 
 ## See Symplehost in action
 
