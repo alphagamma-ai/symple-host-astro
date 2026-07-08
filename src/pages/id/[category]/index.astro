@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import CategoryPage from '../../components/localized/CategoryPage.astro';
+import CategoryPage from '../../../components/localized/CategoryPage.astro';
 
 export async function getStaticPaths() {
   const categories = await getCollection('categories');
@@ -13,4 +13,4 @@ export async function getStaticPaths() {
 const { category } = Astro.props;
 ---
 
-<CategoryPage category={category} locale="en" />
+<CategoryPage category={category} locale="id" />

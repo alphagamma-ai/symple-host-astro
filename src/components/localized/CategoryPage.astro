@@ -1,0 +1,471 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import {
+  DEFAULT_LOCALE,
+  getArticleDescription,
+  getArticleTitle,
+  getCategoryDescription,
+  getCategoryTitle,
+  getSectionTitle,
+  localizePath,
+  type Locale,
+  uiCopy,
+} from '../../lib/locales';
+
+interface Props {
+  category: Awaited<ReturnType<typeof getCollection<'categories'>>>[number];
+  locale?: Locale;
+}
+
+const { category, locale = DEFAULT_LOCALE } = Astro.props;
+const copy = uiCopy[locale];
+const categoryTitle = getCategoryTitle(category, locale);
+const categoryDescription = getCategoryDescription(category, locale);
+const articles = await getCollection('articles', ({ data }) =>
+  !data.draft && data.category === category.id
+);
+
+const SECTION_ORDER: Record<string, string[]> = {
+  'getting-started': [
+    'Start here',
+    'Set up your account',
+    'Know your workspace',
+    'Your first reservations',
+  ],
+  'platform-guides': [
+    'Messaging & guest communication',
+    'Bookings & reservations',
+    'Listings & pricing',
+    'Services',
+    'Quotes & payments',
+    'Tasks & operations',
+  ],
+  'ai-and-api': [
+    'AI assistants',
+    'Developer API',
+  ],
+  integrations: [
+    'Revenue management',
+  ],
+};
+
+const UNGROUPED = '__ungrouped__';
+const explicitOrder = SECTION_ORDER[category.id] ?? [];
+
+const groups = new Map<string, typeof articles>();
+for (const article of articles) {
+  const key = article.data.section ?? UNGROUPED;
+  if (!groups.has(key)) groups.set(key, []);
+  groups.get(key)!.push(article);
+}
+
+for (const [, list] of groups) {
+  list.sort((a, b) => {
+    const ao = a.data.sectionOrder ?? Infinity;
+    const bo = b.data.sectionOrder ?? Infinity;
+    if (ao !== bo) return ao - bo;
+    return new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime();
+  });
+}
+
+const remaining = [...groups.keys()]
+  .filter((k) => k !== UNGROUPED && !explicitOrder.includes(k))
+  .sort();
+const orderedSectionKeys = [
+  ...explicitOrder.filter((k) => groups.has(k)),
+  ...remaining,
+];
+const hasUngrouped = groups.has(UNGROUPED);
+
+function faqAnswerHtml(md: string): string {
+  let html = md
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  html = html.replace(/→ See: <em>([^<]+)<\/em>/g, '<span class="xref">→ See: <em>$1</em></span>');
+  const paras = html.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+  return paras.map((p) => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+}
+
+type FaqItem = {
+  q: string;
+  a: string;
+  articleTitle: string;
+  articleUrl: string;
+  section: string | null;
+};
+const faqItems: FaqItem[] = [];
+if (category.id === 'faqs') {
+  for (const article of articles) {
+    const body = article.body ?? '';
+    const articleUrl = localizePath(`/${category.id}/${article.id}`, locale);
+    let currentSection: string | null = null;
+    const lines = body.split('\n');
+    let i = 0;
+    while (i < lines.length) {
+      const line = lines[i];
+      const secMatch = line.match(/^##\s+(.+?)\s*$/);
+      const qMatch = line.match(/^###\s+(.+?)\s*$/);
+      if (secMatch) {
+        currentSection = secMatch[1];
+        i++;
+        continue;
+      }
+      if (qMatch) {
+        const question = qMatch[1];
+        i++;
+        const answerLines: string[] = [];
+        while (i < lines.length && !lines[i].match(/^#{2,3}\s/) && lines[i].trim() !== '---') {
+          answerLines.push(lines[i]);
+          i++;
+        }
+        faqItems.push({
+          q: question,
+          a: answerLines.join('\n').trim(),
+          articleTitle: getArticleTitle(article, locale),
+          articleUrl,
+          section: currentSection,
+        });
+        continue;
+      }
+      i++;
+    }
+  }
+}
+
+const faqMeta = {
+  questions: copy.questions,
+  noResults: copy.noFaqMatches,
+  of: locale === 'jp' ? '/' : 'of',
+};
+---
+
+<Base title={categoryTitle} description={categoryDescription} locale={locale}>
+  <nav class="breadcrumb">
+    <a href={localizePath('/', locale)}>{copy.allTopics}</a>
+    <span class="sep">/</span>
+    <span>{categoryTitle}</span>
+  </nav>
+
+  <header class="cat-header">
+    {category.data.emoji && <span class="cat-emoji">{category.data.emoji}</span>}
+    <h1 class="cat-title">{categoryTitle}</h1>
+    {categoryDescription && <p class="cat-desc">{categoryDescription}</p>}
+  </header>
+
+  {category.id === 'faqs' && faqItems.length > 0 && (
+    <section class="faq-search-wrap">
+      <div class="faq-search">
+        <input
+          id="faq-search-input"
+          type="search"
+          placeholder={copy.searchFaqs}
+          autocomplete="off"
+          aria-label={copy.searchFaqsLabel}
+        />
+        <p class="faq-search-meta" id="faq-search-meta">
+          {locale === 'jp' ? `${faqItems.length}${copy.questions}` : `${faqItems.length} ${copy.questions}`}
+        </p>
+      </div>
+      <div id="faq-results" class="faq-results">
+        {faqItems.map((item) => (
+          <details
+            class="faq-item"
+            data-q={item.q.toLowerCase()}
+            data-a={item.a.toLowerCase()}
+              data-article={item.articleTitle.toLowerCase()}
+          >
+            <summary>
+              <span class="faq-q">{item.q}</span>
+              <span class="faq-src">{item.articleTitle}{item.section ? ` · ${item.section}` : ''}</span>
+            </summary>
+            <div class="faq-a" set:html={faqAnswerHtml(item.a)} />
+          </details>
+        ))}
+      </div>
+      <p id="faq-empty" class="faq-empty" hidden>{copy.noFaqMatches}</p>
+    </section>
+  )}
+
+  {category.id === 'faqs' && articles.length > 0 && (
+    <h2 class="browse-heading">{copy.browseByTopic}</h2>
+  )}
+
+  {articles.length === 0 ? (
+    <p class="empty">{copy.noArticles}</p>
+  ) : (
+    <>
+      {orderedSectionKeys.map((sectionKey) => (
+        <section class="section-group">
+          <h2 class="section-heading">{getSectionTitle(sectionKey, locale)}</h2>
+          <div class="articles">
+            {groups.get(sectionKey)!.map((article) => (
+              <a href={localizePath(`/${category.id}/${article.id}`, locale)} class="article-row">
+                <h3 class="article-title">{getArticleTitle(article, locale)}</h3>
+                {getArticleDescription(article, locale) && (
+                  <p class="article-desc">{getArticleDescription(article, locale)}</p>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+      {hasUngrouped && (
+        <section class="section-group">
+          <div class="articles">
+            {groups.get(UNGROUPED)!.map((article) => (
+              <a href={localizePath(`/${category.id}/${article.id}`, locale)} class="article-row">
+                <h3 class="article-title">{getArticleTitle(article, locale)}</h3>
+                {getArticleDescription(article, locale) && (
+                  <p class="article-desc">{getArticleDescription(article, locale)}</p>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </>
+  )}
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a {
+      color: var(--muted-foreground);
+    }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .cat-header {
+      margin-bottom: 2.5rem;
+    }
+    .cat-emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .cat-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .cat-desc {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+    }
+
+    .section-group {
+      margin-bottom: 2.5rem;
+    }
+    .section-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin-bottom: 0.75rem;
+    }
+    .articles {
+      display: flex;
+      flex-direction: column;
+    }
+    .article-row {
+      display: block;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--foreground);
+      transition: opacity 0.15s;
+    }
+    .article-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .article-row:hover { opacity: 0.75; }
+
+    .article-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.25rem;
+    }
+    .article-desc {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .empty {
+      color: var(--muted-foreground);
+      font-size: 0.95rem;
+      padding: 2rem 0;
+    }
+
+    .faq-search-wrap {
+      margin-bottom: 3rem;
+    }
+    .faq-search {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    #faq-search-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--foreground);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    #faq-search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-50);
+    }
+    .faq-search-meta {
+      margin: 0.5rem 0 0;
+      font-size: 0.8rem;
+      color: var(--muted-foreground);
+    }
+    .faq-results {
+      display: flex;
+      flex-direction: column;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0;
+    }
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .faq-item[hidden] { display: none; }
+    .faq-item > summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .faq-item > summary::-webkit-details-marker { display: none; }
+    .faq-item > summary::before {
+      content: "+";
+      color: var(--muted-foreground);
+      font-weight: 400;
+      margin-right: 0.6rem;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .faq-item[open] > summary::before {
+      content: "-";
+    }
+    .faq-q {
+      font-weight: 600;
+      color: var(--foreground);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .faq-src {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      white-space: nowrap;
+    }
+    .faq-a {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      padding: 0.75rem 0 0.25rem 1.4rem;
+    }
+    .faq-a :global(p) { margin: 0 0 0.6rem; }
+    .faq-a :global(strong) { color: var(--foreground); }
+    .faq-a :global(code) {
+      background: var(--primary-50);
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.85em;
+    }
+    .faq-a :global(.xref) {
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.85em;
+    }
+    .faq-empty {
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+    }
+    .browse-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin: 0 0 1rem;
+    }
+  </style>
+
+  <script is:inline define:vars={{ faqMeta }}>
+    (function () {
+      const input = document.getElementById('faq-search-input');
+      if (!input) return;
+      const results = document.getElementById('faq-results');
+      const empty = document.getElementById('faq-empty');
+      const meta = document.getElementById('faq-search-meta');
+      const items = Array.from(results.querySelectorAll('.faq-item'));
+      const total = items.length;
+
+      function norm(s) { return s.toLowerCase().trim(); }
+      function questionText(count) {
+        return faqMeta.questions.startsWith('件') ? count + faqMeta.questions : count + ' ' + faqMeta.questions;
+      }
+
+      function apply() {
+        const query = norm(input.value);
+        if (!query) {
+          items.forEach((el) => { el.hidden = false; el.open = false; });
+          empty.hidden = true;
+          meta.textContent = questionText(total);
+          return;
+        }
+        const terms = query.split(/\s+/).filter(Boolean);
+        let visible = 0;
+        items.forEach((el) => {
+          const hay = (el.dataset.q + ' ' + el.dataset.a + ' ' + el.dataset.article);
+          const match = terms.every((t) => hay.includes(t));
+          el.hidden = !match;
+          if (match) {
+            visible++;
+            el.open = visible <= 8;
+          } else {
+            el.open = false;
+          }
+        });
+        empty.hidden = visible > 0;
+        meta.textContent = visible + ' ' + faqMeta.of + ' ' + questionText(total);
+      }
+
+      input.addEventListener('input', apply);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== input) {
+          e.preventDefault();
+          input.focus();
+        } else if (e.key === 'Escape' && document.activeElement === input) {
+          input.value = '';
+          apply();
+          input.blur();
+        }
+      });
+    })();
+  </script>
+</Base>

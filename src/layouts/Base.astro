@@ -1,13 +1,27 @@
 ---
+import {
+  DEFAULT_LOCALE,
+  LOCALE_LABELS,
+  LOCALE_LANG,
+  LOCALES,
+  localizePath,
+  type Locale,
+  uiCopy,
+} from '../lib/locales';
+
 interface Props {
   title: string;
   description?: string;
+  locale?: Locale;
 }
 
-const { title, description = 'Browse our guides and tutorials to get the most out of SympleHost.' } = Astro.props;
+const { title, locale = DEFAULT_LOCALE } = Astro.props;
+const copy = uiCopy[locale];
+const description = Astro.props.description ?? copy.defaultDescription;
+const currentPath = Astro.url.pathname;
 ---
 
-<html lang="en">
+<html lang={LOCALE_LANG[locale]}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,8 +31,8 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet" />
-    <title>{title} | SympleHost Knowledge Base</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title} | {copy.titleSuffix}</title>
     <style is:global>
       :root {
         --primary-50: #faf5ff;
@@ -49,8 +63,18 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
         font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
       }
 
+      html:lang(ja) h1,
+      html:lang(ja) h2,
+      html:lang(ja) h3,
+      html:lang(ja) h4,
+      html:lang(ja) h5,
+      html:lang(ja) h6 {
+        font-family: 'Noto Sans JP', 'Inter', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+      }
+
       body {
-        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, -apple-system, sans-serif;
         background: var(--background);
         color: var(--foreground);
         line-height: 1.6;
@@ -71,19 +95,30 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
   <body>
     <header class="header">
       <div class="header-inner">
-        <a href="https://www.symplehost.ai" class="logo">
+        <a href={localizePath('/', locale)} class="logo">
           <img src="/SH_Logo.svg" alt="SympleHost" class="logo-img" />
           <span>SYMPLE HOST</span>
         </a>
 
         <nav class="nav">
-          <a href="/" class="nav-link">Knowledge Base</a>
+          <a href={localizePath('/', locale)} class="nav-link">{copy.knowledgeBase}</a>
       <!--  <a href="https://www.symplehost.ai/signal" class="nav-link">Signal</a> -->
-          <a href="https://www.symplehost.ai/pricing" class="nav-link">Pricing</a>
-          <a href="https://www.symplehost.ai/blog" class="nav-link">Blog</a>
-          <a href="https://www.symplehost.ai/contact-us" class="nav-link">Contact us</a>
+          <a href="https://www.symplehost.ai/pricing" class="nav-link">{copy.pricing}</a>
+          <a href="https://www.symplehost.ai/blog" class="nav-link">{copy.blog}</a>
+          <a href="https://www.symplehost.ai/contact-us" class="nav-link">{copy.contact}</a>
         </nav>
 
+        <nav class="locale-switcher" aria-label={copy.language}>
+          {LOCALES.map((item) => (
+            <a
+              href={localizePath(currentPath, item)}
+              class:list={['locale-link', { active: item === locale }]}
+              aria-current={item === locale ? 'page' : undefined}
+            >
+              {LOCALE_LABELS[item]}
+            </a>
+          ))}
+        </nav>
       </div>
       <div class="header-gradient"></div>
     </header>
@@ -93,7 +128,7 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
     </main>
 
     <footer class="footer">
-      <p>&copy; {new Date().getFullYear()} <a href="https://www.symplehost.ai">SympleHost</a>. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} <a href="https://www.symplehost.ai">SympleHost</a>. {copy.copyright}</p>
     </footer>
 
     <style>
@@ -132,6 +167,7 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
         display: flex;
         align-items: center;
         gap: 1.75rem;
+        flex: 1;
       }
       .nav-link {
         color: #2E2E2E;
@@ -143,6 +179,31 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
       .header-gradient {
         height: 3px;
         background: linear-gradient(90deg, var(--primary-400), var(--primary), var(--primary-400));
+      }
+      .locale-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-left: auto;
+        padding: 0.2rem;
+        border: 1px solid var(--border-light);
+        border-radius: 999px;
+        background: #ffffff;
+      }
+      .locale-link {
+        color: #2E2E2E;
+        font-size: 0.78rem;
+        font-weight: 600;
+        line-height: 1;
+        padding: 0.42rem 0.55rem;
+        border-radius: 999px;
+      }
+      .locale-link:hover {
+        color: var(--primary);
+      }
+      .locale-link.active {
+        color: #ffffff;
+        background: var(--primary);
       }
 
       .main {
@@ -167,6 +228,7 @@ const { title, description = 'Browse our guides and tutorials to get the most ou
       @media (max-width: 768px) {
         .header-inner { padding: 0 1rem; gap: 1rem; }
         .nav { display: none; }
+        .locale-switcher { margin-left: auto; }
         .main { padding: 1.5rem 1rem 3rem; }
       }
     </style>

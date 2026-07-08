@@ -10,6 +10,7 @@
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
+import { localizeArticleData } from "../../lib/content-localization";
 
 export const prerender = true;
 
@@ -28,7 +29,8 @@ export const GET: APIRoute = ({ props }) => {
   // md entries. If Astro ever changes this, the smoke check in scripts/verify-build.mjs
   // will catch frontmatter leakage.
   const rawBody = (article.body ?? "").trimStart();
-  const titleLine = `# ${article.data.title}\n`;
+  const data = localizeArticleData(article, "en");
+  const titleLine = `# ${data.title}\n`;
   const body = `${titleLine}\n${rawBody}${rawBody.endsWith("\n") ? "" : "\n"}`;
 
   // With prerender=true, Astro writes only the body to a static .md file. Response

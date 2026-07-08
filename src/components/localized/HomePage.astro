@@ -1,0 +1,226 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { partitionEvents, isUpcoming } from '../../lib/events';
+import {
+  DEFAULT_LOCALE,
+  countLabel,
+  getCategoryDescription,
+  getCategoryTitle,
+  localizePath,
+  type Locale,
+  uiCopy,
+} from '../../lib/locales';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const copy = uiCopy[locale];
+
+const categories = await getCollection('categories');
+const articles = await getCollection('articles', ({ data }) => !data.draft);
+const events = await getCollection('events', ({ data }) => !data.draft);
+const walkthroughs = await getCollection('walkthroughs', ({ data }) => !data.draft);
+
+const articleCounts = new Map<string, number>();
+for (const article of articles) {
+  const cat = article.data.category;
+  articleCounts.set(cat, (articleCounts.get(cat) || 0) + 1);
+}
+
+const categoryById = new Map(categories.map((c) => [c.id, c]));
+const gettingStarted = categoryById.get('getting-started');
+const platformGuides = categoryById.get('platform-guides');
+const aiAndApi = categoryById.get('ai-and-api');
+const faqs = categoryById.get('faqs');
+const integrations = categoryById.get('integrations');
+
+const articlesHubCount =
+  (articleCounts.get('str-market-trends') || 0) +
+  (articleCounts.get('marketing-for-hosts') || 0);
+
+const webinarEvents = events.filter((e) => e.data.eventType !== 'tutorial');
+const videoEvents = events.filter((e) => e.data.eventType === 'tutorial');
+const { past: pastWebinars } = partitionEvents(webinarEvents);
+const upcomingWebinarsCount = webinarEvents.filter((e) => isUpcoming(e)).length;
+const videoCount = videoEvents.length;
+const walkthroughCount = walkthroughs.length;
+
+const coreCategories = [gettingStarted, platformGuides, aiAndApi].filter(Boolean) as NonNullable<
+  typeof gettingStarted
+>[];
+---
+
+<Base title={copy.homeTitle} description={copy.homeDescription} locale={locale}>
+  <section class="hero">
+    <h1>{copy.homeTitle}</h1>
+    <p>{copy.homeDescription}</p>
+  </section>
+
+  {locale !== DEFAULT_LOCALE && (
+    <aside class="locale-notice">
+      <strong>{copy.localeNoticeTitle}</strong>
+      <span>{copy.localeNoticeBody}</span>
+    </aside>
+  )}
+
+  <section class="categories">
+    {coreCategories.map((category) => {
+      const count = articleCounts.get(category.id) || 0;
+      return (
+        <a href={localizePath(`/${category.id}`, locale)} class="category-card">
+          {category.data.emoji && <span class="category-emoji">{category.data.emoji}</span>}
+          <h2 class="category-title">{getCategoryTitle(category, locale)}</h2>
+          {getCategoryDescription(category, locale) && (
+            <p class="category-desc">{getCategoryDescription(category, locale)}</p>
+          )}
+          <span class="category-count">{countLabel(count, copy.article, `${copy.article}s`, locale)}</span>
+        </a>
+      );
+    })}
+    <a href="/webinars/" class="category-card">
+      <span class="category-emoji">🎙️</span>
+      <h2 class="category-title">{copy.webinars}</h2>
+      <p class="category-desc">{copy.webinarDescription}</p>
+      <span class="category-count">
+        {locale === 'jp'
+          ? `${upcomingWebinarsCount > 0 ? `${upcomingWebinarsCount}件${copy.upcoming} / ` : ''}${pastWebinars.length}件${copy.recordings}`
+          : upcomingWebinarsCount > 0
+            ? `${upcomingWebinarsCount} ${copy.upcoming} · ${pastWebinars.length} ${copy.recordings}`
+            : `${pastWebinars.length} ${copy.recordings}`}
+      </span>
+    </a>
+    <a href="/videos/" class="category-card">
+      <span class="category-emoji">🎥</span>
+      <h2 class="category-title">{copy.videos}</h2>
+      <p class="category-desc">{copy.videoDescription}</p>
+      <span class="category-count">
+        {locale === 'jp'
+          ? `${videoCount}件${copy.videos} / ${walkthroughCount}件${copy.walkthroughs}`
+          : `${videoCount} ${copy.videos.toLowerCase()} · ${walkthroughCount} ${copy.walkthroughs}`}
+      </span>
+    </a>
+    <a href={localizePath('/articles/', locale)} class="category-card">
+      <span class="category-emoji">💡</span>
+      <h2 class="category-title">{copy.articles}</h2>
+      <p class="category-desc">{copy.articlesHubDescription}</p>
+      <span class="category-count">{countLabel(articlesHubCount, copy.article, `${copy.article}s`, locale)}</span>
+    </a>
+    {[integrations, faqs].filter(Boolean).map((category) => {
+      const count = articleCounts.get(category!.id) || 0;
+      return (
+        <a href={localizePath(`/${category!.id}`, locale)} class="category-card">
+          {category!.data.emoji && <span class="category-emoji">{category!.data.emoji}</span>}
+          <h2 class="category-title">{getCategoryTitle(category!, locale)}</h2>
+          {getCategoryDescription(category!, locale) && (
+            <p class="category-desc">{getCategoryDescription(category!, locale)}</p>
+          )}
+          <span class="category-count">
+            {countLabel(
+              count,
+              category!.id === 'integrations' ? copy.integrations : copy.article,
+              category!.id === 'integrations' ? copy.integrations : `${copy.article}s`,
+              locale,
+            )}
+          </span>
+        </a>
+      );
+    })}
+  </section>
+
+  <style>
+    .hero {
+      text-align: center;
+      padding: 3rem 0 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero p {
+      color: var(--muted-foreground);
+      font-size: 1.05rem;
+      max-width: 44rem;
+      margin: 0 auto;
+    }
+    .locale-notice {
+      display: flex;
+      gap: 0.65rem;
+      align-items: baseline;
+      max-width: 56rem;
+      margin: 0 auto 1.25rem;
+      padding: 0.85rem 1rem;
+      color: var(--foreground);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .locale-notice strong {
+      color: var(--heading-color);
+      white-space: nowrap;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--foreground);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      min-height: 140px;
+    }
+    .category-card:hover {
+      border-color: var(--primary-300);
+      box-shadow: 0 2px 8px rgba(127, 86, 217, 0.1);
+    }
+
+    .category-emoji {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .category-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 0.35rem;
+    }
+    .category-desc {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .category-count {
+      color: var(--muted-light);
+      font-size: 0.8125rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      .locale-notice {
+        display: block;
+      }
+      .locale-notice strong {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+    }
+  </style>
+</Base>
