@@ -35,7 +35,6 @@ cohosts:
     logo: "/logos/million-dollar-host.png"
     url: "https://www.milliondollarhost.com.au/"
 tags:
-  - usa
   - operations
   - short-term-rentals
   - scaling
@@ -90,7 +89,7 @@ Live on Tuesday, August 4, 2026 at **5:00 PM PT** — Wednesday, August 5 at **8
 ## Who it's for
 
 <div class="audience-grid">
-  <div>USA short-term rental hosts moving from one property to a real operating business</div>
+  <div>Short-term rental hosts moving from one property to a real operating business</div>
   <div>Owners and managers running small or growing portfolios</div>
   <div>Operators tired of coordinating everything through texts, spreadsheets, and memory</div>
   <div>Teams that want cleaner handoffs between guest communication, housekeeping, maintenance, and reporting</div>
@@ -129,7 +128,7 @@ The live session is on Tuesday, August 4, 2026 from 5:00–6:00 PM PT. For Singa
 
 ### Is this only for Million Dollar Host members?
 
-No. Million Dollar Host community members are welcome, but the session is open to any short-term rental operator in the USA.
+No. Million Dollar Host community members are welcome, but the session is open to any short-term rental operator who wants to start stronger, streamline operations, and scale with more control.
 
 ### Is this a Symplehost.ai sales pitch?
 
