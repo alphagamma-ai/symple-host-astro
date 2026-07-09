@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import LocalizedArticleFallback from './LocalizedArticleFallback.astro';
 import {
   DEFAULT_LOCALE,
   getArticleDescription,
@@ -22,6 +23,7 @@ const { article, category, locale = DEFAULT_LOCALE } = Astro.props;
 const copy = uiCopy[locale];
 const localizedArticleBody = await getLocalizedArticleBody(article.id, locale);
 const { Content } = await render(localizedArticleBody ?? article);
+const shouldRenderFallback = locale !== DEFAULT_LOCALE && !localizedArticleBody;
 const articleTitle = getArticleTitle(article, locale);
 const articleDescription = getArticleDescription(article, locale);
 
@@ -42,19 +44,12 @@ const formattedDate = article.data.date
     <span>{articleTitle}</span>
   </nav>
 
-  {locale !== DEFAULT_LOCALE && !localizedArticleBody && (
-    <aside class="locale-notice">
-      <strong>{copy.localeNoticeTitle}</strong>
-      <span>{copy.localeNoticeBody}</span>
-    </aside>
-  )}
-
   <article class="article">
     <header class="article-header">
       <h1 class="article-title">{articleTitle}</h1>
       <div class="article-meta">
         {formattedDate && <span class="article-date">{copy.updated} {formattedDate}</span>}
-        {article.data.tags && article.data.tags.length > 0 && (
+        {locale === DEFAULT_LOCALE && article.data.tags && article.data.tags.length > 0 && (
           <div class="article-tags">
             {article.data.tags.map((tag) => (
               <span class="tag">{tag}</span>
@@ -65,7 +60,11 @@ const formattedDate = article.data.date
     </header>
 
     <div class="article-content">
-      <Content />
+      {shouldRenderFallback ? (
+        <LocalizedArticleFallback article={article} locale={locale as Exclude<Locale, 'en'>} />
+      ) : (
+        <Content />
+      )}
     </div>
   </article>
 

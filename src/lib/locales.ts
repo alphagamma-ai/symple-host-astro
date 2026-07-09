@@ -99,7 +99,7 @@ export const uiCopy = {
     browseByTopic: 'トピック別に見る',
     localeNoticeTitle: '日本語版を準備中です',
     localeNoticeBody: '画面表示とナビゲーションは日本語化済みです。記事本文は順次、日本市場向けの表現に更新していきます。',
-    copyright: 'All rights reserved.',
+    copyright: '無断転載を禁じます。',
   },
   id: {
     siteTitle: 'Basis Pengetahuan SympleHost',
@@ -133,7 +133,7 @@ export const uiCopy = {
     browseByTopic: 'Jelajahi berdasarkan topik',
     localeNoticeTitle: 'Konten Indonesia sedang disiapkan',
     localeNoticeBody: 'Navigasi dan antarmuka sudah dilokalkan. Isi artikel akan diperbarui bertahap untuk pasar Indonesia.',
-    copyright: 'All rights reserved.',
+    copyright: 'Seluruh hak cipta dilindungi.',
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -449,7 +449,208 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       description: 'RevPARの計算式、具体例、稼働率だけでは価格設定の弱さを見落とす理由をわかりやすく説明します。',
     },
   },
-  id: {},
+  id: {
+    'add-multi-unit-listing-for-bookingcom': {
+      title: 'Menambahkan Listing Multi-Unit untuk Booking.com',
+      description: 'Siapkan properti dengan beberapa kamar atau unit yang dapat dipesan, seperti guesthouse, apartemen, atau hotel kecil.',
+    },
+    'add-team-members-and-roles': {
+      title: 'Menambahkan Anggota Tim dan Mengatur Peran',
+      description: 'Undang tim ke akun SympleHost dan atur akses berdasarkan peran.',
+    },
+    'adding-a-listing-manually': {
+      title: 'Menambahkan Listing Secara Manual',
+      description: 'Buat listing baru dengan detail properti, foto, fasilitas, dan aturan pemesanan.',
+    },
+    'adding-direct-bookings': {
+      title: 'Menambahkan Direct Booking',
+      description: 'Catat booking dari website, tamu lama, atau referral di luar OTA.',
+    },
+    'asia-pacific-str-overview': {
+      title: 'Gambaran Pasar Short-Term Rental Asia Pasifik 2026',
+      description: 'Tren pasar STR Asia Pasifik, data Airbnb, dan perubahan untuk host di Bali, Australia, India, dan Thailand.',
+    },
+    'australia-nz-str-trends': {
+      title: 'Tren Short-Term Rental Australia dan Selandia Baru 2026',
+      description: 'Perubahan pendapatan, okupansi, regulasi, dan penggunaan AI untuk host di ANZ.',
+    },
+    'bali-str-trends': {
+      title: 'Pasar Airbnb dan Vacation Rental Bali 2026',
+      description: 'Data listing, okupansi, pendapatan, dan cara host terbaik membedakan operasional mereka.',
+    },
+    'beyond-pricing-integration': {
+      title: 'Integrasi SympleHost + Beyond Pricing',
+      description: 'Rencana integrasi revenue management Beyond Pricing dengan kalender, reservasi, dan operasional SympleHost.',
+    },
+    'connect-symplehost-to-ai-assistants': {
+      title: 'Menghubungkan SympleHost ke Asisten AI seperti Claude',
+      description: 'Gunakan tool AI berbasis MCP untuk membaca properti, reservasi, dan data tamu secara aman.',
+    },
+    'connecting-messaging-integrations': {
+      title: 'Menghubungkan WhatsApp, Instagram, dan Facebook Messenger',
+      description: 'Langkah menghubungkan channel Meta ke SympleHost, termasuk autentikasi dan izin akses.',
+    },
+    'create-and-assign-tasks': {
+      title: 'Membuat dan Menugaskan Tugas ke Tim',
+      description: 'Kelola tugas cleaning, maintenance, dan operasional dengan penanggung jawab serta tenggat waktu.',
+    },
+    'creating-a-reservation-manually': {
+      title: 'Membuat Reservasi Secara Manual',
+      description: 'Buat reservasi manual, pahami statusnya, dan lihat bagaimana booking muncul di kalender.',
+    },
+    'creating-and-managing-services': {
+      title: 'Membuat dan Mengelola Layanan',
+      description: 'Jual dan kelola layanan tambahan seperti pengalaman, tur, transportasi, atau produk tamu.',
+    },
+    'creating-your-account': {
+      title: 'Membuat Akun dan Menyelesaikan Onboarding',
+      description: 'Daftar ke SympleHost dan siapkan profil, perusahaan, serta tim dalam beberapa menit.',
+    },
+    'direct-bookings-vacation-rentals': {
+      title: 'Cara Meningkatkan Direct Booking untuk Vacation Rental',
+      description: 'Kurangi ketergantungan pada OTA dan bangun channel direct booking yang lebih menguntungkan.',
+    },
+    'dynamic-pricing-short-term-rentals-sea': {
+      title: 'Panduan Dynamic Pricing untuk Short-Term Rental',
+      description: 'Kelola harga berdasarkan musim dan permintaan di Indonesia, Thailand, Vietnam, dan Asia Tenggara.',
+    },
+    'facebook-marketing-vacation-rentals': {
+      title: 'Facebook Marketing untuk Vacation Rental',
+      description: 'Gunakan grup, iklan, dan Messenger automation untuk mendapatkan lebih banyak booking.',
+    },
+    'faqs-account-and-setup': {
+      title: 'FAQ Akun dan Setup',
+      description: 'Jawaban seputar pendaftaran, login, profil, perusahaan, dan keamanan akun.',
+    },
+    'faqs-bookings-and-calendar': {
+      title: 'FAQ Booking dan Kalender',
+      description: 'Pertanyaan umum tentang reservasi, pembatalan, status booking, dan kalender multi-properti.',
+    },
+    'faqs-integrations-and-troubleshooting': {
+      title: 'FAQ Integrasi, Channel, Review, dan Troubleshooting',
+      description: 'Masalah umum seputar Airbnb, Booking.com, review, sinkronisasi, dan tampilan data.',
+    },
+    'faqs-listings-pricing-multi-unit': {
+      title: 'FAQ Listing, Harga, dan Multi-Unit',
+      description: 'Panduan cepat untuk listing, pricing, dan properti multi-unit untuk Booking.com.',
+    },
+    'faqs-messaging-autopilot-guest-experience': {
+      title: 'FAQ Pesan, Autopilot, dan Pengalaman Tamu',
+      description: 'Pertanyaan tentang WhatsApp, Instagram, Facebook, AI reply, guestbook, dan rekomendasi.',
+    },
+    'faqs-team-operations-payments': {
+      title: 'FAQ Tim, Operasional, Pembayaran, dan Website',
+      description: 'Jawaban tentang peran, tugas, automasi, Stripe, direct booking website, quotation, dan notifikasi.',
+    },
+    'guest-communication-whatsapp-automation-playbook': {
+      title: 'Playbook Automasi WhatsApp untuk Komunikasi Tamu',
+      description: 'Percepat respons, kurangi pesan berulang, dan tingkatkan pengalaman tamu.',
+    },
+    'guest-reviews-to-bookings': {
+      title: 'Mengubah Review Tamu menjadi Booking',
+      description: 'Gunakan review bintang lima sebagai social proof dan dorong repeat booking.',
+    },
+    'hidden-cost-managing-rentals-across-countries': {
+      title: 'Biaya Tersembunyi Mengelola Rental di Banyak Negara',
+      description: 'Mengapa operasional lintas negara menjadi mahal dan rapuh tanpa sistem yang standar.',
+    },
+    'how-to-create-and-manage-quotations': {
+      title: 'Membuat dan Mengelola Quotation',
+      description: 'Buat penawaran profesional, kirim ke tamu, dan kelola status serta pembayaran di SympleHost.',
+    },
+    'import-listings-from-ota': {
+      title: 'Mengimpor Listing dari OTA',
+      description: 'Ambil listing Airbnb atau Booking.com yang sudah ada agar tidak perlu membuat semuanya dari nol.',
+    },
+    'inbox-communicate-with-guests': {
+      title: 'Berkomunikasi dengan Tamu melalui Inbox',
+      description: 'Kelola semua percakapan tamu di satu tempat dan balas lintas channel dengan bantuan AI.',
+    },
+    'india-str-trends': {
+      title: 'Pasar Vacation Rental dan Airbnb India 2026',
+      description: 'Permintaan, area pertumbuhan, dan peluang bagi host yang masuk lebih awal di India.',
+    },
+    'instagram-marketing-vacation-rentals': {
+      title: 'Instagram Marketing untuk Vacation Rental',
+      description: 'Gunakan Reels, Stories, hashtag, dan automasi inquiry untuk mendapatkan booking.',
+    },
+    'manage-bookings-and-calendar': {
+      title: 'Mengelola Booking dan Kalender',
+      description: 'Lihat semua reservasi, buat booking manual, dan perbarui status check-in serta check-out.',
+    },
+    'manual-guest-messaging-killing-margins': {
+      title: 'Mengapa Pesan Tamu Manual Menggerus Margin',
+      description: 'Dampak respons lambat, pertanyaan berulang, upsell yang hilang, dan bottleneck tim.',
+    },
+    'multi-channel-distribution-sea-rentals': {
+      title: 'Panduan Distribusi Multi-Channel untuk Rental Asia Tenggara',
+      description: 'Kelola Airbnb, Booking.com, direct booking, dan WhatsApp tanpa double booking.',
+    },
+    'navigating-symplehost': {
+      title: 'Mengenal Navigasi dan Fitur SympleHost',
+      description: 'Pahami sidebar, area utama, dan pengaturan agar cepat menemukan fitur yang dibutuhkan.',
+    },
+    'onboard-new-property-under-an-hour': {
+      title: 'Onboarding Properti Baru dalam Kurang dari Satu Jam',
+      description: 'Checklist praktis untuk menambahkan villa, apartemen, atau guesthouse baru ke sistem.',
+    },
+    'pricelabs-integration': {
+      title: 'Menghubungkan PriceLabs ke SympleHost',
+      description: 'Sinkronkan harga, ketersediaan, batasan, reservasi, blokir tanggal, dan revenue management.',
+    },
+    'set-up-payments-stripe': {
+      title: 'Menyiapkan Pembayaran Stripe',
+      description: 'Hubungkan Stripe untuk menerima pembayaran direct booking, layanan, dan produk toko.',
+    },
+    'set-up-pricing-and-rate-rules': {
+      title: 'Menyiapkan Harga dan Rate Rules',
+      description: 'Atur harga malam, seasonal rate, dan biaya tambahan agar pricing tetap akurat.',
+    },
+    'set-up-recurring-task-reminders': {
+      title: 'Menyiapkan Pengingat Tugas Berulang',
+      description: 'Otomatiskan tugas seperti cleaning setelah check-out dan inspeksi bulanan.',
+    },
+    'setting-up-autopilot': {
+      title: 'Menyiapkan Autopilot untuk Pesan Tamu',
+      description: 'Gunakan AI Autopilot untuk menjawab FAQ tamu dan mengurangi beban respons 24 jam.',
+    },
+    'setting-up-company-profile': {
+      title: 'Menyiapkan Profil Perusahaan',
+      description: 'Atur nama perusahaan, negara, mata uang, timezone, dan tampilan workspace.',
+    },
+    'short-term-rental-metrics-hosts-should-track': {
+      title: '12 Metrik Short-Term Rental yang Perlu Dipantau Host',
+      description: 'Okupansi, ADR, RevPAR, booking pace, channel mix, response time, review, dan biaya operasional.',
+    },
+    'symplehost-partner-api-reference': {
+      title: 'Referensi SympleHost Partner API',
+      description: 'Kegunaan Partner API, data publik, autentikasi, dan cara membuka referensi API lengkap.',
+    },
+    'thailand-str-trends': {
+      title: 'Pasar Vacation Rental dan Airbnb Thailand 2026',
+      description: 'Data permintaan, pendapatan area utama, dan peluang dari digital nomad di Thailand.',
+    },
+    'track-task-progress': {
+      title: 'Melacak Progress dan Penyelesaian Tugas',
+      description: 'Pantau tugas selesai, terlambat, dan sedang berjalan berdasarkan penanggung jawab atau tanggal.',
+    },
+    'understanding-the-overview-dashboard': {
+      title: 'Memahami Overview Dashboard',
+      description: 'Pahami arti metrik dashboard dan cara menggunakannya sebagai titik awal harian.',
+    },
+    'viewing-your-first-reservation': {
+      title: 'Melihat Reservasi Pertama Anda',
+      description: 'Buka detail reservasi, pahami setiap bagian, dan tentukan langkah berikutnya.',
+    },
+    'welcome-to-symplehost': {
+      title: 'Selamat Datang di SympleHost: 15 Menit Pertama',
+      description: 'Pelajari apa yang bisa dilakukan SympleHost, lokasi fitur utama, dan setup pertama.',
+    },
+    'what-is-revpar-short-term-rentals': {
+      title: 'Apa itu RevPAR dan Mengapa Lebih Penting dari Okupansi',
+      description: 'Rumus RevPAR, contoh sederhana, dan alasan okupansi saja bisa menutupi masalah pricing.',
+    },
+  },
 };
 
 export function getCategoryTitle(category: { id: string; data: { title: string } }, locale: Locale): string {

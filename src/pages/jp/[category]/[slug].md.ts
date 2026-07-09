@@ -1,6 +1,7 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import { localizeArticleData } from '../../../lib/content-localization';
+import { buildLocalizedArticleFallbackMarkdown } from '../../../lib/localized-fallback-content';
 import { getLocalizedArticleBody } from '../../../lib/localized-article-bodies';
 
 export const prerender = true;
@@ -16,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const GET: APIRoute = async ({ props }) => {
   const { article } = props as { article: Awaited<ReturnType<typeof getCollection<'articles'>>>[number] };
   const localizedArticleBody = await getLocalizedArticleBody(article.id, 'jp');
-  const rawBody = (localizedArticleBody?.body ?? article.body ?? '').trimStart();
+  const rawBody = (localizedArticleBody?.body ?? buildLocalizedArticleFallbackMarkdown(article, 'jp')).trimStart();
   const data = localizeArticleData(article, 'jp');
   const titleLine = `# ${data.title}\n`;
   const body = `${titleLine}\n${rawBody}${rawBody.endsWith('\n') ? '' : '\n'}`;

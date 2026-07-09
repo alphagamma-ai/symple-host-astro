@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { buildLocalizedArticleFallbackMarkdown } from '../../lib/localized-fallback-content';
+import type { Locale } from '../../lib/locales';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+  locale: Exclude<Locale, 'en'>;
+}
+
+const { article, locale } = Astro.props;
+const markdown = buildLocalizedArticleFallbackMarkdown(article, locale);
+const blocks = markdown.split(/\n(?=## )/);
+
+function renderInline(text: string) {
+  return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+}
+
+function groupLines(lines: string[]) {
+  const groups: Array<{ type: 'p'; text: string } | { type: 'ul' | 'ol'; items: string[] }> = [];
+
+  for (const line of lines) {
+    if (!line.trim()) continue;
+
+    if (line.startsWith('- ')) {
+      const last = groups.at(-1);
+      const item = line.replace(/^- /, '');
+      if (last?.type === 'ul') last.items.push(item);
+      else groups.push({ type: 'ul', items: [item] });
+      continue;
+    }
+
+    if (/^\d+\. /.test(line)) {
+      const last = groups.at(-1);
+      const item = line.replace(/^\d+\. /, '');
+      if (last?.type === 'ol') last.items.push(item);
+      else groups.push({ type: 'ol', items: [item] });
+      continue;
+    }
+
+    groups.push({ type: 'p', text: line });
+  }
+
+  return groups;
+}
+---
+
+{blocks.map((block) => {
+  const lines = block.trim().split('\n').filter((line) => line.trim() !== '---');
+  const firstLine = lines[0] ?? '';
+
+  if (firstLine.startsWith('## ')) {
+    const heading = firstLine.replace(/^## /, '');
+    const bodyLines = lines.slice(1);
+    const groups = groupLines(bodyLines);
+    return (
+      <section>
+        <h2>{heading}</h2>
+        {groups.map((group) => {
+          if (group.type === 'ul') {
+            return <ul>{group.items.map((item) => <li set:html={renderInline(item)} />)}</ul>;
+          }
+          if (group.type === 'ol') {
+            return <ol>{group.items.map((item) => <li set:html={renderInline(item)} />)}</ol>;
+          }
+          return <p set:html={renderInline(group.text)} />;
+        })}
+      </section>
+    );
+  }
+
+  return lines.map((line) => {
+    if (!line.trim()) return null;
+    if (line.startsWith('> ')) return <blockquote><p set:html={renderInline(line.replace(/^> /, ''))} /></blockquote>;
+    return <p set:html={renderInline(line)} />;
+  });
+})}
