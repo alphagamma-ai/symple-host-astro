@@ -160,5 +160,5 @@ If you have many listings and a wide date range visible, the calendar can take a
 
 Related Articles
 - How to Set Up Your Pricing & Rate Rules
-- How to Use the Inbox to Communicate with Guests
+- Using Messages: the unified guest inbox
 - How to Create & Assign Tasks to Your Team

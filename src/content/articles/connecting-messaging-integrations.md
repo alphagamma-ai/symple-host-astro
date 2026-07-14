@@ -1,6 +1,6 @@
 ---
 title: Connecting WhatsApp, Instagram & Facebook Messenger
-description: Step-by-step walkthrough for connecting WhatsApp Business, Instagram, and Facebook Messenger to SympleHost — including every screen Meta shows during sign-in, OTP verification, and the permissions you'll be asked to grant.
+description: Connect Meta messaging channels to SympleHost so guest conversations appear in Messages alongside email and supported OTA threads.
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 2
@@ -15,11 +15,11 @@ date: '2026-05-04'
 draft: false
 ---
 
-**Connect WhatsApp, Instagram, and Facebook Messenger so every guest message — wherever it comes from — lands in one SympleHost inbox.**
+**Connect WhatsApp, Instagram, and Facebook Messenger so guest messages from Meta channels land in SympleHost Messages.**
 
 ---
 
-> **TL;DR:** SympleHost connects to Meta's official messaging APIs, so connecting takes ~5 minutes per platform if you have your business assets ready. WhatsApp uses Meta's Embedded Signup popup — pick a Business Portfolio, create a WhatsApp Business Account, register your phone number, verify with an SMS or voice OTP, and grant permissions. Facebook Messenger and Instagram share a single "Login with Facebook" flow where you select which Pages and Instagram accounts to connect; Instagram requires a Business or Creator account linked to a Facebook Page. After connecting, send yourself a test message to confirm — anything you receive on the connected channels lands in **Messages** in SympleHost.
+> **TL;DR:** SympleHost connects to Meta's official messaging APIs, so connecting takes about 5 minutes per platform if you have your business assets ready. WhatsApp uses Meta's Embedded Signup popup — pick a Business Portfolio, create a WhatsApp Business Account, register your phone number, verify with an SMS or voice OTP, and grant permissions. Facebook Messenger and Instagram use Meta's Login for Business popup, where you select Pages and Instagram accounts. After connecting, send yourself a test message and confirm it appears in **Messages**.
 
 ---
 
@@ -121,12 +121,12 @@ The popup closes automatically and you'll land back on the SympleHost Integratio
 
 ## How to Connect Facebook Messenger & Instagram
 
-Messenger and Instagram show up as **two separate cards** on the Integrations page, each with its own Connect (or Disconnect) button:
+Messenger and Instagram show up as **two separate cards** on the Integrations page, each with its own Connect or Disconnect button:
 
 - **Messenger** — page messaging from your Facebook Business Page.
 - **Instagram** — direct messages on your Instagram Business or Creator profile.
 
-Both run through Meta's **Login for Business** popup. The popup is the same for both, and a single sign-in can authorize both Page and Instagram access at once — so most hosts connect them back-to-back in one sitting.
+Both run through Meta's **Login for Business** popup. The popup is the same for both, and a single sign-in can authorize both Page and Instagram access at once, so most hosts connect them back-to-back in one sitting.
 
 ### Step 1: Open the integration in SympleHost
 
@@ -173,7 +173,7 @@ Meta closes the popup and returns you to SympleHost. The **Messenger** card and 
 
 You can disconnect either card independently — turning off Messenger does not affect Instagram, and vice versa. To stop messages from a channel without removing the connection entirely, use the channel's per-card controls (or simply disconnect and reconnect later).
 
-> 💡 **Instagram's 24-hour rule.** Meta only lets you reply to an Instagram DM within 24 hours of the guest's last message. After that, the conversation is closed until the guest messages you again. SympleHost will show a notice in the inbox if a thread is outside the 24-hour window. This is a Meta restriction, not a SympleHost limitation.
+> 💡 **Instagram's 24-hour rule.** Meta only lets you reply to an Instagram DM within 24 hours of the guest's last message. After that, the conversation is closed until the guest messages you again. This is a Meta restriction, not a SympleHost limitation.
 
 ---
 
@@ -188,7 +188,7 @@ Once a platform shows as **Connected**, send yourself a test message to confirm 
 2. In SympleHost, open **Messages** in the sidebar.
 3. The message should appear within 5–10 seconds.
 
-If it shows up — you're done. Reply directly from SympleHost; the response will appear on the original platform from your business identity.
+If it shows up, you are done. Reply directly from SympleHost; the response appears on the original platform from your business identity. You can then assign the conversation, escalate it, translate messages, or let Autopilot suggest replies from the same thread.
 
 ---
 
@@ -216,6 +216,7 @@ Sometimes Meta's session is logged in as a different Facebook account than you e
 1. Check the integration still shows **Connected** in **Settings → Integrations**. Meta tokens expire if you change your Facebook password — if so, click **Reconnect**.
 2. Confirm you're testing with a *different* account — Meta sometimes silently drops messages you send to yourself.
 3. For Instagram, confirm the conversation was started by the *guest*. Instagram does not allow you to initiate messages to users who haven't messaged you first.
+4. Open **Messages**, clear any **Mine**, **Archived**, or **Escalated** filters, then search for the guest name or recent message text.
 
 ### I connected the wrong Facebook account
 Go to **Settings → Integrations**, find the Facebook Integrations card, click **Disconnect**, then reconnect with the correct account. Disconnecting only affects SympleHost — your Page and Instagram account stay live.
@@ -230,15 +231,15 @@ You can revoke at the Meta level too:
 ## Key Takeaways
 
 - WhatsApp uses Meta's **Embedded Signup** popup — Business Portfolio → WABA → phone number → OTP → permissions.
-- Facebook Messenger and Instagram share **one** integration card and use Meta's **Login for Business** popup.
+- Facebook Messenger and Instagram use Meta's **Login for Business** popup and have separate cards in SympleHost.
 - Instagram only works on **Business or Creator** accounts linked to a Facebook Page.
-- Messages from connected channels all flow into the same **Messages** inbox in SympleHost.
+- Messages from connected Meta channels flow into **Messages**, alongside other supported channels such as Gmail and OTA messaging.
 - Send yourself a test message after connecting — the round-trip should complete in under 10 seconds.
 
 ---
 
 ## Related Articles
 
-- Setting Up Autopilot — Automate Guest Messaging
-- How to Use the Inbox to Communicate with Guests
+- Setting Up Autopilot for Guest Messaging
+- Using Messages: the unified guest inbox
 - Welcome to SympleHost — Your First 15 Minutes

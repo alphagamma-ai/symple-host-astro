@@ -1,183 +1,240 @@
 ---
-title: 'How to Use the Inbox to Communicate with Guests'
-description: 'View all guest conversations in one place, reply across channels, use AI-assisted responses, and keep your communication organized.'
+title: 'Using Messages: the unified guest inbox'
+description: 'Use the main Messages inbox to search, filter, assign, escalate, translate, and reply to guest conversations across WhatsApp, Instagram, Messenger, email, Airbnb, and Booking.com.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 1
 tags:
   - Inbox
-  - Messaging
+  - Messages
   - Guests
   - AI
-date: '2026-04-09'
+date: '2026-07-14'
 draft: false
 ---
 
-## What Is the Inbox?
-
-The inbox is your unified messaging hub — every guest conversation from every connected channel (WhatsApp, Instagram, Facebook Messenger, Airbnb, Booking.com, and direct messages) lands here. Instead of switching between apps, you can read, reply, and manage all guest communication from a single screen.
-
-Think of it like a shared email inbox, but designed specifically for guest conversations with built-in AI assistance.
+**Messages is the main inbox for guest communication in SympleHost. It brings conversations from connected channels into one workspace, then gives your team the context and controls needed to reply without jumping between apps.**
 
 ---
 
-## How to Open the Inbox
-
-1. Click **Messages** in the sidebar.
-
-You'll see the inbox with three main areas:
-- **Left panel** — your conversation list with filter buttons and search
-- **Center panel** — the active conversation thread
-- **Right panel** — a context panel with **Guest**, **Quotations**, and **Bookings** tabs
-
-When no conversation is selected, you'll see an **Overview** panel showing stats: **Unread**, **Awaiting**, **Open**, and **Resolved** counts, plus **Recent activity** and **Quick tips**.
+> **TL;DR:** Open **Messages** from the sidebar. Use the left conversation list to search, filter by status, switch between **All** and **Mine**, and open guest threads. The center panel is the live conversation. The guest drawer shows profile details, pending requests, quotations, and bookings. Replies are sent back through the thread's original channel, and the composer supports translation, task creation, emoji, and attachments where the channel allows them.
 
 ---
 
-## Filtering Conversations
+## What Messages is for
 
-Use the filter buttons above the conversation list to narrow what's shown:
+Use **Messages** when you need to handle guest communication from one place:
 
-- **All** — every conversation
-- **Unread** — conversations with unread messages
-- **Resolved** — conversations you've marked as resolved
-- **Starred** — conversations you've starred for quick access
+- WhatsApp conversations from your connected business number
+- Instagram DMs from your connected business or creator account
+- Facebook Messenger conversations from your connected Page
+- Email conversations when Gmail is connected
+- OTA guest messages such as Airbnb and Booking.com where channel messaging is available
+- Direct conversations started from a customer or reservation
 
-You can also filter by **Status** and **Tags** using the sidebar filter sections.
+Messages is not just a chat screen. It is also where you can see whether a conversation is assigned, escalated, archived, starred, handled by Autopilot, linked to a booking, or tied to a quotation.
 
----
+## Open Messages
 
-## How to Reply to a Guest
+1. In the SympleHost sidebar, click **Messages**.
+2. The page opens at `/messages`.
+3. Select a conversation from the list, or use **New message** when you need to start a new thread.
 
-1. Click on a conversation in the list to open it.
+Direct links from other parts of SympleHost can also open Messages for you:
 
-2. Type your message in the compose bar at the bottom (where it says **"Type a message..."**).
+- From a reservation, SympleHost can open the related thread with the booking panel ready.
+- From a customer, SympleHost can open that customer's conversation.
+- If there is no existing thread, SympleHost can take you to the new-message flow with the customer or booking preselected.
 
-3. Click **Send**.
+## Understand the layout
 
-Your reply is sent through whichever channel the guest originally used — if they messaged you on WhatsApp, your reply goes back to WhatsApp.
+Messages has three working areas.
 
-💡 **Tip:** Click the **Compose** button at the top to start a new conversation with a guest.
+### Conversation list
 
----
+The left panel shows conversations. Each row shows the guest, channel, recent message, unread state, assignment, and status indicators.
 
-## How to Use AI-Assisted Responses
+Use this list to:
 
-SympleHost can suggest replies based on the conversation context and your listing details. This is especially helpful for common questions like check-in instructions or property details.
+- Search guest names or message text
+- Open a conversation
+- Filter to **All**, **Starred**, **Escalated**, or **Archived**
+- Switch scope between **All** conversations and **Mine**
+- Load older conversations by scrolling
 
-1. Open a conversation.
+If Gmail is enabled and your search does not find a local thread, the page can offer a Gmail search/import path so older email history can be pulled into the inbox.
 
-2. Click the **sparkles icon** (✨) in the compose bar to request an AI suggestion.
+### Conversation thread
 
-3. A **Suggested Reply** card appears with the AI-generated response. You have four options:
-   - **Edit** — modify the suggestion before sending
-   - **Preview** — see how the message will look
-   - **Send Now** — send the suggestion as-is
-   - **Dismiss** — discard the suggestion
+The center panel is the active conversation. It shows:
 
-If a suggestion requires your input before it can be sent, you'll see a **"Needs Human Action"** label.
+- The selected guest name
+- The channel the conversation is using
+- Assignment and escalation controls
+- Channel tabs for other conversations with the same guest
+- Context ribbon for guest, booking, and quotation shortcuts
+- Message history with delivery/read status where available
+- Translate controls on guest messages in another language
+- The reply composer
 
-💡 **Tip:** You can also configure **Autopilot** at the account level under **Settings** → **Autopilot** to set up auto-responses for common message categories like booking inquiries, check-in instructions, and local recommendations.
+### Guest drawer
 
-### Autopilot Modes
+The drawer opens from the thread header or context ribbon. It has three tabs:
 
-Each conversation has an **Autopilot** toggle in the header. You can set it to:
+- **Guest**: customer profile, pending requests, and guest notes/context
+- **Quotations**: quotes linked to the guest or conversation
+- **Bookings**: reservation details and stay context
 
-- **Off** — no AI involvement, you handle everything manually
-- **On** — AI sends responses automatically based on your configured message categories
-- **Default** — uses your account-level Autopilot setting
+Use the drawer before replying when you need to check the guest's stay dates, quote status, or profile details.
 
----
+## Search and filter conversations
 
-## How to Use Auto-Translate
+At the top of the conversation list, use the search field to find a guest or thread.
 
-If you host international guests, the auto-translate feature helps bridge the language gap.
+Use the filter menu to narrow the list:
 
-1. Open a conversation.
+- **All**: active conversations
+- **Starred**: conversations you marked for quick follow-up
+- **Escalated**: conversations flagged for manager or team attention
+- **Archived**: closed or archived conversations
+- **Mine**: conversations assigned to you
 
-2. Click the **languages icon** in the compose bar to toggle **Auto-translate** on.
+Applied filters show as removable pills so you can quickly clear them.
 
-When enabled, you'll see **"Auto-translating to guest language"** below the compose bar. Your replies are translated to the guest's language before sending.
+## Reply to a guest
 
-For individual messages, you can also click **Translate** on any message bubble to see a translation. Click **"Show original"** to switch back. Translated messages show a note: **"Translated from [language]"**.
+1. Open **Messages**.
+2. Select a conversation.
+3. Review the channel badge so you know where the reply will go.
+4. Type your reply in the composer.
+5. Click the purple send arrow.
 
----
+Keyboard behavior is intentionally conservative: **Enter creates a new line**. Use **Cmd+Enter** or **Ctrl+Enter** to send from the keyboard.
 
-## How to Assign a Conversation
+Your reply is sent through the conversation's channel. For example, a WhatsApp thread replies through WhatsApp, and an OTA thread replies through the OTA messaging connection.
 
-If you work with a team (co-hosts, property managers, cleaners), you can assign conversations to specific people.
+## Composer tools
 
-1. Open the conversation.
+The composer includes a few channel-aware tools.
 
-2. Use the assignment area to pick a team member. You can search by name using the **"Search team members..."** field.
+### Attachments
 
-3. To quickly take ownership yourself, click **Assign to me**.
+Attachments are available only on channels that support them in SympleHost. In the current product, OTA-capable threads can show the attachment button. If the current channel does not support attachments, the button is disabled.
 
-4. To remove the assignment, click **Unassign**.
+### Emoji
 
-The assigned team member will see the conversation in their inbox and can take over the communication. Unassigned conversations show as **"Unassigned"**.
+Use the smile icon to insert common emoji into your reply.
 
----
+### Create a task from the conversation
 
-## How to Resolve a Conversation
+Use the task icon to create an operational task without leaving the thread. This is useful when a guest reports something that needs follow-up, such as a missing towel, maintenance issue, late checkout request, or cleaning note.
 
-When a guest's question has been answered or their issue is resolved:
+The task is anchored to the conversation so the team can see why it was created.
 
-1. Open the conversation.
+### Auto-translate your reply
 
-2. Click the **Resolve** button (labeled **"Mark as resolved"**).
+When SympleHost detects that the guest's language differs from your interface language, the composer can show **Auto-translate**.
 
-The button changes to **"Resolved"**. To reopen a resolved conversation, click it again — the label changes to **"Reopen conversation"**.
+When enabled:
 
-You can also click **Mark done** in the compose bar to close a conversation.
+1. You write the reply in your language.
+2. SympleHost translates it into the guest's detected or preferred language.
+3. The translated message is sent, with the original included for transparency.
 
----
+If translation fails, SympleHost warns you and keeps the original message available.
 
-## The Guest Context Panel
+## Translate guest messages
 
-When viewing a conversation, the right panel shows guest context with three tabs:
+Individual guest messages can show a **Translate** action when the message language differs from your current language.
 
-### Guest Tab
-- Guest name, email, phone, and location
-- **"Guest since [year]"** indicator
-- **Lifetime Value** and **Total Bookings** metrics
-- **Tags** section (click **"+ Add Tag"** to organize guests)
-- **Guest Notes** section for internal notes
-- **AI Summary** — click **Generate Summary** to get an AI-generated overview of the guest, or **Regenerate summary** to refresh it
+Click **Translate** to view the translated text. Use **Show original** to switch back.
 
-### Bookings Tab
-- Shows the guest's current and past bookings with check-in/check-out dates, nights, and status
-- **"Currently Staying"** card appears when a guest is actively checked in, with alerts like **"Guest checking out today"** or **"Guest checking out tomorrow"**
+## Assign conversations
 
-### Quotations Tab
-- Shows any quotes associated with this guest
+Use the assignment pill in the thread header to make ownership clear.
 
----
+Assignments help teams answer questions like:
 
-## Searching Conversations
+- Who is responsible for this guest?
+- Which conversations are mine?
+- Which threads are still unassigned?
 
-Use the search bar at the top of the conversation list (**"Search conversations..."**) to find specific conversations by guest name, message content, or listing name.
+After a conversation is assigned to you, use the **Mine** scope filter to focus on your own queue.
 
----
+## Escalate a conversation
+
+Use **Escalate** when a conversation needs manager review, a special decision, or urgent attention.
+
+When escalating, add a short note explaining why. Escalated conversations:
+
+- Show an escalation badge
+- Appear in the **Escalated** filter
+- Display a banner in the thread with who escalated it, when, and why
+
+Resolve the escalation when the issue has been handled.
+
+## Close, archive, and reopen conversations
+
+When a thread is finished, mark it done or archive it so it no longer clutters the active list. Archived conversations can still be found through the **Archived** filter.
+
+If a guest replies again, the conversation can re-enter the active workflow so your team does not miss the follow-up.
+
+## Switch channels for the same guest
+
+If the same guest has more than one conversation, the channel strip lets you switch between sibling threads. For example, a guest might have a WhatsApp thread and an email thread.
+
+Use the strip to keep context together without mixing channel histories into one thread.
+
+## Start a new conversation
+
+Use **New message** when you need to contact a customer.
+
+The flow is:
+
+1. Choose or create the customer.
+2. Choose the target: a direct channel such as WhatsApp, Messenger, Instagram, or email, or a messageable reservation/OTA thread.
+3. Compose the first message.
+4. Send and continue the conversation in Messages.
+
+SympleHost only shows channel options that make sense for the customer and your connected integrations. For example, WhatsApp needs a phone number and an active WhatsApp integration.
+
+## Autopilot inside Messages
+
+Messages works with Autopilot in three practical ways:
+
+- Conversation rows and headers can show whether Autopilot is active for that guest.
+- Account-level Autopilot controls whether AI is off, suggesting replies, or auto-replying.
+- Conversation/customer-level controls can override the account default for a specific guest.
+
+If Autopilot is set to suggestion mode, AI drafts appear for review. If it is fully on, replies can be sent automatically after the configured delay.
 
 ## Troubleshooting
 
-### I'm not seeing new messages
-Check that your messaging channels (WhatsApp, Instagram, Facebook) are connected under **Settings** → **Integrations**. If a channel is disconnected, messages from that platform won't appear in the inbox.
+### New messages are not appearing
 
-### AI suggestions aren't appearing
-Make sure **Autopilot** is enabled at the account level (**Settings** → **Autopilot**). Also check that the conversation's Autopilot toggle is set to **On** or **Default**, not **Off**.
+Check **Settings → Integrations** and confirm the channel still shows as connected. For Meta channels, reconnect if the token expired or permissions changed.
 
-### A conversation reopened after I resolved it
-This happens when the guest sends a new message. SympleHost automatically reopens the conversation so you don't miss their follow-up.
+### I cannot start an Instagram conversation
 
-### Auto-translate isn't working
-Auto-translate requires the conversation to have messages in a detectable language. Very short messages (one or two words) may not trigger translation. If translation fails, SympleHost sends the original message instead.
+Instagram does not allow businesses to initiate a DM to a user who has never messaged them. The guest must message your Instagram account first.
+
+### Attachments are disabled
+
+The current channel may not support attachments in SympleHost. Attachments are channel-specific.
+
+### Auto-translate is not visible
+
+Auto-translate appears only when SympleHost can detect a guest language that differs from your current language. Very short messages may not provide enough text for detection.
+
+### I cannot find an older email conversation
+
+If Gmail is connected, search in Messages. When no local thread matches, use the Gmail search/import option to bring relevant email history into the inbox.
 
 ---
 
-Related Articles
+## Related articles
+
 - Connecting WhatsApp, Instagram & Facebook Messenger
-- How to Manage Bookings & Your Calendar
-- How to Add Team Members & Assign Roles
-- Adding a Listing Manually
+- Setting Up Autopilot — Automate Guest Messaging
+- Creating and Managing Quotations
+- Add Team Members and Roles

@@ -1,6 +1,6 @@
 ---
-title: Setting Up Autopilot — Automate Guest Messaging
-description: Configure SympleHost's AI-powered Autopilot to handle common guest questions automatically, so you're not glued to your phone 24/7.
+title: Setting Up Autopilot for Guest Messaging
+description: Configure account-level Autopilot, response delay, and message automation rules so AI can suggest or send guest replies from the Messages inbox.
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 3
@@ -9,142 +9,148 @@ tags:
   - AI
   - Messaging
   - Automation
-date: '2026-04-13'
+date: '2026-07-14'
 draft: false
 ---
 
-## What Is Autopilot?
-
-Autopilot is SympleHost's automated messaging system. When a guest sends you a message — say, asking about check-in time or Wi-Fi details — Autopilot uses AI to recognize the type of question and send an appropriate response on your behalf.
-
-Think of it like hiring a virtual front desk agent. You write the answers once, and Autopilot delivers them whenever a guest asks — day or night, even while you're asleep.
+**Autopilot controls how AI participates in guest conversations. You can keep it off, ask it to draft suggestions, or allow it to auto-reply after a delay. Message automation rules add scheduled and response-based workflows on top of that.**
 
 ---
 
-## When to Use Autopilot
-
-Autopilot is ideal when:
-
-- You receive the same guest questions over and over (check-in instructions, parking, house rules)
-- You want to respond to guests instantly, even outside business hours
-- You manage multiple listings and can't reply to every message manually
-- You want AI to draft responses for your review before sending
+> **TL;DR:** Open **Messages → Autopilot** to choose the account mode: **Off**, **Suggestion**, or **On**. If you choose **On**, set a response delay of at least 20 seconds. Then use **Messages → Message automation** to manage time-based and response-based rules. In the Messages inbox, individual guests or conversations can inherit the account default or be adjusted separately.
 
 ---
 
-## Before You Start
+## What Autopilot does
 
-Make sure you've completed these steps first:
+Autopilot is SympleHost's AI layer for guest messaging. It works with the **Messages** inbox and your connected channels.
 
-- **Connected at least one messaging integration** (WhatsApp, Instagram, or Facebook) — Autopilot needs a message channel to work with. See: *Connecting WhatsApp, Instagram & Facebook Messenger*
-- **Added at least one listing** — Autopilot uses listing details to provide accurate responses
+Depending on your settings, Autopilot can:
 
----
+- Draft replies for your team to review
+- Send replies automatically after a configured delay
+- Help with common guest questions
+- Work alongside scheduled and response-based message automation rules
+- Flag or leave sensitive conversations for human review
 
-## How to Turn On Autopilot
+Autopilot is not a replacement for checking guest context. It works best when your listings, guest information, bookings, and operating rules are up to date.
 
-### Step 1: Choose Your Autopilot Mode
+## Open Autopilot settings
 
-1. Go to **Settings** in the sidebar.
-2. Click **Autopilot**.
-3. You'll see three mode options:
+1. In the sidebar, open **Messages**.
+2. Go to **Autopilot**.
+3. Choose your account-level mode.
+4. Set the response delay if you use full auto-reply.
+5. Save your changes.
 
-| Mode | What It Does |
-|------|-------------|
-| **Off** | Autopilot is disabled. All messages require manual responses. |
-| **Suggestion Mode** | AI drafts a suggested response for each guest message, but waits for you to review and send it. Great for getting comfortable with Autopilot before going fully automatic. |
-| **On** | AI automatically sends responses to guests without waiting for your approval. The fastest option for experienced hosts. |
+## Choose an account mode
 
-4. Select your preferred mode.
+Autopilot has three account-level modes.
 
-[Screenshot: The Autopilot settings page showing the three mode options — Off, Suggestion Mode, and On]
+| Mode | What happens |
+| --- | --- |
+| **Off** | AI does not respond. Your team handles all messages manually. |
+| **Suggestion** | AI drafts suggested replies, but a human reviews and sends them. |
+| **On** | AI can automatically reply after the configured response delay. |
 
-💡 **Tip:** If you're new to Autopilot, start with **Suggestion Mode**. This lets you see what AI would send before it goes out, so you can build confidence in the responses. Switch to **On** once you're happy with the quality.
+If you are starting out, use **Suggestion** first. It lets you see what Autopilot would say before you trust it to respond automatically.
 
----
+## Set the response delay
 
-### Step 2: Set Your Response Delay (Full Autopilot Only)
+When Autopilot is **On**, set how long SympleHost waits before sending an automatic reply.
 
-If you chose **On** (fully automatic), you can set a delay before Autopilot sends each response. This makes the reply feel more natural — like a real person typing — rather than an instant robotic response.
+- Minimum: **20 seconds**
+- Default: **60 seconds**
 
-1. In the Autopilot settings, find the **Response Delay** field (it appears when you select **On**).
-2. Enter the number of seconds to wait before sending (minimum 20 seconds, default is 60).
-3. Click **Save Changes**.
+The delay gives your team a short window to jump in manually and prevents replies from feeling unnaturally instant.
 
-⚠️ **Important:** Even with Autopilot on, you can always jump into a conversation and reply manually. Your manual response takes priority over any pending Autopilot reply.
+## Understand account default vs guest override
 
----
+The account Autopilot setting is the default. Individual guests or conversations in **Messages** can still show their own Autopilot mode:
 
-### Step 3: Configure Message Categories
+- **Default**: use the account setting
+- **Off**: handle this guest manually
+- **Suggestion**: draft only for this guest
+- **On**: allow auto-replies for this guest
 
-Message categories are the types of guest questions Autopilot can handle. Each category has a response template that Autopilot uses to craft its replies.
+Use guest-level overrides for VIPs, sensitive stays, complaints, owner contacts, or any conversation where you want a different level of automation.
 
-SympleHost comes with pre-built categories for the most common guest inquiries:
+## Use message automation rules
 
-- **General courtesy** — Greetings and general conversation
-- **Property questions** — Details about the listing (amenities, layout, etc.)
-- **Booking inquiries** — Availability, pricing, and booking process
-- **Check-in / check-out procedures** — Arrival instructions, key handover, departure rules
-- **Booking changes & cancellations** — Modification and cancellation requests
-- **Local recommendations** — Restaurant, activity, and transport suggestions
-- **Maintenance requests** — Reporting issues during a stay
-- **Billing questions** — Payment, deposits, and refund inquiries
-- **Guest support** — General help during the stay
+Autopilot settings control AI behavior. **Message automation** controls repeatable messaging workflows.
 
-For each category:
+Open **Messages → Message automation** to manage two rule types:
 
-1. On the Autopilot settings page, scroll to the **Category Behaviors** section.
-2. You'll see a list of categories with toggles showing which are **active** and which are **disabled**.
-3. Click a category to view or edit its **response template** — this is the base answer Autopilot uses when a guest asks a question in that category.
-4. Toggle a category **on** to let Autopilot handle it, or **off** to require manual responses for that type of question.
+### Time-based rules
 
-[Screenshot: The Category Behaviors section showing a list of categories with on/off toggles and the counter showing "X/Y categories active"]
+Time-based rules are useful for scheduled guest communication, such as:
 
-💡 **Tip:** Start by enabling just 2–3 categories you're most confident about — like **Check-in / check-out** and **Property questions** — and expand from there as you see how Autopilot performs.
+- Pre-arrival instructions
+- Check-in reminders
+- Mid-stay check-ins
+- Checkout instructions
+- Post-stay review requests
 
----
+### Response-based rules
 
-## How Autopilot Works in Practice
+Response-based rules react to guest messages. They are useful when you want AI to respond to a category of inquiry or follow a specific guidance prompt.
 
-Here's what happens when a guest sends a message with Autopilot active:
+The automation screen shows rules in a timeline, lets you toggle rules on/off, and separates time-based rules from response-based rules.
 
-1. The guest's message arrives in your **Messages** inbox.
-2. Autopilot analyzes the message and matches it to a **message category**.
-3. Using the category's response template and your listing details, Autopilot crafts a personalized reply.
-4. **If Suggestion Mode:** The draft appears in the conversation for you to review, edit, and send.
-5. **If On:** The reply is sent automatically after the response delay.
+## How Autopilot works in Messages
 
-If Autopilot can't confidently categorize a message, it leaves it for you to handle manually. You'll see it as an unanswered message in your inbox.
+When a guest message arrives:
 
----
+1. The message appears in **Messages**.
+2. SympleHost checks the account and guest Autopilot mode.
+3. If Autopilot is off, the message waits for a human reply.
+4. If Autopilot is in suggestion mode, a draft can appear for review.
+5. If Autopilot is on, SympleHost can send the AI reply after the delay.
+6. If the conversation needs attention, your team can assign or escalate it.
+
+Manual replies always matter. If a team member responds, they can take over the conversation.
+
+## Recommended rollout
+
+1. Start with **Off** while you connect channels and clean up listing details.
+2. Move to **Suggestion** for common questions.
+3. Review suggested replies for a few days.
+4. Create or adjust message automation rules.
+5. Turn **On** only for flows you trust.
+6. Keep sensitive guests or escalated conversations on manual handling.
 
 ## Troubleshooting
 
-### Autopilot isn't responding to messages
-Check three things: (1) Is Autopilot set to **Suggestion Mode** or **On** (not **Off**)? (2) Is the relevant message category toggled **on**? (3) Is a messaging integration connected and working? Go to **Settings → Integrations** to verify.
+### Autopilot is not replying
 
-### Responses don't match what I want Autopilot to say
-Edit the response template for the relevant category. The template is the foundation of what Autopilot sends — the more detailed and accurate your template, the better the AI's responses will be.
+Check:
 
-### Autopilot is responding to messages I want to handle personally
-Toggle off the categories you want to handle manually. You can also switch to **Suggestion Mode** so you approve every response before it's sent.
+- Account mode is **Suggestion** or **On**
+- The guest/conversation override is not set to **Off**
+- The channel integration is connected
+- The relevant message automation rule is active if you expect a rule-driven reply
+- The account has access to the feature if subscription gating applies
 
-### The category counter shows "0/9 categories active"
-This means no categories are enabled. Autopilot won't respond to any messages until you toggle at least one category on. Also, categories can't be toggled when Autopilot mode is set to **Off**.
+### Autopilot replied too quickly or too slowly
+
+Adjust the **Response delay** in **Messages → Autopilot**. Use at least 20 seconds.
+
+### I want to approve every reply first
+
+Use **Suggestion** mode instead of **On**.
+
+### I want one guest handled manually
+
+Open the guest's conversation in **Messages** and set their Autopilot mode to **Off** instead of using the account default.
+
+### I need scheduled messages, not AI replies
+
+Use **Messages → Message automation** and create a time-based rule.
 
 ---
 
-## Key Takeaways
+## Related articles
 
-- Start with **Suggestion Mode** to review AI responses before they're sent
-- Enable categories one at a time and refine your response templates as you go
-- A response delay of 60 seconds makes automatic replies feel more natural
-- You can always override Autopilot by replying to a conversation manually
-
----
-
-## Related Articles
-
+- Using Messages: the unified guest inbox
 - Connecting WhatsApp, Instagram & Facebook Messenger
-- How to Use the Inbox to Communicate with Guests
-- Welcome to SympleHost — Your First 15 Minutes
+- Create and Assign Tasks

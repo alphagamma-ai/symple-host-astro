@@ -245,9 +245,8 @@ The point is not "AI for the sake of AI." The point is fewer missed messages, fa
 
 ---
 
-**Related reading:** [How to Use the Inbox to Communicate with Guests](/platform-guides/inbox-communicate-with-guests) · [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations) · [Setting Up Autopilot](/platform-guides/setting-up-autopilot)
+**Related reading:** [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests) · [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations) · [Setting Up Autopilot](/platform-guides/setting-up-autopilot)
 
 ---
 
 *Sources: [WhatsApp Business overview](https://en.wikipedia.org/wiki/WhatsApp#WhatsApp_Business) · [Asia-Pacific vacation rental market overview](/str-market-trends/asia-pacific-str-overview)*
-

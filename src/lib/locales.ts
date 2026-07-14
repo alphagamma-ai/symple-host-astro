@@ -334,7 +334,7 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
     },
     'faqs-messaging-autopilot-guest-experience': {
       title: 'メッセージ・Autopilot・ゲスト体験FAQ',
-      description: 'WhatsApp、Instagram、Facebook連携、AI返信、ゲストブックやおすすめ設定に関する質問です。',
+      description: 'Messages、接続チャネル、翻訳、担当者設定、エスカレーション、Autopilotに関する質問です。',
     },
     'faqs-team-operations-payments': {
       title: 'チーム・運営・決済・WebサイトFAQ',
@@ -361,8 +361,8 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       description: 'AirbnbやBooking.comの既存リスティングを取り込み、SympleHostで一から作り直す手間を省きます。',
     },
     'inbox-communicate-with-guests': {
-      title: 'Inboxでゲストとやり取りする',
-      description: 'すべてのゲスト会話を一か所で確認し、複数チャネルに返信し、AI支援でコミュニケーションを整理します。',
+      title: 'Messagesを使う：統合ゲスト受信箱',
+      description: 'Messagesで会話を検索・絞り込み、担当者設定、エスカレーション、翻訳、返信を行う方法を説明します。',
     },
     'india-str-trends': {
       title: 'インドのバケーションレンタル・Airbnb市場 2026年版',
@@ -409,8 +409,8 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       description: 'チェックアウト後清掃や月次点検などの反復タスクを自動化し、WhatsAppリマインダーを設定します。',
     },
     'setting-up-autopilot': {
-      title: 'Autopilotを設定してゲストメッセージを自動化する',
-      description: 'SympleHostのAI Autopilotを設定し、よくある質問への自動返信で24時間の対応負荷を減らします。',
+      title: 'ゲストメッセージ用Autopilotを設定する',
+      description: 'MessagesのAutopilotでアカウントモード、返信遅延、メッセージ自動化ルールを設定します。',
     },
     'setting-up-company-profile': {
       title: '会社プロフィールを設定する',
@@ -536,7 +536,7 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
     },
     'faqs-messaging-autopilot-guest-experience': {
       title: 'FAQ Pesan, Autopilot, dan Pengalaman Tamu',
-      description: 'Pertanyaan tentang WhatsApp, Instagram, Facebook, AI reply, guestbook, dan rekomendasi.',
+      description: 'Pertanyaan tentang Messages, channel terhubung, terjemahan, assignment, escalation, dan Autopilot.',
     },
     'faqs-team-operations-payments': {
       title: 'FAQ Tim, Operasional, Pembayaran, dan Website',
@@ -563,8 +563,8 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       description: 'Ambil listing Airbnb atau Booking.com yang sudah ada agar tidak perlu membuat semuanya dari nol.',
     },
     'inbox-communicate-with-guests': {
-      title: 'Berkomunikasi dengan Tamu melalui Inbox',
-      description: 'Kelola semua percakapan tamu di satu tempat dan balas lintas channel dengan bantuan AI.',
+      title: 'Menggunakan Messages: inbox tamu terpadu',
+      description: 'Cari, filter, tugaskan, eskalasi, terjemahkan, dan balas percakapan tamu dari channel terhubung.',
     },
     'india-str-trends': {
       title: 'Pasar Vacation Rental dan Airbnb India 2026',
@@ -612,7 +612,7 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
     },
     'setting-up-autopilot': {
       title: 'Menyiapkan Autopilot untuk Pesan Tamu',
-      description: 'Gunakan AI Autopilot untuk menjawab FAQ tamu dan mengurangi beban respons 24 jam.',
+      description: 'Atur mode Autopilot, jeda respons, dan aturan message automation untuk guest messaging.',
     },
     'setting-up-company-profile': {
       title: 'Menyiapkan Profil Perusahaan',

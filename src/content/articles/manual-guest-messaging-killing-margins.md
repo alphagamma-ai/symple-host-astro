@@ -201,5 +201,4 @@ This turns messaging from a scattered chore into an operating system.
 
 ---
 
-**Related reading:** [Guest Communication at Scale: The WhatsApp Automation Playbook](/marketing-for-hosts/guest-communication-whatsapp-automation-playbook) · [How to Use the Inbox to Communicate with Guests](/platform-guides/inbox-communicate-with-guests) · [Setting Up Autopilot](/platform-guides/setting-up-autopilot)
-
+**Related reading:** [Guest Communication at Scale: The WhatsApp Automation Playbook](/marketing-for-hosts/guest-communication-whatsapp-automation-playbook) · [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests) · [Setting Up Autopilot](/platform-guides/setting-up-autopilot)

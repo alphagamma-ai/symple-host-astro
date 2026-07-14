@@ -1,9 +1,9 @@
 ---
 title: "Messages"
-description: "Handle WhatsApp, Instagram, Facebook, Airbnb, and Booking.com guest conversations from a single inbox — with AI assist."
+description: "Use the main Messages inbox to search, filter, assign, escalate, translate, and reply to guest conversations across connected channels."
 youtubeId: "XFPxDDXEDk8"
 order: 40
 draft: false
 ---
 
-See how the unified inbox brings every channel into one thread, how AI drafts replies in the guest's language, and how to assign or escalate conversations to teammates.
+See how Messages works as the main guest inbox: search and filter conversations, open a guest thread, switch channels for the same guest, use the drawer for bookings and quotations, translate replies, create tasks, and escalate or assign conversations to teammates.
