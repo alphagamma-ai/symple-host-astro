@@ -30,7 +30,7 @@ speakers:
     bio: "Max Del Vita is the CEO of Symplehost.ai, a platform built to help short-term rental operators bring property management, channel management, guest messaging, task coordination, payments, and AI-assisted workflows into one operating system. Max works closely with hosts and property managers to understand where day-to-day operations break down, from scattered inboxes and manual handoffs to disconnected pricing and reservation workflows. His focus is helping operators streamline the busywork behind hosting so they can respond faster, reduce admin load, and build more scalable short-term rental businesses."
   - name: "Julie George"
     role: "Founder, Million Dollar Host"
-    url: "https://www.milliondollarhost.com.au/shop"
+    url: "https://www.linkedin.com/in/julie-george-milliondollarhost/?skipRedirect=true"
     avatar: "/speakers/julie-george-vrma.jfif"
     topic: "Scale"
     bio: "Julie George is the founder of Million Dollar Host and a recognised short-term rental educator, author, and business mentor. Through her work with hosts and property managers, Julie helps operators think beyond individual bookings and build the sales, marketing, team structure, and systems needed to grow a profitable accommodation business. Her teaching blends practical hosting experience with a clear scaling framework, helping operators move from hands-on daily management to a more structured business that can grow without creating unnecessary complexity."
