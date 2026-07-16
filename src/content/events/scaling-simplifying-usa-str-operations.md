@@ -21,7 +21,7 @@ speakers:
     url: "https://www.linkedin.com/in/brian-king-6b544b68"
     avatar: "/speakers/brian-king.jpg"
     topic: "Start"
-    bio: "Brian is a short-term rental operator and STR Wealth Conference host who helps new and growing operators understand what to focus on early, what to avoid, and how to build momentum before scaling."
+    bio: "Brian King is a short-term rental investor, leadership educator, and Co-Founder of the STR Wealth Builders Conference. With a Ph.D. in Leadership and years of experience as both an educator and entrepreneur, Brian helps investors think strategically, evaluate opportunities with confidence, and build profitable short-term rental businesses designed for long-term success. His engaging presentations combine leadership principles, practical investing strategies, and real-world experience to help operators make smarter decisions and achieve sustainable growth."
   - name: "Max Del Vita"
     role: "CEO, Symplehost.ai"
     url: "https://www.linkedin.com/in/mdelvita/?skipRedirect=true"
