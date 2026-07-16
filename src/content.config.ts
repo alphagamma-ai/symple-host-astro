@@ -63,6 +63,7 @@ const events = defineCollection({
       avatar: z.string().optional(),
       topic: z.string().optional(),
       bio: z.string().optional(),
+      sessionFocus: z.string().optional(),
       url: z.string().url().optional(),
     })).optional().default([]),
     cohosts: z.array(z.object({

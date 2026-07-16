@@ -5,10 +5,11 @@ interface Props {
   avatar?: string;
   topic?: string;
   bio?: string;
+  sessionFocus?: string;
   url?: string;
 }
 
-const { name, role, avatar, topic, bio, url } = Astro.props;
+const { name, role, avatar, topic, bio, sessionFocus, url } = Astro.props;
 const initials = name
   .split(' ')
   .map((part) => part[0]?.toUpperCase() ?? '')
@@ -31,6 +32,11 @@ const initials = name
     )}
     {role && <div class="speaker-role">{role}</div>}
     {bio && <p class="speaker-bio">{bio}</p>}
+    {sessionFocus && (
+      <p class="speaker-session">
+        <span>In this session:</span> {sessionFocus}
+      </p>
+    )}
   </div>
 </div>
 
@@ -103,6 +109,18 @@ const initials = name
     font-size: 0.9rem;
     color: #5d506b;
     line-height: 1.6;
+  }
+  .speaker-session {
+    margin: 0.72rem 0 0;
+    padding-left: 0.82rem;
+    border-left: 2px solid rgba(124, 90, 240, 0.35);
+    font-size: 0.88rem;
+    color: #4f435c;
+    line-height: 1.55;
+  }
+  .speaker-session span {
+    font-weight: 800;
+    color: var(--foreground);
   }
 
   @media (max-width: 560px) {

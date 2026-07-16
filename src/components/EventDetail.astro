@@ -127,7 +127,7 @@ const scheduleLabel = dateTbd
         </div>
         <div class="speaker-grid">
           {event.data.speakers.map((s) => (
-            <SpeakerCard name={s.name} role={s.role} avatar={s.avatar} topic={s.topic} bio={s.bio} url={s.url} />
+            <SpeakerCard name={s.name} role={s.role} avatar={s.avatar} topic={s.topic} bio={s.bio} sessionFocus={s.sessionFocus} url={s.url} />
           ))}
         </div>
       </section>
