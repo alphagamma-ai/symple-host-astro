@@ -13,4 +13,11 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 ---
 
-<EventDetail event={event} sectionTitle="Webinars & Videos" sectionHref="/webinars-and-videos/" />
+{/* Legacy combined route — the canonical /videos/ and /webinars/ pages carry
+    the search index entry for each event. */}
+<EventDetail
+  event={event}
+  sectionTitle="Webinars & Videos"
+  sectionHref="/webinars-and-videos/"
+  searchable={false}
+/>

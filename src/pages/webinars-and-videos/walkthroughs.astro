@@ -3,12 +3,28 @@ import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
 
+interface Props {
+  /**
+   * This page is rendered at /webinars-and-videos/walkthroughs/ and, via
+   * `src/pages/videos/walkthroughs.astro`, at /videos/walkthroughs/. Only the
+   * latter opts into the search index so the two copies do not both show up.
+   */
+  searchable?: boolean;
+}
+
+const { searchable = false } = Astro.props;
+
 const all = await getCollection('walkthroughs', ({ data }) => !data.draft);
 const walkthroughs = all.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
-<Base title="Product walkthroughs" description="Short, focused video walkthroughs of every section of SympleHost — from listings and calendar to messages, guide books, team ops, and financial reporting.">
-  <nav class="breadcrumb">
+<Base
+  title="Product walkthroughs"
+  description="Short, focused video walkthroughs of every section of SympleHost — from listings and calendar to messages, guide books, team ops, and financial reporting."
+  searchable={searchable}
+  searchCategory="Videos"
+>
+  <nav class="breadcrumb" data-pagefind-ignore>
     <a href="/">All Topics</a>
     <span class="sep">/</span>
     <a href="/videos/">Videos</a>

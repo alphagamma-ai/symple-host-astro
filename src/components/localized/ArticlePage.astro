@@ -36,8 +36,14 @@ const formattedDate = article.data.date
   : null;
 ---
 
-<Base title={articleTitle} description={articleDescription} locale={locale}>
-  <nav class="breadcrumb">
+<Base
+  title={articleTitle}
+  description={articleDescription}
+  locale={locale}
+  searchable
+  searchCategory={category ? getCategoryTitle(category, locale) : undefined}
+>
+  <nav class="breadcrumb" data-pagefind-ignore>
     <a href={localizePath('/', locale)}>{copy.allTopics}</a>
     <span class="sep">/</span>
     {category && <><a href={localizePath(`/${category.id}`, locale)}>{getCategoryTitle(category, locale)}</a><span class="sep">/</span></>}
@@ -47,7 +53,10 @@ const formattedDate = article.data.date
   <article class="article">
     <header class="article-header">
       <h1 class="article-title">{articleTitle}</h1>
-      <div class="article-meta">
+      {/* Kept out of the index: the date and the tag chips have no whitespace
+          between them once flattened to text, so they only ever surface as
+          noise in search excerpts. */}
+      <div class="article-meta" data-pagefind-ignore>
         {formattedDate && <span class="article-date">{copy.updated} {formattedDate}</span>}
         {locale === DEFAULT_LOCALE && article.data.tags && article.data.tags.length > 0 && (
           <div class="article-tags">
