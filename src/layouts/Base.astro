@@ -1,4 +1,5 @@
 ---
+import Search from '../components/Search.astro';
 import {
   DEFAULT_LOCALE,
   LOCALE_LABELS,
@@ -13,9 +14,17 @@ interface Props {
   title: string;
   description?: string;
   locale?: Locale;
+  /**
+   * Opt this page into the Pagefind search index. Content pages (articles,
+   * event detail pages, walkthroughs) set this; listing pages and duplicate
+   * legacy routes leave it off so results stay one-entry-per-topic.
+   */
+  searchable?: boolean;
+  /** Value recorded for the `category` search filter. Requires `searchable`. */
+  searchCategory?: string;
 }
 
-const { title, locale = DEFAULT_LOCALE } = Astro.props;
+const { title, locale = DEFAULT_LOCALE, searchable = false, searchCategory } = Astro.props;
 const copy = uiCopy[locale];
 const description = Astro.props.description ?? copy.defaultDescription;
 const currentPath = Astro.url.pathname;
@@ -33,6 +42,12 @@ const currentPath = Astro.url.pathname;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title} | {copy.titleSuffix}</title>
+    {/* Pagefind search UI. Both files are emitted by `pagefind --site dist`
+        after the Astro build, so they are referenced as-is rather than
+        bundled. The stylesheet is loaded before the site theme below so our
+        `--pf-*` overrides win over Pagefind's own defaults. */}
+    <link rel="stylesheet" href="/pagefind/pagefind-component-ui.css" />
+    <script is:inline type="module" src="/pagefind/pagefind-component-ui.js"></script>
     <style is:global>
       :root {
         --primary-50: #faf5ff;
@@ -55,6 +70,26 @@ const currentPath = Astro.url.pathname;
         --border-light: #f2f4f7;
         --primary: #7F56D9;
 
+        /* Pagefind Component UI theme. Declared here (after its stylesheet)
+           so these also override Pagefind's prefers-color-scheme: dark block —
+           the site itself is light-only, and a dark search panel on a light
+           page reads as a bug. */
+        --pf-font: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+        --pf-text: var(--foreground);
+        --pf-text-secondary: var(--muted-foreground);
+        --pf-text-muted: var(--muted-light);
+        --pf-background: #ffffff;
+        --pf-border: var(--border);
+        --pf-border-focus: var(--primary);
+        --pf-border-radius: 8px;
+        --pf-hover: var(--primary-50);
+        --pf-mark: var(--primary-700);
+        --pf-outline-focus: var(--primary);
+        --pf-skeleton: var(--border-light);
+        --pf-skeleton-shine: #ffffff;
+        --pf-modal-backdrop: rgba(24, 24, 27, 0.45);
+        --pf-modal-max-width: 40rem;
+        --pf-dropdown-z-index: 60;
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -108,6 +143,8 @@ const currentPath = Astro.url.pathname;
           <a href="https://www.symplehost.ai/contact-us" class="nav-link">{copy.contact}</a>
         </nav>
 
+        <Search locale={locale} />
+
         <nav class="locale-switcher" aria-label={copy.language}>
           {LOCALES.map((item) => (
             <a
@@ -123,7 +160,16 @@ const currentPath = Astro.url.pathname;
       <div class="header-gradient"></div>
     </header>
 
-    <main class="main">
+    {/* `data-pagefind-body` scopes the search index to the page content:
+        header, locale switcher and footer are outside <main>, and pages that
+        do not opt in (listings, legacy duplicate routes, redirect stubs) are
+        left out of the index entirely. */}
+    <main
+      class="main"
+      data-pagefind-body={searchable ? '' : undefined}
+      data-pagefind-filter={searchable && searchCategory ? `category:${searchCategory}` : undefined}
+      data-pagefind-meta={searchable && searchCategory ? `category:${searchCategory}` : undefined}
+    >
       <slot />
     </main>
 
@@ -173,6 +219,7 @@ const currentPath = Astro.url.pathname;
         color: #2E2E2E;
         font-size: 1.2rem;
         font-weight: 400;
+        white-space: nowrap;
         transition: color 0.15s;
       }
       .nav-link:hover { color: var(--primary); }
@@ -195,6 +242,7 @@ const currentPath = Astro.url.pathname;
         font-size: 0.78rem;
         font-weight: 600;
         line-height: 1;
+        white-space: nowrap;
         padding: 0.42rem 0.55rem;
         border-radius: 999px;
       }
@@ -225,10 +273,24 @@ const currentPath = Astro.url.pathname;
         color: var(--primary);
       }
 
+      /* Between the mobile breakpoint and ~1024px the nav, the search trigger
+         and the locale switcher all have to share one row. */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .header-inner { gap: 1rem; padding: 0 1rem; }
+        .nav { gap: 1rem; }
+        .nav-link { font-size: 1.05rem; }
+      }
+
       @media (max-width: 768px) {
-        .header-inner { padding: 0 1rem; gap: 1rem; }
+        .header-inner { padding: 0 0.75rem; gap: 0.6rem; }
         .nav { display: none; }
-        .locale-switcher { margin-left: auto; }
+        .header-inner :global(.sh-search-header) { margin-left: auto; }
+        .locale-switcher { margin-left: 0; }
+        /* The header carries logo + search + three locales on one line at
+           360px, so both ends tighten up. */
+        .logo { font-size: 1.05rem; gap: 0.45rem; }
+        .logo-img { width: 28px; height: 28px; }
+        .locale-link { font-size: 0.72rem; padding: 0.4rem 0.45rem; }
         .main { padding: 1.5rem 1rem 3rem; }
       }
     </style>

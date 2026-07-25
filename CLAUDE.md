@@ -9,18 +9,17 @@ SympleHost Knowledge Base — a static documentation site built with Astro 6 and
 ## Commands
 
 ```bash
-pnpm run dev          # Start TinaCMS + Astro dev server (localhost:4321)
-pnpm run build        # Production build: tinacms build && astro build → dist/
+pnpm run dev          # Astro dev server (localhost:4321)
+pnpm run build        # Production build: astro build && pagefind --site dist → dist/
 pnpm run preview      # Preview production build locally
+pnpm run verify:build # Post-build smoke checks against dist/ (search index, .md endpoints)
 ```
-
-TinaCMS admin: `http://localhost:4321/admin/index.html` (local dev)
 
 ## Architecture
 
 **Static site generation** — all pages pre-rendered at build time via `getStaticPaths()`. No API routes or SSR.
 
-**Build pipeline**: TinaCMS build (generates admin UI + connects to TinaCloud) → Astro build (generates static HTML to `dist/`).
+**Build pipeline**: Astro build (static HTML → `dist/`) → Pagefind (crawls `dist/` and writes the search index + search UI bundle to `dist/pagefind/`).
 
 ### Content Model
 
@@ -62,6 +61,27 @@ Markdown content here...
 
 New categories go in `src/content/categories/` as YAML files. When adding a new category, also update the `options` array in `tina/config.ts` under the article's `category` field.
 
+## Search
+
+Site search is [Pagefind](https://pagefind.app) — a static index built from `dist/` after the Astro build, queried in the browser. No search service, no API keys, no runtime cost.
+
+- **UI**: `src/components/Search.astro` renders Pagefind's Component UI (`<pagefind-*>` custom elements). `variant="header"` is the ⌘K/Ctrl-K modal mounted in `Base.astro`; `variant="hero"` is the inline searchbox on the homepage. The bundle (`/pagefind/pagefind-component-ui.{css,js}`) is emitted by the Pagefind build, so `Base.astro` references it with plain `<link>`/`<script is:inline>` tags rather than importing it.
+- **Theming**: Pagefind's `--pf-*` custom properties are mapped to the site palette in the `:root` block of `Base.astro`. Rules targeting generated `.pf-*` elements must be global (`<style is:global>`) and often need `!important` — Pagefind's own stylesheet resets those elements at ID-level specificity.
+- **Localization**: Pagefind splits the index by `<html lang>`, so `/`, `/jp/` and `/id/` each search only their own locale, and the component UI's own labels follow suit. Placeholder copy lives in `uiCopy` in `src/lib/locales.ts`.
+- **Dev mode**: `/pagefind/` only exists after a build. `astro.config.mjs` has a `pagefind-dev-server` integration that serves `dist/pagefind/` in `astro dev` — run `pnpm run build` once first, and re-run it to pick up new content.
+
+### What gets indexed
+
+Pages opt in via the `searchable` prop on `Base.astro`, which puts `data-pagefind-body` on `<main>`. Anything that does not opt in is excluded, including the header, footer, listing pages and redirect stubs. Currently indexed: article detail pages (all three locales), video/webinar detail pages, and `/videos/walkthroughs/`.
+
+When adding a page type, decide deliberately:
+
+- **Content page** → pass `searchable` and a `searchCategory` (the value behind the modal's category filter, and shown as result metadata).
+- **Listing page** → leave it out; its entries are indexed on their own pages.
+- **Duplicate route** → index only the canonical URL. Events render at both `/videos/…`|`/webinars/…` and the legacy `/webinars-and-videos/…`; the legacy route passes `searchable={false}` so each event appears once.
+
+Use `data-pagefind-ignore` for in-content chrome that pollutes excerpts (breadcrumbs, tag chips). `pnpm run verify:build` asserts all of the above after a build.
+
 ## Styling
 
 - **Fonts**: Merriweather (headings), Inter (body text)
@@ -81,6 +101,6 @@ Deployed to **Render** as a static site. Config in `render.yaml`.
 ## Key Dependencies
 
 - `astro` — static site framework
-- `tinacms` / `@tinacms/cli` — CMS admin and build tooling (connects to TinaCloud in production)
-- `@astrojs/react` — React integration (used by TinaCMS admin)
+- `pagefind` — static search index + search UI, run over `dist/` after the Astro build
+- `@astrojs/react` — React integration
 - `@astrojs/markdoc` — Markdoc content format support

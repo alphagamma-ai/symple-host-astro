@@ -10,9 +10,15 @@ interface Props {
   event: Event;
   sectionTitle: string;
   sectionHref: string;
+  /**
+   * Every event is also reachable under the legacy /webinars-and-videos/
+   * route. Only the canonical /videos/ and /webinars/ pages are indexed, so
+   * search returns one result per event.
+   */
+  searchable?: boolean;
 }
 
-const { event, sectionTitle, sectionHref } = Astro.props;
+const { event, sectionTitle, sectionHref, searchable = true } = Astro.props;
 const { Content } = await render(event);
 const upcoming = isUpcoming(event);
 const typeLabel = EVENT_TYPE_LABEL[event.data.eventType];
@@ -28,8 +34,13 @@ const scheduleLabel = dateTbd
   : `${dateLabel} · ${timeLabel}${durationLabel ? ` · ${durationLabel}` : ''}`;
 ---
 
-<Base title={event.data.title} description={event.data.description}>
-  <nav class="breadcrumb">
+<Base
+  title={event.data.title}
+  description={event.data.description}
+  searchable={searchable}
+  searchCategory={sectionTitle}
+>
+  <nav class="breadcrumb" data-pagefind-ignore>
     <a href="/">All Topics</a>
     <span class="sep">/</span>
     <a href={sectionHref}>{sectionTitle}</a>
