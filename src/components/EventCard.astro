@@ -10,7 +10,9 @@ interface Props {
 const { event, hrefBase = '/webinars-and-videos' } = Astro.props;
 const upcoming = isUpcoming(event);
 const thumb = thumbnailUrl(event);
-const href = `${hrefBase}/${event.id}`;
+const detailHref = `${hrefBase}/${event.id}`;
+const href = upcoming && event.data.registerUrl ? event.data.registerUrl : detailHref;
+const opensExternal = href.startsWith('http');
 const typeLabel = EVENT_TYPE_LABEL[event.data.eventType];
 const dateLabel = formatEventDate(event.data.eventDate);
 const timeLabel = upcoming ? formatEventTime(event.data.eventDate) : null;
@@ -20,7 +22,13 @@ const speakerNames = event.data.speakers.map((s) => s.name).join(', ');
 const scheduleLabel = dateTbd ? 'Date and time coming soon' : `${dateLabel}${timeLabel ? ` · ${timeLabel}` : ''}`;
 ---
 
-<a href={href} class={`event-card ${upcoming ? 'is-upcoming' : 'is-past'}`} data-event-type={event.data.eventType}>
+<a
+  href={href}
+  class={`event-card ${upcoming ? 'is-upcoming' : 'is-past'}`}
+  data-event-type={event.data.eventType}
+  target={opensExternal ? '_blank' : undefined}
+  rel={opensExternal ? 'noopener noreferrer' : undefined}
+>
   {thumb && !upcoming && (
     <div class="event-thumb">
       <img src={thumb} alt="" loading="lazy" />

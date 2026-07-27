@@ -132,15 +132,14 @@ const currentPath = Astro.url.pathname;
       <div class="header-inner">
         <a href={localizePath('/', locale)} class="logo">
           <img src="/SH_Logo.svg" alt="SympleHost" class="logo-img" />
-          <span>SYMPLE HOST</span>
+          <span>SYMPLEHOST</span>
         </a>
 
         <nav class="nav">
           <a href={localizePath('/', locale)} class="nav-link">{copy.knowledgeBase}</a>
-      <!--  <a href="https://www.symplehost.ai/signal" class="nav-link">Signal</a> -->
           <a href="https://www.symplehost.ai/pricing" class="nav-link">{copy.pricing}</a>
           <a href="https://www.symplehost.ai/blog" class="nav-link">{copy.blog}</a>
-          <a href="https://www.symplehost.ai/contact-us" class="nav-link">{copy.contact}</a>
+          <a href="https://www.symplehost.ai/contact" class="nav-link">{copy.contact}</a>
         </nav>
 
         <Search locale={locale} />
