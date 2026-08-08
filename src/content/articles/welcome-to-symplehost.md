@@ -1,6 +1,6 @@
 ---
-title: Welcome to SympleHost — Your First 15 Minutes
-description: Get oriented fast — here's what SympleHost does, where everything lives, and what to set up first.
+title: Welcome to SympleHost — Your First 24 Hours
+description: Get oriented fast, connect the essentials, and make SympleHost useful for your team and guests on day one.
 category: getting-started
 section: Start here
 sectionOrder: 1
@@ -8,15 +8,15 @@ tags:
   - Onboarding
   - Overview
   - Setup
-date: '2026-04-13'
+date: '2026-08-08'
 draft: false
 ---
 
 ## What Is SympleHost?
 
-SympleHost is a property management platform built for vacation rental and short-term rental hosts. It brings your listings, bookings, guest communication, and day-to-day operations into one place — so you're not juggling between Airbnb, WhatsApp, spreadsheets, and email.
+SympleHost is a property management platform built for vacation rental and short-term rental hosts. It brings your listings, calendars, reservations, guest communication, direct booking tools, and team operations into one place, so you are not juggling between OTAs, WhatsApp, spreadsheets, and email.
 
-Think of it as mission control for your rental business. You manage your properties, track reservations, message guests (with AI doing the heavy lifting), and coordinate your team — all from a single dashboard.
+Think of it as mission control for your rental business. You manage listings, track reservations, message guests with AI support, coordinate your team, and prepare direct bookings from a single workspace.
 
 ![The SympleHost Overview dashboard — revenue, occupancy, bookings, and activity all in one view](/screenshots/welcome-to-symplehost/overview-dashboard.png)
 
@@ -38,70 +38,87 @@ When you log in, you'll see a **sidebar on the left**. This is how you navigate 
 
 ![The SympleHost sidebar showing all main navigation items](/screenshots/welcome-to-symplehost/sidebar-navigation.png)
 
-**Overview** — Your dashboard. Shows revenue, occupancy, upcoming check-ins, and payment activity at a glance.
+**Overview** — Your dashboard. Shows revenue, occupancy, bookings, check-ins, and activity at a glance.
 
-**Messages** — Your unified inbox. Guest messages from WhatsApp, Instagram, and Facebook all land here.
+**Calendars** — Your availability and booking calendar for properties and services.
 
-**Operations** — Where your team's work lives. Create tasks, schedule jobs, manage your workforce, and set up automations (like auto-creating a cleaning task after checkout).
+**Messages** — Your unified inbox. Guest messages from connected channels appear here, with AI draft and Autopilot options depending on your setup.
+
+**Reservations** — View and manage bookings across channels, including manual and direct reservations.
+
+**Operations** — Where your team's work lives. Create tasks, schedule jobs, manage workforce, use task templates, and set up automations.
 
 **Customers** — Your guest database. Every guest who books with you gets a profile here.
 
+**Listings** — Your properties and services. Add listings, manage pricing, review availability, and connect channels.
+
+**Guest Books** — Create guest-facing guides, local recommendations, and add-ons for each property.
+
 **Quotes** — Create and send quotations to guests for custom stays or services.
 
-**Reservations** — View and manage all bookings in one place.
+**Websites** — Build and manage direct booking websites when your account has website access enabled.
 
-**Properties** — Your listings and their calendars. Add new properties, set pricing, and manage availability.
+**Financial Reports** — Track revenue and finance reports when your role and account settings allow access.
 
-**Services** — If you offer extras like tours, airport transfers, or cleaning services, manage them here.
+**Settings** — Configure your profile, team, workspace, direct bookings, payment gateway, integrations, notifications, and reminders.
 
-**Guest Experience** — Set up digital guest books, local recommendations, a guest store, and Amy (your AI guest assistant).
-
-**Websites** — Build a direct booking website so guests can book with you without going through an OTA.
-
-**Settings** — Configure your account, integrations, team, payments, notifications, and Autopilot (automated messaging).
+Some menu items only appear when your role, subscription, and account feature flags allow them. If you do not see an item, ask your account owner or admin to check your permissions.
 
 ---
 
-## What to Set Up First
+## Your First 24 Hours
 
-Here's the recommended order to get your account ready. Each step links to a detailed guide:
+Use this order if you want SympleHost to become useful quickly, not just "set up."
 
-1. **Complete your company profile** — Set your business name, country, currency, and timezone so everything displays correctly.
+1. **Complete your company profile** — Set your business name, country, currency, timezone, and date format so calendars, pricing, and guest-facing content display correctly.
    → See: *Setting Up Your Company Profile*
 
-2. **Add your first listing** — Either create one manually or import from an OTA (Online Travel Agency, like Airbnb or Booking.com).
+2. **Add or import your first listing** — Start manually, import from Airbnb, or use Copilot if it is enabled for your account. Booking.com is connected through Channel Manager after the listing exists.
    → See: *Adding a Listing Manually* or *How to Import Listings from an OTA*
 
-3. **Set your pricing** — Configure nightly rates and seasonal pricing for your listings.
+3. **Set pricing and availability** — Add your standard rate, review the pricing calendar, and check blocked or booked dates before you connect more channels.
    → See: *How to Set Up Your Pricing & Rate Rules*
 
-4. **Connect a messaging platform** — Link WhatsApp, Instagram, or Facebook so guest messages flow into SympleHost.
+4. **Connect a guest messaging channel** — Link WhatsApp, Instagram, Facebook Messenger, or another supported channel so your team can reply from Messages.
    → See: *Connecting WhatsApp, Instagram & Facebook Messenger*
 
-5. **Turn on Autopilot** — Let AI handle common guest questions automatically.
+5. **Use Autopilot in suggestion mode first** — Let AI draft replies before you allow automatic sending.
    → See: *Setting Up Autopilot — Automate Guest Messaging*
 
-6. **Create your first booking** — Add a reservation manually to see how the booking flow works.
+6. **Create or review your first reservation** — Confirm guest details, dates, payment status, and the handoff tasks your team needs.
    → See: *Creating a Reservation Manually*
 
-7. **Invite your team** — Add cleaners, co-hosts, or managers and control what they can access.
+7. **Invite the right team members** — Add managers, booking coordinators, cleaners, or maintenance staff with the access they actually need.
    → See: *How to Add Team Members & Assign Roles*
 
-💡 **Tip:** You don't have to do all of this in one sitting. Start with steps 1–3 and come back for the rest when you're ready.
+8. **Connect payments before taking direct bookings** — Choose the payment gateway available in your country, then configure deposits, cancellation policies, and fees.
+   → See: *How to Set Up Payments*
+
+💡 **Tip:** If you only have one hour today, do steps 1-4. That gets your account, listing, calendar, and guest inbox ready enough for real work.
+
+---
+
+## What to Avoid on Day One
+
+- Do not turn full Autopilot on before your listing details, house rules, and check-in instructions are accurate.
+- Do not connect multiple booking channels until pricing and availability look right.
+- Do not invite staff as admins unless they truly need account-wide access.
+- Do not launch direct bookings until payments, deposits, cancellation policy, and guest contact settings are reviewed.
 
 ---
 
 ## Key Takeaways
 
-- SympleHost brings your listings, bookings, guest messaging, and team operations into one platform
-- The sidebar is your main navigation — everything is organized by section
-- Start by setting up your company profile, adding a listing, and configuring pricing
-- Autopilot and messaging integrations are what make SympleHost powerful — set those up early
+- SympleHost brings listings, bookings, calendars, guest messaging, direct bookings, and team operations into one platform
+- Your first 24 hours should focus on correct account settings, one accurate listing, pricing, calendar, and one messaging channel
+- Autopilot is most valuable after your guest information and operating rules are clean
+- Payments and direct booking settings should be reviewed together before guests start paying directly
 
 ---
 
 ## Related Articles
 
+- Your First 24 Hours in SympleHost
 - Setting Up Your Company Profile
 - Adding a Listing Manually
 - How to Import Listings from an OTA

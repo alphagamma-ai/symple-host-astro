@@ -15,17 +15,17 @@ draft: false
 ## Team Management
 
 ### How do I invite a team member?
-Go to **Settings → Team → Members** and click **Invite Member**. Enter their name, email, phone, and select a role. They'll receive an invitation email.
+Go to **Settings → Team Members** and click **Invite Member**. Enter their name, email, phone, and select a role. They'll receive an invitation email.
 → See: *How to Add Team Members & Assign Roles*
 
 ### What roles are available?
 SympleHost has four roles: **Account Admin** (full access), **Account Manager** (manages listings, bookings, guests), **Booking Coordinator** (handles reservations and guest communication), and **Staff** (limited access for tasks like cleaning).
 
 ### Can I change someone's role after inviting them?
-Yes. Go to **Settings → Team → Members**, click the team member, and update their role and permissions.
+Yes. Go to **Settings → Team Members**, click the team member, and update their role and permissions.
 
 ### How do I remove a team member?
-Go to **Settings → Team → Members**, find the person, and remove them from the account.
+Go to **Settings → Team Members**, find the person, and remove them from the account.
 
 ### Why can't my team member see certain menu items?
 SympleHost uses role-based access. What each person sees depends on their role and permissions. For example, Staff members see a focused view with just their tasks, while Account Admins see everything.
@@ -67,7 +67,7 @@ Yes. Go to **Operations → Automations**, click **New Automation**, and set up 
 
 ### How do I connect Stripe for payments?
 Go to **Settings → Payment Gateway**, find the Stripe card, and click **Connect with Stripe**. Follow the Stripe authorization process. Once connected, you'll see your account status, charges enabled, and payouts enabled.
-→ See: *How to Set Up Payments (Stripe Integration)*
+→ See: *How to Set Up Payments*
 
 ### Can I accept payments directly from guests?
 Yes, once Stripe is connected. Guests can pay through your direct booking website, or you can send them a payment link via a quotation.

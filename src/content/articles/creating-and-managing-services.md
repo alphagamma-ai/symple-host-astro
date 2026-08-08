@@ -306,6 +306,6 @@ Service pricing uses your account currency. Check **Settings → General** to ve
 ## Related Articles
 
 - Creating a Reservation Manually
-- How to Set Up Payments (Stripe Integration)
+- How to Set Up Payments
 - Setting Up Autopilot — Automate Guest Messaging
-- Welcome to SympleHost — Your First 15 Minutes
+- Welcome to SympleHost — Your First 24 Hours

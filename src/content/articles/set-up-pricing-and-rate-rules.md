@@ -8,7 +8,7 @@ tags:
   - Pricing
   - Rate Plans
   - Listings
-date: '2026-04-09'
+date: '2026-08-08'
 draft: false
 ---
 
@@ -22,13 +22,13 @@ Think of it like setting a thermostat: the Standard Rate is your default tempera
 
 ## How to Access Price Settings
 
-1. Click **Properties** in the sidebar, then click **Listings**.
+1. Click **Listings** in the sidebar.
 
 2. Click on the listing you want to price.
 
    ![Listing detail page with tabs](/uploads/set-up-pricing-and-rate-rules/01.png)
 
-3. Click the **Price Settings** tab.
+3. Click **Price Settings**.
 
    ![Price Settings tab with Base Rate](/uploads/set-up-pricing-and-rate-rules/02.png)
 
@@ -94,7 +94,7 @@ To delete a rate plan, open it and click the **trash icon** (🗑️) on the rig
 
 ## Using the Pricing Calendar
 
-To see how your rate plans map to specific dates, click the **Pricing Calendar** tab (next to Price Settings). This gives you a visual calendar showing which rate plan applies on each date, so you can spot gaps or overlaps.
+To see how your rate plans map to specific dates, click **Pricing Calendar**. This gives you a visual calendar showing which rate plan applies on each date, so you can spot gaps or overlaps before guests book.
 
 ![Pricing Calendar with bookings and rate plans](/uploads/set-up-pricing-and-rate-rules/05.png)
 
@@ -105,13 +105,15 @@ To see how your rate plans map to specific dates, click the **Pricing Calendar**
 - **Start with your Standard Rate.** Get your base price right first, then add seasonal rate plans as you learn your demand patterns.
 - **Name rate plans clearly.** Use descriptive names like "Summer 2026" or "Holiday Week" so you can quickly identify them later.
 - **Review the Pricing Calendar.** After adding rate plans, check the Pricing Calendar tab to make sure the right rates apply on the right dates.
+- **Review availability before connecting channels.** Pricing and availability should be checked before syncing or promoting direct bookings.
+- **Use pricing rules only if enabled.** Some accounts can add last-minute, early-bird, and length-of-stay style rules from Price Settings.
 
 ---
 
 ## Troubleshooting
 
 ### I don't see the Price Settings tab on my listing
-Make sure you've saved the listing first — the Price Settings tab only appears on listings that have been fully created (not drafts). The tab is also only visible to roles that can manage listings (**Account Owner**, **Account Admin**, or **Account Manager**); if your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
+Make sure you've saved the listing first — Price Settings only appears on listings that have been fully created, not drafts. Pricing is also only visible to roles that can manage listings, typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
 
 ### I can't delete the Standard Rate
 The Standard Rate (Base) is your default rate plan and can't be removed — it ensures there's always a fallback price. You can edit its price and name, but not delete it.

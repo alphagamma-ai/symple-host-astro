@@ -1,6 +1,6 @@
 ---
-title: 'How to Import Listings from an OTA (Airbnb, Booking.com)'
-description: Pull in your existing rental listings from Airbnb or Booking.com so you don't have to recreate them from scratch in SympleHost.
+title: 'How to Import or Connect Listings from an OTA'
+description: Import Airbnb listings and connect Booking.com through Channel Manager so your existing OTA setup works with SympleHost.
 category: getting-started
 tags:
   - Listings
@@ -9,13 +9,16 @@ tags:
   - Import
   - OTA
   - Channel Manager
-date: '2026-04-09'
+date: '2026-08-08'
 draft: false
 ---
 
 ## What Is OTA Import?
 
-OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com where your listings are already published. SympleHost's import feature connects to these platforms and pulls in your listing details (name, description, photos, capacity) automatically, saving you from re-entering everything by hand.
+OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com where your listings are already published. SympleHost supports two related workflows:
+
+- **Importing** a listing, such as pulling Airbnb listing details into SympleHost.
+- **Connecting** a channel, such as linking Booking.com through Channel Manager after the property exists in SympleHost.
 
 ---
 
@@ -29,7 +32,7 @@ OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com wh
 
 ## How to Import from Airbnb
 
-1. Click **Properties** in the sidebar to expand it, then click **Listings**.
+1. Click **Listings** in the sidebar.
 
 2. Click **+ New Property** in the top right.
 
@@ -37,7 +40,7 @@ OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com wh
 
    ![New Property screen showing Manual and Import from Airbnb options](/uploads/import-listings-from-ota/01-new-property-options.png)
 
-4. On the **Import Property** screen, click the **Airbnb** card.
+4. On the **Import Property** screen, click the **Airbnb** card or continue through the Airbnb authorization popup.
 
 5. Click **Authorize with Airbnb**. This opens a pop-up where you log in to your Airbnb account and grant SympleHost permission to access your listings.
 
@@ -47,7 +50,7 @@ OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com wh
 
 7. Click **Import**.
 
-   SympleHost will pull in the listing details, photos, and settings. You'll see a summary showing how many were imported, how many were skipped (if already in SympleHost), and if any failed.
+SympleHost will pull in the listing details, photos, and settings. You'll see a summary showing how many were imported, how many were skipped if already in SympleHost, and if any failed.
 
 ---
 
@@ -66,30 +69,32 @@ Before connecting in SympleHost, you need to add Channex as your connectivity pa
 
 ### Step 2: Connect in SympleHost
 
-1. Go to **Settings** → **Integrations** → **OTA Connections**.
+1. Create or open the property in SympleHost first.
 
-2. Find the **Booking.com** card and toggle it on (or click connect). A wizard modal will open.
+2. Go to **Settings** → **Integrations** or open the listing's channel setup area.
 
-3. On **Step 1 of 3**, enter your **Hotel ID**.
+3. Find the **Booking.com** card and start the connection. A wizard will open.
+
+4. Enter your **Hotel ID**.
 
    You can find your Hotel ID in the Booking.com Extranet — it's displayed next to your property name at the top of the screen. Click **"Where to find your Hotel ID"** in the wizard if you need help locating it.
 
-4. Click **Next**.
+5. Click **Next**.
 
 ### Step 3: Verify and sync
 
-5. On **Step 2 of 3**, SympleHost will verify the connection with Booking.com. You'll see the status progress:
+6. SympleHost will verify the connection with Booking.com. You'll see the status progress:
    - "Creating connection..."
    - "Verifying with Booking.com..."
    - **"Connected!"** (with a green checkmark)
 
-6. Click **Continue**.
+7. Click **Continue**.
 
-7. On **Step 3 of 3**, you'll see a mapping preview showing your property name and Hotel ID. Click **Start Sync** to sync your Booking.com listing data with SympleHost.
+8. Review the mapping preview showing your property name and Hotel ID. Click **Start Sync** to sync your Booking.com listing data with SympleHost.
 
-8. Wait for the sync to complete — you'll see **"Sync complete!"** with a green checkmark.
+9. Wait for the sync to complete — you'll see **"Sync complete!"** with a green checkmark.
 
-9. Click **Done**.
+10. Click **Done**.
 
    Your Booking.com listing is now connected. You'll see the connection status on the OTA Platform Integration page showing how many properties are connected.
 
@@ -99,10 +104,10 @@ Before connecting in SympleHost, you need to add Channex as your connectivity pa
 
 After importing, it's a good idea to check that everything came over correctly:
 
-1. Go to **Properties** → **Listings** and open each imported listing.
+1. Go to **Listings** and open each imported listing.
 2. Review the **name, description, and photos** — make sure they match what's on the OTA.
 3. Check **capacity** (bedrooms, beds, bathrooms, max guests) — these sometimes need adjusting.
-4. Set up **pricing** — imported listings won't have SympleHost pricing configured yet. See: How to Set Up Your Pricing & Rate Rules.
+4. Set up **pricing** and review the **Pricing Calendar** — imported listings may still need SympleHost pricing and availability checks. See: How to Set Up Your Pricing & Rate Rules.
 
 **Important:** Importing a listing does not automatically sync future changes between the OTA and SympleHost. If you update a listing on Airbnb, you'll need to update it in SympleHost too (or vice versa).
 
@@ -111,7 +116,7 @@ After importing, it's a good idea to check that everything came over correctly:
 ## Troubleshooting
 
 ### I don't see the "Import" option
-The **+ New Property** button (and the **Import** option inside it) is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
+The **+ New Property** button and import options are only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
 
 ### Authorization failed for Airbnb
 Make sure you're logging in with the correct Airbnb account — the one that owns the listings. If you manage listings on behalf of someone else, the account owner needs to authorize the connection.

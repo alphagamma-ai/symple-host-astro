@@ -14,7 +14,7 @@ draft: false
 ## Listings & Properties
 
 ### How do I add a new listing?
-Go to **Properties → Listings** and click **+ New Property**. Choose **Manual** to create from scratch, or **Import** to pull in listings from Airbnb or Booking.com.
+Go to **Listings** and click **+ New Property**. Choose **Manual** to create from scratch, or **Import** to pull in listings from Airbnb. Booking.com is connected through Channel Manager after the property exists.
 → See: *Adding a Listing Manually*
 
 ### What's the difference between a standalone and multi-unit listing?
@@ -32,7 +32,7 @@ Yes. Go to **Properties → + New Property → Import**, select Airbnb, and auth
 Yes. The import flow works the same as Airbnb — go to **Properties → + New Property → Import** and select Booking.com.
 
 ### How do I edit a listing after creating it?
-Go to **Properties → Listings**, click on the listing you want to change, then click **Edit**. You can update the name, description, photos, amenities, house rules, and other details.
+Go to **Listings**, click on the listing you want to change, then click **Edit**. You can update the name, description, photos, amenities, house rules, and other details.
 
 ### How do I delete a listing?
 Open the listing and look for the delete option. If the listing has active bookings, you'll need to cancel or complete those bookings before you can delete it.

@@ -45,7 +45,7 @@ Create a manual booking for those dates. This blocks the calendar and prevents d
 ## Calendar & Availability
 
 ### How do I see my calendar for all properties?
-Go to **Properties → Calendar** for a combined view showing availability across all your listings.
+Go to **Calendars** for a combined view showing availability across all your listings.
 
 ### What do the calendar colors mean?
 **Purple** = available dates. **Green** = booked dates. **Gray** = blocked dates.

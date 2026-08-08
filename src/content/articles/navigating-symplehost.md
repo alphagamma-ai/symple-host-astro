@@ -8,7 +8,7 @@ tags:
   - Navigation
   - Overview
   - Sidebar
-date: '2026-04-13'
+date: '2026-08-08'
 draft: false
 ---
 
@@ -29,55 +29,29 @@ Here's every item in the sidebar and what it's for:
 | Menu Item | What It's For |
 |-----------|--------------|
 | **Overview** | Your main dashboard — revenue, occupancy, bookings, and daily activity |
-| **Messages** | Unified inbox for all guest conversations (WhatsApp, Instagram, Facebook) |
+| **Calendars** | Calendar hub for property and service bookings |
+| **Messages** | Unified inbox for supported guest conversations |
+| **Reservations** | All property reservations across channels |
+| **Operations** | Unified work hub for tasks, templates, workforce, automations, reports, and expenses |
 | **Customers** | Your guest and customer database |
-| **Quotes** | Create and send quotations to guests |
 | **Reviews** | Monitor and respond to guest reviews |
-| **Reservations** | View all bookings across all properties and services |
-
-### Operations (Expandable)
-
-Click **Operations** to expand it. This is where your team's day-to-day work gets organized.
-
-| Sub-Item | What It's For |
-|----------|--------------|
-| **Tasks** | Create, assign, and track individual tasks (cleaning, maintenance, etc.) |
-| **Jobs** | Schedule and manage recurring or one-time jobs |
-| **Workforce** | Manage your team members and external contractors |
-| **Automations** | Set up rules that create tasks automatically (e.g., "create a cleaning task when a guest checks out") |
-| **Reports** | View operations reports and team performance |
-
-### Properties (Expandable)
-
-| Sub-Item | What It's For |
-|----------|--------------|
-| **Listings** | View and manage all your rental properties |
-| **Calendar** | See availability and bookings across properties on a calendar |
-
-### Services (Expandable)
-
-| Sub-Item | What It's For |
-|----------|--------------|
-| **Listings** | Manage services you offer (tours, transfers, cleaning, etc.) |
-| **Calendar** | View service bookings on a calendar |
-| **Workforce** | Assign and manage staff for your services |
-
-### Guest Experience (Expandable)
-
-| Sub-Item | What It's For |
-|----------|--------------|
-| **Guest Books** | Create digital welcome guides for each property |
-| **Store Items** | Set up a guest store (late checkout, welcome packs, etc.) |
-| **Store Transactions** | View orders and purchases from the guest store |
-| **Amy Settings** | Configure Amy, your AI guest assistant |
-| **Recommendations** | Add local restaurants, activities, and tips for guests |
+| **Guest Books** | Create digital welcome guides, recommendations, and guest-facing information |
+| **Listings** | Manage properties, services, pricing, availability, and channel setup |
+| **Rentals** | Manage rental items when this feature is enabled |
 
 ### Direct (Separate Section)
 
 | Menu Item | What It's For |
 |-----------|--------------|
+| **Quotes** | Create and send quotations to guests |
 | **Websites** | Build and manage direct booking websites |
 | **Dashboard** | Manage connected booking accounts |
+
+### Analytics
+
+| Menu Item | What It's For |
+|-----------|--------------|
+| **Financial Reports** | Revenue, reservation, tax, payout, profit and loss, and booking pace reports when enabled |
 
 ![The full sidebar expanded, showing all sections and sub-items](/screenshots/navigating-symplehost/menu-navigation.png)
 
@@ -96,31 +70,31 @@ Click **Settings** in the sidebar (usually at the bottom, shown as a gear icon) 
 
 ### Billing & Payments
 - **Billing** — Your subscription plan and billing details
-- **Payment Gateway** — Connect Stripe or other payment processors for guest payments
+- **Payment Gateway** — Connect Stripe, Razorpay, HitPay, Doku, Xendit, or manual payments depending on your country and account access
 - **Transactions** — View payment transaction history
 - **Financial Report** — Revenue and financial reporting
 
 ### Direct Bookings
-- **General** — Configure direct booking behavior
+- **Host Profile & Contact** — Configure your direct booking host details
+- **Guest Contact** — Decide what guest contact information is collected
+- **Deposits** — Set deposit collection rules
+- **Cancellation Policy** — Manage direct booking cancellation policies
+- **Fees & Taxes** — Configure fees and tax settings
 - **Booking Settings** — Customize the booking flow for guests
 
 ### Team Management
-- **Members** — Invite and manage team members, set roles and permissions
-- **External Resources** — Add contractors and external workforce
+- **Team Members** — Invite and manage team members, set roles and permissions
 
 ### Integrations
-- **WhatsApp** — Connect your WhatsApp Business account
-- **OTA** — Connect Airbnb, Booking.com, and other travel platforms
+- **Integrations** — Connect WhatsApp, Instagram, Facebook Messenger, supported email channels, OTAs, and other connected services depending on account access
 
 ### Notifications & Automation
 - **Notifications** — Choose which alerts you receive
 - **Task Reminders** — Configure reminders for overdue or upcoming tasks
-- **Autopilot** — Set up AI-powered automatic guest messaging
-- **Amy** — Configure the AI guest assistant
 
 ### Other
 - **Tags** — Create custom tags to organize listings, bookings, and guests
-- **Style Guide** — Customize your brand colors, typography, and logo for direct booking pages
+- **Style Guide** — Available in development environments for design and component checks
 
 [Screenshot: The Settings page showing the main setting categories in the left panel]
 
@@ -134,7 +108,7 @@ If you know what you're looking for but can't remember where it lives, use the *
 
 ## Tips for Getting Around
 
-- **Collapsible sections** — Click a section name (like **Operations** or **Properties**) to expand or collapse its sub-items. This keeps the sidebar tidy.
+- **Feature-based visibility** — Some sections only show when they are enabled for your account.
 - **Active page highlight** — The current page is highlighted in the sidebar so you always know where you are.
 - **Settings is separate** — Think of Settings as the "behind the scenes" area. Day-to-day work happens in the main sidebar; one-time configuration happens in Settings.
 - **Role-based visibility** — Some menu items may not appear for all team members. What you see depends on your role and permissions. Account Admins see everything; Staff members see a focused view.
@@ -143,6 +117,7 @@ If you know what you're looking for but can't remember where it lives, use the *
 
 ## Related Articles
 
-- Welcome to SympleHost — Your First 15 Minutes
+- Welcome to SympleHost — Your First 24 Hours
+- Your First 24 Hours in SympleHost
 - Understanding the Overview Dashboard
 - How to Add Team Members & Assign Roles

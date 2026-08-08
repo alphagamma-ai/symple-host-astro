@@ -56,7 +56,7 @@ Make sure you've already:
 
 The booking will now appear on your calendar as a colored block spanning the check-in to check-out dates.
 
-💡 **Tip:** You can also create a booking by going to **Properties → Calendar** and clicking directly on a date for a specific listing.
+💡 **Tip:** You can also create a booking by going to **Calendars** and clicking directly on a date for a specific listing.
 
 ---
 
@@ -107,7 +107,7 @@ You can update a booking's status at any time by opening the booking and clickin
 There are several ways to see your bookings:
 
 - **Bookings page** — Go to **Bookings** for a combined view with stats at the top (Total Bookings, Confirmed, Pending, Active Properties, Active Services)
-- **Properties → Calendar** — See bookings visually on the calendar. Available dates show in purple, blocked dates in gray, and booked dates in green
+- **Calendars** — See bookings visually on the calendar. Available dates show in purple, blocked dates in gray, and booked dates in green
 - **Reservations** — A list view of all reservations with filters for date range and listing
 - **Overview dashboard** — The Check-In/Check-Out Timeline shows today's arrivals and departures
 
@@ -144,4 +144,4 @@ Open the booking and either update the dates or cancel it and create a new one w
 - How to Manage Bookings & Your Calendar
 - Adding a Listing Manually
 - How to Set Up Your Pricing & Rate Rules
-- How to Set Up Payments (Stripe Integration)
+- How to Set Up Payments

@@ -1,18 +1,18 @@
 ---
 title: Adding a Listing Manually
-description: Create a new rental listing from scratch by entering your property details, photos, amenities, and cancellation policy.
+description: Create a new rental listing from scratch by entering property details, photos, amenities, pricing, and cancellation settings.
 category: getting-started
 tags:
   - Listings
   - Properties
   - Setup
-date: '2026-04-09'
+date: '2026-08-08'
 draft: false
 ---
 
 ## How to Add a New Listing
 
-1. Click **Properties** in the sidebar to expand it, then click **Listings**.
+1. Click **Listings** in the sidebar.
 
    You'll see your existing listings displayed as cards. In the top right, you'll find the **+ New Property** button.
 
@@ -22,7 +22,7 @@ draft: false
 
 3. Select **Manual** to create from scratch.
 
-   You'll also see an option to **Import from Airbnb** if you'd prefer to pull in an existing listing with all its details and images. If you're looking to import from Booking.com, you'll need to create the property manually first, then connect Booking.com from the Channel Manager tab.
+   You may also see **Airbnb Import** or **Copilot** depending on your account. Airbnb Import pulls in an existing Airbnb listing. Copilot, when enabled, guides you through property setup with AI. If you're looking to connect Booking.com, create or import the property first, then connect Booking.com through Channel Manager.
 
    ![New Property screen showing Manual and Import from Airbnb options](/uploads/adding-a-listing-manually/02.png)
 
@@ -62,10 +62,25 @@ You'll be taken to the pricing configuration page to set your nightly rates, sea
 
 ---
 
+## What to Check Before Connecting Channels
+
+Before you connect Airbnb, Booking.com, or direct booking channels, review:
+
+- **Address and timezone** — these affect calendar and check-in information.
+- **Capacity** — max guests, bedrooms, beds, and bathrooms should match what guests can actually book.
+- **Photos and amenities** — these become guest-facing references for your team and AI workflows.
+- **Cancellation policy** — make sure the policy matches how you want direct bookings handled.
+- **Standard rate** — set a realistic base rate before opening availability.
+
+---
+
 ## Troubleshooting
 
 ### I don't see the "+ New Property" button
-The **+ New Property** button is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team** → **Members**.
+The **+ New Property** button is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
+
+### I don't see Copilot
+Copilot property setup is controlled by an account feature flag. Use **Manual** or **Airbnb Import** if Copilot is not visible.
 
 ### Address search isn't working
 Switch to manual entry — fill in the **Street Address**, **City**, and **Country** fields directly instead of using the search bar.

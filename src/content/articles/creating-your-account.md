@@ -97,7 +97,7 @@ If you work with co-hosts, cleaners, or managers, you can invite them now.
 4. Repeat for additional team members.
 5. Click **Finish onboarding** when done — or skip this step entirely.
 
-💡 **Tip:** You can always invite team members later from **Settings → Team → Members**.
+💡 **Tip:** You can always invite team members later from **Settings → Team Members**.
 
 [Screenshot: The team invitation step showing the email field, role dropdown, and the list of invited members below]
 
@@ -161,5 +161,5 @@ Currency is automatically set based on your country selection. To change it, go 
 ## Related Articles
 
 - Setting Up Your Company Profile
-- Welcome to SympleHost — Your First 15 Minutes
+- Welcome to SympleHost — Your First 24 Hours
 - How to Add Team Members & Assign Roles

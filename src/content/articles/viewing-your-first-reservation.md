@@ -8,7 +8,7 @@ tags:
   - Reservations
   - Bookings
   - Guest
-date: '2026-04-13'
+date: '2026-08-08'
 draft: false
 ---
 
@@ -26,7 +26,7 @@ There are three places a new reservation will show up:
 
 - **Reservations** (sidebar) — the full list of every reservation, across all properties and channels. Start here.
 - **Overview dashboard** — upcoming check-ins appear in the **Check-In / Check-Out Timeline**.
-- **Properties → Calendar** — the reservation appears as a colored block on the calendar for the booked dates.
+- **Calendars** — the reservation appears as a colored block on the calendar for the booked dates.
 
 💡 **Tip:** If you just received a booking notification, click the notification to jump straight to the reservation.
 
@@ -55,7 +55,7 @@ When you open a reservation, you'll see several sections. Here's what each one m
 
 At the top of the reservation you'll see:
 
-- **Guest name** and contact info
+- **Guest name** and available contact info
 - **Property** the booking is for
 - **Check-in and check-out dates** plus the total number of nights
 - **Status badge** — the current stage of the booking (see statuses below)
@@ -76,7 +76,7 @@ Full contact details for the guest:
 - **Guest count** — how many adults, children, and infants are staying
 - **Special requests** — any notes the guest provided during booking (e.g., "late check-in", "allergic to feathers")
 
-If the guest has booked with you before, you'll also see a link to their **guest profile** with their full history.
+If the guest has booked with you before, you'll also see a link to their **customer profile** with their booking history and available contact details.
 
 ---
 
@@ -162,8 +162,8 @@ Here's what to do the first time a booking lands:
 
 ## Troubleshooting
 
-### The reservation shows no guest email or phone
-This can happen with OTA bookings where the channel masks the guest's contact info (Airbnb, for example, uses relay emails). Use the **Message the guest** button inside SympleHost — it routes through the correct channel automatically.
+### The reservation shows limited guest email or phone details
+This can happen with OTA bookings where the channel masks guest contact information. Use the **Message the guest** button inside SympleHost when available — it routes through the correct connected channel automatically.
 
 ### The payment shows as "Failed" but the guest says they paid
 Check the **Timeline & Activity** section for the exact error. Most often this is a card decline — ask the guest to retry with a different card via the payment link. If the guest paid outside SympleHost (e.g., bank transfer), you can manually mark the reservation as paid.
@@ -190,4 +190,4 @@ Before cancelling, check the listing's **Cancellation Policy** in **Properties �
 - Creating a Reservation Manually
 - How to Manage Bookings & Your Calendar
 - Understanding the Overview Dashboard
-- How to Set Up Payments (Stripe Integration)
+- How to Set Up Payments

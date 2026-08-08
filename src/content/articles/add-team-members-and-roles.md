@@ -115,4 +115,4 @@ Related Articles
 
 * Adding a Listing Manually
 * How to Manage Bookings & Your Calendar
-* How to Set Up Payments (Stripe Integration)
+* How to Set Up Payments

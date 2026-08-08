@@ -17,7 +17,7 @@ draft: false
 
 ---
 
-> **TL;DR:** Direct bookings are reservations you take outside an OTA — repeat guests, your direct booking website, walk-ins, WhatsApp enquiries. To add one, open **Properties → Calendar**, click an empty cell on the listing's row, choose **Direct Booking** as the booking platform, fill in guest and date details, and save. The reservation appears on the calendar instantly, blocks the dates across your synced OTAs (so no double-booking), and you can send the guest a Stripe payment link from inside SympleHost. No commission, no OTA cut — but you handle the cancellation policy and payment yourself.
+> **TL;DR:** Direct bookings are reservations you take outside an OTA — repeat guests, your direct booking website, walk-ins, WhatsApp enquiries. To add one, open **Calendars**, click an empty cell on the listing's row, choose **Direct Booking** as the booking platform, fill in guest and date details, and save. The reservation appears on the calendar instantly, blocks the dates across your synced OTAs so there is no double-booking, and you can send the guest a payment link from inside SympleHost. No commission, no OTA cut — but you handle the cancellation policy and payment yourself.
 
 ---
 
@@ -37,7 +37,7 @@ Direct bookings sit on the same calendar as Airbnb and Booking.com reservations 
 
 ## Yes — Direct Bookings Appear on the Calendar
 
-Every reservation in SympleHost — direct bookings, Airbnb, Booking.com, manual entries — lives in one calendar at **Properties → Calendar**. Direct bookings show as color-coded bars on the listing row, just like OTA bookings. The colour-code lets you see at a glance which channel each booking came from.
+Every reservation in SympleHost — direct bookings, Airbnb, Booking.com, manual entries — lives in one calendar at **Calendars**. Direct bookings show as color-coded bars on the listing row, just like OTA bookings. The colour-code lets you see at a glance which channel each booking came from.
 
 [Screenshot: Property Calendar Overview with a mix of Airbnb, Booking.com, and Direct Booking bars showing the colour-coding]
 
@@ -140,7 +140,7 @@ Because direct bookings aren't held by an OTA, you decide the cancellation polic
 ## Troubleshooting
 
 ### I can't see the "+ Add Booking" or the side panel won't open
-The **+ Add Booking** button is only available to roles that can manage bookings — **Account Owner**, **Account Admin**, **Account Manager**, or **Booking Coordinator**. If your role is **Staff**, ask your account admin to update your role in **Settings → Team → Members**.
+The **+ Add Booking** button is only available to roles that can manage bookings — **Account Owner**, **Account Admin**, **Account Manager**, or **Booking Coordinator**. If your role is **Staff**, ask your account admin to update your role in **Settings → Team Members**.
 
 ### I picked the wrong listing
 Click the booking → **Edit Reservation** → change the **Property** dropdown → **Save**. SympleHost will move the booking to the correct listing's row.
@@ -156,7 +156,7 @@ You haven't connected Stripe yet, or the Stripe connection has lapsed. Go to **S
 ## Key Takeaways
 
 - Direct bookings are any reservation that didn't come from an OTA — repeat guests, walk-ins, your website, social DMs.
-- Add them straight from **Properties → Calendar** by clicking the listing row and selecting **Direct Booking** as the platform.
+- Add them straight from **Calendars** by clicking the listing row and selecting **Direct Booking** as the platform.
 - They appear on the same unified calendar with their own colour-code, and they auto-block availability on your connected OTAs.
 - Use **Send a payment link** to collect payment via Stripe, or **Mark as Paid** if you took payment off-platform.
 - No OTA commission — you keep 100% of the rate.

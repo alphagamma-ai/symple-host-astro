@@ -65,7 +65,7 @@ When enabled, the SympleHost support team can view your account to help troubles
 Check **Settings → Security** for available security options.
 
 ### Can someone on my team access my account without permission?
-No. Only people you've invited can access your workspace, and their access is limited by the role you assign them. You control permissions in **Settings → Team → Members**.
+No. Only people you've invited can access your workspace, and their access is limited by the role you assign them. You control permissions in **Settings → Team Members**.
 
 ### How do I delete my account?
 Contact SympleHost support to request account deletion. Make sure to cancel any active subscriptions and download any data you need before requesting deletion.

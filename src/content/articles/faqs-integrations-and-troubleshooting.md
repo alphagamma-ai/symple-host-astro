@@ -97,7 +97,7 @@ Yes. Open a review and write your response directly — it'll be posted back to 
 This is normal for new accounts. Data appears once you've added listings and created bookings.
 
 ### I can't see a menu item that should be there.
-Your visibility depends on your **role and permissions**. If you're not an Account Admin, some sections may be hidden. Ask your account admin to adjust your permissions in **Settings → Team → Members**.
+Your visibility depends on your **role and permissions**. If you're not an Account Admin, some sections may be hidden. Ask your account admin to adjust your permissions in **Settings → Team Members**.
 
 ### Something isn't working and I need help.
 Contact SympleHost support. To help the team diagnose faster, go to **Settings → General** and enable **Support Access** — this lets the team view your account to troubleshoot.

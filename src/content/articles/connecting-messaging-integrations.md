@@ -242,4 +242,4 @@ You can revoke at the Meta level too:
 
 - Setting Up Autopilot for Guest Messaging
 - Using Messages: the unified guest inbox
-- Welcome to SympleHost — Your First 15 Minutes
+- Welcome to SympleHost — Your First 24 Hours
