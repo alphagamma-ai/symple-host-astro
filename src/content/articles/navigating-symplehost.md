@@ -35,7 +35,7 @@ Here's every item in the sidebar and what it's for:
 | **Operations** | Unified work hub for tasks, templates, workforce, automations, reports, and expenses |
 | **Customers** | Your guest and customer database |
 | **Reviews** | Monitor and respond to guest reviews |
-| **Guest Books** | Create digital welcome guides, recommendations, and guest-facing information |
+| **Guide Books** | Create digital welcome guides, recommendations, and guest-facing information |
 | **Listings** | Manage properties, services, pricing, availability, and channel setup |
 | **Rentals** | Manage rental items when this feature is enabled |
 

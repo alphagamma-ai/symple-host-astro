@@ -52,7 +52,7 @@ When you log in, you'll see a **sidebar on the left**. This is how you navigate 
 
 **Listings** — Your properties and services. Add listings, manage pricing, review availability, and connect channels.
 
-**Guest Books** — Create guest-facing guides, local recommendations, and add-ons for each property.
+**Guide Books** — Create guest-facing guides, local recommendations, and add-ons for each property.
 
 **Quotes** — Create and send quotations to guests for custom stays or services.
 
