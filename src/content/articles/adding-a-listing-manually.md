@@ -20,7 +20,7 @@ draft: false
 
 3. Select **Manual** to create from scratch.
 
-   You may also see **Airbnb Import** or **Copilot** depending on your account. Airbnb Import pulls in an existing Airbnb listing. Copilot, when enabled, guides you through property setup with AI. If you're looking to connect Booking.com, create or import the property first, then connect Booking.com through Channel Manager.
+   You may also see **Airbnb Import** depending on your account. Airbnb Import pulls in an existing Airbnb listing. If you're looking to connect Booking.com, create or import the property first, then connect Booking.com through Channel Manager.
 
 4. Fill in your **Property Details**:
    - **Property Name** — this is what guests will see
@@ -64,9 +64,6 @@ Before you connect Airbnb, Booking.com, or direct booking channels, review:
 
 ### I don't see the "+ New Property" button
 The **+ New Property** button is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
-
-### I don't see Copilot
-Copilot property setup is controlled by an account feature flag. Use **Manual** or **Airbnb Import** if Copilot is not visible.
 
 ### Address search isn't working
 Switch to manual entry — fill in the **Street Address**, **City**, and **Country** fields directly instead of using the search bar.

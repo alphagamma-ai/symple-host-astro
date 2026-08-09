@@ -42,7 +42,6 @@ Start with one property before importing or connecting everything.
 3. Choose the best setup path:
    - **Manual** if you want full control from scratch.
    - **Airbnb Import** if you already have an Airbnb listing.
-   - **Copilot** if your account has the AI property setup option enabled.
 4. Check the listing name, address, capacity, photos, amenities, and cancellation policy.
 5. Save the listing before moving to pricing.
 
