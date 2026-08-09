@@ -14,7 +14,7 @@ draft: false
 
 ## What Is the Overview Dashboard?
 
-The Overview is the first screen you see when you log in to SympleHost. It gives you a snapshot of how your rental business is performing — revenue, occupancy, bookings, and guest activity — all on one page.
+The Overview is the first screen you see when you log in to SympleHost. It gives you a snapshot of what needs attention today — guest messages, open tasks, arrivals, departures, reviews, and new reservations — all on one page.
 
 Think of it as the control panel for your day: a quick glance tells you what needs attention right now.
 
@@ -26,71 +26,71 @@ Click **Overview** at the top of the sidebar. If you've just logged in, you're a
 
 ---
 
-## Understanding the KPI Cards
+## Understanding the Attention Cards
 
-At the top of the dashboard, you'll see four cards showing your key performance indicators (KPIs — the numbers that tell you how your business is doing):
+At the top of the dashboard, you'll see quick cards that help you decide what to handle first:
 
-### Total Revenue
-Shows how much money you've earned in the selected time period. The small chart below the number shows the trend — whether revenue is going up or down compared to the previous period. A green percentage means growth; red means a decline.
+### Unread messages
+Shows guest or team conversations waiting for a reply. Start here if the number is high.
 
-### Average Daily Rate (ADR)
-This is the average price per night across your bookings. It's calculated by dividing total revenue by the number of booked nights. A bar chart below shows how this has changed over time.
+### Open tasks
+Shows work that still needs to be completed, such as cleaning, maintenance, guest requests, or internal follow-up.
 
-### Occupancy Rate
-The percentage of your available nights that are booked. Displayed as a donut chart — the more filled in, the higher your occupancy. If you see 75%, that means three out of every four available nights are reserved.
+### Check-ins today
+Shows arrivals due today, with tomorrow's count shown underneath when relevant.
 
-### Bookings
-Shows your total booking count, broken down into **Confirmed** and **Pending** reservations. This helps you quickly see how many bookings still need your attention.
+### Check-outs today
+Shows departures due today, with tomorrow's count shown underneath when relevant.
 
-![The four KPI cards at the top of the Overview dashboard, showing Total Revenue, ADR, Occupancy Rate, and Bookings](/screenshots/understanding-the-overview-dashboard/kpi-cards.png)
+### New reviews
+Shows reviews that have recently arrived and may need a response.
+
+### New reservations
+Shows new bookings that have entered the account and may need review, guest communication, or payment follow-up.
+
+![The current Overview dashboard showing unread messages, open tasks, check-ins, check-outs, new reviews, new reservations, and operating panels](/screenshots/welcome-to-symplehost/overview-dashboard.png)
 
 ---
 
 ## Filtering Your Dashboard
 
-You can narrow the dashboard to show specific time periods or individual properties:
-
-### By Date
-Use the date presets at the top of the page:
-- **Today** — just today's numbers
-- **Last 7 days** — the past week
-- **Last 30 days** — the past month
-- **This Month** — from the 1st of the current month
-- **Last Month** — the full previous month
+You can narrow the dashboard to focus on the work you need:
 
 ### By Property
-Click the **property filter** dropdown to select a specific listing. This is useful when you want to see how a particular property is performing on its own. Select **All Properties** to go back to the full view.
+Use the **All Properties** dropdown to focus on one listing, or keep it on **All Properties** for the full workspace view.
 
-[Screenshot: The filter bar showing date presets and the property dropdown with a list of listings]
+### By Ownership
+Use **My tasks only** when you want to focus on work assigned to you instead of the whole team.
+
+### Refreshing the dashboard
+Click **Refresh** after making changes elsewhere, such as creating tasks or updating reservations, to reload the latest state.
 
 ---
 
 ## Timeline Sections
 
-Below the KPI cards, you'll find detailed breakdowns of daily activity:
+Below the attention cards, you'll find practical operating panels:
 
-### Check-In / Check-Out Timeline
-Shows upcoming and recent guest arrivals and departures. Each entry displays the guest name, the property they're staying at, the time, and their status. Use this to prepare for today's turnovers.
+### Today's schedule
+Shows arrivals and departures for today. Use this to confirm what needs to happen before guests arrive or after they leave.
 
-### Payment Activity
-Lists recent payment transactions — guest name, amount, status (completed, pending, or failed), and payment type. Quickly spot any failed payments that need follow-up.
+### Upcoming arrivals
+Shows guests arriving over the next few days, including the property and arrival timing, so you can prepare ahead.
 
-### Revenue Breakdown by Property
-Shows which properties are generating the most revenue, displayed as a ranked list with percentages. Helpful for understanding where your income is concentrated.
+### Needs a reply
+Highlights conversations that need attention, so guest communication does not depend on memory.
 
-### Occupancy by Channel
-Shows where your bookings are coming from — Airbnb, Booking.com, direct bookings, etc. This helps you understand which channels are driving the most reservations.
-
-[Screenshot: The timeline sections showing Check-In/Check-Out entries and Payment Activity with status badges]
+### Tasks & reminders
+Shows overdue and upcoming work for your team, helping you keep cleaning, maintenance, and guest follow-up moving.
 
 ---
 
 ## When to Use the Dashboard
 
-- **Every morning** — Check today's check-ins, check-outs, and any pending payments
-- **Weekly** — Review the "Last 7 days" view to spot trends in revenue and occupancy
-- **Monthly** — Compare "This Month" to "Last Month" to see if you're growing
-- **Per property** — Filter to a single listing to evaluate its individual performance
+- **Every morning** — Check unread messages, arrivals, departures, and overdue tasks.
+- **Before check-in time** — Review today's schedule and upcoming arrivals.
+- **After a new booking** — Confirm guest details, payment status, and any prep tasks.
+- **Per property** — Filter to a single listing when you want to focus on one property's work.
 
 ---
 
@@ -100,7 +100,7 @@ Shows where your bookings are coming from — Airbnb, Booking.com, direct bookin
 If you've just created your account, the dashboard won't have data until you've added listings and bookings. Add your first listing and create a test booking to see the dashboard come to life.
 
 ### Numbers don't match what I expect
-Check your date filter — you may be looking at a different time period than you think. Also verify your timezone in **Settings → General**, as this affects which day bookings fall into.
+Check the property filter and whether **My tasks only** is enabled. Also verify your timezone in **Settings → General**, as this affects which day bookings fall into.
 
 ---
 

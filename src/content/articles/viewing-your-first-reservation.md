@@ -25,7 +25,7 @@ This article walks you through opening your first reservation and reading every 
 There are three places a new reservation will show up:
 
 - **Reservations** (sidebar) — the full list of every reservation, across all properties and channels. Start here.
-- **Overview dashboard** — upcoming check-ins appear in the **Check-In / Check-Out Timeline**.
+- **Overview dashboard** — upcoming check-ins appear in **Today's schedule** and **Upcoming arrivals**.
 - **Calendars** — the reservation appears as a colored block on the calendar for the booked dates.
 
 💡 **Tip:** If you just received a booking notification, click the notification to jump straight to the reservation.
@@ -104,8 +104,6 @@ How much the guest paid and what's still owed:
 - **Payment status** — Paid, Partially Paid, Pending, or Failed
 - **Breakdown** — nightly rate × nights, plus cleaning fees, taxes, service fees, and any discounts
 
-[Screenshot: The Payment Summary section showing total, paid amount, balance due, and the itemized breakdown]
-
 ⚠️ **Important:** If the payment status is **Failed**, reach out to the guest promptly. A failed payment means the reservation is at risk until it's resolved.
 
 ---
@@ -142,10 +140,6 @@ From the detail view, you can:
 - **Collect payment** — if there's a balance due, send a payment link to the guest
 - **Create a task** — assign a related task to your team (e.g., "prepare welcome basket")
 
-[Screenshot: The action buttons at the top of the reservation detail view]
-
----
-
 ## A Typical First-Reservation Workflow
 
 Here's what to do the first time a booking lands:
@@ -172,7 +166,7 @@ Check the **Timeline & Activity** section for the exact error. Most often this i
 Click **Edit** at the top of the reservation, update the check-in and check-out dates, and save. SympleHost will warn you if the new dates conflict with another booking.
 
 ### I want to cancel but I'm worried about the cancellation policy
-Before cancelling, check the listing's **Cancellation Policy** in **Properties → [Your Listing]**. The policy determines whether the guest is entitled to a refund. If the reservation came from an OTA, the OTA's cancellation rules also apply.
+Before cancelling, check the listing's **Cancellation Policy** from **Listings → [Your Listing]**. The policy determines whether the guest is entitled to a refund. If the reservation came from an OTA, the OTA's cancellation rules also apply.
 
 ---
 

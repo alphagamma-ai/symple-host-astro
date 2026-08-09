@@ -33,19 +33,15 @@ Think of roles like keys to different rooms in your house — everyone on your t
 ## How to Add a Team Member
 
 1. Go to **Settings** in the sidebar.
-2. Click **Team**, then **Members**.
+2. Click **Team Members**.
 
    You'll see a list of everyone currently on your team, with their name, email, role, and status.
-
-   ![Team Management members list](/uploads/add-team-members-and-roles/01-members-list.png)
 3. Click **Add Team Member** (the button in the top right).
 4. Fill in their **Basic Information**:
    * **Full Name** — their full name as it should appear in the system
    * **Email Address** — they'll use this to log in
    * **Phone Number** — for account recovery and notifications
 5. Choose their **Role**:
-
-   ![Add Team Member form with basic info and role selection](/uploads/add-team-members-and-roles/02-add-member-form.png)
    * **Account Admin** — full access to all features including team management
    * **Account Manager** — manage listings, bookings, and guest communications
    * **Booking Coordinator** — handle bookings and guest inquiries
@@ -62,7 +58,7 @@ Think of roles like keys to different rooms in your house — everyone on your t
 
 ### Viewing Your Team
 
-Go to **Settings** → **Team** → **Members** to see everyone on your team. Each member shows:
+Go to **Settings → Team Members** to see everyone on your team. Each member shows:
 
 * **Name and email**
 * **Role** — displayed as a badge

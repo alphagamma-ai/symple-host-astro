@@ -55,8 +55,6 @@ These settings affect how dates, times, and currency are displayed everywhere in
 
 4. Click **Save** when you're done.
 
-[Screenshot: The Regional Settings section showing Country, Currency, Timezone, Date Format, Time Format, and Week Starts On dropdowns]
-
 ⚠️ **Important:** Changing your country will change your currency. If you've already set up pricing for your listings, double-check that the new currency is correct before saving.
 
 ---

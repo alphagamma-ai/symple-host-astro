@@ -16,25 +16,17 @@ draft: false
 
    You'll see your existing listings displayed as cards. In the top right, you'll find the **+ New Property** button.
 
-   ![Properties page showing existing listings and the + New Property button](/uploads/adding-a-listing-manually/01.png)
-
 2. Click **+ New Property**.
 
 3. Select **Manual** to create from scratch.
 
    You may also see **Airbnb Import** or **Copilot** depending on your account. Airbnb Import pulls in an existing Airbnb listing. Copilot, when enabled, guides you through property setup with AI. If you're looking to connect Booking.com, create or import the property first, then connect Booking.com through Channel Manager.
 
-   ![New Property screen showing Manual and Import from Airbnb options](/uploads/adding-a-listing-manually/02.png)
-
 4. Fill in your **Property Details**:
    - **Property Name** — this is what guests will see
    - **Description** — a summary of your property (minimum 50 characters, up to 3,000)
 
-   ![Create Standalone Property form with name and description fields](/uploads/adding-a-listing-manually/03.png)
-
 5. Add your **Location** — use the address search bar for auto-complete, or enter it manually. **Street Address**, **City**, and **Country** are required. **State/Province**, **Postal Code**, and **Neighborhood** are optional.
-
-   ![Location section with address fields](/uploads/adding-a-listing-manually/04.png)
 
 6. Set **Capacity**:
    - **Max Guests** — the maximum number of people allowed
@@ -42,11 +34,7 @@ draft: false
 
 7. Upload **Property Images** — drag and drop your photos or click **browse files**. Supports JPEG, PNG, and WebP (up to 10MB per file).
 
-   ![Capacity fields and image upload area](/uploads/adding-a-listing-manually/05.png)
-
 8. Select **Amenities** — browse through categories like Bathroom, Bedroom and laundry, Entertainment, Family, Heating and cooling, Home safety, Internet and office, Kitchen and dining, and more. Expand each category to tick everything your property offers.
-
-   ![Amenities selection with expandable categories](/uploads/adding-a-listing-manually/06.png)
 
 9. Choose a **Cancellation Policy**:
    - **Use account default** — applies your account's default moderate cancellation policy
@@ -55,8 +43,6 @@ draft: false
    - **Strict** — full refund 60+ days before check-in, no refund after
 
 10. Click **Save & Continue to Pricing** to set your rates, or click **Save as Draft** if you want to come back and finish later.
-
-    ![Cancellation policy options and save buttons](/uploads/adding-a-listing-manually/07.png)
 
 You'll be taken to the pricing configuration page to set your nightly rates, seasonal pricing, and any fees or add-ons.
 

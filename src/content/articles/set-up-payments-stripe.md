@@ -35,8 +35,6 @@ Depending on your country and account access, you may see options such as **Stri
 
 3. You'll see the **Payment Gateway** page with a picker showing the available gateway options for your account and country.
 
-   ![Payment Gateway page with Stripe Connect card](/uploads/set-up-payments-stripe/01.png)
-
 4. Select the gateway you want to connect.
 
 5. Follow the setup instructions shown for that gateway:
@@ -59,10 +57,6 @@ Only one payment gateway can be connected in the active gateway slot at a time. 
 3. Complete Stripe's hosted setup. You may need your business details and bank account information.
 4. Return to SympleHost and confirm Stripe shows as connected.
 5. If Stripe shows **Charges Enabled** or **Payouts Enabled** as incomplete, open Stripe and finish the required verification.
-
-![Stripe connected with Active status](/uploads/set-up-payments-stripe/03.png)
-
----
 
 ## If You Use an API-Key Gateway
 
@@ -103,7 +97,7 @@ The bottom of the Payment Gateway page explains key features:
 ## Troubleshooting
 
 ### I don't see the Payment Gateway option in Settings
-This setting is under **Direct Bookings** in the Settings sidebar. If you still don't see it, it's a role issue — finance and billing settings are only visible to the **Account Owner** and **Account Admins**. Ask your account owner to update your role under **Settings** → **Team** → **Members**.
+This setting is under **Direct Bookings** in the Settings sidebar. If you still don't see it, it's a role issue — finance and billing settings are only visible to the **Account Owner** and **Account Admins**. Ask your account owner to update your role under **Settings → Team Members**.
 
 ### Stripe says "Charges Enabled: No" or "Payouts Enabled: No"
 This usually means your Stripe account setup isn't complete. Click **Open Stripe Dashboard** and check for any pending verification steps — Stripe sometimes needs additional identity or banking documents.

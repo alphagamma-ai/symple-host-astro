@@ -28,7 +28,7 @@ Here's every item in the sidebar and what it's for:
 
 | Menu Item | What It's For |
 |-----------|--------------|
-| **Overview** | Your main dashboard — revenue, occupancy, bookings, and daily activity |
+| **Overview** | Your main dashboard — messages, tasks, arrivals, reviews, reservations, and daily activity |
 | **Calendars** | Calendar hub for property and service bookings |
 | **Messages** | Unified inbox for supported guest conversations |
 | **Reservations** | All property reservations across channels |
@@ -53,7 +53,7 @@ Here's every item in the sidebar and what it's for:
 |-----------|--------------|
 | **Financial Reports** | Revenue, reservation, tax, payout, profit and loss, and booking pace reports when enabled |
 
-![The full sidebar expanded, showing all sections and sub-items](/screenshots/navigating-symplehost/menu-navigation.png)
+![The current SympleHost sidebar showing Overview, Calendars, Messages, Reservations, Operations, Customers, Reviews, Guide Books, Listings, Direct, and Analytics sections](/screenshots/welcome-to-symplehost/sidebar-navigation.png)
 
 ---
 
@@ -95,10 +95,6 @@ Click **Settings** in the sidebar (usually at the bottom, shown as a gear icon) 
 ### Other
 - **Tags** — Create custom tags to organize listings, bookings, and guests
 - **Style Guide** — Available in development environments for design and component checks
-
-[Screenshot: The Settings page showing the main setting categories in the left panel]
-
----
 
 ## Quick Access — Search
 

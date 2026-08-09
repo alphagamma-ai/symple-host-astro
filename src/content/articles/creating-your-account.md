@@ -62,8 +62,6 @@ This step sets up your workspace — the account where you and your team will ma
 4. Your **Timezone** is detected automatically from your browser, but you can change it if needed.
 5. Click **Continue**.
 
-[Screenshot: The company information step with Legal Name, Country dropdown, and the auto-populated Currency field]
-
 ⚠️ **Important:** Your currency is tied to your country selection. Make sure you choose the right country, as this affects how prices are displayed across your account.
 
 ---
@@ -99,10 +97,6 @@ If you work with co-hosts, cleaners, or managers, you can invite them now.
 
 💡 **Tip:** You can always invite team members later from **Settings → Team Members**.
 
-[Screenshot: The team invitation step showing the email field, role dropdown, and the list of invited members below]
-
----
-
 ### Step 6: Verify Your Email
 
 1. Check your inbox for a verification email from SympleHost.
@@ -110,10 +104,6 @@ If you work with co-hosts, cleaners, or managers, you can invite them now.
 3. You'll be redirected to a confirmation page — your account is now active.
 
 If you don't see the email, check your spam folder. You can also click **Resend** on the verification page (there's a 60-second cooldown between sends). If you entered the wrong email, click **Change email** to go back and correct it.
-
-[Screenshot: The email verification page showing the "Resend" button and the masked email address]
-
----
 
 ## Make SympleHost Feel Like Yours
 

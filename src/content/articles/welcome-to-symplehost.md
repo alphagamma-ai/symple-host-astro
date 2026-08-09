@@ -18,7 +18,7 @@ SympleHost is a property management platform built for vacation rental and short
 
 Think of it as mission control for your rental business. You manage listings, track reservations, message guests with AI support, coordinate your team, and prepare direct bookings from a single workspace.
 
-![The SympleHost Overview dashboard — revenue, occupancy, bookings, and activity all in one view](/screenshots/welcome-to-symplehost/overview-dashboard.png)
+![The SympleHost Overview dashboard showing messages, tasks, arrivals, reviews, reservations, and today's operating schedule](/screenshots/welcome-to-symplehost/overview-dashboard.png)
 
 ---
 
@@ -38,7 +38,7 @@ When you log in, you'll see a **sidebar on the left**. This is how you navigate 
 
 ![The SympleHost sidebar showing all main navigation items](/screenshots/welcome-to-symplehost/sidebar-navigation.png)
 
-**Overview** — Your dashboard. Shows revenue, occupancy, bookings, check-ins, and activity at a glance.
+**Overview** — Your dashboard. Shows unread messages, open tasks, check-ins, check-outs, new reviews, reservations, and daily operating activity at a glance.
 
 **Calendars** — Your availability and booking calendar for properties and services.
 
