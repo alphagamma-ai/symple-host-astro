@@ -60,6 +60,8 @@ Before SympleHost can verify the connection, Booking.com must be set to use **Ch
 
 5. Click **Authorize with Airbnb**. This opens a pop-up where you log in to your Airbnb account and grant SympleHost permission to access your listings.
 
+![Airbnb authorization popup shown during the import flow](/uploads/import-listings-from-ota/02-airbnb-authorization.png)
+
 6. Once authorized, you'll see a list of your Airbnb listings. Tick the ones you want to import.
 
 7. Click **Import**.
@@ -85,9 +87,17 @@ Before connecting in SympleHost, update the connectivity provider in the Booking
 
 1. Log in to your **Booking.com Extranet** at admin.booking.com.
 2. Open the account menu and go to **Connectivity provider**.
+
+![Booking.com Extranet account menu with Connectivity provider highlighted](/screenshots/import-listings-from-ota/booking-extranet-account-menu.png)
+
 3. If another PMS or channel manager is connected, disconnect it first. Booking.com only allows one connectivity provider at a time.
 4. Search for **Channex.io**.
+
+![Booking.com Extranet provider search showing Channex.io](/screenshots/import-listings-from-ota/booking-extranet-search-channex.png)
+
 5. Confirm **Channex.io** as the connectivity provider.
+
+![Booking.com Extranet connection request waiting for Channex.io provider confirmation](/screenshots/import-listings-from-ota/booking-extranet-provider-confirmation.png)
 
 **Tip:** If you're not sure how to do this, SympleHost has a built-in setup guide — you'll see it when you start the connection process.
 
@@ -102,6 +112,8 @@ Before connecting in SympleHost, update the connectivity provider in the Booking
 4. Enter your **Hotel ID**.
 
    Your Hotel ID is the numeric code in the Booking.com Extranet URL, for example `admin.booking.com/hotel/1234567`. Click **Where to find your Hotel ID** in the wizard if you need help locating it.
+
+![SympleHost Booking.com connection modal where you enter the Hotel ID](/screenshots/import-listings-from-ota/symplehost-booking-hotel-id.png)
 
 5. Click **Connect & verify**.
 
