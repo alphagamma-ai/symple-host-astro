@@ -1,6 +1,6 @@
 ---
-title: 'How to Import or Connect Listings from an OTA'
-description: Import Airbnb listings and connect Booking.com through Channel Manager so your existing OTA setup works with SympleHost.
+title: 'How to Import Airbnb and Connect OTA Channels'
+description: Import Airbnb listings, then connect Booking.com, Expedia, Agoda, VRBO, and other OTAs through Channel Manager.
 category: getting-started
 tags:
   - Listings
@@ -15,18 +15,36 @@ draft: false
 
 ## What Is OTA Import?
 
-OTA stands for Online Travel Agency — platforms like Airbnb and Booking.com where your listings are already published. SympleHost supports two related workflows:
+OTA stands for Online Travel Agency — platforms like Airbnb, Booking.com, Expedia, Agoda, VRBO, MakeMyTrip, and Trip.com where your listings may already be published. SympleHost supports two related workflows:
 
-- **Importing** a listing, such as pulling Airbnb listing details into SympleHost.
-- **Connecting** a channel, such as linking Booking.com through Channel Manager after the property exists in SympleHost.
+- **Importing from Airbnb** to pull an existing Airbnb listing into SympleHost.
+- **Connecting channels through Channel Manager** after the property exists in SympleHost.
+
+For most hosts, the best first step is **Airbnb Import**. Once that property is in SympleHost, you can connect the same property to Booking.com, Expedia, Agoda, VRBO, MakeMyTrip, Trip.com, and other enabled channels through Channel Manager.
 
 ---
 
 ## When to Use This
 
-- You already have listings on Airbnb or Booking.com and want to manage them from SympleHost
+- You already have listings on Airbnb and want to bring them into SympleHost
+- You want to connect Booking.com, Expedia, Agoda, VRBO, MakeMyTrip, Trip.com, or another supported OTA through Channel Manager
 - You're setting up SympleHost for the first time and want to bring over your existing portfolio
 - You've added a new listing on an OTA and want to sync it into SympleHost
+
+---
+
+## Which Setup Path Should I Use?
+
+### If you already have Airbnb
+Use **Airbnb Import** first. This creates the property in SympleHost using the Airbnb listing as the source. After that, connect other OTAs through **Channel Manager**.
+
+### If you run a direct-booking business
+Create the property manually in **Listings → + New Property → Manual**. Then set up direct booking settings, payments, calendar, and pricing.
+
+### If you want to start from Booking.com
+Start in **Channel Manager**, choose **Booking.com**, and follow the Booking.com connection flow. You will still need the property to exist in SympleHost so you can map Booking.com rooms or room types to the correct SympleHost listing or units.
+
+Before SympleHost can verify the connection, Booking.com must be set to use **Channex.io** as the connectivity provider in the Booking.com Extranet.
 
 ---
 
@@ -52,47 +70,73 @@ SympleHost will pull in the listing details, photos, and settings. You'll see a 
 
 ## How to Connect Booking.com
 
-Booking.com connects through **Channex** (a connectivity partner that syncs your reservations and availability between SympleHost and Booking.com). The setup is a simple 3-step wizard.
+Booking.com connects through **Channex.io** (the connectivity provider that syncs your reservations, availability, rates, and room mapping between SympleHost and Booking.com). Booking.com only allows one connectivity provider at a time, so this step matters.
 
-### Step 1: Set up Channex as your connectivity partner
+The SympleHost flow has four stages:
 
-Before connecting in SympleHost, you need to add Channex as your connectivity partner in Booking.com:
+1. **Pre-flight** — confirm the property exists in SympleHost, Booking.com is open and bookable, no other PMS or channel manager is connected, and Channex.io is approved as the connectivity provider.
+2. **Connect** — enter the Booking.com Hotel ID.
+3. **Map rooms** — map Booking.com rooms to the correct SympleHost listing, unit, and rate plan.
+4. **Sync** — push rates, calendar, and room mappings to Booking.com through Channex.io.
+
+### Step 1: Set up Channex.io as your connectivity provider
+
+Before connecting in SympleHost, update the connectivity provider in the Booking.com Extranet:
 
 1. Log in to your **Booking.com Extranet** at admin.booking.com.
-2. Follow the Booking.com setup guide to authorize Channex as your channel manager.
+2. Open the account menu and go to **Connectivity provider**.
+3. If another PMS or channel manager is connected, disconnect it first. Booking.com only allows one connectivity provider at a time.
+4. Search for **Channex.io**.
+5. Confirm **Channex.io** as the connectivity provider.
 
 **Tip:** If you're not sure how to do this, SympleHost has a built-in setup guide — you'll see it when you start the connection process.
 
 ### Step 2: Connect in SympleHost
 
-1. Create or open the property in SympleHost first.
+1. Make sure the property already exists in SympleHost. If it started on Airbnb, import it first. If it is direct-only, create it manually.
 
-2. Open the top-right profile menu, go to **Settings → Integrations**, or open the listing's channel setup area.
+2. Open **Channel Manager**.
 
-3. Find the **Booking.com** card and start the connection. A wizard will open.
+3. Find **Booking.com** and click **Connect**. A wizard will open.
 
 4. Enter your **Hotel ID**.
 
-   You can find your Hotel ID in the Booking.com Extranet — it's displayed next to your property name at the top of the screen. Click **"Where to find your Hotel ID"** in the wizard if you need help locating it.
+   Your Hotel ID is the numeric code in the Booking.com Extranet URL, for example `admin.booking.com/hotel/1234567`. Click **Where to find your Hotel ID** in the wizard if you need help locating it.
 
-5. Click **Next**.
+5. Click **Connect & verify**.
 
 ### Step 3: Verify and sync
 
-6. SympleHost will verify the connection with Booking.com. You'll see the status progress:
+6. SympleHost verifies the Booking.com connection through Channex.io. You'll see the status progress:
    - "Creating connection..."
    - "Verifying with Booking.com..."
    - **"Connected!"** (with a green checkmark)
 
 7. Click **Continue**.
 
-8. Review the mapping preview showing your property name and Hotel ID. Click **Start Sync** to sync your Booking.com listing data with SympleHost.
+8. Map each Booking.com room or room type to the correct SympleHost listing, unit, and rate plan.
 
-9. Wait for the sync to complete — you'll see **"Sync complete!"** with a green checkmark.
+9. Click **Save & continue**, then start the sync.
 
-10. Click **Done**.
+10. Wait for the sync to queue. First sync usually takes a few minutes.
 
-   Your Booking.com listing is now connected. You'll see the connection status on the OTA Platform Integration page showing how many properties are connected.
+Your Booking.com listing is now connected. You can review the connection later from **Channel Manager**, where connected properties, sync health, price rules, and last sync status are shown.
+
+---
+
+## Connecting Expedia, Agoda, VRBO, MakeMyTrip, and Trip.com
+
+After the property exists in SympleHost, connect additional OTAs from **Channel Manager**:
+
+1. Open **Channel Manager**.
+2. Choose the OTA you want to connect.
+3. Follow the pre-flight checklist for that OTA.
+4. Approve **Channex.io** as the connectivity provider in the OTA's extranet or partner portal when the flow asks for it.
+5. Enter the required hotel ID, hotel code, account details, or verification details.
+6. Map the OTA's rooms or rate plans to the correct SympleHost listing or units.
+7. Start sync.
+
+Each OTA has slightly different requirements, but the pattern is the same: property in SympleHost first, connectivity provider approved on the OTA side, then mapping and sync in Channel Manager.
 
 ---
 
@@ -121,10 +165,10 @@ Make sure you're logging in with the correct Airbnb account — the one that own
 This means those listings were already imported into SympleHost. You won't have duplicate listings — SympleHost recognizes them and skips the re-import.
 
 ### Booking.com connection failed
-Check that your Hotel ID is correct — it should be a numeric ID (up to 10 digits) found in your Booking.com Extranet. Also make sure you've added Channex as your connectivity partner in Booking.com first. If the connection still fails, click **Try Again** in the wizard.
+Check that your Hotel ID is correct — it should be a numeric ID up to 10 digits from the Booking.com Extranet URL. Also make sure you've approved **Channex.io** as your connectivity provider in Booking.com first. If the connection still fails, click **Try Again** in the wizard.
 
 ### Booking.com sync failed
-If the sync step fails, you can retry it later from the **Channels** tab on your listing. Click **Try Again** in the wizard, or close and re-open the connection.
+If the sync step fails, click **Try Again** in the wizard, or return to **Channel Manager → Booking.com** and re-open the connection.
 
 ### My photos didn't come through
 This can happen if the OTA's image links have expired or if there's a temporary connection issue. Try re-importing the listing. If photos still don't appear, upload them manually from the listing's edit page.

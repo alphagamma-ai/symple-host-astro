@@ -39,13 +39,15 @@ Start with one property before importing or connecting everything.
 
 1. Open **Listings**.
 2. Click **+ New Property**.
-3. Choose the best setup path:
-   - **Manual** if you want full control from scratch.
-   - **Airbnb Import** if you already have an Airbnb listing.
+3. Choose the setup path that matches how you already take bookings:
+   - **Airbnb Import** for most hosts who already have a live Airbnb listing. This is the fastest way to bring in listing details, photos, calendar information, and booking history.
+   - **Manual** only if you are starting fresh, running a fully direct-booking business, or do not have an OTA listing to import yet.
 4. Check the listing name, address, capacity, photos, amenities, and cancellation policy.
 5. Save the listing before moving to pricing.
 
-If you use Booking.com, create or import the property first, then connect Booking.com through Channel Manager.
+After the listing exists in SympleHost, use **Channel Manager** to connect other OTAs such as **Booking.com**, **Expedia**, **Agoda**, **VRBO**, **MakeMyTrip**, or **Trip.com**, depending on what is enabled for your account.
+
+If you want to start from **Booking.com**, go to **Channel Manager**, choose **Booking.com**, then follow the setup checklist. In the Booking.com Extranet, change the connectivity provider to **Channex.io** first, then return to SympleHost to enter the Hotel ID and complete room mapping.
 
 ---
 

@@ -176,14 +176,16 @@ Repeat Steps 3 and 4 for each additional unit or room type. See *How to Set Up Y
 
 Once your multi-unit listing is saved and active:
 
-1. Go to **Properties → [Your Property]** and click the **Channels** tab.
-2. Click **Connect Booking.com**.
-3. Map each SympleHost unit to a Booking.com room type — Booking.com uses a specific list of room-type labels, so you'll match yours to the closest option.
-4. Confirm the mapping and click **Sync**.
+1. Open **Channel Manager**.
+2. Choose **Booking.com** and click **Connect**.
+3. In the Booking.com Extranet, make sure **Channex.io** is approved as the connectivity provider.
+4. Enter the Booking.com **Hotel ID** in SympleHost and click **Connect & verify**.
+5. Map each SympleHost unit to the correct Booking.com room type and rate plan.
+6. Confirm the mapping and start sync.
 
-SympleHost pushes your units, availability, and rates to Booking.com. Bookings made on Booking.com flow back into SympleHost automatically.
+SympleHost pushes your units, availability, and rates to Booking.com through Channex.io. Bookings made on Booking.com flow back into SympleHost automatically.
 
-💡 **Tip:** You need to save and activate the property before connecting Booking.com. Create the listing first, then connect the channel.
+💡 **Tip:** You need to save and activate the property before connecting Booking.com. Create the listing first, then connect the channel from Channel Manager.
 
 ---
 
@@ -195,8 +197,8 @@ Open each unit and make sure the **Beds** section has specific bed types selecte
 ### Booking.com shows the wrong number of available rooms
 Check the **Quantity** value on each unit. This is the total inventory Booking.com sees. Actual availability is managed by the calendar — if some units are booked, the available count adjusts automatically.
 
-### I can't see the Channels tab on my property
-Make sure your property is saved as a **Multi-Unit** listing. If you created it as a Standalone, you may need to recreate it. The Channels tab only appears on properties that support channel connections.
+### I can't map my Booking.com rooms
+Make sure your property is saved as a **Multi-Unit** listing, the units are active, and each unit has bed configuration and pricing. Then return to **Channel Manager → Booking.com** and continue the mapping flow.
 
 ### A unit shows "No pricing" in the unit list
 Click the **Pricing** icon (the dollar sign) next to the unit to go to its pricing page and set a base nightly rate. Units without pricing can't be booked.
@@ -211,7 +213,7 @@ Click the **Delete** icon (trash can) next to the unit. You'll see a confirmatio
 - Multi-unit = one parent property with individual bookable units underneath
 - Use **Quantity > 1** for identical units instead of creating duplicates
 - **Bed configuration is mandatory** for Booking.com — always specify exact bed types
-- Create and activate the property first, then connect Booking.com from the Channels tab
+- Create and activate the property first, then connect Booking.com from Channel Manager
 - Each unit gets its own photos, capacity settings, and pricing
 
 ---

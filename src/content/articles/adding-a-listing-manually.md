@@ -12,6 +12,8 @@ draft: false
 
 ## How to Add a New Listing
 
+Use manual setup when you are starting from scratch, running a fully direct-booking business, or do not yet have a listing on an OTA. If you already have an Airbnb listing, use **Airbnb Import** instead so SympleHost can pull in the existing listing details faster.
+
 1. Click **Listings** in the sidebar.
 
    You'll see your existing listings displayed as cards. In the top right, you'll find the **+ New Property** button.
@@ -20,7 +22,7 @@ draft: false
 
 3. Select **Manual** to create from scratch.
 
-   You may also see **Airbnb Import** depending on your account. Airbnb Import pulls in an existing Airbnb listing. If you're looking to connect Booking.com, create or import the property first, then connect Booking.com through Channel Manager.
+   You may also see **Airbnb Import** depending on your account. Use Airbnb Import when the property is already live on Airbnb. Once the property exists in SympleHost, connect Booking.com, Expedia, Agoda, VRBO, and other supported OTAs through **Channel Manager**.
 
 4. Fill in your **Property Details**:
    - **Property Name** — this is what guests will see
@@ -50,7 +52,7 @@ You'll be taken to the pricing configuration page to set your nightly rates, sea
 
 ## What to Check Before Connecting Channels
 
-Before you connect Airbnb, Booking.com, or direct booking channels, review:
+Before you connect Booking.com, Expedia, Agoda, VRBO, or other channels through Channel Manager, review:
 
 - **Address and timezone** — these affect calendar and check-in information.
 - **Capacity** — max guests, bedrooms, beds, and bathrooms should match what guests can actually book.

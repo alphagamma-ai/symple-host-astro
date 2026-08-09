@@ -73,7 +73,7 @@ Use this order if you want SympleHost to become useful quickly, not just "set up
 1. **Complete your company profile** — Set your business name, country, currency, timezone, and date format so calendars, pricing, and guest-facing content display correctly.
    → See: [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)
 
-2. **Add or import your first listing** — Start manually or import from Airbnb. Booking.com is connected through Channel Manager after the listing exists.
+2. **Add or import your first listing** — If you already have Airbnb, import that listing first. Use Manual only if you are starting fresh or running a fully direct-booking business. After the listing exists, connect Booking.com, Expedia, Agoda, VRBO, and other OTAs through Channel Manager.
    → See: [Adding a Listing Manually](/getting-started/adding-a-listing-manually/) or [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
 
 3. **Set pricing and availability** — Add your standard rate, review the pricing calendar, and check blocked or booked dates before you connect more channels.

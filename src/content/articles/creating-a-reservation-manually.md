@@ -119,7 +119,7 @@ There are several ways to see your bookings:
 Check which tab you're on — **Properties** vs. **Services**. Property bookings and service bookings appear on separate tabs. Also make sure the calendar is showing the correct date range.
 
 ### The booking shows the wrong price
-Verify that your listing's pricing is set up correctly in **Properties → [Your Listing] → Price Settings**. If you created custom pricing for specific date ranges, make sure the booking dates fall within the correct range. See: *How to Set Up Your Pricing & Rate Rules*.
+Verify that your listing's pricing is set up correctly in **Listings → [Your Listing] → Price Settings**. If you created custom pricing for specific date ranges, make sure the booking dates fall within the correct range. See: *How to Set Up Your Pricing & Rate Rules*.
 
 ### I want to edit a booking after creating it
 Click on the booking in the calendar or bookings list to open its details. From there you can update guest information, change dates, or update the status.

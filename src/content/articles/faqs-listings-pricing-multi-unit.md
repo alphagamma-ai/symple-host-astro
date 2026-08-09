@@ -14,7 +14,7 @@ draft: false
 ## Listings & Properties
 
 ### How do I add a new listing?
-Go to **Listings** and click **+ New Property**. Choose **Manual** to create from scratch, or **Import** to pull in listings from Airbnb. Booking.com is connected through Channel Manager after the property exists.
+Go to **Listings** and click **+ New Property**. If you already have Airbnb, use **Import** to pull in that listing first. Choose **Manual** only if you are starting from scratch or running a fully direct-booking business. Booking.com and other OTAs connect through Channel Manager after the property exists.
 → See: *Adding a Listing Manually*
 
 ### What's the difference between a standalone and multi-unit listing?
@@ -25,11 +25,11 @@ A **standalone** listing is a single bookable property — like a whole house or
 No — create one **multi-unit listing** and add each room as a unit underneath it. This keeps everything organized and is required if you plan to connect to Booking.com.
 
 ### Can I import my listings from Airbnb?
-Yes. Go to **Properties → + New Property → Import**, select Airbnb, and authorize the connection. You'll be able to choose which listings to import. Your listing details, photos, and settings will transfer over.
+Yes. Go to **Listings → + New Property → Import**, select Airbnb, and authorize the connection. You'll be able to choose which listings to import. Your listing details, photos, and settings will transfer over.
 → See: *How to Import Listings from an OTA*
 
 ### Can I import my listings from Booking.com?
-Yes. The import flow works the same as Airbnb — go to **Properties → + New Property → Import** and select Booking.com.
+Booking.com is connected through **Channel Manager**, not the Airbnb import flow. First make sure the property exists in SympleHost. Then open **Channel Manager**, choose **Booking.com**, approve **Channex.io** as the connectivity provider in the Booking.com Extranet, enter the Hotel ID, and map Booking.com rooms to the correct SympleHost listing or units.
 
 ### How do I edit a listing after creating it?
 Go to **Listings**, click on the listing you want to change, then click **Edit**. You can update the name, description, photos, amenities, house rules, and other details.
@@ -57,7 +57,7 @@ When creating or editing a listing, scroll to the **House Rules** section. Toggl
 ## Pricing
 
 ### How do I set my nightly rate?
-Go to **Properties → [Your Listing] → Price Settings** and set the **Base Nightly Rate**. This is the default rate used when no seasonal or custom pricing applies.
+Go to **Listings → [Your Listing] → Price Settings** and set the **Base Nightly Rate**. This is the default rate used when no seasonal or custom pricing applies.
 → See: *How to Set Up Your Pricing & Rate Rules*
 
 ### Can I set different prices for weekdays and weekends?
@@ -80,7 +80,7 @@ Each unit or room type has its own pricing. Go to the unit's **Pricing** tab (ac
 ## Multi-Unit Properties
 
 ### How do I add rooms or units to an existing multi-unit listing?
-Go to **Properties → [Your Listing] → Units** tab and click **+ Add Unit**. Fill in the unit name, number, capacity, bed configuration, and photos.
+Go to **Listings → [Your Listing] → Units** tab and click **+ Add Unit**. Fill in the unit name, number, capacity, bed configuration, and photos.
 → See: *Adding a Multi-Unit Listing Manually*
 
 ### Can I set different prices for different room types?
@@ -90,7 +90,7 @@ Yes. Each unit has its own pricing. Go to the unit's **Pricing** tab to set its 
 Yes. On the **Units** tab, each unit has its own **Active** toggle. Switch it off to take that unit out of rotation.
 
 ### How does Booking.com sync work with multi-unit listings?
-SympleHost maps each unit to a Booking.com room type. Go to the property's **Channels** tab to set up the mapping. Availability and rates sync in both directions.
+SympleHost maps each Booking.com room type to the correct SympleHost unit and rate plan. Open **Channel Manager**, choose **Booking.com**, complete the Channex.io pre-flight checks, then map rooms during the Booking.com connection flow. Availability, rates, and bookings sync through Channex.io after setup.
 
 ### My Booking.com sync failed. What should I check?
 The most common cause is missing **bed configuration** on one or more units. Open each unit and make sure specific bed types are selected (e.g. "1 Queen bed") — a generic bed count isn't enough for Booking.com.
