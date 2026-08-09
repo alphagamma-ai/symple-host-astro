@@ -218,7 +218,7 @@ Click the **Delete** icon (trash can) next to the unit. You'll see a confirmatio
 
 ## Related Articles
 
-- Adding a Listing Manually
-- How to Import Listings from an OTA (Airbnb, Booking.com)
-- How to Set Up Your Pricing & Rate Rules
-- Setting Up Your Company Profile
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)

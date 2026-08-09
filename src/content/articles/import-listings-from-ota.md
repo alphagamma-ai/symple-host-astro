@@ -135,7 +135,8 @@ This can happen if the OTA's image links have expired or if there's a temporary 
 
 ---
 
-Related Articles
-- Adding a Listing Manually
-- How to Set Up Your Pricing & Rate Rules
-- How to Manage Bookings & Your Calendar
+## Related Articles
+
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)

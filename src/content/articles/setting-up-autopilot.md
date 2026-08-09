@@ -151,6 +151,6 @@ Use **Messages → Message automation** and create a time-based rule.
 
 ## Related articles
 
-- Using Messages: the unified guest inbox
-- Connecting WhatsApp, Instagram & Facebook Messenger
-- Create and Assign Tasks
+- [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
+- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
+- [Create and Assign Tasks](/platform-guides/create-and-assign-tasks/)

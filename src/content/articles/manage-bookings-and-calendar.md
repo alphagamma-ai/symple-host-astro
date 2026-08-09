@@ -158,7 +158,8 @@ If you have many listings and a wide date range visible, the calendar can take a
 
 ---
 
-Related Articles
-- How to Set Up Your Pricing & Rate Rules
-- Using Messages: the unified guest inbox
-- How to Create & Assign Tasks to Your Team
+## Related Articles
+
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
+- [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)

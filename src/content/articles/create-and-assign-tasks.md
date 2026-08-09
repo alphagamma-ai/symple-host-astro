@@ -128,6 +128,6 @@ Open the task detail panel and click **Delete**. Completed tasks remain in the *
 ---
 
 Related Articles
-- How to Set Up Recurring Task Reminders
-- How to Track Task Progress & Completion
-- How to Add Team Members & Assign Roles
+- [How to Set Up Recurring Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
+- [How to Track Task Progress & Completion](/platform-guides/track-task-progress/)
+- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

@@ -160,6 +160,6 @@ Currency is automatically set based on your country selection. To change it, go 
 
 ## Related Articles
 
-- Setting Up Your Company Profile
-- Welcome to SympleHost — Your First 24 Hours
-- How to Add Team Members & Assign Roles
+- [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)
+- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

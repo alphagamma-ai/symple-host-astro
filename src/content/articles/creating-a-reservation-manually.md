@@ -140,8 +140,8 @@ Open the booking and either update the dates or cancel it and create a new one w
 
 ## Related Articles
 
-- Viewing Your First Reservation
-- How to Manage Bookings & Your Calendar
-- Adding a Listing Manually
-- How to Set Up Your Pricing & Rate Rules
-- How to Set Up Payments
+- [Viewing Your First Reservation](/getting-started/viewing-your-first-reservation/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [How to Set Up Payments](/getting-started/set-up-payments-stripe/)

@@ -124,8 +124,8 @@ By the end of the first 24 hours, you should have:
 
 ## Related Articles
 
-- Welcome to SympleHost — Your First 24 Hours
-- Adding a Listing Manually
-- How to Import Listings from an OTA
-- Connecting WhatsApp, Instagram & Facebook Messenger
-- Setting Up Autopilot for Guest Messaging
+- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
+- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
+- [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)

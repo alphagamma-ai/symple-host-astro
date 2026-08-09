@@ -106,6 +106,6 @@ Check your date filter — you may be looking at a different time period than yo
 
 ## Related Articles
 
-- Welcome to SympleHost — Your First 24 Hours
-- How to Manage Bookings & Your Calendar
-- How to Set Up Your Pricing & Rate Rules
+- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)

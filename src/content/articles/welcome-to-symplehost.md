@@ -71,28 +71,28 @@ Some menu items only appear when your role, subscription, and account feature fl
 Use this order if you want SympleHost to become useful quickly, not just "set up."
 
 1. **Complete your company profile** — Set your business name, country, currency, timezone, and date format so calendars, pricing, and guest-facing content display correctly.
-   → See: *Setting Up Your Company Profile*
+   → See: [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)
 
 2. **Add or import your first listing** — Start manually, import from Airbnb, or use Copilot if it is enabled for your account. Booking.com is connected through Channel Manager after the listing exists.
-   → See: *Adding a Listing Manually* or *How to Import Listings from an OTA*
+   → See: [Adding a Listing Manually](/getting-started/adding-a-listing-manually/) or [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
 
 3. **Set pricing and availability** — Add your standard rate, review the pricing calendar, and check blocked or booked dates before you connect more channels.
-   → See: *How to Set Up Your Pricing & Rate Rules*
+   → See: [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
 
 4. **Connect a guest messaging channel** — Link WhatsApp, Instagram, Facebook Messenger, or another supported channel so your team can reply from Messages.
-   → See: *Connecting WhatsApp, Instagram & Facebook Messenger*
+   → See: [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
 
 5. **Use Autopilot in suggestion mode first** — Let AI draft replies before you allow automatic sending.
-   → See: *Setting Up Autopilot — Automate Guest Messaging*
+   → See: [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)
 
 6. **Create or review your first reservation** — Confirm guest details, dates, payment status, and the handoff tasks your team needs.
-   → See: *Creating a Reservation Manually*
+   → See: [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
 
 7. **Invite the right team members** — Add managers, booking coordinators, cleaners, or maintenance staff with the access they actually need.
-   → See: *How to Add Team Members & Assign Roles*
+   → See: [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)
 
 8. **Connect payments before taking direct bookings** — Choose the payment gateway available in your country, then configure deposits, cancellation policies, and fees.
-   → See: *How to Set Up Payments*
+   → See: [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
 
 💡 **Tip:** If you only have one hour today, do steps 1-4. That gets your account, listing, calendar, and guest inbox ready enough for real work.
 
@@ -118,8 +118,8 @@ Use this order if you want SympleHost to become useful quickly, not just "set up
 
 ## Related Articles
 
-- Your First 24 Hours in SympleHost
-- Setting Up Your Company Profile
-- Adding a Listing Manually
-- How to Import Listings from an OTA
-- Connecting WhatsApp, Instagram & Facebook Messenger
+- [Your First 24 Hours in SympleHost](/getting-started/your-first-24-hours-in-symplehost/)
+- [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
+- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)

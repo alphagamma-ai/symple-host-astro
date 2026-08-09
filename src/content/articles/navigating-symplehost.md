@@ -117,7 +117,7 @@ If you know what you're looking for but can't remember where it lives, use the *
 
 ## Related Articles
 
-- Welcome to SympleHost — Your First 24 Hours
-- Your First 24 Hours in SympleHost
-- Understanding the Overview Dashboard
-- How to Add Team Members & Assign Roles
+- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [Your First 24 Hours in SympleHost](/getting-started/your-first-24-hours-in-symplehost/)
+- [Understanding the Overview Dashboard](/getting-started/understanding-the-overview-dashboard/)
+- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

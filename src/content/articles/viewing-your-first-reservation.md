@@ -187,7 +187,7 @@ Before cancelling, check the listing's **Cancellation Policy** in **Properties â
 
 ## Related Articles
 
-- Creating a Reservation Manually
-- How to Manage Bookings & Your Calendar
-- Understanding the Overview Dashboard
-- How to Set Up Payments
+- [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
+- [Understanding the Overview Dashboard](/getting-started/understanding-the-overview-dashboard/)
+- [How to Set Up Payments](/getting-started/set-up-payments-stripe/)

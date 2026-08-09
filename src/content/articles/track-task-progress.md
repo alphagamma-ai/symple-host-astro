@@ -147,6 +147,6 @@ Use the **Operations** → **Reports** section to get a broader operations overv
 ---
 
 Related Articles
-- How to Create & Assign Tasks to Your Team
-- How to Set Up Recurring Task Reminders
-- How to Add Team Members & Assign Roles
+- [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)
+- [How to Set Up Recurring Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
+- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

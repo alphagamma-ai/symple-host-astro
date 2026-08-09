@@ -154,6 +154,6 @@ Open the automation and check the assignee setting. If the team member has been 
 ---
 
 Related Articles
-- How to Create & Assign Tasks to Your Team
-- How to Track Task Progress & Completion
-- How to Add Team Members & Assign Roles
+- [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)
+- [How to Track Task Progress & Completion](/platform-guides/track-task-progress/)
+- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

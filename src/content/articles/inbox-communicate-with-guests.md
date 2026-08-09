@@ -234,7 +234,7 @@ If Gmail is connected, search in Messages. When no local thread matches, use the
 
 ## Related articles
 
-- Connecting WhatsApp, Instagram & Facebook Messenger
-- Setting Up Autopilot — Automate Guest Messaging
-- Creating and Managing Quotations
-- Add Team Members and Roles
+- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
+- [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)
+- [Creating and Managing Quotations](/platform-guides/how-to-create-and-manage-quotations/)
+- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

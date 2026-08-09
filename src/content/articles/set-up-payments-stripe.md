@@ -119,7 +119,8 @@ You'll see: "No payment gateways are currently available for your country." Cont
 
 ---
 
-Related Articles
-- How to Manage Bookings & Your Calendar
-- How to Set Up Your Pricing & Rate Rules
-- Adding a Listing Manually
+## Related Articles
+
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)

@@ -123,7 +123,8 @@ Check which rate plan is active for the dates the guest is looking at. Open the 
 
 ---
 
-Related Articles
-- Adding a Listing Manually
-- How to Import Listings from an OTA
-- How to Manage Bookings & Your Calendar
+## Related Articles
+
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)

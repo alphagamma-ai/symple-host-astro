@@ -90,7 +90,8 @@ Check that each file is under 10MB and in JPEG, PNG, or WebP format. GIF files a
 
 ---
 
-Related Articles
-- Setting Up Pricing for Your Listing
-- Importing a Listing from Airbnb
-- Managing Your Listings Calendar
+## Related Articles
+
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)

@@ -113,6 +113,6 @@ Edit the team member and set their status to **inactive**. This prevents them fr
 
 Related Articles
 
-* Adding a Listing Manually
-* How to Manage Bookings & Your Calendar
-* How to Set Up Payments
+* [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+* [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
+* [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
