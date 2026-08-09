@@ -23,7 +23,7 @@ Use this as your first-day path.
 
 ## Hour 1: Make the Account Correct
 
-1. Open **Settings → General**.
+1. Click your **profile photo or name** in the top right, then open **Settings → General**.
 2. Confirm your workspace name, country, currency, timezone, date format, and time format.
 3. Add your logo if you have one ready.
 4. Open **Settings → Company** and confirm your legal and business details.

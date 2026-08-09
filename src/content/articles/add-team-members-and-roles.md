@@ -32,7 +32,7 @@ Think of roles like keys to different rooms in your house — everyone on your t
 
 ## How to Add a Team Member
 
-1. Go to **Settings** in the sidebar.
+1. Click your **profile photo or name** in the top right, then choose **Settings**.
 2. Click **Team Members**.
 
    You'll see a list of everyone currently on your team, with their name, email, role, and status.

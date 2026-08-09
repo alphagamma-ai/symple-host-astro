@@ -59,7 +59,11 @@ Here's every item in the sidebar and what it's for:
 
 ## Settings — Where Configuration Lives
 
-Click **Settings** in the sidebar (usually at the bottom, shown as a gear icon) to access all your account configuration. Settings is organized into several groups:
+Settings is opened from the **profile menu in the top right**. Click your profile photo or name, then choose **Settings**.
+
+![The top-right profile area where you open the profile menu to find Settings](/screenshots/navigating-symplehost/profile-menu-entry.png)
+
+Settings is organized into several groups:
 
 ### Account & Profile
 - **Profile** — Your personal name, photo, and preferences
@@ -106,7 +110,7 @@ If you know what you're looking for but can't remember where it lives, use the *
 
 - **Feature-based visibility** — Some sections only show when they are enabled for your account.
 - **Active page highlight** — The current page is highlighted in the sidebar so you always know where you are.
-- **Settings is separate** — Think of Settings as the "behind the scenes" area. Day-to-day work happens in the main sidebar; one-time configuration happens in Settings.
+- **Settings is separate** — Think of Settings as the "behind the scenes" area. Day-to-day work happens in the main sidebar; one-time configuration starts from the top-right profile menu.
 - **Role-based visibility** — Some menu items may not appear for all team members. What you see depends on your role and permissions. Account Admins see everything; Staff members see a focused view.
 
 ---

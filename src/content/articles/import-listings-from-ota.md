@@ -67,7 +67,7 @@ Before connecting in SympleHost, you need to add Channex as your connectivity pa
 
 1. Create or open the property in SympleHost first.
 
-2. Go to **Settings** → **Integrations** or open the listing's channel setup area.
+2. Open the top-right profile menu, go to **Settings → Integrations**, or open the listing's channel setup area.
 
 3. Find the **Booking.com** card and start the connection. A wizard will open.
 

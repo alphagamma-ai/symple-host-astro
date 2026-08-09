@@ -60,7 +60,7 @@ When you log in, you'll see a **sidebar on the left**. This is how you navigate 
 
 **Financial Reports** — Track revenue and finance reports when your role and account settings allow access.
 
-**Settings** — Configure your profile, team, workspace, direct bookings, payment gateway, integrations, notifications, and reminders.
+**Settings** — Opened from the top-right profile menu. Configure your profile, team, workspace, direct bookings, payment gateway, integrations, notifications, and reminders.
 
 Some menu items only appear when your role, subscription, and account feature flags allow them. If you do not see an item, ask your account owner or admin to check your permissions.
 

@@ -22,7 +22,7 @@ Your company profile controls how dates, times, currencies, and prices appear ac
 
 ### Setting Your Workspace Name & Logo
 
-1. Go to **Settings** in the sidebar.
+1. Click your **profile photo or name** in the top right, then choose **Settings**.
 2. Click **General**.
 3. In the **Workspace Branding** section, you'll see your **Workspace Name** — this is the name your team sees when they log in.
 4. Click **Edit** (top right) to make changes.
