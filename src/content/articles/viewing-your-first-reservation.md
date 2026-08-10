@@ -185,3 +185,4 @@ Before cancelling, check the listing's **Cancellation Policy** from **Listings â
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
 - [Understanding the Overview Dashboard](/getting-started/understanding-the-overview-dashboard/)
 - [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
+- [Managing Partial Payments and Deposits](/platform-guides/partial-payments-and-deposits/)

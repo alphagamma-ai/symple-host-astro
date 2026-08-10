@@ -167,5 +167,6 @@ You haven't connected Stripe yet, or the Stripe connection has lapsed. Go to **S
 
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
 - [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
+- [Managing Partial Payments and Deposits](/platform-guides/partial-payments-and-deposits/)
 - [How to Get More Direct Bookings for Your Vacation Rental](/marketing-for-hosts/direct-bookings-vacation-rentals/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
