@@ -15,7 +15,9 @@ draft: false
 
 Your payment gateway is the processor SympleHost uses to collect money from guests for direct bookings, services, store items, deposits, and payment links.
 
-Depending on your country and account access, you may see options such as **Stripe**, **Razorpay**, **HitPay**, **Doku**, **Xendit**, or **Manual Payments**. Only connect the gateway you are ready to use for real guest payments.
+Depending on your country and account access, you may see options such as **Stripe**, **Razorpay**, **HitPay**, **Doku**, **Xendit**, or **Offline / Manual Payments**. Only connect the gateway you are ready to use for real guest payments.
+
+![Payment Gateway page showing Stripe Connect before it is connected](/uploads/set-up-payments-stripe/01.png)
 
 ---
 
@@ -37,16 +39,26 @@ Depending on your country and account access, you may see options such as **Stri
 
 4. Select the gateway you want to connect.
 
-5. Follow the setup instructions shown for that gateway:
-   - **Stripe** and **Razorpay** use a hosted connection flow.
-   - **HitPay**, **Doku**, and **Xendit** may ask for API or webhook credentials from the provider dashboard.
-   - **Manual Payments** appears only when enabled for your account.
+5. Follow the setup instructions shown for that gateway. Some gateways send you through a provider login flow, while others ask you to copy keys from the provider dashboard.
 
 6. Complete any provider verification steps.
 
 7. Return to SympleHost and confirm the gateway shows as connected and active.
 
-Only one payment gateway can be connected in the active gateway slot at a time. If another gateway is already connected, SympleHost locks the other connection buttons until you disconnect the current provider.
+Only one online payment gateway can hold the account connection slot at a time. If another gateway is already connected, SympleHost locks the other connection buttons until you disconnect the current provider.
+
+---
+
+## What Each Gateway Needs
+
+| Gateway | What you need before connecting | How it connects | What to check after connecting |
+| --- | --- | --- | --- |
+| **Stripe Connect** | A Stripe account, business details, bank account details, and any identity/tax documents Stripe requests. | Click **Connect with Stripe** and complete Stripe's hosted setup. You do not paste Stripe API keys into SympleHost. | Stripe should show **Charges Enabled: Yes** and **Payouts Enabled: Yes** before guests can pay successfully. |
+| **Razorpay** | **Key ID**, **Key Secret**, and **Webhook Secret** from Razorpay. Use live keys for real guest payments or test keys with sandbox mode. | Paste the keys into the Razorpay card in SympleHost, then add the webhook URL shown in SympleHost to Razorpay. | The card may show **Pending webhook** until the webhook is confirmed. Set it as active once it is ready. |
+| **HitPay** | **API Key** and **Webhook Salt** from HitPay. | Paste both values into the HitPay card in SympleHost. | Confirm the gateway shows **Connected**, then set it as active if it is not already active. |
+| **Doku** | **Client ID** and **Secret Key** from DOKU Back Office. Choose sandbox or production mode carefully. | Paste the credentials into the Doku card, then configure the notification/webhook URL shown in SympleHost inside DOKU Back Office. | Doku may stay pending until the notification URL is confirmed or a verified webhook is received. |
+| **Xendit** | **Secret API Key** and **Callback Verification Token** from Xendit. The public key is not required. | Paste both values into the Xendit card, then add the webhook URL shown in SympleHost under Xendit developer webhook settings. | Xendit may stay **Pending webhook** until webhook setup is confirmed. |
+| **Offline / Manual Payments** | A payment URL, bank transfer instructions, Wise/PayPal.me link, or other instructions you want to show guests. | Save the URL and instructions in the offline payment card. | Manual payments are not automatically reconciled. Your team must verify receipt and update the reservation/payment status manually. |
 
 ---
 
@@ -58,17 +70,36 @@ Only one payment gateway can be connected in the active gateway slot at a time. 
 4. Return to SympleHost and confirm Stripe shows as connected.
 5. If Stripe shows **Charges Enabled** or **Payouts Enabled** as incomplete, open Stripe and finish the required verification.
 
-## If You Use an API-Key Gateway
+![Stripe connected but pending final setup in SympleHost](/uploads/set-up-payments-stripe/02.png)
 
-Gateways such as **HitPay**, **Doku**, or **Xendit** may require credentials from the provider dashboard.
+Once Stripe is fully ready, the status should show as active and both charges and payouts should be enabled.
+
+![Stripe active with charges and payouts enabled](/uploads/set-up-payments-stripe/03.png)
+
+## If You Use a Key-Based Gateway
+
+Gateways such as **Razorpay**, **HitPay**, **Doku**, or **Xendit** require credentials from the provider dashboard.
 
 1. Open the payment provider dashboard in another tab.
-2. Copy the required API key, client ID, webhook secret, or salt.
+2. Copy the exact credentials required for that provider.
 3. Paste the credentials into SympleHost.
-4. Save and confirm the provider shows as connected.
-5. Make sure the provider is in live mode before accepting real payments.
+4. If SympleHost shows a webhook or notification URL, copy that URL into the provider's webhook settings.
+5. Save and confirm the provider shows as connected or pending webhook.
+6. Make sure the provider is in live or production mode before accepting real payments.
 
 If you see a sandbox or test-mode badge, reconnect with live credentials before guests pay.
+
+For key-based providers, never paste credentials from one environment into another. For example, do not use live API keys while the SympleHost gateway card is set to sandbox mode.
+
+## Webhook or Notification URL Setup
+
+Some providers need a webhook or notification URL so SympleHost can confirm successful payments automatically.
+
+- **Razorpay** — add the webhook URL shown in SympleHost to Razorpay, using the same webhook secret you entered in SympleHost.
+- **Doku** — add the notification URL shown in SympleHost inside DOKU Back Office.
+- **Xendit** — add the webhook URL shown in SympleHost under **Settings → Developers → Webhooks**. Include payment session events such as `payment_session.completed` and `payment_session.expired`.
+
+Until the webhook is confirmed, the gateway may show **Pending webhook** and may not be ready to activate.
 
 ---
 
@@ -89,7 +120,7 @@ Do this before you publish a direct booking website or send payment links to gue
 The bottom of the Payment Gateway page explains key features:
 
 - **Secure Payment Processing** — all gateways are PCI DSS compliant with end-to-end encryption
-- **Gateway Availability** — available gateways depend on your country and account access
+- **Gateway Availability** — available gateways depend on your country, account access, and enabled payment providers
 - **Automatic Payment Confirmation** — webhooks automatically update booking status when payments complete
 
 ---
@@ -106,7 +137,13 @@ This usually means your Stripe account setup isn't complete. Click **Open Stripe
 Stripe typically takes 2–7 business days for the first payout. After that, payouts happen on a rolling schedule. Check your Stripe dashboard for payout status and any holds.
 
 ### Another gateway is locked
-Only one gateway can be connected in the active gateway slot at a time. Disconnect the current gateway before connecting another one.
+Only one online gateway can be connected in the account gateway slot at a time. Disconnect the current gateway before connecting another online gateway.
+
+### A gateway says "Pending webhook"
+Check the provider dashboard and confirm the webhook or notification URL matches the URL shown in SympleHost. If the provider has test and live modes, make sure the webhook is configured in the same mode as the keys you entered.
+
+### Guests paid manually but SympleHost did not update automatically
+Offline/manual payments do not auto-reconcile. Confirm the money arrived in your bank or provider account, then update the reservation or payment status manually.
 
 ### No payment gateways are available
 You'll see: "No payment gateways are currently available for your country." Contact SympleHost support if you believe this is an error.

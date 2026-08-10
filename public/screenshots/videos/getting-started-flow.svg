@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Getting Started video placeholder</title>
+  <desc id="desc">SympleHost branded placeholder thumbnail for the Getting Started product walkthrough.</desc>
+  <rect width="1280" height="720" fill="#fbf8ff"/>
+  <rect x="72" y="72" width="1136" height="576" rx="28" fill="#fff" stroke="#eadcff" stroke-width="2"/>
+  <circle cx="152" cy="148" r="34" fill="#8f39ff"/>
+  <path d="M143 130h18v36h-18zM130 143h44v10h-44z" fill="#fff"/>
+  <text x="218" y="144" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Getting Started</text>
+  <text x="218" y="190" fill="#667085" font-family="Inter, Arial, sans-serif" font-size="23">First 24 hours: account, workspace, listings, channels, payments</text>
+  <g transform="translate(154 300)" fill="none" stroke-linecap="round">
+    <circle cx="0" cy="0" r="30" fill="#f2e9ff" stroke="#8f39ff" stroke-width="3"/>
+    <circle cx="210" cy="0" r="30" fill="#f2e9ff" stroke="#8f39ff" stroke-width="3"/>
+    <circle cx="420" cy="0" r="30" fill="#f2e9ff" stroke="#8f39ff" stroke-width="3"/>
+    <circle cx="630" cy="0" r="30" fill="#f2e9ff" stroke="#8f39ff" stroke-width="3"/>
+    <circle cx="840" cy="0" r="30" fill="#f2e9ff" stroke="#8f39ff" stroke-width="3"/>
+    <path d="M36 0h138M246 0h138M456 0h138M666 0h138" stroke="#d7b9ff" stroke-width="5"/>
+  </g>
+  <text x="126" y="395" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Account</text>
+  <text x="332" y="395" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Workspace</text>
+  <text x="566" y="395" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Listings</text>
+  <text x="766" y="395" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Channels</text>
+  <text x="976" y="395" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Go live</text>
+  <rect x="154" y="496" width="972" height="56" rx="16" fill="#f6f1ff"/>
+  <text x="188" y="532" fill="#8f39ff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">1 minute demo script ready</text>
+</svg>

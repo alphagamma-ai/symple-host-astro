@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import GettingStartedPath from '../GettingStartedPath.astro';
 import LocalizedArticleFallback from './LocalizedArticleFallback.astro';
 import {
   DEFAULT_LOCALE,
@@ -49,6 +50,10 @@ const formattedDate = article.data.date
     {category && <><a href={localizePath(`/${category.id}`, locale)}>{getCategoryTitle(category, locale)}</a><span class="sep">/</span></>}
     <span>{articleTitle}</span>
   </nav>
+
+  {article.data.category === 'getting-started' && locale === 'en' && (
+    <GettingStartedPath compact currentSlug={article.id} locale={locale} />
+  )}
 
   <article class="article">
     <header class="article-header">

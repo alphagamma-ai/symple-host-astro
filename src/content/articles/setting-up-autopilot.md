@@ -1,6 +1,6 @@
 ---
-title: Setting Up Autopilot for Guest Messaging
-description: Configure account-level Autopilot, response delay, and message automation rules so AI can suggest or send guest replies from the Messages inbox.
+title: 'Autopilot, Automated Messages, and Concierge: What Each One Does'
+description: 'Understand the difference between Autopilot settings, automated scheduled messages, and Concierge before turning on AI guest messaging.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 3
@@ -9,148 +9,110 @@ tags:
   - AI
   - Messaging
   - Automation
-date: '2026-07-14'
+  - Concierge
+date: '2026-08-10'
 draft: false
 ---
 
-**Autopilot controls how AI participates in guest conversations. You can keep it off, ask it to draft suggestions, or allow it to auto-reply after a delay. Message automation rules add scheduled and response-based workflows on top of that.**
+**SympleHost has three different messaging tools that work together: Autopilot, Automated Messages, and Concierge. They are related, but they do different jobs.**
 
 ---
 
-> **TL;DR:** Open **Messages → Autopilot** to choose the account mode: **Off**, **Suggestion**, or **On**. If you choose **On**, set a response delay of at least 20 seconds. Then use **Messages → Message automation** to manage time-based and response-based rules. In the Messages inbox, individual guests or conversations can inherit the account default or be adjusted separately.
+> **TL;DR:** **Autopilot** is the account-level control for whether AI is off, suggesting replies, or allowed to auto-reply. **Automated Messages** are planned messages that go out when a reservation or service reaches a specific trigger. **Concierge** is the AI guest assistant that answers real guest questions using your property data, past chats, notes, uploaded documents, brand voice, and rules.
 
----
+## The Simple Difference
 
-## What Autopilot does
+| Tool | Best way to think about it | Use it for |
+| --- | --- | --- |
+| **Autopilot** | The switch that controls AI participation | Choosing Off, Suggestion, or On and setting the response delay |
+| **Automated Messages** | Scheduled SOP messages | Booking confirmations, check-in instructions, checkout reminders, review requests |
+| **Concierge** | The always-learning guest assistant | Answering guest questions, using property context, handling common requests, surfacing upsells |
 
-Autopilot is SympleHost's AI layer for guest messaging. It works with the **Messages** inbox and your connected channels.
+Use **Automated Messages** for communication you already know should happen. Use **Concierge** for guest questions you cannot fully predict.
 
-Depending on your settings, Autopilot can:
+## What Autopilot Controls
 
-- Draft replies for your team to review
-- Send replies automatically after a configured delay
-- Help with common guest questions
-- Work alongside scheduled and response-based message automation rules
-- Flag or leave sensitive conversations for human review
+Autopilot controls the default behavior for AI replies in **Messages**.
 
-Autopilot is not a replacement for checking guest context. It works best when your listings, guest information, bookings, and operating rules are up to date.
-
-## Open Autopilot settings
-
-1. In the sidebar, open **Messages**.
-2. Go to **Autopilot**.
-3. Choose your account-level mode.
-4. Set the response delay if you use full auto-reply.
-5. Save your changes.
-
-## Choose an account mode
-
-Autopilot has three account-level modes.
+Open **Messages → Autopilot** to choose one of three modes:
 
 | Mode | What happens |
 | --- | --- |
-| **Off** | AI does not respond. Your team handles all messages manually. |
-| **Suggestion** | AI drafts suggested replies, but a human reviews and sends them. |
-| **On** | AI can automatically reply after the configured response delay. |
+| **Off** | AI does not reply. Your team handles messages manually. |
+| **Suggestion** | AI drafts replies for your team to review and send. |
+| **On** | AI can send replies automatically after the response delay. |
 
-If you are starting out, use **Suggestion** first. It lets you see what Autopilot would say before you trust it to respond automatically.
+If you choose **On**, set the response delay. The platform enforces a minimum delay of **20 seconds**. A delay gives your team time to jump in manually and keeps replies from feeling unnaturally instant.
 
-## Set the response delay
+## When to Use Automated Messages
 
-When Autopilot is **On**, set how long SympleHost waits before sending an automatic reply.
+Automated Messages are structured, repeatable workflows. They are closest to the scheduled messages many hosts already set up in OTAs or in internal SOPs.
 
-- Minimum: **20 seconds**
-- Default: **60 seconds**
+Use them when the message is mostly static and the timing is predictable:
 
-The delay gives your team a short window to jump in manually and prevents replies from feeling unnaturally instant.
+- A booking confirmation after a new reservation
+- Check-in instructions 24 hours before arrival
+- A welcome message after check-in
+- A checkout reminder before departure
+- A review request after checkout
+- Service booking confirmation or service reminders
 
-## Understand account default vs guest override
+Automated Messages are configured in **Messages → Message Automation**. The **Scheduled Messages** tab is where you can review generated upcoming messages, pause or resume them, cancel them, send now, regenerate content, or check message status.
 
-The account Autopilot setting is the default. Individual guests or conversations in **Messages** can still show their own Autopilot mode:
+For the full setup guide, see [Set Up Automated Messages](/platform-guides/set-up-automated-messages/).
 
-- **Default**: use the account setting
-- **Off**: handle this guest manually
-- **Suggestion**: draft only for this guest
-- **On**: allow auto-replies for this guest
+## When to Use Concierge
 
-Use guest-level overrides for VIPs, sensitive stays, complaints, owner contacts, or any conversation where you want a different level of automation.
+Concierge is for live guest questions and situations where the guest may ask the same thing in different ways.
 
-## Use message automation rules
+It can answer questions while your team is asleep because it uses context from:
 
-Autopilot settings control AI behavior. **Message automation** controls repeatable messaging workflows.
+- Property and listing details
+- Guest and reservation context
+- Past guest conversations
+- Uploaded documents
+- Notes you add directly
+- Property-level and account-level rules
+- Brand voice and behavioral settings
+- Upsell configuration, when enabled
 
-Open **Messages → Message automation** to manage two rule types:
+Concierge gets better when you teach it. Add property notes, upload documents, import past messages, review unanswered questions, and test replies before letting it answer guests automatically.
 
-### Time-based rules
+For the full setup guide, see [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/).
 
-Time-based rules are useful for scheduled guest communication, such as:
+## How They Work Together
 
-- Pre-arrival instructions
-- Check-in reminders
-- Mid-stay check-ins
-- Checkout instructions
-- Post-stay review requests
+Here is the recommended mental model:
 
-### Response-based rules
+1. **Messages** is where conversations arrive.
+2. **Autopilot** decides whether AI can suggest or send replies.
+3. **Automated Messages** send planned communication at the right time.
+4. **Concierge** answers guest questions using your knowledge base and rules.
+5. Your team can still assign, escalate, or reply manually from any conversation.
 
-Response-based rules react to guest messages. They are useful when you want AI to respond to a category of inquiry or follow a specific guidance prompt.
+The strongest setup usually combines all three: automated messages for predictable guest touchpoints, Concierge for live questions, and human escalation for sensitive or unusual cases.
 
-The automation screen shows rules in a timeline, lets you toggle rules on/off, and separates time-based rules from response-based rules.
+## Recommended Rollout
 
-## How Autopilot works in Messages
+1. Connect your messaging channels first.
+2. Turn **Autopilot** to **Suggestion** so your team can review AI replies.
+3. Add core **Automated Messages** for check-in, checkout, and review requests.
+4. Teach **Concierge** with property facts, notes, documents, and rules.
+5. Test Concierge replies from the practice area.
+6. Turn **Autopilot** to **On** only once your content and rules are clean.
 
-When a guest message arrives:
+## Common Mistakes to Avoid
 
-1. The message appears in **Messages**.
-2. SympleHost checks the account and guest Autopilot mode.
-3. If Autopilot is off, the message waits for a human reply.
-4. If Autopilot is in suggestion mode, a draft can appear for review.
-5. If Autopilot is on, SympleHost can send the AI reply after the delay.
-6. If the conversation needs attention, your team can assign or escalate it.
-
-Manual replies always matter. If a team member responds, they can take over the conversation.
-
-## Recommended rollout
-
-1. Start with **Off** while you connect channels and clean up listing details.
-2. Move to **Suggestion** for common questions.
-3. Review suggested replies for a few days.
-4. Create or adjust message automation rules.
-5. Turn **On** only for flows you trust.
-6. Keep sensitive guests or escalated conversations on manual handling.
-
-## Troubleshooting
-
-### Autopilot is not replying
-
-Check:
-
-- Account mode is **Suggestion** or **On**
-- The guest/conversation override is not set to **Off**
-- The channel integration is connected
-- The relevant message automation rule is active if you expect a rule-driven reply
-- The account has access to the feature if subscription gating applies
-
-### Autopilot replied too quickly or too slowly
-
-Adjust the **Response delay** in **Messages → Autopilot**. Use at least 20 seconds.
-
-### I want to approve every reply first
-
-Use **Suggestion** mode instead of **On**.
-
-### I want one guest handled manually
-
-Open the guest's conversation in **Messages** and set their Autopilot mode to **Off** instead of using the account default.
-
-### I need scheduled messages, not AI replies
-
-Use **Messages → Message automation** and create a time-based rule.
+- Do not use Automated Messages for questions that need live context or judgment.
+- Do not turn Concierge live before adding accurate check-in, house rules, contact, and emergency information.
+- Do not assume Gmail is part of automation yet. Gmail can be filtered and replied to from Messages, but Gmail automation is not supported yet.
+- Do not leave sensitive topics fully automated. Use escalation rules and manual handling for complaints, refunds, safety issues, owner-sensitive stays, and VIP guests.
 
 ---
 
-## Related articles
+## Related Articles
 
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
-- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
-- [Create and Assign Tasks](/platform-guides/create-and-assign-tasks/)
+- [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
+- [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
+- [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)

@@ -1,6 +1,6 @@
 ---
 title: 'How to Track Task Progress & Completion'
-description: "See what's done, what's overdue, and what's still in progress — filter by team member or date to stay on top of operations."
+description: "Use Operations to see active, overdue, and completed work, filter by team member or date, and review task reports."
 category: platform-guides
 section: Tasks & operations
 sectionOrder: 3
@@ -8,145 +8,111 @@ tags:
   - Tasks
   - Operations
   - Tracking
-date: '2026-04-09'
+date: '2026-08-10'
 draft: false
 ---
 
-## What Is Task Tracking?
+## What Task Tracking Shows
 
-Task tracking gives you a real-time view of everything your team is working on. You can see which tasks are active, which are overdue, and which have been completed — all from one screen. It's your operations dashboard for keeping everything on schedule.
-
----
-
-## How to View Tasks
-
-1. Click **Operations** in the sidebar to expand it.
-
-2. Click **Tasks**.
-
-You'll see a task list organized by three tabs:
-
-- **Active** — tasks that are not yet completed and not overdue
-- **Expired** — tasks that are past their due date and haven't been completed
-- **Completed** — tasks that have been marked as done
-
-Each tab shows a count badge with the number of tasks in that category.
+Task tracking helps you see what needs attention today, what is overdue, and what has already been completed. Use it during daily operations, cleaner handoffs, maintenance follow-up, and manager check-ins.
 
 ---
 
-## Filtering Tasks
+## View Tasks
 
-### By Team Member
+1. Click **Operations** in the sidebar.
+2. Open **Tasks**.
+3. Use the task tabs and filters to narrow the list.
 
-The left side of the task page shows a list of your team members with task counts (open, total, done). Click a name to see only their tasks.
+Common views include:
 
-This is especially useful during check-ins or standups — quickly pull up each person's workload.
-
-### By Search
-
-Use the **search bar** at the top (**"Search tasks..."**) to find tasks by keyword — task title, listing name, or any text in the description.
-
-### By Date
-
-Use the **Calendar View** section to filter tasks by specific dates. Click **"Go to Today"** to snap back to the current date.
-
-### Clearing Filters
-
-Active filters are shown below the search bar. Click **"Clear all"** to remove all filters at once.
+- active tasks
+- overdue tasks
+- completed tasks
+- tasks assigned to one person
+- tasks linked to a specific property, reservation, customer, quote, or service
 
 ---
 
-## Switching Between List and Map Views
+## Filter the Task List
 
-SympleHost offers two ways to view your tasks:
+Use filters when the task list is busy:
 
-- **List** view (default) — tasks shown in a scrollable list
-- **Map** view — tasks plotted on a map by their associated listing's location
+- **Search** by task title, property, or description.
+- **Assignee** to see one team member's work.
+- **Date** to focus on a particular operating day.
+- **Status** to separate open, overdue, completed, declined, or archived work.
+- **Priority** to find urgent tasks first.
 
-Toggle between views using the **List** and **Map** icons in the top area of the task page.
-
-Map view is particularly helpful if you manage listings across different neighborhoods or cities — you can see at a glance where work is needed and plan routes for your team.
-
----
-
-## Viewing Task Details
-
-Click any task to open its detail panel on the right side. You'll see:
-
-- **Title** and **Description** (or "No description" if none was added)
-- **Due Date** (or "No due date")
-- **Start Time** (or "Not set")
-- **Priority** — Low, Medium, or High
-- **Requested By** — who created the task
-- **Assigned To** — the responsible team member (or "Unassigned")
-- **Related To** — linked listing, booking, or customer
-- **Created** and **Updated** timestamps
-- **Checklist** — if a job template was attached, with items to check off
+Clear filters before deciding a task is missing.
 
 ---
 
-## Task Statuses
+## Read a Task
 
-Tasks in the calendar and list views show these status labels:
+Open a task to review:
 
-- **Urgent** — high-priority task needing immediate attention
-- **Needs Action** — task is waiting for someone to act on it
-- **Assigned** — task has been assigned to a team member
-- **Completed** — task is finished
-- **Declined** — task was declined by the assignee
+- title and description
+- assignee or workforce member
+- priority
+- due date and start time
+- linked property, reservation, customer, quote, or service
+- checklist items
+- comments, notes, or completion evidence
+- created and updated timestamps
 
----
-
-## Marking a Task as Complete
-
-1. Open the task by clicking on it to show the detail panel.
-
-2. Click **Mark Complete**.
-
-The task moves to the **Completed** tab. It stays there for your records so you can always look back and see when tasks were finished and by whom.
-
-💡 **Tip:** If the task was created from a job template with a checklist, make sure all checklist items are checked off before marking the task as done — this ensures nothing gets missed.
+If the task came from a job template, complete the checklist before marking the task done.
 
 ---
 
-## Editing and Managing Tasks
+## Mark Work Complete
 
-From the task detail panel, you can:
+1. Open the task.
+2. Review the checklist and required proof.
+3. Add notes or photos if needed.
+4. Click **Mark Complete**.
 
-- **Edit task** — update the title, description, due date, assignee, or priority, then click **Save Changes**
-- **Archive** — remove the task from active views without deleting it
-- **Delete** — permanently remove the task
+Completed tasks stay available for records and reporting.
 
 ---
 
-## Spotting Overdue Tasks
+## Use Task Reports
 
-The **Expired** tab shows all tasks that are past their due date. Check this tab regularly to catch anything that slipped:
+Open **Operations → Reports** to review issues raised during task completion. Reports are created when staff flag problems on checklist items, such as damage, missing supplies, maintenance issues, or failed inspection checks.
 
-1. Click the **Expired** tab.
+Use task reports to turn field observations into follow-up work instead of losing them in chat.
 
-2. Review the overdue tasks — check who's assigned and how far past due they are.
+---
 
-3. Either follow up with the assignee, reassign the task, or update the due date if circumstances changed.
+## Good Habits
 
-⚠️ **Important:** Expired tasks don't disappear or auto-cancel — they stay in the Expired tab until someone completes them or you manually close them.
+- Check overdue tasks before new tasks.
+- Use priority only when it changes the order of work.
+- Keep task titles action-based.
+- Link tasks to reservations when the work affects a guest stay.
+- Archive or complete tasks instead of leaving old work open.
+- Review task reports after busy checkout days.
 
 ---
 
 ## Troubleshooting
 
-### I can't see all tasks
-If you have a team member filter active, you'll only see that person's tasks. Click **"Clear all"** to remove filters. Also check that you're on the right tab — tasks may be in **Completed** or **Expired** instead of **Active**.
+### I cannot see all tasks
+Clear filters and check whether you are viewing only your assigned tasks. Your role may also limit what you can see.
 
-### Tasks aren't updating in real time
-Refresh the page to pull the latest data. If you're working with a large team, there may be a short delay before status changes from team members appear.
+### A task is overdue but already handled
+Open it and mark it complete, or update the due date if the deadline changed.
 
-### I need a task report
-Use the **Operations** → **Reports** section to get a broader operations overview including task completion data.
+### I cannot find a task report
+Task reports appear when a checklist issue is flagged. If the worker completed the task without flagging an issue, there may not be a report.
+
+### Tasks are not updating
+Refresh the page. If multiple team members are working at the same time, allow a short moment for the latest status to appear.
 
 ---
 
-Related Articles
+## Related Articles
+
 - [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)
 - [How to Set Up Recurring Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
 - [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)

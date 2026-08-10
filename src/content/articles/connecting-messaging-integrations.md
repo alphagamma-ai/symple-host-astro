@@ -1,6 +1,6 @@
 ---
-title: Connecting WhatsApp, Instagram & Facebook Messenger
-description: Connect Meta messaging channels to SympleHost so guest conversations appear in Messages alongside email and supported OTA threads.
+title: Connecting Messaging Integrations
+description: Connect WhatsApp, Instagram, Facebook Messenger, LINE, and Gmail so guest conversations appear in SympleHost Messages.
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 2
@@ -10,16 +10,30 @@ tags:
   - WhatsApp
   - Instagram
   - Facebook Messenger
+  - LINE
+  - Gmail
   - Meta
-date: '2026-05-04'
+date: '2026-08-10'
 draft: false
 ---
 
-**Connect WhatsApp, Instagram, and Facebook Messenger so guest messages from Meta channels land in SympleHost Messages.**
+**Connect WhatsApp, Instagram, Facebook Messenger, LINE, and Gmail so guest messages land in SympleHost Messages.**
 
 ---
 
-> **TL;DR:** SympleHost connects to Meta's official messaging APIs, so connecting takes about 5 minutes per platform if you have your business assets ready. WhatsApp uses Meta's Embedded Signup popup — pick a Business Portfolio, create a WhatsApp Business Account, register your phone number, verify with an SMS or voice OTP, and grant permissions. Facebook Messenger and Instagram use Meta's Login for Business popup, where you select Pages and Instagram accounts. After connecting, send yourself a test message and confirm it appears in **Messages**.
+> **TL;DR:** SympleHost can bring guest conversations from WhatsApp, Instagram, Facebook Messenger, LINE, Gmail, and supported OTA channels into **Messages**. WhatsApp, Instagram, and Messenger connect through Meta. LINE requires your LINE Messaging API credentials. Gmail connects through Google OAuth, then lets you choose which Gmail labels to sync. Gmail currently supports filtering and replying from the inbox; Gmail automation is not supported yet.
+
+## Supported Messaging Channels
+
+| Channel | What it supports today | Setup method |
+| --- | --- | --- |
+| WhatsApp | Guest messages, replies, templates, and supported automation workflows | Meta Embedded Signup |
+| Facebook Messenger | Page messages and replies | Meta Login for Business |
+| Instagram | Instagram DMs and replies, subject to Meta's reply window | Meta Login for Business |
+| LINE | LINE guest messages and replies | LINE Messaging API credentials |
+| Gmail | Email threads in Messages, label filtering, direct replies from the inbox | Google OAuth + label selection |
+
+> **Important:** Gmail is available for inbox visibility and replying, but Gmail is not yet connected to message automation. Use labels to control what appears in SympleHost.
 
 ---
 
@@ -40,6 +54,16 @@ Get these ready first — Meta's signup flow times out after about an hour, and 
 - A **Facebook Business Page** for your rental business (not a personal profile).
 - An **Instagram Business or Creator account** (not a Personal account) — and it must be linked to that Facebook Page. You can convert a personal Instagram account in the Instagram app: **Settings → Account → Switch to Professional Account**.
 
+**For LINE:**
+- Access to the LINE Developers console for your business.
+- A LINE Messaging API channel.
+- The channel's **Channel ID**, **Channel secret**, and **Channel access token**.
+
+**For Gmail:**
+- Access to the Gmail account you want to connect.
+- Permission to authorize SympleHost through Google's OAuth popup.
+- A decision on which Gmail labels should sync into SympleHost. Most teams start with **INBOX**, then add booking or support labels if needed.
+
 ---
 
 ## How to Connect WhatsApp
@@ -48,9 +72,10 @@ The whole flow happens in two places: the **SympleHost Integrations page** to ki
 
 ### Step 1: Open the WhatsApp connection flow in SympleHost
 
-1. In the SympleHost sidebar, click **Settings**.
-2. Open **Integrations**.
-3. Find the **WhatsApp** card and click **Connect**.
+1. Open the top-right profile menu.
+2. Click **Settings**.
+3. Open **Integrations**.
+4. Find the **WhatsApp** card and click **Connect**.
 
 ![The Integrations page in Settings, showing WhatsApp, Instagram, Messenger, and Gmail cards side by side — each card has a Connect button when not yet linked, and a Manage or Disconnect button once connected](/screenshots/connecting-messaging-integrations/integrations-page-overview.png)
 
@@ -130,9 +155,11 @@ Both run through Meta's **Login for Business** popup. The popup is the same for 
 
 ### Step 1: Open the integration in SympleHost
 
-1. Go to **Settings → Integrations** in SympleHost.
-2. Find the card for the channel you want — **Messenger** or **Instagram**.
-3. Click **Connect** on that card.
+1. Open the top-right profile menu.
+2. Click **Settings**.
+3. Open **Integrations**.
+4. Find the card for the channel you want — **Messenger** or **Instagram**.
+5. Click **Connect** on that card.
 
 A Meta popup opens.
 
@@ -177,6 +204,72 @@ You can disconnect either card independently — turning off Messenger does not 
 
 ---
 
+## How to Connect LINE
+
+LINE is useful for hosts and teams who receive guest questions through a LINE Official Account. The connection uses LINE's Messaging API credentials, so you need access to the LINE Developers console before you start.
+
+### Step 1: Open the LINE connection flow
+
+1. Open the top-right profile menu.
+2. Click **Settings**.
+3. Open **Integrations**.
+4. Find the **LINE** card.
+5. Click **Connect**.
+
+SympleHost opens a setup modal asking for three values:
+
+- **Channel ID**
+- **Channel secret**
+- **Channel access token**
+
+### Step 2: Copy your LINE credentials
+
+In LINE Developers, open the Messaging API channel for your business. Copy the **Channel ID** and **Channel secret** from the channel's Basic settings, then copy or issue the **Channel access token** from the Messaging API settings.
+
+Paste those values into the SympleHost LINE setup modal and click **Connect LINE**.
+
+### Step 3: Complete webhook verification if prompted
+
+After LINE connects, the integration may show a pending webhook setup state. If you see that message, click **Verify webhook** from the LINE card. Once the webhook is active, LINE messages can appear in **Messages** and you can reply from SympleHost.
+
+When LINE is active, SympleHost also shows an add-friend link for the connected LINE account. Share that link with guests if you want them to start conversations through LINE.
+
+---
+
+## How to Connect Gmail
+
+Gmail lets your team handle guest emails from **Messages** instead of switching between Gmail and SympleHost. You can choose which Gmail labels sync, filter those conversations in the inbox, and reply directly from SympleHost.
+
+> **Current limitation:** Gmail automation is not supported yet. Gmail conversations can be read, filtered, and replied to from the inbox, but they should not be treated as part of automated message flows.
+
+### Step 1: Start Gmail setup
+
+1. Open the top-right profile menu.
+2. Click **Settings**.
+3. Open **Integrations**.
+4. Find the **Gmail** card.
+5. Click **Connect**.
+
+Google opens an OAuth popup. Sign in to the Gmail account your team uses for guest communication and approve the requested access.
+
+### Step 2: Choose which labels to sync
+
+After the account is connected, SympleHost takes you to a Gmail setup wizard. The label step controls which Gmail conversations are pulled into **Messages**.
+
+- Keep **INBOX** selected if you want normal incoming emails to appear.
+- Add specific labels if you use Gmail rules such as `Bookings`, `Guest Support`, or `Airbnb Enquiries`.
+- Avoid syncing labels that contain internal-only emails, invoices, newsletters, or private owner communication.
+
+Finish setup to run the first sync. Recent matching Gmail threads will appear in **Messages**.
+
+### Step 3: Reply from Messages
+
+Open **Messages**, choose a Gmail conversation, and reply from the email composer. Gmail conversations use an email-style composer with recipient, subject, and message body fields, while chat channels use the normal chat composer.
+
+You can filter and search Gmail conversations from the inbox like other channels. You can also hide a Gmail message inside SympleHost if it is not relevant; this keeps the workspace cleaner without treating Gmail automation as live.
+
+---
+
 ## Verifying Your Connection
 
 Once a platform shows as **Connected**, send yourself a test message to confirm everything is wired up end-to-end:
@@ -185,10 +278,12 @@ Once a platform shows as **Connected**, send yourself a test message to confirm 
    - **WhatsApp:** message your business WhatsApp number from a personal phone.
    - **Messenger:** open your Facebook Page and click **Message** — or message the Page from a friend's account.
    - **Instagram:** send a DM to your Instagram business profile from a personal Instagram account.
+   - **LINE:** send a LINE message to the connected LINE Official Account.
+   - **Gmail:** send a test email that matches one of the synced Gmail labels.
 2. In SympleHost, open **Messages** in the sidebar.
 3. The message should appear within 5–10 seconds.
 
-If it shows up, you are done. Reply directly from SympleHost; the response appears on the original platform from your business identity. You can then assign the conversation, escalate it, translate messages, or let Autopilot suggest replies from the same thread.
+If it shows up, you are done. Reply directly from SympleHost; the response appears on the original platform from your business identity. You can then assign the conversation, escalate it, translate messages, or use supported AI tools from the same thread. For Gmail, use SympleHost for direct inbox replies and filtering, but keep automation workflows on supported channels only.
 
 ---
 
@@ -213,13 +308,25 @@ The account isn't a Business or Creator account, or it isn't linked to a Faceboo
 Sometimes Meta's session is logged in as a different Facebook account than you expect. Click **Switch account** at the top of the popup, or sign out of facebook.com in another tab and re-trigger the popup.
 
 ### Messages aren't appearing in my inbox
-1. Check the integration still shows **Connected** in **Settings → Integrations**. Meta tokens expire if you change your Facebook password — if so, click **Reconnect**.
+1. Check the integration still shows **Connected** in **Settings → Integrations**. Open Settings from the top-right profile menu. Meta tokens expire if you change your Facebook password — if so, click **Reconnect**.
 2. Confirm you're testing with a *different* account — Meta sometimes silently drops messages you send to yourself.
 3. For Instagram, confirm the conversation was started by the *guest*. Instagram does not allow you to initiate messages to users who haven't messaged you first.
 4. Open **Messages**, clear any **Mine**, **Archived**, or **Escalated** filters, then search for the guest name or recent message text.
 
+### Gmail emails aren't appearing
+1. Open the top-right profile menu, go to **Settings → Integrations → Gmail**, and confirm Gmail is active.
+2. Check the selected Gmail labels. Only messages in the labels you chose during setup will sync into SympleHost.
+3. If you use Gmail filters, confirm the test email is actually receiving the label you selected.
+4. Run or wait for the next Gmail sync, then open **Messages** and search by sender, subject, or message text.
+
+### Gmail replies work, but automation does not
+That is expected. Gmail currently supports inbox visibility, label-based filtering, and direct replies from SympleHost. Gmail is not yet supported in message automation.
+
+### LINE is pending webhook setup
+Open **Settings → Integrations**, find the LINE card, and click **Verify webhook**. If it stays pending, check that the LINE Messaging API channel is active and that the Channel ID, Channel secret, and Channel access token were copied from the correct LINE channel.
+
 ### I connected the wrong Facebook account
-Go to **Settings → Integrations**, find the Facebook Integrations card, click **Disconnect**, then reconnect with the correct account. Disconnecting only affects SympleHost — your Page and Instagram account stay live.
+Open the top-right profile menu, go to **Settings → Integrations**, find the Facebook Integrations card, click **Disconnect**, then reconnect with the correct account. Disconnecting only affects SympleHost — your Page and Instagram account stay live.
 
 ### How do I revoke SympleHost's access from outside SympleHost?
 You can revoke at the Meta level too:
@@ -232,14 +339,17 @@ You can revoke at the Meta level too:
 
 - WhatsApp uses Meta's **Embedded Signup** popup — Business Portfolio → WABA → phone number → OTP → permissions.
 - Facebook Messenger and Instagram use Meta's **Login for Business** popup and have separate cards in SympleHost.
+- LINE connects with **Channel ID**, **Channel secret**, and **Channel access token** from LINE Developers.
+- Gmail connects with Google OAuth, then lets you choose which labels sync into **Messages**.
+- Gmail can be filtered and replied to from SympleHost, but Gmail automation is not supported yet.
 - Instagram only works on **Business or Creator** accounts linked to a Facebook Page.
-- Messages from connected Meta channels flow into **Messages**, alongside other supported channels such as Gmail and OTA messaging.
+- Messages from connected channels flow into **Messages**, alongside supported OTA messaging.
 - Send yourself a test message after connecting — the round-trip should complete in under 10 seconds.
 
 ---
 
 ## Related Articles
 
-- [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)
+- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)

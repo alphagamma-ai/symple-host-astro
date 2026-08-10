@@ -1,6 +1,6 @@
 ---
 title: 'How to Manage Bookings & Your Calendar'
-description: 'View all your reservations in one calendar, create manual bookings, and update reservation statuses as guests check in and out.'
+description: 'Use the SympleHost calendar to review availability, update prices, block dates, create direct reservations, and manage booking actions from one place.'
 category: platform-guides
 section: Bookings & reservations
 sectionOrder: 1
@@ -8,158 +8,256 @@ tags:
   - Bookings
   - Calendar
   - Reservations
-date: '2026-08-08'
+  - Pricing
+date: '2026-08-10'
 draft: false
 ---
 
-## What Is the Calendar?
+The SympleHost calendar is the fastest place to work by date. Use it to see what is open, booked, blocked, restricted, or waiting for payment action across your properties.
 
-The calendar is your central view of all upcoming, current, and past reservations across your listings. Each booking shows as a color-coded bar spanning from check-in to checkout, so you can see at a glance which listings are occupied, which are available, and where gaps exist.
+From the calendar you can:
 
----
+- review bookings, blocked dates, nightly rates, and minimum-stay rules
+- search or filter properties so you only see the listings you need
+- update pricing for one date or a date range
+- update availability, minimum nights, maximum nights, and check-in/check-out restrictions
+- block dates for maintenance, owner stays, or internal holds
+- create a new direct reservation from an available date
+- open reservations, message guests, record payments, release deposits, or confirm eligible direct reservations
+- export pricing data for review outside SympleHost
 
-## How to View the Calendar
+![SympleHost multi-property calendar with property rows, rates, booking bars, multi-unit rows, and a booking popover](/screenshots/manage-bookings-and-calendar/calendar-overview-current.png)
+
+## Open the Property Calendar
 
 1. Click **Calendars** in the sidebar.
+2. Open the **Properties** calendar.
+3. Use the property rows on the left and the dates across the top to scan your portfolio.
 
-   ![Properties page showing listings](/uploads/manage-bookings-and-calendar/01-properties-listings.png)
+If your account also uses service bookings, you may see a separate **Services** calendar. Use **Properties** for accommodation availability, pricing, reservations, blocks, and direct bookings.
 
-   ![Property Calendar Overview with color-coded bookings](/uploads/manage-bookings-and-calendar/02-calendar-overview.png)
+## Understand the Top Bar
 
-You'll see the bookings calendar with your listings along the left side and dates across the top. Bookings appear as color-coded horizontal bars.
+Use the controls above the grid to move quickly:
 
-If your account uses services as well as properties, the calendar hub can include separate property and service booking views.
+| Control | Use it for |
+| --- | --- |
+| **Previous / Today / Next** | Move the calendar window without changing the rest of your filters. |
+| **Date range** | Choose a custom range or presets such as the next 14, 30, or 90 days. |
+| **Search** | Find a property by name or city. |
+| **Property filter** | Show all properties or only selected properties. |
+| **Deposits to release** | Review held deposits that may need to be released or deducted. |
+| **Export** | Download pricing and restriction data for the selected range. |
 
-### Navigating the Calendar
+You can also reorder property rows so the listings your team checks most often stay near the top.
 
-Use the shortcuts above the calendar to jump through dates:
+## Read the Calendar Grid
 
-- **< >** arrows to move forward or backward
-- **-1M** / **+1M** to jump one month back or forward
-- **-3M** / **+3M** to jump three months
-- **+6M** to jump six months forward
+Each row is a property, room type, or unit. Each column is a date.
 
-The current date range is shown in the center (e.g., "Apr 8 - May 7, 2026").
+| Calendar item | What it means |
+| --- | --- |
+| **Open price cell** | The date is available to manage. It may show nightly rate and minimum stay. |
+| **Reservation bar** | A guest booking exists across those dates. The bar can show source, guest name, amount, and status. |
+| **Pending indicator** | The booking still needs confirmation or payment attention. |
+| **Payment stripe** | For direct/SympleHost bookings, the calendar can show paid, pending, deposit paid, partial, overdue, unpaid, refunded, or held-payment states. |
+| **Blocked bar** | The date is unavailable because of a manual block, owner stay, maintenance, linked calendar, migration import, or channel sync. |
+| **Unavailable cell** | The unit or date cannot be booked from the calendar. |
+| **Pool badge** | For multi-unit listings, shows how many units are still available out of the total. |
+| **Calendar-link pill** | Shows when a listing is connected to related calendar inventory. |
 
-💡 **Tip:** Bookings are color-coded by platform and status — so you can tell at a glance which bookings are from Airbnb, Booking.com, or direct bookings.
+Hover over rate cells to check price details where available. Click an open cell, reservation bar, or blocked bar to open the relevant actions.
 
----
+## Work With Multi-Unit Properties
 
-## How to View Booking Details
+Multi-unit listings can show a parent room-type row and separate unit lanes underneath it.
 
-1. Click on any booking bar in the calendar.
+Use the parent room-type row when you need to manage shared pricing or availability. Individual unit lanes are useful for seeing where reservations or blocks sit, but some pricing and availability actions are controlled from the room-type row.
 
-   ![Calendar with booking detail popup](/uploads/manage-bookings-and-calendar/03-booking-detail-popup.png)
+For multi-unit properties you can:
 
-   This opens the **Reservation Details** page.
+- expand or collapse the units under the room type
+- see available unit counts on each date
+- block a specific number of units for maintenance or owner use
+- create direct reservations against the available pool
+- review which unit lane a booking or block is sitting on
 
-   ![Reservation details page](/uploads/manage-bookings-and-calendar/04-reservation-details.png) The page shows a status badge (e.g., "Confirmed") and the booking platform (e.g., "booking.com") at the top, along with the booking reference number (e.g., #RES-202603-2F92).
+## Update an Open Date
 
-The page is organized into these sections:
+Click an open date cell to open calendar actions.
 
-- **Customer Information** — guest name (linked to their profile), email (with copy button), and phone number
-- **Listing Details** — property name, check-in/check-out dates, duration (in nights), and guest count
-- **Reservation Source** — which platform the booking came from (e.g., "Booked via online platform"), with a **"View on booking.com"** button to see the original listing, plus OTA Commission, OTA Reservation number, and Reservation Reference
-- **Price Breakdown** — nightly rate breakdown, fees, taxes, discounts, and total amount
-- **Booking Notes** — add internal notes about the reservation
-- **Guest Book** — guest book details linked to this stay
-- **Booking Tasks** — tasks associated with this reservation
+### Pricing
 
----
+Use **Pricing** to update the nightly rate for a single date or date range.
 
-## How to Create a Manual Booking
+You can:
 
-For direct bookings (guests who contact you outside of an OTA), you can create a reservation manually.
+- set a base nightly rate
+- apply a percentage change
+- choose a start and end date
+- review how many dates were updated or skipped
 
-1. On the **Property Calendar Overview**, click on the listing row where you want to add a booking. The **Add New Booking** panel opens on the right side.
+If a date cannot be updated, SympleHost will skip it rather than silently changing something that should stay protected.
 
-2. The **Property** is pre-selected based on the listing you clicked. You'll see it displayed at the top of the panel.
+### Availability
 
-3. Choose the **Booking Platform** — select **Direct Booking** from the dropdown (or another platform if applicable).
+Use **Availability** to update stay rules for one date or a range:
 
-4. In the **Guest** field, search for an existing customer or create a new one by typing their name into the **"Search or create a customer"** field.
+- minimum nights
+- maximum nights
+- whether guests can check in
+- whether guests can check out
+- available unit count for multi-unit room-type rows
 
-5. Under **Booking Details**, set the **Check-in** and **Check-out** dates. SympleHost automatically calculates the number of nights (e.g., "1 night").
+If you mark a date as unavailable, SympleHost creates the appropriate block or restriction for that date. If you are updating a large range and the platform asks you to shorten it, split the update into smaller ranges.
 
-6. Under **Guest Details**, enter the number of **Adults** and **Kids**. The maximum allowed is shown based on your listing's capacity (e.g., "Max: 2 total").
+### Block Dates
 
-7. Click **Save** to confirm the booking.
+Use **Block day** when the property should not be bookable for internal reasons.
 
-The new booking will appear on the calendar immediately as a bar on the listing's row.
+Common block reasons include:
 
----
+- maintenance
+- owner stay
+- blocked
+- other internal holds
 
-## Booking Statuses
+Add notes so your team understands why the block exists. For multi-unit listings, choose how many units should be blocked.
 
-Every reservation in SympleHost has a status that tracks where it is in its lifecycle:
+### New Reservation
 
-- **Pending** — awaiting confirmation
-- **Confirmed** — booking is confirmed and ready for guests
-- **Completed** — guest stay is finished
-- **Cancelled** — reservation was cancelled
-- **Draft** — booking is in draft state
-- **Expired** — reservation has expired
+Use **New reservation** to create a direct booking from the calendar. SympleHost pre-fills the property and check-in date from the cell you selected.
 
-The status badge is color-coded on the Reservation Details page — green for Confirmed, yellow for Pending, red for Cancelled, purple for Completed.
+## Keyboard Shortcuts
 
----
+When the date popover is open on an available date, use:
 
-## How to Modify a Booking
+| Shortcut | Action |
+| --- | --- |
+| **P** | Pricing |
+| **A** | Availability |
+| **M** | Block day |
+| **R** | New reservation |
 
-1. Click on the booking in the calendar to open the **Reservation Details** page.
+Coming soon: drag-to-select multiple cells will make it faster to select several dates directly on the calendar before applying updates. Until that release is visible in your account, use the start and end dates inside **Pricing**, **Availability**, or **Block day** to apply changes across multiple dates.
 
-2. Click the **Edit Reservation** button (purple) in the top right.
+## Create a Direct Reservation from the Calendar
 
-3. A side panel opens where you can update the guest details, check-in/check-out dates, number of guests, listing, and platform.
+Use this for bookings that come through your direct website, phone, WhatsApp, email, repeat guests, or another non-OTA source.
 
-4. Review your changes — SympleHost shows a modification preview with a price comparison if the dates or guest count changed.
+1. Click an open date cell.
+2. Choose **New reservation**.
+3. Confirm the property, check-in date, and check-out date.
+4. Add or select the guest.
+5. Enter guest count, notes, and reservation details.
+6. Review the price.
+7. Add a discount if needed.
+8. Record any money already received, including stay payment or security deposit.
+9. Save the reservation.
 
-5. Click **Save** to apply the changes.
+If the reservation is created but the payment-recording step fails, open the reservation page and record the payment from there.
 
-⚠️ **Important:** If the booking came from an OTA (like Airbnb), changes made in SympleHost won't automatically sync back to the OTA. You'll need to update the booking on both platforms.
+## Manage an Existing Booking
 
-💡 **Tip:** For pending bookings, you'll see a **Confirm Booking** button instead, with a dropdown menu that includes **"Mark as Paid"** and **"Send a payment link"** options (for direct bookings).
+Click a reservation bar to open booking actions.
 
----
+Depending on the booking source, status, payment state, and your permissions, you may see:
 
-## How to Cancel a Booking
+- **Open reservation** — open the full reservation detail page.
+- **Message guest** — open the guest conversation.
+- **Record payment** — record cash, bank transfer, or another offline payment.
+- **Release deposit** — return or deduct a held security deposit.
+- **Confirm Reservation** — confirm an eligible direct reservation, record the outstanding payment, and send the guest confirmation email.
+- **Mark Deposit Paid** — record the deposit and hold the dates without confirming the reservation or emailing the guest.
 
-1. Open the booking from the calendar to go to the **Reservation Details** page.
+Payment and deposit actions are mainly for direct/SympleHost reservations. OTA bookings usually follow the OTA or channel payment rules.
 
-2. Click the **Cancel Reservation** button (red) in the top right.
+For deeper reservation work, use the **Reservations** module. It is better for filtering bookings, checking guest details, reviewing the payment timeline, editing booking details, and investigating issues.
 
-3. A cancellation panel opens in two steps:
-   - **Step 1 — Review:** You'll see the booking details, the applicable cancellation policy (Flexible, Moderate, or Strict), the refund calculation, and a field to enter a **cancellation reason**. Click **Continue**.
-   - **Step 2 — Confirm:** Review the cancellation summary including any refund amount. Click **Cancel Booking** to confirm.
+![The Reservations list showing KPIs, filters, and all bookings across properties](/screenshots/viewing-your-first-reservation/reservations-list.png)
 
-The booking will remain visible on the calendar (marked as cancelled) so you have a record of it, but the dates will be freed up for new bookings.
+## Manage Blocked Dates
 
----
+Click a blocked bar to understand why the date is unavailable.
 
-## Filtering the Calendar
+Blocked dates can come from:
 
-If you manage multiple listings, the calendar can get busy. Click the **filter icon** (funnel) in the top right of the calendar to narrow down what's shown:
+- **Manual blocks** created by your team
+- **Maintenance or owner stays**
+- **Imported blocks** created during migration or listing import
+- **Linked calendars or linked listing relationships**
+- **Channel-synced blocks** from an OTA or channel manager
 
-- **Filter by listing** — show only specific listings
-- **Filter by date range** — use the **-3M, -1M, +1M, +3M, +6M** shortcuts to zoom into a specific period
+For manual blocks, you can usually edit the reason, notes, dates, and unit count. You can also unblock the date.
 
----
+Be careful with linked or channel-synced blocks. If the connected OTA or linked calendar still says the date is unavailable, the block may return on the next sync.
+
+## Use Deposits to Release
+
+When there are held deposits that may need action, the calendar can show a **Deposits to release** indicator in the top bar.
+
+Open it to review reservations with deposits ready for follow-up. From there, go to the reservation and release or deduct the deposit according to your process.
+
+## Export Pricing
+
+Use **Export** when you need to review calendar data outside SympleHost.
+
+The export is useful for:
+
+- checking rates over a date range
+- comparing minimum-stay rules
+- sharing pricing data with owners or internal teams
+- auditing updates after a pricing change
+
+Choose the range and properties you want first, then export.
+
+## Calendar vs Reservations
+
+Use **Calendars** when you are working by date:
+
+- checking availability
+- updating rates or restrictions
+- blocking maintenance dates
+- creating a direct booking from an open date
+- taking quick payment or confirmation actions
+
+Use **Reservations** when you are working by booking:
+
+- searching all reservations
+- filtering by status, property, channel, or date
+- checking guest details
+- reviewing payment status and activity
+- editing or cancelling a reservation
+- investigating a booking issue
+
+The full reservation workflow is covered here: [Checking Reservations in the Reservations Module](/platform-guides/check-reservations-in-reservations-module/).
 
 ## Troubleshooting
 
-### I can't create a manual booking
-Manual booking creation is only available to roles that can manage bookings — **Account Owner**, **Account Admin**, **Account Manager**, or **Booking Coordinator**. If your role is **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
+### I cannot update pricing or availability from a unit lane
 
-### A booking isn't showing on the calendar
-Check the date range — you may need to navigate forward or backward. Also confirm the booking status isn't set to **Cancelled**, which may be filtered out depending on your view settings.
+For some multi-unit listings, pricing and availability are managed at the room-type row rather than the individual unit lane. Go back to the parent room-type row and open the date from there.
 
-### The calendar is loading slowly
-If you have many listings and a wide date range visible, the calendar can take a moment to load. Try narrowing the view to fewer months or filtering to specific listings.
+### A date became blocked again after I unblocked it
 
----
+Check whether the block came from a linked calendar or channel sync. If the source OTA or linked calendar still has the date blocked, SympleHost may receive the block again during the next sync.
+
+### I cannot see payment actions on a booking
+
+Payment actions depend on the booking source, reservation status, payment setup, and your role permissions. OTA bookings often follow the OTA's payment rules, while direct/SympleHost bookings can support manual payment recording and deposit workflows.
+
+### I created a reservation but payment was not recorded
+
+Open the reservation detail page and record the payment from there. This can happen if the booking was created successfully but the payment-recording step failed.
+
+### The calendar feels too busy
+
+Use search, property filters, a shorter date range, collapsed multi-unit rows, or property row reordering so the listings your team checks most often stay near the top.
 
 ## Related Articles
 
+- [Checking Reservations in the Reservations Module](/platform-guides/check-reservations-in-reservations-module/)
+- [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
+- [Managing Partial Payments and Deposits](/platform-guides/partial-payments-and-deposits/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
-- [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
-- [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)
+- [How to Import Listings from an OTA](/getting-started/import-listings-from-ota/)

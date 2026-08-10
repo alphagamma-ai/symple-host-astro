@@ -1,172 +1,166 @@
 ---
 title: How to Add a Direct Booking
-description: Add direct bookings (off-platform reservations from your website, repeat guests, or word-of-mouth) into SympleHost so they show up on your calendar alongside Airbnb and Booking.com reservations.
+description: Add off-platform reservations into SympleHost so they block availability, keep payments clear, and appear in your calendar and reservations workflow.
 category: platform-guides
 section: Bookings & reservations
-sectionOrder: 2
+sectionOrder: 4
 tags:
   - Direct Bookings
   - Bookings
   - Calendar
   - Payments
-date: '2026-05-04'
+date: '2026-08-10'
 draft: false
 ---
 
-**Direct bookings — guests who book outside Airbnb and Booking.com — go on the same calendar as your OTA reservations, with no commission and full control over the payment.**
+A direct booking is any reservation that did not come from an OTA such as Airbnb, Booking.com, Vrbo, Agoda, or Expedia.
 
----
+Common examples include:
 
-> **TL;DR:** Direct bookings are reservations you take outside an OTA — repeat guests, your direct booking website, walk-ins, WhatsApp enquiries. To add one, open **Calendars**, click an empty cell on the listing's row, choose **Direct Booking** as the booking platform, fill in guest and date details, and save. The reservation appears on the calendar instantly, blocks the dates across your synced OTAs so there is no double-booking, and you can send the guest a payment link from inside SympleHost. No commission, no OTA cut — but you handle the cancellation policy and payment yourself.
+- a repeat guest booking by WhatsApp, phone, email, or Instagram
+- a guest booking through your direct booking website
+- a corporate, group, referral, or owner-introduced booking
+- a guest who paid by bank transfer, cash, or another offline method
 
----
+Direct bookings appear on the same calendar as OTA reservations. They block availability, can sync back to connected channels through your mapped channel manager setup, and can be tracked in **Reservations**, **Messages**, payment workflows, and reports.
 
-## What Counts as a Direct Booking?
+## Start From the Calendar
 
-Anything that didn't come through an OTA. Common sources:
+The fastest way to add a direct booking is from the property calendar.
 
-- A **repeat guest** who messages or emails you to rebook.
-- A booking taken on **your direct booking website**.
-- A **walk-in or phone enquiry**.
-- A **WhatsApp / Instagram / Messenger** conversation that ends in a confirmed stay.
-- A guest who heard about you from a friend.
+1. Click **Calendars** in the sidebar.
+2. Open the **Properties** calendar.
+3. Find the correct property row and check-in date.
+4. Click the available date cell.
+5. Choose **New reservation**.
 
-Direct bookings sit on the same calendar as Airbnb and Booking.com reservations — they're tagged as **Direct Booking** so you can tell them apart at a glance, but they share the same availability calendar, so SympleHost auto-blocks the dates on your connected OTAs to prevent double-bookings.
+![SympleHost calendar where hosts can click an available date and start a new direct reservation](/screenshots/adding-direct-bookings/calendar-start-new-reservation.png)
 
----
+SympleHost opens the **New reservation** side panel. If you started from a calendar date, the property and check-in date are pre-filled. The check-out date starts from the property's minimum-night rule, but you can change it before saving.
 
-## Yes — Direct Bookings Appear on the Calendar
+## Complete the New Reservation Panel
 
-Every reservation in SympleHost — direct bookings, Airbnb, Booking.com, manual entries — lives in one calendar at **Calendars**. Direct bookings show as color-coded bars on the listing row, just like OTA bookings. The colour-code lets you see at a glance which channel each booking came from.
+Work through the panel from top to bottom.
 
-[Screenshot: Property Calendar Overview with a mix of Airbnb, Booking.com, and Direct Booking bars showing the colour-coding]
+| Section | What to check |
+| --- | --- |
+| **Property** | Confirm the listing is correct. If needed, choose another property. |
+| **Guest** | Search for an existing guest or create a new guest. Contact details can be added if you have them. |
+| **Dates** | Confirm check-in and check-out. SympleHost checks availability for the selected stay. |
+| **Guests** | Enter adults and kids, staying within the listing capacity. |
+| **Pricing** | Review the quoted stay amount. The quote uses the listing's pricing rules where available. |
+| **Discount** | Add a manual discount if you agreed one with the guest. |
+| **Notes** | Add internal context, such as "repeat guest via WhatsApp" or "owner referral". |
+| **Money received** | Choose whether to create a payment-link flow or record money already received. |
 
----
+If the dates are not available, the panel will show an availability warning. Change the dates or choose a different property before saving.
 
-## How to Add a Direct Booking from the Calendar
+## Choose the Payment Flow
 
-This is the fastest way — useful when a guest messages you and you want to lock in the dates immediately.
+Direct bookings are not paid through an OTA, so you need to decide how payment should be handled.
 
-### Step 1: Open the Calendar
+### Create Reservation and Send a Payment Link
 
-1. Click **Properties** in the sidebar to expand it.
-2. Click **Calendar**.
+Leave **Money received** off if the guest still needs to pay online.
 
-You'll land on the **Property Calendar Overview** with all your listings down the left and dates across the top.
+When you save, SympleHost creates the reservation as a direct booking with payment pending. Use this when:
 
-### Step 2: Click on the listing row where you want to add the booking
+- the guest has confirmed but has not paid yet
+- you want to send or manage payment separately
+- your team needs the dates held while payment is collected
 
-Click on an empty cell on the listing's row, for the date range the guest wants.
+### Record Money Already Received
 
-The **Add New Booking** panel slides in from the right. The **Property** is pre-selected based on the row you clicked.
+Choose **Record money received** if the guest has already paid by cash, bank transfer, or another offline method.
 
-[Screenshot: Add New Booking side panel with Property pre-selected at the top]
+You can record:
 
-### Step 3: Choose "Direct Booking" as the Booking Platform
+- a full stay payment
+- a partial payment or deposit
+- the payment method, such as cash, bank transfer, or other
+- an optional security deposit held separately from the stay total
 
-In the **Booking Platform** dropdown, select **Direct Booking**.
+SympleHost also suggests a deposit amount based on the quoted stay total. You can use the suggestion or enter your own amount.
 
-> 💡 **Tip:** If you collected the booking off a specific channel that isn't an OTA — e.g., your own website, a phone call, WhatsApp — you can still log it as Direct Booking. Add detail in the **Booking Notes** later if you want to track which off-platform source it came from.
+Security deposits are tracked separately from the accommodation total. Use the security deposit option when you have collected money that may later be released or deducted after checkout.
 
-### Step 4: Add the guest
+## Save and Check the Booking
 
-In the **Guest** field:
-- Search for an existing customer by name or email — useful for repeat guests, so their stay history stays linked to one profile.
-- Or type a new name in the **Search or create a customer** field to create a fresh guest record.
+Before saving, check the summary at the bottom of the side panel. It shows whether the reservation is ready to create and, when relevant, what payment or deposit will be recorded.
 
-You'll be able to add or edit their email and phone after the booking is saved.
+After saving:
 
-### Step 5: Set check-in, check-out, and guest count
+- the direct booking appears on the calendar
+- the dates are held so they cannot be double-booked in SympleHost
+- connected and mapped channels receive the updated availability through the channel manager sync
+- the reservation appears in the **Reservations** module
+- recorded payments and security deposits appear in the reservation payment activity
 
-- Pick **Check-in** and **Check-out** dates. SympleHost shows the night count automatically (e.g. "3 nights").
-- Enter **Adults** and **Kids**. The maximum is shown next to each based on the listing's capacity.
+![Reservations list showing bookings, status filters, payment status, source, guest, and property information](/screenshots/viewing-your-first-reservation/reservations-list.png)
 
-### Step 6: Save
+If the reservation is created but payment recording fails, the reservation still stays in SympleHost. Open the reservation detail page and record the payment from there.
 
-Click **Save**. The new booking immediately appears as a bar on the calendar, in the colour-code reserved for direct bookings.
+## Confirm a Direct Booking
 
-[Screenshot: Calendar after saving a new direct booking — the new bar visible on the listing row]
+A new direct reservation usually starts as **Pending**.
 
----
+Open the booking from **Calendars** or **Reservations**. Depending on the booking status, payment state, and your permissions, you may see:
 
-## After You Save: Confirming and Taking Payment
+- **Confirm Reservation** — confirm an eligible direct reservation, record the outstanding payment, and send the guest confirmation email.
+- **Mark Deposit Paid** — record the deposit and hold the dates without confirming the reservation or emailing the guest.
+- **Record payment** — add a cash, bank transfer, or other offline payment.
+- **Release deposit** — return or deduct a held security deposit.
+- **Message guest** — open the linked guest conversation.
 
-A new direct booking lands in **Pending** status. From the **Reservation Details** page (click the bar on the calendar), you have two follow-on actions:
+Payment and deposit actions are mainly for direct/SympleHost reservations. OTA reservations usually follow the OTA's payment and modification rules.
 
-### Confirm the booking
+## Direct Booking vs OTA Booking
 
-Click **Confirm Booking** in the top right. The status changes to **Confirmed** (green badge) — the dates are locked and synced out to your connected OTAs as blocked.
+| Detail | Direct booking | OTA booking |
+| --- | --- | --- |
+| **Source** | Created by your team or direct website | Created by Airbnb, Booking.com, Vrbo, Agoda, Expedia, or another connected channel |
+| **Payment** | You collect it, record it, or send a payment link | OTA or channel payment rules usually apply |
+| **Guest contact** | Usually full guest details | May be masked or limited by the OTA |
+| **Commission** | No OTA commission | OTA commission or service fee may apply |
+| **Availability** | Blocks SympleHost calendar and syncs mapped channels | Enters SympleHost through the connected channel sync |
+| **Cancellation rules** | Your direct booking policy | OTA cancellation policy usually applies |
+| **Messaging** | Email, WhatsApp, Messenger, Instagram, Gmail, LINE, or another direct channel where connected | OTA messaging where supported |
 
-### Send a payment link
+## Good Habits
 
-Direct bookings don't go through an OTA, so there's no automatic charge — you collect payment yourself. SympleHost integrates with Stripe (see *Setting Up Payments with Stripe* if you haven't connected Stripe yet) so you can send a hosted payment link straight from the reservation:
-
-1. On the **Reservation Details** page, open the dropdown next to **Confirm Booking**.
-2. Click **Send a payment link**.
-3. SympleHost generates a Stripe-hosted checkout URL and sends it to the guest's email (and copies it to your clipboard so you can paste it into WhatsApp / Messenger / wherever you're talking to the guest).
-4. When the guest pays, the reservation auto-updates to **Mark as Paid**.
-
-If you've already taken payment by another method (bank transfer, cash on arrival, etc.), pick **Mark as Paid** from the same dropdown to record it manually.
-
-[Screenshot: Reservation Details page showing the "Confirm Booking" button with the dropdown open — "Mark as Paid" and "Send a payment link" visible]
-
----
-
-## Editing or Cancelling a Direct Booking
-
-Same flow as any other reservation:
-
-- **Edit:** Click the booking on the calendar → **Edit Reservation** (purple button, top right) → update dates / guest count / listing → **Save**. SympleHost shows a price-comparison preview if you change dates or guest count.
-- **Cancel:** Click the booking → **Cancel Reservation** (red, top right) → review the cancellation policy and refund calculation → **Cancel Booking** to confirm.
-
-Because direct bookings aren't held by an OTA, you decide the cancellation policy. The default is whatever you set on the listing — see *How to Set Up Your Pricing & Rate Rules* for changing per-listing policies.
-
----
-
-## Direct Bookings vs OTA Bookings — at a Glance
-
-| | Direct Booking | Airbnb / Booking.com |
-|---|---|---|
-| **Commission** | None | 15–20% |
-| **Payment** | You collect (Stripe link or off-platform) | OTA collects, payouts to you |
-| **Cancellation policy** | Yours | OTA's |
-| **Guest contact details** | Full email + phone right away | Often masked or delayed |
-| **Calendar sync** | Yes — blocks OTA availability | Yes — blocks SympleHost availability |
-| **Shows on calendar** | Yes (own colour-code) | Yes (own colour-code) |
-| **Appears in Reports** | Yes — counted in revenue | Yes — net of OTA commission |
-
----
+- Add the reservation as soon as the guest confirms, even if payment is still pending.
+- Put the source in notes, such as "repeat guest via WhatsApp".
+- Record payment method clearly for finance and reporting.
+- Use the security deposit field only for deposit money that should be held separately from the stay total.
+- Check the calendar after saving to confirm the correct dates are blocked.
+- Open the reservation after saving if you need to review payment activity, guest details, or the full booking timeline.
 
 ## Troubleshooting
 
-### I can't see the "+ Add Booking" or the side panel won't open
-The **+ Add Booking** button is only available to roles that can manage bookings — **Account Owner**, **Account Admin**, **Account Manager**, or **Booking Coordinator**. If your role is **Staff**, ask your account admin to update your role in **Settings → Team Members**.
+### I cannot create the reservation
 
-### I picked the wrong listing
-Click the booking → **Edit Reservation** → change the **Property** dropdown → **Save**. SympleHost will move the booking to the correct listing's row.
+Check that the listing is active, the dates are available, the check-out date is after check-in, and your role can create reservations.
 
-### My direct booking website pushed a reservation but it's not on the calendar
-Direct booking website reservations should land on the calendar within seconds. If one's missing, check **Reservations** in the sidebar (full list view) — it may already be there but outside the calendar's current date window. Use the **+1M / +3M / +6M** shortcuts to jump forward.
+### The dates are not available
 
-### Stripe payment link option is greyed out
-You haven't connected Stripe yet, or the Stripe connection has lapsed. Go to **Settings → Integrations → Payments** and connect/reconnect Stripe. See *Setting Up Payments with Stripe*.
+There may already be a booking, block, restriction, linked calendar hold, or channel-synced unavailable date. Check the calendar row and blocked-date details before overriding anything.
 
----
+### The payment link option is unavailable
 
-## Key Takeaways
+Check your payment gateway setup from the top-right profile menu, then **Settings**. If your payment integration is not connected, record offline payments manually until setup is complete.
 
-- Direct bookings are any reservation that didn't come from an OTA — repeat guests, walk-ins, your website, social DMs.
-- Add them straight from **Calendars** by clicking the listing row and selecting **Direct Booking** as the platform.
-- They appear on the same unified calendar with their own colour-code, and they auto-block availability on your connected OTAs.
-- Use **Send a payment link** to collect payment via Stripe, or **Mark as Paid** if you took payment off-platform.
-- No OTA commission — you keep 100% of the rate.
+### I recorded payment but it did not attach
 
----
+Open the reservation detail page and record the payment again from there. The reservation is not removed if the follow-up payment recording step fails.
+
+### I only need to hold dates without a guest
+
+Use **Block day** from the calendar instead of creating a direct booking.
 
 ## Related Articles
 
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
-- [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
+- [Checking Reservations in the Reservations Module](/platform-guides/check-reservations-in-reservations-module/)
+- [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
 - [Managing Partial Payments and Deposits](/platform-guides/partial-payments-and-deposits/)
-- [How to Get More Direct Bookings for Your Vacation Rental](/marketing-for-hosts/direct-bookings-vacation-rentals/)
-- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [How to Set Up Payments](/getting-started/set-up-payments-stripe/)

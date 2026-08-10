@@ -288,7 +288,7 @@ That immediately revokes access on SympleHost's side — the token stops working
 ## Related Articles
 
 - [SympleHost Partner API Reference](/ai-and-api/symplehost-partner-api-reference)
-- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations)
-- [Setting Up Autopilot — Automate Guest Messaging](/platform-guides/setting-up-autopilot)
+- [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations)
+- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests)
 - [Navigating SympleHost](/getting-started/navigating-symplehost)

@@ -32,7 +32,7 @@ Partial payments apply to **direct bookings**. OTA bookings such as Airbnb or Bo
 
 Make sure you have:
 
-1. Connected a payment gateway under **Settings → Direct Bookings → Payment Gateway**.
+1. Connected a payment gateway from the top-right profile menu under **Settings → Payment Gateway**.
 2. Reviewed your cancellation policy, fees, taxes, and direct booking settings.
 3. Confirmed the listing is ready for direct bookings.
 

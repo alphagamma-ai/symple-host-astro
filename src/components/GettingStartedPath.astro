@@ -1,0 +1,332 @@
+---
+import { DEFAULT_LOCALE, localizePath, type Locale } from '../lib/locales';
+
+interface Props {
+  compact?: boolean;
+  currentSlug?: string;
+  locale?: Locale;
+}
+
+const { compact = false, currentSlug, locale = DEFAULT_LOCALE } = Astro.props;
+
+const setupPath = [
+  {
+    step: '01',
+    label: 'Orient',
+    title: 'Get your bearings',
+    description: 'Understand the workspace, sidebar, dashboard, and where Settings lives.',
+    href: '/getting-started/welcome-to-symplehost',
+    linkLabel: 'Start with welcome',
+    matches: ['welcome-to-symplehost', 'navigating-symplehost'],
+  },
+  {
+    step: '02',
+    label: 'Account',
+    title: 'Create the account and workspace',
+    description: 'Set up your profile, business workspace, email verification, and owner access.',
+    href: '/getting-started/creating-your-account',
+    linkLabel: 'Create account',
+    matches: ['creating-your-account', 'setting-up-your-account-and-workspace'],
+  },
+  {
+    step: '03',
+    label: 'Workspace',
+    title: 'Confirm company settings',
+    description: 'Check business name, logo, country, currency, timezone, date format, and team access.',
+    href: '/getting-started/setting-up-company-profile',
+    linkLabel: 'Set company profile',
+    matches: ['setting-up-company-profile', 'add-team-members-and-roles'],
+  },
+  {
+    step: '04',
+    label: 'Listings',
+    title: 'Add or import one listing',
+    description: 'Import Airbnb first when available, or create manually before connecting other OTAs.',
+    href: '/getting-started/import-listings-from-ota',
+    linkLabel: 'Connect listings',
+    matches: ['import-listings-from-ota', 'adding-a-listing-manually'],
+  },
+  {
+    step: '05',
+    label: 'Operate',
+    title: 'Use it for a real booking',
+    description: 'Review reservations, invite the right team members, and prepare payments before direct bookings.',
+    href: '/getting-started/your-first-24-hours-in-symplehost',
+    linkLabel: 'Follow day-one checklist',
+    matches: ['your-first-24-hours-in-symplehost', 'viewing-your-first-reservation'],
+  },
+];
+
+const currentIndex = currentSlug
+  ? setupPath.findIndex((item) => item.matches.includes(currentSlug))
+  : -1;
+---
+
+<section
+  class:list={['setup-path', { compact }]}
+  aria-labelledby={compact ? 'setup-path-compact-title' : 'setup-path-title'}
+  data-pagefind-ignore
+>
+  <div class="setup-path-head">
+    <p class="setup-kicker">Recommended setup path</p>
+    <h2 id={compact ? 'setup-path-compact-title' : 'setup-path-title'}>
+      {compact ? 'Stay on the setup path' : 'Do these in order'}
+    </h2>
+    {!compact && <p>Start with account and workspace basics before connecting listings or channels.</p>}
+  </div>
+  <ol class="setup-steps">
+    {setupPath.map((item, index) => {
+      const isCurrent = index === currentIndex;
+      const isDone = currentIndex > index;
+      return (
+        <li class:list={['setup-step', { current: isCurrent, done: isDone }]}>
+          <a
+            href={localizePath(item.href, locale)}
+            class="setup-card"
+            aria-current={isCurrent ? 'step' : undefined}
+          >
+            <span class="setup-number">{item.step}</span>
+            <span class="setup-label">{item.label}</span>
+            <span class="setup-title">{item.title}</span>
+            {!compact && <span class="setup-desc">{item.description}</span>}
+            <span class="setup-link">{compact ? (isCurrent ? 'Current guide' : item.linkLabel) : item.linkLabel}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ol>
+</section>
+
+<style>
+  .setup-path {
+    margin: 0 0 3rem;
+    padding: 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(127, 86, 217, 0.08), rgba(255, 255, 255, 0) 48%),
+      #fff;
+    box-shadow: 0 18px 44px rgba(88, 28, 135, 0.08);
+  }
+  .setup-path-head {
+    max-width: 40rem;
+    margin-bottom: 1.25rem;
+  }
+  .setup-kicker {
+    color: var(--primary-700);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .setup-path h2 {
+    color: var(--heading-color);
+    font-size: 1.45rem;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+  .setup-path-head p:last-child {
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .setup-steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    list-style: none;
+    counter-reset: none;
+  }
+  .setup-step {
+    position: relative;
+    min-width: 0;
+  }
+  .setup-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 2.2rem;
+    right: -0.5rem;
+    width: 1rem;
+    height: 1px;
+    background: var(--primary-200);
+    z-index: 2;
+  }
+  .setup-card {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    min-height: 15.25rem;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--foreground);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  .setup-card:hover {
+    color: var(--foreground);
+    border-color: var(--primary-300);
+    box-shadow: 0 14px 28px rgba(88, 28, 135, 0.12);
+    transform: translateY(-2px);
+  }
+  .setup-number {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 8px 18px rgba(127, 86, 217, 0.28);
+  }
+  .setup-label {
+    color: var(--primary-700);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin-bottom: 0.45rem;
+    text-transform: uppercase;
+  }
+  .setup-title {
+    color: var(--foreground);
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.45rem;
+  }
+  .setup-desc {
+    color: var(--muted-foreground);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+  .setup-link {
+    align-self: end;
+    color: var(--primary-700);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .setup-step.current .setup-card {
+    border-color: var(--primary);
+    background:
+      linear-gradient(180deg, rgba(127, 86, 217, 0.1), rgba(255, 255, 255, 0) 70%),
+      #fff;
+    box-shadow: 0 16px 34px rgba(88, 28, 135, 0.14);
+  }
+  .setup-step.done .setup-number {
+    background: var(--primary-700);
+  }
+
+  .setup-path.compact {
+    position: sticky;
+    top: calc(64px + 0.75rem);
+    z-index: 8;
+    margin: 0 0 1.75rem;
+    padding: 0.8rem;
+    background:
+      linear-gradient(135deg, rgba(127, 86, 217, 0.1), rgba(255, 255, 255, 0) 42%),
+      rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 30px rgba(88, 28, 135, 0.1);
+  }
+  .setup-path.compact .setup-path-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    max-width: none;
+    margin-bottom: 0.65rem;
+  }
+  .setup-path.compact .setup-kicker {
+    margin: 0;
+    font-size: 0.66rem;
+  }
+  .setup-path.compact h2 {
+    flex: 0 0 auto;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .setup-path.compact .setup-steps {
+    grid-template-columns: repeat(5, minmax(7.5rem, 1fr));
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+  }
+  .setup-path.compact .setup-step:not(:last-child)::after {
+    display: none;
+  }
+  .setup-path.compact .setup-card {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 0.55rem;
+    min-height: 5.25rem;
+    padding: 0.65rem;
+  }
+  .setup-path.compact .setup-number {
+    grid-row: 1 / 4;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0;
+    font-size: 0.66rem;
+  }
+  .setup-path.compact .setup-label {
+    margin-bottom: 0.2rem;
+    font-size: 0.58rem;
+  }
+  .setup-path.compact .setup-title {
+    margin-bottom: 0.25rem;
+    font-size: 0.82rem;
+  }
+  .setup-path.compact .setup-link {
+    font-size: 0.68rem;
+  }
+
+  @media (max-width: 980px) {
+    .setup-steps {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .setup-step:not(:last-child)::after {
+      top: auto;
+      right: auto;
+      left: 2.1rem;
+      bottom: -0.75rem;
+      width: 1px;
+      height: 0.75rem;
+    }
+    .setup-card {
+      min-height: 0;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto auto auto;
+      column-gap: 0.9rem;
+    }
+    .setup-number {
+      grid-row: 1 / 5;
+      margin-bottom: 0;
+    }
+    .setup-path.compact {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .setup-path.compact .setup-path-head {
+      display: block;
+    }
+    .setup-path.compact .setup-kicker {
+      margin-bottom: 0.25rem;
+    }
+    .setup-path.compact .setup-steps {
+      grid-template-columns: repeat(5, minmax(8.75rem, 1fr));
+    }
+  }
+</style>

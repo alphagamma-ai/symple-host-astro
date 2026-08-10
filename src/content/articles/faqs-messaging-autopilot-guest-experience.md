@@ -92,9 +92,9 @@ It appears only when SympleHost can detect a guest language that differs from yo
 
 ### What is Autopilot?
 
-Autopilot is SympleHost's AI guest messaging layer. It can be off, suggest replies for review, or send replies automatically after a delay.
+Autopilot is the account-level control for AI guest replies. It can be off, suggest replies for review, or allow AI to send replies automatically after a delay.
 
-→ See: *Setting Up Autopilot for Guest Messaging*
+→ See: [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
 
 ### How do I turn on Autopilot?
 
@@ -114,10 +114,19 @@ Yes. Individual guest/conversation Autopilot controls can override the account d
 
 ### What are message automation rules?
 
-Message automation rules are repeatable workflows under **Messages → Message automation**. They include:
+Message automation rules are repeatable workflows under **Messages → Message Automation**. They are best for scheduled SOP-style messages that you already know should go out.
 
-- **Time-based** rules, such as pre-arrival or checkout messages
-- **Response-based** rules, where AI responds based on guest message context or guidance
+Examples include booking confirmations, check-in instructions, checkout reminders, and review requests.
+
+→ See: [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
+
+### What is Concierge?
+
+Concierge is the AI guest assistant that answers live guest questions using your property data, reservation context, notes, uploaded documents, past chats, rules, brand voice, and upsell settings.
+
+Use Concierge for questions guests ask in real time. Use Automated Messages for planned messages that should go out at a specific point in the stay.
+
+→ See: [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
 
 ### Autopilot is not responding. What should I check?
 

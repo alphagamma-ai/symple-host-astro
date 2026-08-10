@@ -80,10 +80,10 @@ Once you understand where everything lives, use the setup articles below to make
    → See: [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
 
 4. **Connect a guest messaging channel** — Link WhatsApp, Instagram, Facebook Messenger, or another supported channel so your team can reply from Messages.
-   → See: [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
+   → See: [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 
 5. **Use Autopilot in suggestion mode first** — Let AI draft replies before you allow automatic sending.
-   → See: [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)
+   → See: [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
 
 6. **Create or review your first reservation** — Confirm guest details, dates, payment status, and the handoff tasks your team needs.
    → See: [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
@@ -122,4 +122,4 @@ If you want a time-based checklist, follow [Your First 24 Hours in SympleHost](/
 - [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)
 - [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
 - [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
-- [Connecting WhatsApp, Instagram & Facebook Messenger](/platform-guides/connecting-messaging-integrations/)
+- [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)

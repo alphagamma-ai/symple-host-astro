@@ -63,7 +63,7 @@ No. Past and confirmed reservations stay in Booking.com and in your SympleHost r
 
 ## Messaging Integrations (WhatsApp, Instagram, Messenger)
 
-For the full step-by-step walkthrough of connecting WhatsApp, Instagram, or Facebook Messenger — including every Meta popup screen — see **Connecting WhatsApp, Instagram & Facebook Messenger**. The most-asked questions:
+For the full step-by-step walkthrough of connecting WhatsApp, Instagram, Facebook Messenger, LINE, and Gmail, see **Connecting Messaging Integrations**. The most-asked questions:
 
 ### Do I need a WhatsApp Business account to connect WhatsApp?
 You need a phone number that is **not** currently registered with WhatsApp consumer or WhatsApp Business mobile app. The Embedded Signup flow creates a new WhatsApp Business Platform account on Meta's side using that number. If the number is already in use in either app, delete it from there first (**WhatsApp → Settings → Account → Delete my account**) and retry.

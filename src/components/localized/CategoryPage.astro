@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import GettingStartedPath from '../GettingStartedPath.astro';
 import {
   DEFAULT_LOCALE,
   getArticleDescription,
@@ -78,49 +79,6 @@ const orderedSectionKeys = [
   ...remaining,
 ];
 const hasUngrouped = groups.has(UNGROUPED);
-
-const setupPath = [
-  {
-    step: '01',
-    label: 'Orient',
-    title: 'Get your bearings',
-    description: 'Understand the workspace, sidebar, dashboard, and where Settings lives.',
-    href: '/getting-started/welcome-to-symplehost',
-    linkLabel: 'Start with welcome',
-  },
-  {
-    step: '02',
-    label: 'Account',
-    title: 'Create the account and workspace',
-    description: 'Set up your profile, business workspace, email verification, and owner access.',
-    href: '/getting-started/creating-your-account',
-    linkLabel: 'Create account',
-  },
-  {
-    step: '03',
-    label: 'Workspace',
-    title: 'Confirm company settings',
-    description: 'Check business name, logo, country, currency, timezone, date format, and team access.',
-    href: '/getting-started/setting-up-company-profile',
-    linkLabel: 'Set company profile',
-  },
-  {
-    step: '04',
-    label: 'Listings',
-    title: 'Add or import one listing',
-    description: 'Import Airbnb first when available, or create manually before connecting other OTAs.',
-    href: '/getting-started/import-listings-from-ota',
-    linkLabel: 'Connect listings',
-  },
-  {
-    step: '05',
-    label: 'Operate',
-    title: 'Use it for a real booking',
-    description: 'Review reservations, invite the right team members, and prepare payments before direct bookings.',
-    href: '/getting-started/your-first-24-hours-in-symplehost',
-    linkLabel: 'Follow day-one checklist',
-  },
-];
 
 function faqAnswerHtml(md: string): string {
   let html = md
@@ -240,26 +198,7 @@ const faqMeta = {
   )}
 
   {category.id === 'getting-started' && locale === 'en' && (
-    <section class="setup-path" aria-labelledby="setup-path-title">
-      <div class="setup-path-head">
-        <p class="setup-kicker">Recommended setup path</p>
-        <h2 id="setup-path-title">Do these in order</h2>
-        <p>Start with account and workspace basics before connecting listings or channels.</p>
-      </div>
-      <ol class="setup-steps">
-        {setupPath.map((item) => (
-          <li class="setup-step">
-            <a href={item.href} class="setup-card">
-              <span class="setup-number">{item.step}</span>
-              <span class="setup-label">{item.label}</span>
-              <span class="setup-title">{item.title}</span>
-              <span class="setup-desc">{item.description}</span>
-              <span class="setup-link">{item.linkLabel}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </section>
+    <GettingStartedPath locale={locale} />
   )}
 
   {articles.length === 0 ? (
@@ -328,124 +267,6 @@ const faqMeta = {
     .cat-desc {
       color: var(--muted-foreground);
       font-size: 1rem;
-    }
-
-    .setup-path {
-      margin: 0 0 3rem;
-      padding: 1.25rem;
-      border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
-      border-radius: 8px;
-      background:
-        linear-gradient(135deg, rgba(127, 86, 217, 0.08), rgba(255, 255, 255, 0) 48%),
-        #fff;
-      box-shadow: 0 18px 44px rgba(88, 28, 135, 0.08);
-    }
-    .setup-path-head {
-      max-width: 40rem;
-      margin-bottom: 1.25rem;
-    }
-    .setup-kicker {
-      color: var(--primary-700);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      line-height: 1.2;
-      margin-bottom: 0.4rem;
-      text-transform: uppercase;
-    }
-    .setup-path h2 {
-      color: var(--heading-color);
-      font-size: 1.45rem;
-      line-height: 1.2;
-      margin-bottom: 0.35rem;
-    }
-    .setup-path-head p:last-child {
-      color: var(--muted-foreground);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .setup-steps {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 0;
-      list-style: none;
-      counter-reset: none;
-    }
-    .setup-step {
-      position: relative;
-      min-width: 0;
-    }
-    .setup-step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      top: 2.2rem;
-      right: -0.5rem;
-      width: 1rem;
-      height: 1px;
-      background: var(--primary-200);
-      z-index: 2;
-    }
-    .setup-card {
-      position: relative;
-      display: grid;
-      grid-template-rows: auto auto auto 1fr auto;
-      min-height: 15.25rem;
-      height: 100%;
-      padding: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.88);
-      color: var(--foreground);
-      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-    }
-    .setup-card:hover {
-      color: var(--foreground);
-      border-color: var(--primary-300);
-      box-shadow: 0 14px 28px rgba(88, 28, 135, 0.12);
-      transform: translateY(-2px);
-    }
-    .setup-number {
-      display: inline-grid;
-      place-items: center;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 0.8rem;
-      box-shadow: 0 8px 18px rgba(127, 86, 217, 0.28);
-    }
-    .setup-label {
-      color: var(--primary-700);
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      line-height: 1.2;
-      margin-bottom: 0.45rem;
-      text-transform: uppercase;
-    }
-    .setup-title {
-      color: var(--foreground);
-      font-size: 0.98rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 0.45rem;
-    }
-    .setup-desc {
-      color: var(--muted-foreground);
-      font-size: 0.8rem;
-      line-height: 1.45;
-      margin-bottom: 1rem;
-    }
-    .setup-link {
-      align-self: end;
-      color: var(--primary-700);
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.2;
     }
 
     .section-group {
@@ -599,30 +420,6 @@ const faqMeta = {
       margin: 0 0 1rem;
     }
 
-    @media (max-width: 980px) {
-      .setup-steps {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-      }
-      .setup-step:not(:last-child)::after {
-        top: auto;
-        right: auto;
-        left: 2.1rem;
-        bottom: -0.75rem;
-        width: 1px;
-        height: 0.75rem;
-      }
-      .setup-card {
-        min-height: 0;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto auto auto;
-        column-gap: 0.9rem;
-      }
-      .setup-number {
-        grid-row: 1 / 5;
-        margin-bottom: 0;
-      }
-    }
   </style>
 
   <script is:inline define:vars={{ faqMeta }}>

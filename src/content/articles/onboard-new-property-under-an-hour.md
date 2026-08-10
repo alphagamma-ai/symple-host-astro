@@ -8,7 +8,7 @@ tags:
   - Onboarding
   - Listings
   - Operations
-date: '2026-06-18'
+date: '2026-08-10'
 draft: false
 ---
 
@@ -218,5 +218,10 @@ That matters because most onboarding delays come from scattered information. Whe
 
 ---
 
-**Related reading:** [Adding a Listing Manually](/getting-started/adding-a-listing-manually) · [How to Import Listings from an OTA](/getting-started/import-listings-from-ota) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
+## Related Articles
 
+- [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [How to Import Listings from an OTA](/getting-started/import-listings-from-ota/)
+- [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
+- [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
+- [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)

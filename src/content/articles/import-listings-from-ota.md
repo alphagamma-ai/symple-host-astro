@@ -50,6 +50,29 @@ Before SympleHost can verify the connection, Booking.com must be set to use **Ch
 
 ---
 
+## Where Channel Connectivity Is Managed
+
+Use **Channel Manager** as the central place for OTA connectivity. This is where hosts can:
+
+- see connected OTA accounts and sync health
+- check which properties, rooms, or units are covered by each channel
+- open the channel connection to review mappings
+- connect another OTA account
+- manage channel-level actions such as reconnecting or disconnecting
+
+For day-to-day property setup, think of it this way:
+
+1. Create or import the property first.
+2. Open **Channel Manager** to connect the OTA account and map the property, room, or unit.
+3. Open the listing's **Channels** tab when you need listing-specific controls such as per-channel markup.
+
+In the listing **Channels** tab, each OTA row shows the channel status, listing ID, listing URL, markup, and actions. The **Markup** chip lets hosts set the percentage adjustment sent to that connected OTA. The action area lets hosts connect the channel, manage the connection in Channel Manager, or disconnect legacy mappings.
+
+<!-- TODO: Add a current product screenshot here once captured from a logged-in latest platform session.
+Recommended screenshot: Channel Manager v2 table showing connected OTA rows, Covers, Sync, Status, and the Edit action, plus a second crop of a listing Channels tab showing the Markup chip/actions. -->
+
+---
+
 ## How to Import from Airbnb
 
 1. Click **Listings** in the sidebar.

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Product walkthrough coming soon</title>
+  <desc id="desc">SympleHost branded placeholder thumbnail for upcoming product walkthrough videos.</desc>
+  <rect width="1280" height="720" fill="#fafafa"/>
+  <rect x="78" y="74" width="1124" height="572" rx="26" fill="#fff" stroke="#e8e2f3" stroke-width="2"/>
+  <rect x="138" y="132" width="1004" height="84" rx="18" fill="#f7f2ff"/>
+  <circle cx="184" cy="174" r="24" fill="#8f39ff"/>
+  <path d="M178 160l22 14-22 14z" fill="#fff"/>
+  <text x="230" y="166" fill="#26113f" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Product walkthrough</text>
+  <text x="230" y="200" fill="#667085" font-family="Inter, Arial, sans-serif" font-size="20">Short module demo script and recording slot</text>
+  <rect x="138" y="280" width="288" height="216" rx="18" fill="#fbf8ff" stroke="#eadcff"/>
+  <rect x="496" y="280" width="288" height="216" rx="18" fill="#fbf8ff" stroke="#eadcff"/>
+  <rect x="854" y="280" width="288" height="216" rx="18" fill="#fbf8ff" stroke="#eadcff"/>
+  <path d="M206 388h152M206 424h104" stroke="#8f39ff" stroke-width="16" stroke-linecap="round"/>
+  <path d="M564 370h152M564 406h132M564 442h86" stroke="#8f39ff" stroke-width="16" stroke-linecap="round"/>
+  <path d="M922 388h152M922 424h104" stroke="#8f39ff" stroke-width="16" stroke-linecap="round"/>
+  <text x="138" y="568" fill="#475467" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Coming soon: replace with MP4 or YouTube link</text>
+</svg>
