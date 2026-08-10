@@ -15,7 +15,7 @@ draft: false
 
 ### How do I sign up for SympleHost?
 Go to the SympleHost signup page, enter your name, email, and password, accept the terms, and click **Sign Up**. You'll receive a verification email — click the link to activate your account. Then follow the onboarding steps to set up your profile and company details.
-→ See: *Creating Your Account & Completing Onboarding*
+→ See: *Creating Your Account & Workspace*
 
 ### I didn't receive my verification email. What do I do?
 Check your spam or junk folder first. If it's not there, go back to the verification screen and click **Resend** (there's a 60-second cooldown between sends). If the email address shown is wrong, click **Change email** to correct it.

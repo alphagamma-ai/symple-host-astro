@@ -1,6 +1,6 @@
 ---
-title: Creating Your Account & Completing Onboarding
-description: Sign up for SympleHost and set up your profile, company details, and team in a few minutes.
+title: Creating Your Account & Workspace
+description: Sign up for SympleHost and set up your profile, workspace, company details, and team in a few minutes.
 category: getting-started
 section: Set up your account
 sectionOrder: 1

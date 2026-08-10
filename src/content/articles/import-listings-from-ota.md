@@ -2,6 +2,8 @@
 title: 'How to Import Airbnb and Connect OTA Channels'
 description: Import Airbnb listings, then connect Booking.com, Expedia, Agoda, VRBO, and other OTAs through Channel Manager.
 category: getting-started
+section: Connect your listings
+sectionOrder: 2
 tags:
   - Listings
   - Airbnb

@@ -2,6 +2,8 @@
 title: How to Add Team Members & Assign Roles
 description: Invite your team to your SympleHost account and control exactly what each person can see and do with role-based permissions.
 category: getting-started
+section: Set up your account
+sectionOrder: 4
 tags:
   - Team
   - Roles

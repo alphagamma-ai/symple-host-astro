@@ -2,7 +2,7 @@
 title: Your First 24 Hours in SympleHost
 description: A practical day-one checklist for hosts who want to connect listings, reply to guests, coordinate work, and prepare for direct bookings quickly.
 category: getting-started
-section: Start here
+section: Set up your account
 sectionOrder: 3
 tags:
   - Onboarding

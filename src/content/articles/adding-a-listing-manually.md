@@ -2,6 +2,8 @@
 title: Adding a Listing Manually
 description: Create a new rental listing from scratch by entering property details, photos, amenities, pricing, and cancellation settings.
 category: getting-started
+section: Connect your listings
+sectionOrder: 1
 tags:
   - Listings
   - Properties
