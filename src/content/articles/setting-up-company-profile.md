@@ -95,5 +95,5 @@ Go to **Settings → General** and check your **Timezone** setting. If you're in
 ## Related Articles
 
 - [Creating Your Account & Completing Onboarding](/getting-started/creating-your-account/)
-- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)

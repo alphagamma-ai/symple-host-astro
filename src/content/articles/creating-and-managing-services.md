@@ -308,4 +308,4 @@ Service pricing uses your account currency. Check **Settings → General** to ve
 - [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
 - [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
 - [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)
-- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)

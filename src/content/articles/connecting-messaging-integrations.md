@@ -242,4 +242,4 @@ You can revoke at the Meta level too:
 
 - [Setting Up Autopilot for Guest Messaging](/platform-guides/setting-up-autopilot/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
-- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)

@@ -106,6 +106,6 @@ Check the property filter and whether **My tasks only** is enabled. Also verify 
 
 ## Related Articles
 
-- [Welcome to SympleHost — Your First 24 Hours](/getting-started/welcome-to-symplehost/)
+- [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)

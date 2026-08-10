@@ -1,6 +1,6 @@
 ---
-title: Welcome to SympleHost — Your First 24 Hours
-description: Get oriented fast, connect the essentials, and make SympleHost useful for your team and guests on day one.
+title: Welcome to SympleHost
+description: Get oriented with the SympleHost workspace, main navigation, and core tools before you start setup.
 category: getting-started
 section: Start here
 sectionOrder: 1
@@ -66,9 +66,9 @@ Some menu items only appear when your role, subscription, and account feature fl
 
 ---
 
-## Your First 24 Hours
+## Start With These Essentials
 
-Use this order if you want SympleHost to become useful quickly, not just "set up."
+Once you understand where everything lives, use the setup articles below to make the account ready for real work.
 
 1. **Complete your company profile** — Set your business name, country, currency, timezone, and date format so calendars, pricing, and guest-facing content display correctly.
    → See: [Setting Up Your Company Profile](/getting-started/setting-up-company-profile/)
@@ -94,7 +94,7 @@ Use this order if you want SympleHost to become useful quickly, not just "set up
 8. **Connect payments before taking direct bookings** — Choose the payment gateway available in your country, then configure deposits, cancellation policies, and fees.
    → See: [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
 
-💡 **Tip:** If you only have one hour today, do steps 1-4. That gets your account, listing, calendar, and guest inbox ready enough for real work.
+If you want a time-based checklist, follow [Your First 24 Hours in SympleHost](/getting-started/your-first-24-hours-in-symplehost/).
 
 ---
 
@@ -110,7 +110,7 @@ Use this order if you want SympleHost to become useful quickly, not just "set up
 ## Key Takeaways
 
 - SympleHost brings listings, bookings, calendars, guest messaging, direct bookings, and team operations into one platform
-- Your first 24 hours should focus on correct account settings, one accurate listing, pricing, calendar, and one messaging channel
+- Start with correct account settings, one accurate listing, pricing, calendar, and one messaging channel
 - Autopilot is most valuable after your guest information and operating rules are clean
 - Payments and direct booking settings should be reviewed together before guests start paying directly
 
