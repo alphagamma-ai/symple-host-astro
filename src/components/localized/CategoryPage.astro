@@ -23,6 +23,7 @@ const { category, locale = DEFAULT_LOCALE } = Astro.props;
 const copy = uiCopy[locale];
 const categoryTitle = getCategoryTitle(category, locale);
 const categoryDescription = getCategoryDescription(category, locale);
+const isPlatformGuides = category.id === 'platform-guides';
 const articles = await getCollection('articles', ({ data }) =>
   !data.draft && data.category === category.id
 );
@@ -203,6 +204,68 @@ const faqMeta = {
 
   {articles.length === 0 ? (
     <p class="empty">{copy.noArticles}</p>
+  ) : isPlatformGuides ? (
+    <>
+      <nav class="section-jump" aria-label="Platform guide categories">
+        {orderedSectionKeys.map((sectionKey) => {
+          const sectionArticles = groups.get(sectionKey)!;
+          return (
+            <a href={`#section-${sectionKey.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="section-chip">
+              <span>{getSectionTitle(sectionKey, locale)}</span>
+              <strong>{sectionArticles.length}</strong>
+            </a>
+          );
+        })}
+        {hasUngrouped && (
+          <a href="#section-other" class="section-chip">
+            <span>Other guides</span>
+            <strong>{groups.get(UNGROUPED)!.length}</strong>
+          </a>
+        )}
+      </nav>
+
+      <div class="platform-sections">
+        {orderedSectionKeys.map((sectionKey) => {
+          const sectionArticles = groups.get(sectionKey)!;
+          return (
+            <section class="section-group platform-section" id={`section-${sectionKey.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+              <div class="platform-section-head">
+                <h2 class="section-heading">{getSectionTitle(sectionKey, locale)}</h2>
+                <span class="section-count">{sectionArticles.length} guides</span>
+              </div>
+              <div class="articles">
+                {sectionArticles.map((article) => (
+                  <a href={localizePath(`/${category.id}/${article.id}`, locale)} class="article-row">
+                    <h3 class="article-title">{getArticleTitle(article, locale)}</h3>
+                    {getArticleDescription(article, locale) && (
+                      <p class="article-desc">{getArticleDescription(article, locale)}</p>
+                    )}
+                  </a>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+        {hasUngrouped && (
+          <section class="section-group platform-section" id="section-other">
+            <div class="platform-section-head">
+              <h2 class="section-heading">Other guides</h2>
+              <span class="section-count">{groups.get(UNGROUPED)!.length} guides</span>
+            </div>
+            <div class="articles">
+              {groups.get(UNGROUPED)!.map((article) => (
+                <a href={localizePath(`/${category.id}/${article.id}`, locale)} class="article-row">
+                  <h3 class="article-title">{getArticleTitle(article, locale)}</h3>
+                  {getArticleDescription(article, locale) && (
+                    <p class="article-desc">{getArticleDescription(article, locale)}</p>
+                  )}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </>
   ) : (
     <>
       {orderedSectionKeys.map((sectionKey) => (
@@ -267,6 +330,98 @@ const faqMeta = {
     .cat-desc {
       color: var(--muted-foreground);
       font-size: 1rem;
+    }
+
+    .section-jump {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: -0.75rem 0 2rem;
+    }
+    .section-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--foreground);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+    .section-chip:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 24px rgba(39, 17, 63, 0.08);
+      transform: translateY(-1px);
+    }
+    .section-chip strong {
+      flex: 0 0 auto;
+      min-width: 1.85rem;
+      height: 1.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: var(--primary);
+      background: var(--primary-50);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .platform-sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+    .platform-section {
+      margin-bottom: 0;
+      padding: 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(39, 17, 63, 0.04);
+    }
+    .platform-section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.15rem;
+    }
+    .platform-section .section-heading {
+      margin-bottom: 0;
+      color: var(--heading-color);
+      font-size: 0.92rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .section-count {
+      color: var(--muted-foreground);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+    .platform-section .article-row {
+      padding: 0.9rem 0;
+    }
+    .platform-section .article-row:first-child {
+      border-top: 0;
+    }
+    .platform-section .article-row:last-child {
+      border-bottom: 0;
+    }
+    .platform-section .article-title {
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+    .platform-section .article-desc {
+      font-size: 0.82rem;
+      line-height: 1.45;
     }
 
     .section-group {
@@ -418,6 +573,27 @@ const faqMeta = {
       text-transform: uppercase;
       color: var(--muted-foreground);
       margin: 0 0 1rem;
+    }
+
+    @media (max-width: 820px) {
+      .section-jump,
+      .platform-sections {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section-chip {
+        padding: 0.75rem 0.8rem;
+      }
+      .platform-section {
+        padding: 0.95rem;
+      }
+      .platform-section-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
     }
 
   </style>
