@@ -95,7 +95,7 @@ They can update checklist progress, upload proof, report issues, and mark work c
 
 Managers can continue tracking the work from **Operations → Command Center**.
 
-![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/create-and-assign-tasks/team-ops-command-center.png)
+![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/operations-owner-portal/operations-command-center.png)
 
 Use the Command Center to check:
 

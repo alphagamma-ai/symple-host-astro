@@ -15,7 +15,7 @@ draft: false
 
 The **Operations** module is the day-to-day work hub for your properties. It helps your team manage tasks, repeatable checklists, staff workload, automations, issue reports, expenses, and provider work from one place.
 
-![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/create-and-assign-tasks/team-ops-command-center.png)
+![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/operations-owner-portal/operations-command-center.png)
 
 Use Operations when you need to coordinate:
 
@@ -42,7 +42,7 @@ Use Operations when you need to coordinate:
 | **Expenses** | Record task or property costs, attach receipts, and manage approval status. |
 | **Providers** | Track external contractors or vendors used for operational work. |
 
-![Create New Task modal showing job template, title, description, assignee, priority, related entity, due date, start time, and tags](/uploads/create-and-assign-tasks/03-create-task-modal.png)
+![Create New Task modal showing job template, title, description, assignee, priority, related entity, due date, start time, and tags](/screenshots/operations-owner-portal/create-new-task-modal.png)
 
 Use the **Command Center** for the daily view, then open the right area depending on what you are managing:
 
@@ -53,7 +53,7 @@ Use the **Command Center** for the daily view, then open the right area dependin
 - **Reports** for issues raised during completion
 - **Expenses** for receipts, provider costs, and owner approval
 
-![Task template checklist showing reusable turnover steps and proof requirements](/screenshots/create-and-assign-tasks/task-template-checklist.png)
+![Task Templates screen showing reusable checkout cleaning templates and template filters](/screenshots/operations-owner-portal/job-templates.png)
 
 ## Recommended Setup Order
 
@@ -85,7 +85,7 @@ A simple daily rhythm is:
 6. Review **Reports** for flagged issues.
 7. Add or approve Expenses while receipts and context are fresh.
 
-![Operations Expenses screen showing expense rows, source, approval status, and owner approval workflow](/screenshots/create-and-assign-tasks/expenses-owner-approval.png)
+![Operations Expenses screen showing expense rows, source, approval status, and owner approval workflow](/screenshots/operations-owner-portal/operations-expenses.png)
 
 ## What Operations Is Not
 

@@ -57,8 +57,6 @@ This keeps owner communication out of spreadsheets and one-off messages. Owners 
 7. Add the owner name if needed.
 8. Click **Save**.
 
-![Property settings showing the managed property toggle, commission percent, owner name, and connected property owners](/screenshots/owner-portal-managed-properties/managed-property-settings.png)
-
 The commission percent is your management fee for that property. SympleHost uses it when calculating management commission, owner payout, and owner statements.
 
 For multi-unit properties, child units may inherit the parent property's management settings. If you are updating a unit and cannot edit the management section, open the parent property settings instead.
@@ -109,7 +107,7 @@ Use this setting intentionally. Some property managers want full transparency; o
 
 Owners sign in to the **Owner Portal** and see the properties shared with them.
 
-![Owner Portal overview showing net payout, gross revenue, upcoming bookings, next arrivals, managed properties, and pending expense approvals](/screenshots/owner-portal-managed-properties/owner-portal-overview.png)
+![Owner Portal overview showing net payout, gross revenue, upcoming bookings, next arrivals, managed properties, and pending expense approvals](/screenshots/operations-owner-portal/owner-portal-overview.png)
 
 The portal includes:
 
@@ -125,6 +123,8 @@ The portal includes:
 Booking details can show guest, dates, nights, guest count, status, channel, and estimated payout where available.
 
 Forecasts are based on confirmed bookings currently on the books. They are not demand forecasts, and the monthly statement remains the final source of truth.
+
+![Owner Portal bookings tab showing upcoming reservations in list view](/screenshots/operations-owner-portal/owner-portal-bookings.png)
 
 ---
 
@@ -147,7 +147,7 @@ Owner statements can include:
 - reservation-level detail
 - KPIs such as occupancy, ADR, nights booked, and year-to-date payout
 
-![Owner Reports and Owner Portal approvals showing statement totals, management commission, owner payout, and expense approval actions](/screenshots/owner-portal-managed-properties/owner-statements-approvals.png)
+![Owner Portal statements tab showing monthly owner payout statement totals and property breakdowns](/screenshots/operations-owner-portal/owner-portal-statements.png)
 
 You can export statements as CSV or PDF. Use these exports when you need to send formal reporting outside the portal or keep monthly records.
 
@@ -165,6 +165,8 @@ Go to **Operations → Expenses** when an expense needs owner approval.
 
 The owner sees the request under **Owner Portal → Approvals**. They can approve or deny it and optionally add a note.
 
+![Owner Portal approvals tab showing decided owner expense approvals](/screenshots/operations-owner-portal/owner-portal-approvals.png)
+
 Owner approval statuses include:
 
 - **No approval requested**
@@ -173,6 +175,8 @@ Owner approval statuses include:
 - **Owner denied**
 
 Once an expense has been sent for owner approval, key details are locked to protect the approval record. If the amount, category, vendor, date, or description is wrong, create a new expense instead of changing what the owner already approved.
+
+![Owner Portal profile tab showing owner account details and shared properties](/screenshots/operations-owner-portal/owner-portal-profile.png)
 
 ---
 

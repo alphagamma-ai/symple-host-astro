@@ -15,7 +15,7 @@ draft: false
 
 Use **Operations → Command Center** when operational work needs a clear owner, due date, related record, and status. This is where cleaning, maintenance, inspections, guest requests, restocking, provider jobs, and service follow-up move out of chat and into a trackable workflow.
 
-![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/create-and-assign-tasks/team-ops-command-center.png)
+![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/operations-owner-portal/operations-command-center.png)
 
 ## When to Create a Task
 
@@ -51,7 +51,7 @@ Use **Map** view for geographically spread work, such as provider visits or mult
 
 In the **Create New Task** modal, add the operational context before assigning the work.
 
-![Create New Task modal showing job template, title, description, assignee, priority, related entity, due date, start time, and tags](/screenshots/create-and-assign-tasks/create-task-modal.png)
+![Create New Task modal showing job template, title, description, assignee, priority, related entity, due date, start time, and tags](/screenshots/operations-owner-portal/create-new-task-modal.png)
 
 Complete the main fields:
 
@@ -93,7 +93,7 @@ This makes task history easier to review later and keeps the operational trail c
 
 Use a **Job Template** when the work should follow a repeatable checklist.
 
-![Task template checklist showing reusable turnover steps and proof requirements](/screenshots/create-and-assign-tasks/task-template-checklist.png)
+![Task Templates screen showing reusable checkout cleaning templates and template filters](/screenshots/operations-owner-portal/job-templates.png)
 
 Templates are useful for:
 
@@ -135,7 +135,7 @@ For provider work, choose the provider, add the expected budget when known, sele
 
 If a cost needs to be tracked formally, record or review it in [Operations Expenses](/platform-guides/manage-operations-expenses-and-owner-approvals/).
 
-![Operations Expenses screen showing expense rows, source, approval status, and owner approval workflow](/screenshots/create-and-assign-tasks/expenses-owner-approval.png)
+![Operations Expenses screen showing expense rows, source, approval status, and owner approval workflow](/screenshots/operations-owner-portal/operations-expenses.png)
 
 ## Add Reference Media
 

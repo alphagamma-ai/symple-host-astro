@@ -17,7 +17,7 @@ This guide is for **Operations automations and staff task reminders**. These too
 
 If you are setting up guest-message automation, AI replies, Autopilot, or Concierge, start with [Get Started with Messages, AI, and Automation](/platform-guides/get-started-with-messages-ai-and-automation/) instead.
 
-![Operations sidebar expanded showing Automations in the Operations module](/uploads/create-and-assign-tasks/01-sidebar-operations.png)
+![Operations Automations screen showing trigger-based task automation rules](/screenshots/operations-owner-portal/operations-automations.png)
 
 ## Automations vs Task Reminders
 

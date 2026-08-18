@@ -15,7 +15,7 @@ draft: false
 
 Use **Operations → Expenses** to record costs connected to tasks, service bookings, maintenance, supplies, and managed-property work. Expenses help you keep a clean financial trail instead of losing costs in chat messages or spreadsheets.
 
-![Operations Expenses screen showing expense rows with category, listing, amount, source, internal status, and owner approval status](/screenshots/create-and-assign-tasks/expenses-owner-approval.png)
+![Operations Expenses screen showing expense rows with category, listing, amount, source, internal status, and owner approval status](/screenshots/operations-owner-portal/operations-expenses.png)
 
 ## What to Track in Expenses
 
@@ -47,6 +47,8 @@ You can link expenses to a property, task, or service booking so the cost stays 
 10. Set the review or approval status.
 11. Save the expense.
 
+![Add Expense panel showing date, description, amount, category, listing, task link, receipt upload, and status fields](/screenshots/operations-owner-portal/add-expense-modal.png)
+
 ## Expense Fields to Keep Clean
 
 For accurate reporting, complete these fields consistently:
@@ -62,6 +64,8 @@ For accurate reporting, complete these fields consistently:
 | **Receipt** | Gives proof for accounting and owner review. |
 | **Approval Status** | Shows whether the cost has been checked internally. |
 | **Owner Approval** | Shows whether an owner has approved or denied a managed-property cost. |
+
+![Expense Categories modal showing default and custom expense categories](/screenshots/operations-owner-portal/expense-categories.png)
 
 ## Internal Expense Status
 
@@ -79,6 +83,8 @@ Use **Pending review** when a team member or provider submits a cost that still 
 
 For managed properties, some expenses may need owner approval before they are charged, deducted, or included in reporting.
 
+![Add Expense panel showing the Request owner approval toggle for a managed property expense](/screenshots/operations-owner-portal/add-expense-owner-approval.png)
+
 Owner approval statuses include:
 
 - **No approval requested**
@@ -93,6 +99,12 @@ Request owner approval for costs that owners expect to review, such as repairs, 
 Once an expense has been sent for owner approval, avoid changing the approved cost record. The owner should approve the same amount, vendor, category, receipt, and description you intend to use.
 
 If the amount or description is wrong after approval, create a new corrected expense instead of editing the approved record.
+
+## Import Expenses From CSV
+
+Use **Import CSV** when you need to bring in multiple expenses from an accountant, spreadsheet, or provider export.
+
+![Import Expenses from CSV modal showing upload, map columns, and review steps](/screenshots/operations-owner-portal/import-expenses-csv.png)
 
 ## Good Habits
 

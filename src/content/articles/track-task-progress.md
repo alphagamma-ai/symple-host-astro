@@ -15,7 +15,7 @@ draft: false
 
 Use **Operations → Tasks** to see what is active, what is overdue, and what has been completed. This is the daily control view for cleaners, maintenance, inspections, service follow-up, and operational handoffs.
 
-![Operations Tasks page with search, Active, Expired, Completed tabs, List and Map view, team progress, and New Task button](/uploads/create-and-assign-tasks/02-tasks-page.png)
+![Operations Command Center showing task filters, active tasks, due dates, assignees, and team avatars](/screenshots/operations-owner-portal/operations-command-center.png)
 
 ## What to Check First
 

@@ -15,7 +15,7 @@ draft: false
 
 Use **Operations → Job Templates** to create reusable checklists for work your team repeats. Templates help every cleaner, inspector, maintenance worker, or provider follow the same standard each time.
 
-![Task Templates screen showing a checkout turnover template with category, priority, estimated duration, default consumable cost, and checklist items](/screenshots/create-and-assign-tasks/task-template-checklist.png)
+![Task Templates screen showing reusable checkout cleaning templates and template filters](/screenshots/operations-owner-portal/job-templates.png)
 
 ## When to Use a Job Template
 
