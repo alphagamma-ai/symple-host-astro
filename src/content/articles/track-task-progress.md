@@ -1,118 +1,167 @@
 ---
-title: 'How to Track Task Progress & Completion'
-description: "Use Operations to see active, overdue, and completed work, filter by team member or date, and review task reports."
+title: 'Track Task Progress and Completions'
+description: 'Use Operations to monitor active, overdue, and completed tasks, review team progress, check completion proof, and follow up on reported issues.'
 category: platform-guides
 section: Tasks & operations
-sectionOrder: 3
+sectionOrder: 4
 tags:
   - Tasks
   - Operations
   - Tracking
-date: '2026-08-10'
+  - Reports
+date: '2026-08-17'
 draft: false
 ---
 
-## What Task Tracking Shows
+Use **Operations → Tasks** to see what is active, what is overdue, and what has been completed. This is the daily control view for cleaners, maintenance, inspections, service follow-up, and operational handoffs.
 
-Task tracking helps you see what needs attention today, what is overdue, and what has already been completed. Use it during daily operations, cleaner handoffs, maintenance follow-up, and manager check-ins.
+![Operations Tasks page with search, Active, Expired, Completed tabs, List and Map view, team progress, and New Task button](/uploads/create-and-assign-tasks/02-tasks-page.png)
 
----
+## What to Check First
 
-## View Tasks
+When you open the Tasks page, check in this order:
 
-1. Click **Operations** in the sidebar.
-2. Open **Tasks**.
-3. Use the task tabs and filters to narrow the list.
+1. **Expired** tasks first.
+2. Today's **Active** tasks.
+3. Unassigned or overloaded team members.
+4. Recently **Completed** tasks that need review.
+5. **Reports** for flagged issues.
 
-Common views include:
+This keeps urgent operational problems visible before they affect a guest arrival.
 
-- active tasks
-- overdue tasks
-- completed tasks
-- tasks assigned to one person
-- tasks linked to a specific property, reservation, customer, quote, or service
+## Use the Task Tabs
 
----
+The task tabs separate work by status:
 
-## Filter the Task List
+| Tab | What It Shows | When to Use It |
+| --- | --- | --- |
+| **Active** | Work still open and not completed. | Daily planning and team follow-up. |
+| **Expired** | Work past its due date. | Urgent review before arrivals or deadlines. |
+| **Completed** | Finished work. | Proof checks, manager review, and records. |
 
-Use filters when the task list is busy:
+If something looks missing, clear filters first. The task may be hidden by date, status, assignee, or search filters.
 
-- **Search** by task title, property, or description.
-- **Assignee** to see one team member's work.
-- **Date** to focus on a particular operating day.
-- **Status** to separate open, overdue, completed, declined, or archived work.
-- **Priority** to find urgent tasks first.
+## Search and Filter Tasks
 
-Clear filters before deciding a task is missing.
+Use filters when the list is busy.
 
----
+Common filters include:
 
-## Read a Task
+- task title
+- property or listing
+- assignee
+- date
+- status
+- priority
+- linked booking, customer, quote, or service
+
+For same-day operations, combine the date filter with **Active** or **Expired**.
+
+## Use List View and Map View
+
+Use **List** view for most operational planning. It is best for checking due dates, priorities, task titles, and assignees.
+
+Use **Map** view when location matters, such as:
+
+- multiple villas across an area
+- provider route planning
+- same-day maintenance visits
+- cleaners moving between properties
+
+## Review Team Progress
+
+The team panel helps managers understand workload at a glance.
+
+Use it to check:
+
+- who has open work
+- who has completed work
+- who may be overloaded
+- which tasks are unassigned
+- whether the team is on track for the day
+
+If one person has too much open work, reassign tasks before they become expired.
+
+## Open a Task Detail
 
 Open a task to review:
 
 - title and description
-- assignee or workforce member
+- assignee or provider
 - priority
 - due date and start time
-- linked property, reservation, customer, quote, or service
-- checklist items
-- comments, notes, or completion evidence
+- linked listing, booking, customer, quote, or service
+- checklist progress
+- notes and comments
+- photos, videos, or other completion proof
 - created and updated timestamps
 
-If the task came from a job template, complete the checklist before marking the task done.
+If the task came from a job template, the checklist should be completed before the task is marked done.
 
----
-
-## Mark Work Complete
+## Mark a Task Complete
 
 1. Open the task.
-2. Review the checklist and required proof.
-3. Add notes or photos if needed.
-4. Click **Mark Complete**.
+2. Review any checklist items.
+3. Add required notes, photos, videos, or counts.
+4. Flag any issues that need manager review.
+5. Click **Mark Complete**.
 
-Completed tasks stay available for records and reporting.
+Completed tasks remain available for records and reporting.
 
----
+## Review Issues in Reports
 
-## Use Task Reports
+Go to **Operations → Reports** when a completed checklist flags something that still needs attention.
 
-Open **Operations → Reports** to review issues raised during task completion. Reports are created when staff flag problems on checklist items, such as damage, missing supplies, maintenance issues, or failed inspection checks.
+Reports are useful for:
 
-Use task reports to turn field observations into follow-up work instead of losing them in chat.
+- damage found during cleaning
+- missing towels, keys, or amenities
+- failed inspection checks
+- maintenance issues
+- unexpected costs
+- provider follow-up
 
----
+The goal is to separate **task completed** from **nothing else needs action**. A cleaner may complete the turnover but still report a broken appliance that needs a follow-up task.
 
-## Good Habits
+## Completion Review Checklist
 
-- Check overdue tasks before new tasks.
-- Use priority only when it changes the order of work.
-- Keep task titles action-based.
-- Link tasks to reservations when the work affects a guest stay.
-- Archive or complete tasks instead of leaving old work open.
-- Review task reports after busy checkout days.
+Before considering a task fully closed, check:
 
----
+- Was the right booking or listing linked?
+- Did the assignee complete all required checklist items?
+- Were required photos or videos uploaded?
+- Were any issues flagged?
+- Does a follow-up task need to be created?
+- Did the work create an expense?
+- Does an owner need to approve a cost?
 
 ## Troubleshooting
 
 ### I cannot see all tasks
+
 Clear filters and check whether you are viewing only your assigned tasks. Your role may also limit what you can see.
 
 ### A task is overdue but already handled
-Open it and mark it complete, or update the due date if the deadline changed.
 
-### I cannot find a task report
-Task reports appear when a checklist issue is flagged. If the worker completed the task without flagging an issue, there may not be a report.
+Open it and mark it complete, or update the due date if the deadline changed and the work is still valid.
 
-### Tasks are not updating
-Refresh the page. If multiple team members are working at the same time, allow a short moment for the latest status to appear.
+### A completed task still has an issue
 
----
+Review the linked report in **Operations → Reports** and create a follow-up task if someone needs to take action.
+
+### A task has the wrong assignee
+
+Open the task and reassign it if editing is available. If the task came from an automation, update the automation too so future tasks go to the right person.
+
+### The map view is not useful
+
+Use List view if tasks do not have property locations or if you are managing work by due date rather than geography.
 
 ## Related Articles
 
-- [How to Create & Assign Tasks to Your Team](/platform-guides/create-and-assign-tasks/)
-- [How to Set Up Recurring Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
-- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)
+- [Operations Module Overview](/platform-guides/operations-module-overview/)
+- [Create and Assign Tasks in Operations](/platform-guides/create-and-assign-tasks/)
+- [Create Task Templates and Operational Checklists](/platform-guides/create-task-templates-and-checklists/)
+- [Set Up Operations Automations and Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
+- [Manage Operations Expenses and Owner Approvals](/platform-guides/manage-operations-expenses-and-owner-approvals/)
+- [Add Workforce Members and Share the Cleaner Portal](/platform-guides/add-workforce-members-and-share-cleaner-portal/)

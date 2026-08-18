@@ -1,320 +1,147 @@
 ---
-title: 'Create Tasks, Templates, and Operational Checklists'
-description: 'Use Operations to manage daily work, build reusable turnover checklists, assign tasks to team members or providers, review issues, and track task-related expenses.'
+title: 'Create and Assign Tasks in Operations'
+description: 'Create manual tasks, assign work to team members or providers, link tasks to bookings or listings, and give staff the context they need to complete the work.'
 category: platform-guides
 section: Tasks & operations
 sectionOrder: 1
 tags:
   - Tasks
   - Operations
-  - Task Templates
-  - Expenses
-  - Owner Approvals
-date: '2026-08-11'
+  - Team
+  - Providers
+date: '2026-08-17'
 draft: false
 ---
 
-## What Operations Is For
+Use **Operations → Tasks** when work needs a clear owner, due date, and status. This is where cleaning, maintenance, inspections, guest requests, restocking, and follow-up jobs move out of chat and into a trackable workflow.
 
-Operations is where your team turns guest activity into actual work: turnovers, inspections, repairs, restocking, guest requests, service follow-up, and expense review.
+![Operations sidebar expanded with Tasks selected](/uploads/create-and-assign-tasks/01-sidebar-operations.png)
 
-Use it when you need to answer:
+## When to Create a Task
 
-- what needs to be done today
-- who is responsible
-- which property, booking, customer, quote, or service the work relates to
-- what checklist or proof is required
-- whether the task is active, overdue, completed, or declined
-- what expenses were raised, approved, rejected, or sent to an owner for approval
+Create a task when someone needs to do something operational, such as:
 
-The most important sections are **Command Center**, **Task Templates**, **Automations**, **Reports**, **Expenses**, and **Providers**.
+- clean after checkout
+- inspect before check-in
+- replace a broken item
+- restock amenities
+- follow up on a guest issue
+- check damage or maintenance
+- assign a provider job
+- prepare for an owner stay
 
----
+If the same work repeats often, create a [task template](/platform-guides/create-task-templates-and-checklists/) first, then attach that template when creating the task.
 
-## Start in the Command Center
+## Open the Tasks Page
 
-Go to **Operations → Command Center**.
+1. Click **Operations** in the left sidebar.
+2. Click **Tasks**.
+3. Use **List** view for daily work or **Map** view when location matters.
+4. Use the **Active**, **Expired**, and **Completed** tabs to understand status.
+5. Click **New Task**.
 
-This is the daily view for open work. It brings together normal tasks and service-booking work so you can scan what is active, overdue, completed, assigned, unassigned, or needing attention.
+![Operations Tasks page with search, Active, Expired, Completed tabs, List and Map view, team progress, and New Task button](/uploads/create-and-assign-tasks/02-tasks-page.png)
 
-![Operations Command Center showing active tasks, service bookings, search, filters, tabs, team counts, and the New Task button](/screenshots/create-and-assign-tasks/team-ops-command-center.png)
+The right-side team panel helps managers quickly see who has open work and who may need follow-up.
 
-From the Command Center you can:
+## Create a Task
 
-- search tasks and service bookings
-- switch between **All**, **Tasks**, and **Services**
-- filter by date
-- view active, expired, and completed work
-- open a task detail page
-- switch to map view when task locations matter
-- assign a service booking
-- create a new manual task
-- filter work by team member using the team list
+In the **Create New Task** modal, add the operational context before assigning the work.
 
-This is the best screen for daily standups, same-day turnover planning, and checking whether anything is slipping before a guest arrives.
+![Create New Task modal showing job template, title, description, assignee, priority, entity type, due date, start time, and tags](/uploads/create-and-assign-tasks/03-create-task-modal.png)
 
----
+Complete the main fields:
 
-## Create a Manual Task
-
-Use a manual task when something needs a clear owner and due date.
-
-1. Go to **Operations → Command Center**.
-2. Click **New Task**.
-3. Add a short, action-based title.
-4. Add a description with the context the assignee needs.
-5. Assign the task to a team member, or assign it to an external provider.
-6. Set priority: **Low**, **Medium**, **High**, **Urgent**, or **Emergency**.
-7. Set the due date and optional start time.
-8. Link the task to the right entity when useful:
-   - **Listing**
-   - **Booking**
-   - **Customer**
-   - **Quote**
-   - **Service**
-9. Add tags if you want easier filtering later.
-10. Attach reference photos or videos if the assignee needs visual context.
-11. Select a task template if this task should include a checklist.
-12. Create the task.
-
-![Create New Task modal showing title, task template, assignee, priority, related booking, due date, start time, and reference media](/screenshots/create-and-assign-tasks/create-task-modal.png)
-
-Good task titles are specific. **Replace pool pump filter before Friday check-in** is much easier to act on than **Pool issue**.
-
----
-
-## Assign Tasks to a Team Member or Provider
-
-A task can be assigned to:
-
-- a team member, when the work is handled internally
-- an external provider, when the job is outsourced
-
-Provider assignment is useful for maintenance, specialist repairs, contractor work, and anything where you need a budget or invoice review.
-
-When assigning a provider, you can add:
-
-- provider name
-- budget
-- currency
-- invoice review requirement
-
-If invoice review is requested, the provider job can be tracked separately from normal internal team work, so the operational task and cost approval do not get lost in chat.
-
----
-
-## Use Task Templates for Turnovers and Repeatable Work
-
-Go to **Operations → Task Templates**.
-
-Task templates are reusable checklists. Create them once, then attach them to tasks whenever that work repeats.
-
-Use templates for:
-
-- checkout turnovers
-- pre-arrival inspections
-- deep cleans
-- linen and towel checks
-- pool or garden checks
-- maintenance inspections
-- restocking routines
-- owner-requested work
-- custom operating procedures
-
-![Task Templates screen showing a checkout turnover template with category, priority, estimated duration, default consumable cost, and checklist items](/screenshots/create-and-assign-tasks/task-template-checklist.png)
-
-Each task template can include:
-
-- name and description
-- category: **Cleaning**, **Maintenance**, **Inspection**, or **Custom**
-- default priority
-- estimated duration
-- default consumable cost
-- checklist items
-
-Checklist items can be:
-
-| Checklist Type | Use It For |
+| Field | What to Add |
 | --- | --- |
-| **Checkbox** | Simple completion steps. |
-| **Text Item** | Instructions or written responses. |
-| **Photo Required** | Proof of setup, damage, cleaning, or repair. |
-| **Before & After Photo** | Maintenance jobs, cleaning proof, or issue resolution. |
-| **Count Item** | Towels, keys, amenities, inventory, supplies. |
-| **Yes / No** | Binary checks such as "AC working?" or "Safe locked?" |
-| **Score 1-10** | Quality checks and inspection ratings. |
-| **Video** | Moving proof such as appliance noise, leaks, or walkthroughs. |
-| **Reference** | Photos, videos, or notes showing the expected standard. |
-| **Section Divider** | Group long checklists into clear sections. |
+| **Job Template** | Optional. Use this when the task should include a saved checklist. |
+| **Title** | A short action-based title, such as **Prepare Villa Luna for 3 PM check-in**. |
+| **Description** | The details the assignee needs before starting. |
+| **Assign To** | A team member or provider responsible for the work. |
+| **Priority** | Use **Urgent** or **Emergency** only when it changes the order of work. |
+| **Entity Type** | Link the task to a listing, booking, customer, quote, or service when relevant. |
+| **Due Date** | The deadline for completion. |
+| **Start Time** | Optional, useful for cleaning windows, inspections, and provider visits. |
+| **Tags** | Optional labels such as urgent, follow-up, linen, pool, or maintenance. |
 
-For turnovers, include the exact steps your team usually forgets: keys, remotes, bins, towels, amenities, AC, photos, locked doors, and final guest-ready inspection.
+Click **Create Task** once the work is clear enough for someone else to complete without extra messages.
 
----
+## Link Tasks to the Right Record
 
-## Attach a Template to a Task
+Linking a task helps the team understand why the work exists.
 
-When creating a task, choose a **Job Template** from the task form. The checklist is copied into that task.
+Use:
 
-This gives the assignee a clear completion path and gives managers proof that the right steps were followed.
+- **Listing** for property-level work, such as maintenance or inventory.
+- **Booking** for stay-specific work, such as checkout cleaning or guest arrival prep.
+- **Customer** for guest follow-up that is not tied to one booking.
+- **Quote** when work is connected to a quoted direct booking or service.
+- **Service** when the work supports a service booking or tour.
 
-Use this especially for:
+This makes task history easier to review later and keeps the operational trail connected to the customer or reservation.
 
-- every checkout turnover
-- every pre-arrival setup
-- recurring maintenance
-- inspections where photos are required
-- work that affects guest experience or owner trust
+## Assign to a Team Member or Provider
 
----
+Assign normal internal work to a team member.
 
-## Create Tasks Automatically
+Use provider assignment when the work is handled externally, such as:
 
-Go to **Operations → Automations** when the same work should happen after an event or on a schedule.
+- specialist repairs
+- pool, garden, or pest control
+- appliance servicing
+- contractor jobs
+- transport or service partners
 
-Automations can create tasks or notifications based on:
+For provider work, add cost expectations or invoice review notes in the task description. If a cost needs to be tracked formally, record it in [Operations Expenses](/platform-guides/manage-operations-expenses-and-owner-approvals/).
 
-- check-out
-- check-in
-- new booking
-- cancellation
-- recurring daily, weekly, or monthly schedules
-- service booking events, such as booked, confirmed, completed, cancelled, upcoming, reassigned, or rescheduled
+## Good Task Titles
 
-Useful examples:
+Good titles are specific and action-based.
 
-- create a checkout cleaning task after every checkout
-- create a pre-check-in preparation task before arrival
-- create a monthly maintenance inspection
-- notify staff before a checkout happens
+| Weak Title | Better Title |
+| --- | --- |
+| Pool issue | Replace pool pump filter before Friday check-in |
+| Clean villa | Checkout turnover for Villa Luna, booking #2041 |
+| Guest request | Deliver baby cot to Villa Sari before 2 PM |
+| Maintenance | Inspect AC leak in master bedroom and upload photo |
 
-When the work has a standard process, pair the automation with a task template.
+The goal is simple: the assignee should know what success looks like before opening the task.
 
----
+## Best Practice Flow
 
-## Review Issues in Reports
-
-Go to **Operations → Reports** to review problems raised from completed checklists.
-
-Reports are useful when a task was technically completed, but the assignee flagged something that needs follow-up: damage, missing inventory, a failed inspection point, a maintenance issue, or an unexpected cost.
-
-In Reports, you can:
-
-- review flagged issues
-- see which task and property the issue came from
-- resolve or unresolve individual issues
-- accept and close the report once everything has been handled
-- review expenses recorded during task completion
-
-This helps managers separate "the turnover is done" from "there is nothing else to fix."
-
----
-
-## Track Expenses From Operations
-
-Go to **Operations → Expenses**.
-
-Use Expenses to record costs that belong to a property, task, or service booking. This is where receipts, categories, recurring expenses, approval status, and owner approvals come together.
-
-![Operations Expenses screen showing expense rows with category, listing, amount, source, internal status, and owner approval status](/screenshots/create-and-assign-tasks/expenses-owner-approval.png)
-
-For each expense, you can record:
-
-- date
-- description
-- amount and currency
-- category
-- listing
-- vendor
-- payment method
-- recurring status
-- tax-deductible status and tax category
-- notes
-- receipts
-- link to a **Task** or **Service booking**
-- internal approval status
-- owner approval request for managed properties
-
-You can filter expenses by category, listing, date range, status, and source.
-
----
-
-## Manage Expense and Owner Approval
-
-Expenses can be reviewed internally with statuses such as:
-
-- **Pending review**
-- **Approved**
-- **Rejected**
-
-For managed properties, you can also request owner approval. Owner approval statuses include:
-
-- **No approval requested**
-- **Sent for approval**
-- **Owner approved**
-- **Owner denied**
-
-If an expense has been sent for owner approval, the approved details are protected. If the amount, vendor, category, or description needs to change, create a new expense instead of editing the approved record.
-
-This is important for owner trust: the owner should be approving the exact cost record you intend to charge or deduct.
-
----
-
-## Suggested Operating Flow
-
-For a strong first setup, use this order:
-
-1. Create your main **Task Templates** first.
-2. Start with a checkout turnover checklist and a pre-arrival inspection checklist.
-3. Create a manual task from the Command Center and attach the right template.
-4. Link the task to the booking or listing.
-5. Assign it to a team member or provider.
-6. Add reference photos or videos for expected standards.
-7. Review completed tasks and flagged issues in Reports.
-8. Record or approve related expenses.
-9. For managed properties, request owner approval where needed.
-10. Once the process is stable, automate the recurring task creation.
-
-This keeps your operating system simple: templates define the standard, tasks assign the work, reports catch exceptions, and expenses keep the financial trail clean.
-
----
-
-## Good Habits
-
-- Use task templates for anything repeated more than twice.
-- Link tasks to bookings or listings whenever possible.
-- Use photo proof for turnovers, inspections, and maintenance.
-- Add reference media when "done correctly" is visual.
-- Use provider assignment for outsourced work instead of tracking it in messages.
-- Add receipts to expenses while the context is fresh.
-- Request owner approval before work becomes a dispute.
-- Review expired tasks daily.
-- Keep task titles action-based and specific.
-
----
+1. Create reusable templates for repeatable work.
+2. Create or automate the task.
+3. Link it to the booking or listing.
+4. Assign the right person.
+5. Add the due date and priority.
+6. Attach photos or instructions if needed.
+7. Track it from **Active**, **Expired**, and **Completed**.
+8. Review any issues in **Operations → Reports**.
+9. Add expenses or owner approvals where needed.
 
 ## Troubleshooting
 
-### I cannot see the Operations sections
-Check your role permissions. Some users may only see work assigned to them, while admins and account owners can manage templates, expenses, providers, and reports.
+### I cannot see Operations or Tasks
 
-### My task template is not available when creating a task
-Check that the template is active and saved. If it was created as a draft or disabled, activate it before using it.
+Your role may not have access. Staff users may only see their assigned work, while account admins and managers can usually see broader Operations tools.
 
-### A task needs costs added
-Add the cost from **Operations → Expenses** and link it to the task. If the worker submitted consumable costs during completion, review them from Reports or Expenses.
+### The assignee is missing
 
-### The owner approval option is missing
-Owner approval only applies where the expense is linked to a managed property with owner reporting enabled. Check the listing's management setup first.
+Check that the person is active in your team and has the right role. If the work is for an external resource, confirm the provider has been added.
 
-### A provider invoice needs review
-Assign the task to an external provider and enable invoice review. Use Expenses to approve or reject the final cost record.
+### The task template is missing
 
----
+Make sure the template is active and saved under **Operations → Job Templates**.
+
+### The task is linked to the wrong booking or listing
+
+Open the task and update the linked entity if editing is still available. If the work has already been completed and reported, create a follow-up task with the correct link.
 
 ## Related Articles
 
-- [Set Up the Owner Portal for Managed Properties](/platform-guides/set-up-owner-portal-for-managed-properties/)
-- [How to Track Task Progress & Completion](/platform-guides/track-task-progress/)
-- [How to Set Up Recurring Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
-- [Managing Partial Payments and Deposits](/platform-guides/partial-payments-and-deposits/)
-- [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/)
+- [Create Task Templates and Operational Checklists](/platform-guides/create-task-templates-and-checklists/)
+- [Track Task Progress and Completions](/platform-guides/track-task-progress/)
+- [Set Up Operations Automations and Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
+- [Manage Operations Expenses and Owner Approvals](/platform-guides/manage-operations-expenses-and-owner-approvals/)
+- [Add Workforce Members and Share the Cleaner Portal](/platform-guides/add-workforce-members-and-share-cleaner-portal/)
+- [Add Team Members and Roles](/getting-started/add-team-members-and-roles/)

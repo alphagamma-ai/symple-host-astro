@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Cleaner staff portal task list</title>
+  <desc id="desc">Mobile-style staff portal showing a cleaner's assigned tasks, tabs for To do, Overdue and Done, property address link, checklist progress and task detail actions.</desc>
+  <rect width="900" height="1200" fill="#f8fafc"/>
+  <rect x="230" y="60" width="440" height="1080" rx="44" fill="#111827"/>
+  <rect x="248" y="82" width="404" height="1036" rx="32" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="248" y="82" width="404" height="118" rx="32" fill="#faf5ff"/>
+    <text x="284" y="134" font-size="15" font-weight="700" fill="#8e31ec">CP Villa Staff Portal</text>
+    <text x="284" y="164" font-size="24" font-weight="800" fill="#111827">Hi, Maria</text>
+    <text x="284" y="188" font-size="13" fill="#667085">Your assigned work for today</text>
+    <rect x="284" y="226" width="84" height="34" rx="17" fill="#8e31ec"/>
+    <text x="308" y="248" font-size="13" font-weight="800" fill="#fff">To do</text>
+    <rect x="378" y="226" width="94" height="34" rx="17" fill="#fee2e2"/>
+    <text x="397" y="248" font-size="13" font-weight="800" fill="#dc2626">Overdue</text>
+    <rect x="482" y="226" width="70" height="34" rx="17" fill="#ecfdf3"/>
+    <text x="506" y="248" font-size="13" font-weight="800" fill="#039855">Done</text>
+    <rect x="284" y="292" width="332" height="52" rx="13" fill="#f4eaff" stroke="#d8b4fe"/>
+    <circle cx="304" cy="318" r="5" fill="#8e31ec"/>
+    <text x="324" y="312" font-size="17" font-weight="800" fill="#6b21a8">Today</text>
+    <text x="324" y="334" font-size="13" fill="#8e31ec">Tuesday, Aug 18 · 2 tasks</text>
+    <rect x="284" y="370" width="332" height="180" rx="18" fill="#fff" stroke="#e5e7eb"/>
+    <circle cx="310" cy="398" r="5" fill="#f97316"/>
+    <text x="328" y="402" font-size="13" font-weight="800" fill="#7c3aed">11:00 AM - 2:00 PM</text>
+    <text x="304" y="436" font-size="18" font-weight="800" fill="#111827">Checkout turnover</text>
+    <text x="304" y="461" font-size="13" fill="#667085">Harbour View Villa · Cleaning</text>
+    <rect x="304" y="482" width="252" height="8" rx="4" fill="#f3f4f6"/>
+    <rect x="304" y="482" width="144" height="8" rx="4" fill="#8e31ec"/>
+    <text x="304" y="514" font-size="12" font-weight="700" fill="#667085">4/7 checklist items complete</text>
+    <text x="566" y="429" font-size="28" fill="#d1d5db">›</text>
+    <rect x="284" y="570" width="332" height="54" rx="14" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="306" y="604" font-size="13" font-weight="700" fill="#1d4ed8">Open address in Google Maps</text>
+    <rect x="284" y="650" width="332" height="244" rx="18" fill="#fff" stroke="#e5e7eb"/>
+    <text x="304" y="686" font-size="16" font-weight="800" fill="#111827">Task detail</text>
+    <text x="304" y="714" font-size="13" fill="#667085">Cleaner can update checklist items, add photos, report issues, and submit completion proof.</text>
+    <g font-size="13" fill="#344054">
+      <rect x="304" y="742" width="292" height="38" rx="10" fill="#f8fafc"/>
+      <text x="322" y="766">✓ Strip beds and collect linen</text>
+      <rect x="304" y="790" width="292" height="38" rx="10" fill="#f8fafc"/>
+      <text x="322" y="814">Upload bathroom after photo</text>
+      <rect x="304" y="838" width="292" height="38" rx="10" fill="#fff7ed"/>
+      <text x="322" y="862">! Flag damage or missing items</text>
+    </g>
+    <rect x="284" y="924" width="332" height="54" rx="14" fill="#8e31ec"/>
+    <text x="380" y="958" font-size="15" font-weight="800" fill="#fff">Mark complete</text>
+    <text x="294" y="1036" font-size="12" fill="#98a2b3">Updates sync back to Operations so managers can track progress from Command Center.</text>
+  </g>
+</svg>

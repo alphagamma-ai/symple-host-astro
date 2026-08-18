@@ -54,7 +54,10 @@ const walkthroughs = await Promise.all(
               <source src={w.data.videoFile} type="video/mp4" />
             </video>
           ) : (
-            <p class="empty">Video coming soon.</p>
+            <div class="coming-soon">
+              {w.data.poster && <img src={w.data.poster} alt="" loading="lazy" />}
+              <span>Video coming soon.</span>
+            </div>
           )}
         </div>
         <div class="walkthrough-meta">
@@ -122,6 +125,35 @@ const walkthroughs = await Promise.all(
       background: #000;
       border-radius: 10px;
       display: block;
+    }
+    .coming-soon {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--primary-50);
+      border-radius: 10px;
+      border: 1px dashed var(--primary-200);
+    }
+    .coming-soon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .coming-soon span {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--heading-color);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.45rem 0.75rem;
+      box-shadow: 0 6px 18px rgba(38, 17, 63, 0.1);
     }
 
     .walkthrough-meta {

@@ -20,7 +20,7 @@ const sortedWalkthroughs = walkthroughs.sort((a, b) => (a.data.order ?? 0) - (b.
   <header class="page-header">
     <p class="eyebrow">Watch and learn</p>
     <h1 class="page-title">Videos</h1>
-    <p class="page-desc">Start with the welcome video, then explore focused product walkthroughs by area.</p>
+    <p class="page-desc">Start with the welcome video, then explore short product walkthroughs by module. New demo slots can be replaced with final MP4 or YouTube links as they are recorded.</p>
   </header>
 
   {sortedTutorials.length > 0 && (
@@ -34,7 +34,7 @@ const sortedWalkthroughs = walkthroughs.sort((a, b) => (a.data.order ?? 0) - (b.
 
   {sortedWalkthroughs.length > 0 && (
     <section class="section">
-      <h2 class="section-heading">Product Walkthroughs</h2>
+      <h2 class="section-heading">1-minute product walkthroughs</h2>
       <div class="walkthrough-grid">
         {sortedWalkthroughs.map((video) => {
           const thumb = video.data.youtubeId ? `https://i.ytimg.com/vi/${video.data.youtubeId}/hqdefault.jpg` : video.data.poster;
