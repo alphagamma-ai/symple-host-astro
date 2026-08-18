@@ -15,7 +15,7 @@ draft: false
 
 The **Operations** module is the day-to-day work hub for your properties. It helps your team manage tasks, repeatable checklists, staff workload, automations, issue reports, expenses, and provider work from one place.
 
-![Operations sidebar expanded showing Tasks, Job Templates, Workforce, Automations, and Reports](/uploads/create-and-assign-tasks/01-sidebar-operations.png)
+![Operations Command Center showing active, expired, completed, and team task counts](/screenshots/create-and-assign-tasks/team-ops-command-center.png)
 
 Use Operations when you need to coordinate:
 
@@ -42,6 +42,19 @@ Use Operations when you need to coordinate:
 | **Expenses** | Record task or property costs, attach receipts, and manage approval status. |
 | **Providers** | Track external contractors or vendors used for operational work. |
 
+![Create New Task modal showing job template, title, description, assignee, priority, related entity, due date, start time, and tags](/uploads/create-and-assign-tasks/03-create-task-modal.png)
+
+Use the **Command Center** for the daily view, then open the right area depending on what you are managing:
+
+- **Tasks** for work that needs an owner and due date
+- **Job Templates** for repeatable checklists
+- **Workforce** for cleaners and operational team members
+- **Automations** for recurring or event-based task creation
+- **Reports** for issues raised during completion
+- **Expenses** for receipts, provider costs, and owner approval
+
+![Task template checklist showing reusable turnover steps and proof requirements](/screenshots/create-and-assign-tasks/task-template-checklist.png)
+
 ## Recommended Setup Order
 
 For a new property or team, set up Operations in this order:
@@ -58,6 +71,8 @@ For a new property or team, set up Operations in this order:
 
 This keeps the setup practical: define the standard first, assign real work second, then automate once the process is reliable.
 
+![Workforce member detail showing the Staff Portal link controls](/screenshots/operations-workforce/01-workforce-member-staff-portal.svg)
+
 ## Daily Operating Rhythm
 
 A simple daily rhythm is:
@@ -69,6 +84,8 @@ A simple daily rhythm is:
 5. Open completed tasks that need review.
 6. Review **Reports** for flagged issues.
 7. Add or approve Expenses while receipts and context are fresh.
+
+![Operations Expenses screen showing expense rows, source, approval status, and owner approval workflow](/screenshots/create-and-assign-tasks/expenses-owner-approval.png)
 
 ## What Operations Is Not
 
