@@ -17,8 +17,6 @@ Use **Workforce** when cleaners, maintenance staff, inspectors, or other operati
 
 The manager stays in SympleHost. The cleaner can use a staff portal link to open their assigned tasks without needing the full host workspace.
 
-![Workforce member detail showing the Staff Portal link controls](/screenshots/operations-workforce/01-workforce-member-staff-portal.svg)
-
 ## When to Use This
 
 Set up a workforce member when you want to:
@@ -73,8 +71,6 @@ The Staff Portal link can also be revoked from the same card if the person shoul
 ## What the Cleaner Sees
 
 The cleaner portal is a focused mobile-friendly view of assigned work.
-
-![Cleaner staff portal showing assigned tasks, checklist progress, address link, and completion actions](/screenshots/operations-workforce/02-cleaner-staff-portal.svg)
 
 Depending on the task setup, the cleaner can see:
 

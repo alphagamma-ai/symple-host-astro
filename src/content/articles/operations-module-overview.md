@@ -71,8 +71,6 @@ For a new property or team, set up Operations in this order:
 
 This keeps the setup practical: define the standard first, assign real work second, then automate once the process is reliable.
 
-![Workforce member detail showing the Staff Portal link controls](/screenshots/operations-workforce/01-workforce-member-staff-portal.svg)
-
 ## Daily Operating Rhythm
 
 A simple daily rhythm is:
