@@ -19,6 +19,8 @@ Services are bookable products or operational jobs that sit outside the accommod
 
 A service can have its own public checkout link, multiple rates, add-ons, availability rules, capacity, resources, workforce assignments, service bookings, and automation triggers.
 
+Think of Services as a mini booking system inside SympleHost. It is not just a place to list add-ons. It can help you sell the service, manage who delivers it, control availability, collect payment, view bookings on a calendar, and plan workforce coverage around those bookings.
+
 The important thing is to set up the service based on how it is delivered:
 
 | Service Type | Best Setup |
@@ -39,6 +41,46 @@ The important thing is to set up the service based on how it is delivered:
 - You assign guides, drivers, therapists, chefs, cleaners, or other team members to service bookings.
 - You run single-day or multi-day group tours with fixed dates and limited seats.
 - You want service bookings to appear in calendar, workforce, bookings, team, payment, and automation workflows.
+
+---
+
+## What You Can Manage in Services
+
+The Services module can cover several workflows that often sit in different spreadsheets or WhatsApp chats:
+
+| Area | What You Can Do |
+|------|-----------------|
+| **Service catalogue** | Create guest-facing services with descriptions, images, rates, add-ons, policies, and public checkout links. |
+| **Pricing and packages** | Offer flat-rate, per-person, per-unit, or group pricing with multiple package options. |
+| **Service calendar** | View service bookings by date, service, capacity, status, and availability. |
+| **Workforce calendar** | View service work by assigned staff member, identify conflicts, and manage shift coverage. |
+| **Work shifts** | Create weekly or one-off shifts for staff coverage even when there is no guest booking yet. |
+| **Departures** | Run fixed-date tours, retreats, cohorts, or multi-day services with seat capacity and rosters. |
+| **Resources** | Control availability around limited assets such as vehicles, spa rooms, equipment, boats, or rooms. |
+| **Service bookings** | Create, confirm, edit, cancel, assign, and track individual service bookings. |
+| **Payments** | Collect payment through checkout links or payment links when your payment gateway is connected. |
+| **Automations** | Trigger reminders, team notifications, preparation tasks, or follow-ups around service events. |
+
+If a service is simple, you may only need a basic rate and schedule. If it is operationally complex, use workforce, resources, shifts, and departures so the service can be managed like a real booking product.
+
+---
+
+## Service Module Workflow
+
+A good setup usually follows this order:
+
+| Step | Why It Matters |
+|------|----------------|
+| **1. Create the service** | Adds the guest-facing product and internal record. |
+| **2. Add rates and add-ons** | Defines what guests can buy and how pricing is calculated. |
+| **3. Choose the booking model** | Controls whether guests book time slots, request availability, arrange custom details, or join departures. |
+| **4. Set availability** | Prevents guests from booking dates, times, or capacities you cannot deliver. |
+| **5. Add resources or workforce** | Connects the service to the people or assets required to deliver it. |
+| **6. Publish or share the checkout link** | Makes the service available for guests or direct selling. |
+| **7. Manage bookings from the calendar** | Gives the team a daily view of service demand, capacity, and assignments. |
+| **8. Use shifts and automations** | Keeps staff coverage and follow-up work from becoming manual coordination. |
+
+This is especially useful for businesses that sell both accommodation and guest experiences, because the services sit beside your rentals instead of being managed in a separate tool.
 
 ---
 
@@ -230,6 +272,53 @@ Assign resources to services when bookings should only be available if at least 
 
 ---
 
+## Services Calendar
+
+Use the Services calendar when you want to work by date instead of by service card.
+
+The calendar helps you answer questions like:
+
+- What services are booked today?
+- Which service days still have capacity?
+- Which bookings are pending payment or confirmation?
+- Which bookings do not have a staff member assigned yet?
+- Are there any conflicts between service bookings, workforce schedules, and blocked times?
+- Do we need to block a day, reduce capacity, or add more staff coverage?
+
+The Services calendar is separate from the property calendar. Property calendar dates control accommodation availability. Services calendar dates control experiences, transfers, add-ons, tours, and other service bookings.
+
+### By Service View
+
+Use the **By service** view when you want to see demand and availability for each service.
+
+This is useful for:
+
+- checking how many bookings a service has on a date
+- seeing remaining capacity for scheduled services or departures
+- opening a service booking from the calendar
+- creating a new service booking manually
+- blocking a date for a service
+- reviewing payment and confirmation status
+- managing a service day when capacity or availability needs to change
+
+### By Workforce View
+
+Use the **By workforce** view when the main question is staff coverage.
+
+This is useful for:
+
+- seeing each staff member's assigned service bookings
+- spotting unassigned service bookings
+- checking whether a person is already booked
+- finding overlap conflicts before assigning work
+- rescheduling or reassigning a service booking
+- reviewing off-shift hours, blocked times, and time off
+- planning who is covering a tour desk, service point, or operations location
+
+If your service depends on people, the workforce calendar is often the fastest place to make sure the booking is deliverable.
+
+---
+
 ## Manage Service Workforce
 
 Use **Services → Workforce** to invite and manage the people who deliver services.
@@ -300,6 +389,18 @@ Shifts allocate a workforce member to a location without creating a guest servic
 
 You can edit active shift schedules or cancel future shifts while keeping cancelled schedules for reference.
 
+Use shifts when you need coverage, not a guest booking. Use service bookings when a guest has requested or purchased a specific service.
+
+Examples:
+
+| Scenario | Use |
+|----------|-----|
+| A driver is rostered at the airport desk every Friday | **Weekly shift** |
+| A tour guide is covering a special event for one day | **One-off shift** |
+| A guest books a paid airport transfer | **Service booking** |
+| A chef is assigned to a private dinner booking | **Service booking assignment** |
+| A staff member is unavailable for a day | **Workforce block or time off** |
+
 ---
 
 ## Step 4: Policies
@@ -360,6 +461,22 @@ When you create a service booking manually, select the guest, date/time, rate, g
 
 For departure services, the booking is tied to a specific departure date and, if enabled, a specific track or group.
 
+### Service Booking Lifecycle
+
+Most service bookings move through a simple lifecycle:
+
+| Stage | What Happens |
+|-------|--------------|
+| **Requested or created** | The booking is created by a guest, by the team, or from the calendar. |
+| **Pending confirmation** | The team may need to confirm availability, assignment, or payment. |
+| **Confirmed** | The service is expected to happen and should be visible to the relevant team. |
+| **Assigned** | A workforce member or provider is responsible for delivery. |
+| **Paid or partially paid** | Payment status updates based on the payment link or recorded payment. |
+| **Completed** | The service has been delivered and any follow-up work can be triggered. |
+| **Cancelled or declined** | The booking no longer needs to be delivered, but the record remains for history. |
+
+For services that need team approval, do not treat a booking as operationally ready until confirmation, payment, and assignment are clear.
+
 ### Blocking Service Dates
 
 Use **Block day** when a service should not be bookable on a specific date or range.
@@ -393,6 +510,25 @@ If a booking has already taken payment or needs payment collection, use the paym
 
 ---
 
+## Common Service Setups
+
+Use these patterns as a starting point:
+
+| Service | Recommended Setup |
+|---------|-------------------|
+| **Airport transfer** | Scheduled or on-demand service, rates for car/van/premium vehicle, driver workforce, vehicle resource, payment link. |
+| **Private chef dinner** | On-demand or custom arrangement, package rates, add-ons for drinks or extra courses, chef workforce, guest requirements. |
+| **Spa or massage** | Scheduled time slots, therapist workforce, room resource, buffer time between bookings. |
+| **Local day tour** | Scheduled time slots or departures, per-person pricing, guide workforce, vehicle/resource capacity. |
+| **Multi-day retreat** | Departures, start/end dates, seat capacity, deposits, roster, guest requirements. |
+| **Equipment rental** | Per-unit pricing, equipment resource, pickup/return instructions, block dates for maintenance. |
+| **Extra cleaning** | On-demand request or scheduled slot, cleaning workforce, checklist task or operations follow-up. |
+| **Custom event** | Custom arrangement, quote first if needed, internal notes, manual confirmation, payment link. |
+
+If the guest should pay immediately, use a published checkout flow. If the team needs to confirm details first, use on-demand, custom arrangement, or a quote workflow before taking final payment.
+
+---
+
 ## Automations for Services
 
 Service bookings can be used in automated workflows. Depending on your setup, automations can trigger when a service booking is created, confirmed, completed, cancelled, reassigned, rescheduled, or coming up soon.
@@ -406,6 +542,20 @@ Common examples:
 - Alert the team when a service booking is cancelled or reassigned.
 
 Keep service automations separate from accommodation automations so the wording, timing, and responsibilities stay clear.
+
+---
+
+## Operational Tips
+
+- Keep service names guest-friendly. Internal shorthand makes calendars harder for the team to read.
+- Use separate rates instead of creating duplicate services when the product is the same but the package or price changes.
+- Use add-ons for optional extras, not for core parts of the service.
+- Add resources when availability depends on a limited physical asset.
+- Add workforce when a person needs to deliver or be assigned to the booking.
+- Use shifts for coverage planning and service bookings for actual guest purchases or requests.
+- Review the services calendar daily if services are a meaningful revenue stream.
+- Keep departure capacity updated before marketing fixed-date tours or retreats.
+- Connect payments before sharing checkout links publicly.
 
 ---
 
