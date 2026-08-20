@@ -88,6 +88,11 @@ if (hasUngrouped) {
   platformColumns[0].push(UNGROUPED);
 }
 
+const getSectionAnchor = (sectionKey: string) =>
+  sectionKey === UNGROUPED
+    ? 'section-other'
+    : `section-${sectionKey.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+
 function faqAnswerHtml(md: string): string {
   let html = md
     .replace(/&/g, '&amp;')
@@ -217,7 +222,7 @@ const faqMeta = {
         {orderedSectionKeys.map((sectionKey) => {
           const sectionArticles = groups.get(sectionKey)!;
           return (
-            <a href={`#section-${sectionKey.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="section-chip">
+            <a href={`#${getSectionAnchor(sectionKey)}`} class="section-chip">
               <span>{getSectionTitle(sectionKey, locale)}</span>
               <strong>{sectionArticles.length}</strong>
             </a>
@@ -236,14 +241,17 @@ const faqMeta = {
           <div class="platform-column">
             {column.map((sectionKey) => {
               const sectionArticles = groups.get(sectionKey)!;
-              const sectionId = sectionKey === UNGROUPED
-                ? 'section-other'
-                : `section-${sectionKey.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+              const sectionId = getSectionAnchor(sectionKey);
               const sectionTitle = sectionKey === UNGROUPED ? 'Other guides' : getSectionTitle(sectionKey, locale);
               return (
                 <section class="section-group platform-section" id={sectionId}>
                   <div class="platform-section-head">
-                    <h2 class="section-heading">{sectionTitle}</h2>
+                    <h2 class="section-heading">
+                      <a href={`#${sectionId}`} class="section-anchor" aria-label={`Link to ${sectionTitle}`}>
+                        <span>{sectionTitle}</span>
+                        <span class="section-anchor-mark" aria-hidden="true">#</span>
+                      </a>
+                    </h2>
                     <span class="section-count">{sectionArticles.length} guides</span>
                   </div>
                   <div class="articles">
@@ -402,6 +410,28 @@ const faqMeta = {
       font-size: 0.92rem;
       text-transform: none;
       letter-spacing: 0;
+    }
+    .section-anchor {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      color: inherit;
+      text-decoration: none;
+    }
+    .section-anchor-mark {
+      color: var(--muted-foreground);
+      font-size: 0.82em;
+      opacity: 0;
+      transition: opacity 0.15s, color 0.15s;
+    }
+    .section-anchor:hover,
+    .section-anchor:focus-visible {
+      color: var(--primary);
+    }
+    .section-anchor:hover .section-anchor-mark,
+    .section-anchor:focus-visible .section-anchor-mark {
+      opacity: 1;
+      color: var(--primary);
     }
     .section-count {
       color: var(--muted-foreground);
