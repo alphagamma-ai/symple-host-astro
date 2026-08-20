@@ -86,16 +86,27 @@ Go to **Settings → Billing** to view your current plan, upgrade, or manage you
 ## Direct Bookings & Websites
 
 ### Can I build a booking website with SympleHost?
-Yes. Go to **Websites** in the sidebar and click **Create** to build a direct booking website. Guests can browse your listings and book directly — no OTA commission.
+Yes. Go to **Websites** in the sidebar and click **Create Website** to build a branded direct booking website. Guests can browse your listings and services, then book directly when those offerings are published and direct booking is enabled.
+
+→ See: *Create and Publish a Direct Booking Website*
 
 ### Can I customize my website's look and feel?
-Yes. Go to **Settings → Style Guide** to configure your brand colors, typography, logo, and component styles. These apply to your direct booking website and guest-facing pages.
+Yes. Open **Websites**, select your site, then use **Website Settings** or **Edit site** to update business details, images, contact details, SEO, selected listings and services, templates, colours, and fonts.
+
+→ See: *Customize Website Branding and Content*
 
 ### How do guests pay on my direct booking website?
 Through Stripe. You need to connect Stripe in **Settings → Payment Gateway** before guests can pay on your website.
 
+→ See: *Set Up Checkout Pages and Direct Booking Links*
+
+### Can I add SympleHost booking tools to my existing website?
+Yes. Use the **Widgets** tab in **Websites** to copy search or calendar embed code for your existing website. Widgets are useful if you already have a public website and want SympleHost to power availability and checkout.
+
+→ See: *Embed Booking Widgets on Your Existing Website*
+
 ### Can I use my own domain name?
-SympleHost supports custom subdomains (e.g. yourname.symplehost.ai). For custom domain setup, check with SympleHost support.
+SympleHost supports self-serve website subdomains. For custom domain setup, check with SympleHost support so the team can confirm what is available for your account.
 
 ### What are direct booking settings?
 Go to **Settings → Direct Bookings** to configure booking behavior — things like booking confirmation flow, minimum notice period, and other rules for direct reservations.
