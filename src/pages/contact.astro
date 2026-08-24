@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contact SympleHost"
+  description="How to reach SympleHost support, partners, and the knowledge base team."
+>
+  <article class="prose-page">
+    <h1>Contact SympleHost</h1>
+    <p>
+      Use the channels below when you need help with your SympleHost workspace, Partner API access, or
+      documentation on this knowledge base. We respond in English; Japanese and Indonesian support is
+      available for common product questions through localized articles and the in-app experience.
+    </p>
+    <h2>Customer support</h2>
+    <p>
+      Email <a href="mailto:support@symplehost.ai">support@symplehost.ai</a> for account setup,
+      channel connections, messaging automation, pricing, operations, billing questions, and bug
+      reports. Include your workspace name, listing or reservation identifiers when relevant, and
+      steps to reproduce so we can investigate faster.
+    </p>
+    <h2>Partners and API</h2>
+    <p>
+      For Partner API access, integration design, and commercial partnership inquiries, email
+      <a href="mailto:partners@symplehost.ai">partners@symplehost.ai</a>. Technical reference lives at
+      <a href="/partner-api.html">/partner-api.html</a> and
+      <a href="/partner-api/openapi.yaml">/partner-api/openapi.yaml</a>.
+    </p>
+    <h2>Documentation feedback</h2>
+    <p>
+      If an article is outdated, unclear, or missing a step, write to
+      <a href="mailto:support@symplehost.ai">support@symplehost.ai</a> with the page URL and what you
+      expected. Agents can also orient from <a href="/llms.txt">/llms.txt</a> and the
+      <a href="/sitemap-index.xml">sitemap</a>.
+    </p>
+    <h2>Postal contact</h2>
+    <p>
+      SympleHost<br />
+      Singapore<br />
+      (Online product — primary contact is email)
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose-page { max-width: 42rem; margin: 0 auto; }
+  .prose-page h1 { font-size: 1.75rem; color: var(--heading-color); margin-bottom: 1rem; }
+  .prose-page h2 { font-size: 1.2rem; color: var(--heading-color); margin: 1.5rem 0 0.5rem; }
+  .prose-page p, .prose-page li { color: var(--foreground); line-height: 1.65; margin-bottom: 0.85rem; }
+  .prose-page a { color: var(--primary); }
+</style>

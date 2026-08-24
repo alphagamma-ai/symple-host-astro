@@ -1,0 +1,14 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://help.symplehost.ai/openapi.json",
+      "service-desc": [
+        { "href": "https://help.symplehost.ai/openapi.json", "type": "application/openapi+json" }
+      ],
+      "service-doc": [
+        { "href": "https://help.symplehost.ai/partner-api.html", "type": "text/html" },
+        { "href": "https://help.symplehost.ai/developers", "type": "text/html" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Developers"
+  description="SympleHost Partner API documentation, OpenAPI specification, authentication, and integration quickstart for developers and agents."
+>
+  <article class="prose-page">
+    <h1>SympleHost Developers</h1>
+    <p>
+      Build integrations against the <strong>SympleHost Partner API</strong>. Pull reservations,
+      transactions, and unified-inbox messages; link properties; and automate partner workflows with
+      scoped API keys.
+    </p>
+
+    <h2>Quickstart</h2>
+    <ol>
+      <li>Read the <a href="/partner-api.html">Partner API HTML docs</a>.</li>
+      <li>Load the machine-readable contract: <a href="/openapi.json">/openapi.json</a> (also <a href="/partner-api/openapi.yaml">YAML</a>).</li>
+      <li>Authenticate with HTTP Basic for read-only non-sensitive scopes, or HMAC-SHA256 for sensitive scopes.</li>
+      <li>Request <code>Accept: application/vnd.symplehost.partner.v1+json</code>.</li>
+      <li>Paginate with opaque keyset cursors (<code>meta.next_cursor</code>).</li>
+    </ol>
+
+    <h2>OpenAPI</h2>
+    <ul>
+      <li><a href="/openapi.json"><code>/openapi.json</code></a> — primary JSON contract</li>
+      <li><a href="/api/openapi.json"><code>/api/openapi.json</code></a> — alternate path</li>
+      <li><a href="/partner-api/openapi.yaml"><code>/partner-api/openapi.yaml</code></a> — YAML source</li>
+      <li><a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a> — API catalog</li>
+    </ul>
+
+    <h2>Base URLs</h2>
+    <ul>
+      <li>Production: <code>https://platform.symplehost.ai</code></li>
+      <li>Development: <code>https://platform-dev.symplehost.ai</code></li>
+    </ul>
+
+    <h2>Errors</h2>
+    <p>
+      API errors use a JSON envelope with stable machine <code>code</code> values. Example problem
+      detail: <a href="/api/v1/errors/example"><code>/api/v1/errors/example</code></a>.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Partners: <a href="mailto:partners@symplehost.ai">partners@symplehost.ai</a> ·
+      Support: <a href="mailto:support@symplehost.ai">support@symplehost.ai</a>
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose-page { max-width: 42rem; margin: 0 auto; }
+  .prose-page h1 { font-size: 1.75rem; color: var(--heading-color); margin-bottom: 1rem; }
+  .prose-page h2 { font-size: 1.2rem; color: var(--heading-color); margin: 1.5rem 0 0.5rem; }
+  .prose-page p, .prose-page li { color: var(--foreground); line-height: 1.65; margin-bottom: 0.85rem; }
+  .prose-page ul, .prose-page ol { margin: 0.5rem 0 1rem 1.25rem; }
+  .prose-page a { color: var(--primary); }
+  .prose-page code { font-size: 0.9em; background: #f4f4f5; padding: 0.1em 0.35em; border-radius: 4px; }
+</style>

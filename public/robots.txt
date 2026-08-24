@@ -3,3 +3,5 @@ Allow: /
 Disallow: /admin/
 
 Sitemap: https://help.symplehost.ai/sitemap-index.xml
+
+# Agent discovery: https://help.symplehost.ai/llms.txt

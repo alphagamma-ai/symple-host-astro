@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="About the SympleHost Knowledge Base"
+  description="What the SympleHost Knowledge Base is, who it is for, and how it relates to the SympleHost product."
+>
+  <article class="prose-page">
+    <h1>About the SympleHost Knowledge Base</h1>
+    <p>
+      This site is the official help center for <strong>SympleHost</strong>, an AI co-host and
+      property management platform for short-term rentals. It publishes setup guides, feature
+      explanations, FAQs, webinars, and walkthroughs so hosts and operators can configure messaging,
+      channels, pricing, operations, and direct bookings without waiting on a support ticket.
+    </p>
+    <p>
+      Content is maintained for hosts running one listing and for operators managing larger portfolios
+      across Airbnb, Booking.com, Vrbo, Agoda, Expedia, Trip.com, and direct booking sites. Articles
+      are written in plain language, kept in sync with the product, and available in English with
+      localized paths for Japanese and Indonesian where translations exist.
+    </p>
+    <h2>Who this site is for</h2>
+    <ul>
+      <li>Hosts setting up SympleHost for the first time</li>
+      <li>Operations managers automating turnovers, tasks, and guest messaging</li>
+      <li>Partners and integrators reading the Partner API surface</li>
+      <li>AI agents retrieving documentation via HTML, markdown endpoints, or llms.txt</li>
+    </ul>
+    <h2>How this relates to the product</h2>
+    <p>
+      The knowledge base explains how SympleHost works. Live account data — reservations, inbox
+      threads, pricing rules, and tasks — lives in the SympleHost application and, where enabled, the
+      SympleHost MCP connector for AI assistants. Use this site for procedures and concepts; use the
+      product or MCP for account-specific state.
+    </p>
+    <p>
+      Product website: <a href="https://www.symplehost.ai">https://www.symplehost.ai</a><br />
+      Support: <a href="mailto:support@symplehost.ai">support@symplehost.ai</a>
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose-page { max-width: 42rem; margin: 0 auto; }
+  .prose-page h1 { font-size: 1.75rem; color: var(--heading-color); margin-bottom: 1rem; }
+  .prose-page h2 { font-size: 1.2rem; color: var(--heading-color); margin: 1.5rem 0 0.5rem; }
+  .prose-page p, .prose-page li { color: var(--foreground); line-height: 1.65; margin-bottom: 0.85rem; }
+  .prose-page ul { margin: 0.5rem 0 1rem 1.25rem; }
+  .prose-page a { color: var(--primary); }
+</style>

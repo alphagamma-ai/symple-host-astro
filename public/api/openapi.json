@@ -1,0 +1,1529 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SympleHost Partner API",
+    "version": "2025-06-01",
+    "description": "The **Partner API** lets an approved third-party PMS run alongside SympleHost \u2014 pull\nreservations, transactions and unified-inbox messages, and link properties.\n\n## Authentication\nPer-account, scoped API keys. Two modes:\n\n- **HTTP Basic** \u2014 for read-only, non-sensitive scopes. `Authorization: Basic base64(key_id:secret)`.\n- **HMAC-SHA256** \u2014 **mandatory** for any key holding a *sensitive* scope\n  (`guest_name:read`, `guest_contact:read`, `message_content:read`, `transactions:read`,\n  `reservations:write`, `pricing:write`, `availability:write`, `properties:link`,\n  `messaging:send`, `webhooks:manage`).\n  Sign with the key's `signing_secret`:\n\n  ```\n  X-SH-Signature = hex( HMAC-SHA256( signing_secret,\n    \"<METHOD>\\n<fullpath>\\n<unix_ts>\\n<sha256_hex(raw_body)>\" ) )\n  ```\n\n  Send `X-SH-Key-Id`, `X-SH-Timestamp`, `X-SH-Signature` (and `X-SH-Nonce` on writes).\n  The timestamp window is **120s**. Empty body signs `sha256(\"\")`.\n\n## Conventions\n- **Media type:** request `Accept: application/vnd.symplehost.partner.v1+json`.\n- **Pagination:** opaque keyset cursor \u2014 seed with `updated_since`, then follow `meta.next_cursor`.\n  Feed is at-least-once; dedupe by `id`.\n- **PII gating:** fields you lack scope for return `\"***\"`, listed in `meta.masked_fields` / `masked_fields`.\n- **Errors:** single JSON:API `errors` envelope with stable machine `code`s.\n- **Versioning:** `meta.payload_version` echoed on every response.\n",
+    "contact": {
+      "name": "SympleHost Partner Support",
+      "email": "partners@symplehost.ai"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://platform-dev.symplehost.ai",
+      "description": "Development (hosted)"
+    },
+    {
+      "url": "https://platform.symplehost.ai",
+      "description": "Production"
+    },
+    {
+      "url": "http://localhost:3000",
+      "description": "Local"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Reservations",
+      "description": "Bookings received across SH channels and OTAs."
+    },
+    {
+      "name": "Transactions",
+      "description": "Financial records (gated on `transactions:read`)."
+    },
+    {
+      "name": "Properties",
+      "description": "SH listings + partner-side linking."
+    },
+    {
+      "name": "Conversations",
+      "description": "Unified-inbox threads."
+    },
+    {
+      "name": "Messages",
+      "description": "Messages within a conversation."
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    },
+    {
+      "hmacAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v1/partner/reservations": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "List reservations",
+        "operationId": "listReservations",
+        "description": "Returns reservations for the account, newest-updated first, keyset-paginated.\nBase fields need `reservations:read`; the financial summary needs `transactions:read`\nand guest PII needs `guest_name:read` / `guest_contact:read` (all sensitive \u2192 HMAC).\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PerPage"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedSince"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by reservation status.",
+            "schema": {
+              "type": "string",
+              "example": "confirmed"
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2026-07-01"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2026-07-31"
+            }
+          },
+          {
+            "name": "source_platform",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "airbnb"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of reservations.",
+            "headers": {
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              }
+            },
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Reservation"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/CursorMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "label": "Basic (read-only)",
+            "source": "curl \"https://platform-dev.symplehost.ai/api/v1/partner/reservations?status=confirmed\" \\\n  -u \"$SH_KEY_ID:$SH_SECRET\" \\\n  -H \"Accept: application/vnd.symplehost.partner.v1+json\"\n"
+          },
+          {
+            "lang": "cURL",
+            "label": "HMAC (with PII/financials)",
+            "source": "# sensitive scopes \u21d2 HMAC. Sign METHOD\\npath\\nts\\nsha256(body); GET body is empty.\nTS=$(date +%s)\nPATH_=\"/api/v1/partner/reservations\"\nHASH=$(printf %s \"\" | shasum -a 256 | cut -d\" \" -f1)\nCANON=$(printf '%s\\n%s\\n%s\\n%s' GET \"$PATH_\" \"$TS\" \"$HASH\")\nSIG=$(printf %s \"$CANON\" | openssl dgst -sha256 -hmac \"$SH_SIGNING_SECRET\" -hex | sed 's/.* //')\ncurl \"https://platform-dev.symplehost.ai$PATH_\" \\\n  -H \"X-SH-Key-Id: $SH_KEY_ID\" \\\n  -H \"X-SH-Timestamp: $TS\" \\\n  -H \"X-SH-Signature: $SIG\" \\\n  -H \"Accept: application/vnd.symplehost.partner.v1+json\"\n"
+          },
+          {
+            "lang": "Node",
+            "source": "import { createHmac, createHash } from \"crypto\";\nconst BASE = \"https://platform-dev.symplehost.ai\";\nconst method = \"GET\", path = \"/api/v1/partner/reservations\";\nconst body = \"\";\nconst ts = Math.floor(Date.now() / 1000).toString();\nconst hash = createHash(\"sha256\").update(body).digest(\"hex\");\nconst sig = createHmac(\"sha256\", SIGNING_SECRET)\n  .update(`${method}\\n${path}\\n${ts}\\n${hash}`).digest(\"hex\");\nconst res = await fetch(`${BASE}${path}`, {\n  headers: {\n    \"X-SH-Key-Id\": KEY_ID,\n    \"X-SH-Timestamp\": ts,\n    \"X-SH-Signature\": sig,\n    Accept: \"application/vnd.symplehost.partner.v1+json\",\n  },\n});\nconst json = await res.json();\n"
+          },
+          {
+            "lang": "Python",
+            "source": "import time, hmac, hashlib, requests\nBASE = \"https://platform-dev.symplehost.ai\"\nmethod, path = \"GET\", \"/api/v1/partner/reservations\"\nbody = \"\"\nts = str(int(time.time()))\nh = hashlib.sha256(body.encode()).hexdigest()\ncanon = f\"{method}\\n{path}\\n{ts}\\n{h}\"\nsig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()\nres = requests.get(f\"{BASE}{path}\", headers={\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts, \"X-SH-Signature\": sig,\n    \"Accept\": \"application/vnd.symplehost.partner.v1+json\",\n})\ndata = res.json()\n"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "Create a reservation (push a direct booking)",
+        "operationId": "createReservation",
+        "description": "Pushes a partner-originated direct booking\ninto SympleHost as a `Reservation`. Requires `reservations:write` (sensitive \u2192 **HMAC**)\nand an `Idempotency-Key` \u2014 a retried create must never double-book.\n",
+        "security": [
+          {
+            "hmacAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReservationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Reservation created.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Reservation"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/Unprocessable"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "TS=$(date +%s)\nPATH_=\"/api/v1/partner/reservations\"\nBODY='{\"listing_id\":\"<uuid>\",\"start_date\":\"2026-07-02\",\"end_date\":\"2026-07-05\",\"guest_count\":2,\"currency\":\"USD\",\"total_amount\":450.0,\"external_ref\":\"PMS-7781\",\"guest\":{\"name\":\"Ada Lovelace\",\"email\":\"ada@example.com\",\"phone\":\"+15551234567\"}}'\nHASH=$(printf %s \"$BODY\" | shasum -a 256 | cut -d\" \" -f1)\nCANON=$(printf '%s\\n%s\\n%s\\n%s' POST \"$PATH_\" \"$TS\" \"$HASH\")\nSIG=$(printf %s \"$CANON\" | openssl dgst -sha256 -hmac \"$SH_SIGNING_SECRET\" -hex | sed 's/.* //')\ncurl -X POST \"https://platform-dev.symplehost.ai$PATH_\" \\\n  -H \"X-SH-Key-Id: $SH_KEY_ID\" \\\n  -H \"X-SH-Timestamp: $TS\" \\\n  -H \"X-SH-Nonce: $(uuidgen)\" \\\n  -H \"X-SH-Signature: $SIG\" \\\n  -H \"Idempotency-Key: $(uuidgen)\" \\\n  -H \"Content-Type: application/json\" \\\n  -d \"$BODY\"\n"
+          },
+          {
+            "lang": "Node",
+            "source": "import { createHmac, createHash, randomUUID } from \"crypto\";\nconst BASE = \"https://platform-dev.symplehost.ai\";\nconst path = \"/api/v1/partner/reservations\";\nconst body = JSON.stringify({\n  listing_id: \"<uuid>\", start_date: \"2026-07-02\", end_date: \"2026-07-05\",\n  guest_count: 2, currency: \"USD\", total_amount: 450.0, external_ref: \"PMS-7781\",\n  guest: { name: \"Ada Lovelace\", email: \"ada@example.com\", phone: \"+15551234567\" },\n});\nconst ts = Math.floor(Date.now() / 1000).toString();\nconst hash = createHash(\"sha256\").update(body).digest(\"hex\");\nconst sig = createHmac(\"sha256\", SIGNING_SECRET)\n  .update(`POST\\n${path}\\n${ts}\\n${hash}`).digest(\"hex\");\nawait fetch(`${BASE}${path}`, {\n  method: \"POST\",\n  headers: {\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts,\n    \"X-SH-Nonce\": randomUUID(), \"X-SH-Signature\": sig,\n    \"Idempotency-Key\": randomUUID(), \"Content-Type\": \"application/json\",\n    Accept: \"application/vnd.symplehost.partner.v1+json\",\n  },\n  body,\n});\n"
+          },
+          {
+            "lang": "Python",
+            "source": "import time, json, hmac, hashlib, uuid, requests\nBASE = \"https://platform-dev.symplehost.ai\"\npath = \"/api/v1/partner/reservations\"\nbody = json.dumps({\n    \"listing_id\": \"<uuid>\", \"start_date\": \"2026-07-02\", \"end_date\": \"2026-07-05\",\n    \"guest_count\": 2, \"currency\": \"USD\", \"total_amount\": 450.0, \"external_ref\": \"PMS-7781\",\n    \"guest\": {\"name\": \"Ada Lovelace\", \"email\": \"ada@example.com\", \"phone\": \"+15551234567\"},\n})\nts = str(int(time.time()))\nh = hashlib.sha256(body.encode()).hexdigest()\ncanon = f\"POST\\n{path}\\n{ts}\\n{h}\"\nsig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()\nrequests.post(f\"{BASE}{path}\", data=body, headers={\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts,\n    \"X-SH-Nonce\": str(uuid.uuid4()), \"X-SH-Signature\": sig,\n    \"Idempotency-Key\": str(uuid.uuid4()), \"Content-Type\": \"application/json\",\n})\n"
+          }
+        ]
+      }
+    },
+    "/api/v1/partner/reservations/{id}": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "Retrieve a reservation",
+        "operationId": "getReservation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PathId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The reservation.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Reservation"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/api/v1/partner/transactions": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "List transactions",
+        "operationId": "listTransactions",
+        "description": "Financial records. Requires `transactions:read` (sensitive \u2192 **HMAC required**).",
+        "security": [
+          {
+            "hmacAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PerPage"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedSince"
+          },
+          {
+            "name": "transaction_type",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "payment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of transactions.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Transaction"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/CursorMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "TS=$(date +%s)\nPATH_=\"/api/v1/partner/transactions\"\nHASH=$(printf %s \"\" | shasum -a 256 | cut -d\" \" -f1)\nCANON=$(printf '%s\\n%s\\n%s\\n%s' GET \"$PATH_\" \"$TS\" \"$HASH\")\nSIG=$(printf %s \"$CANON\" | openssl dgst -sha256 -hmac \"$SH_SIGNING_SECRET\" -hex | sed 's/.* //')\ncurl \"https://platform-dev.symplehost.ai$PATH_\" \\\n  -H \"X-SH-Key-Id: $SH_KEY_ID\" \\\n  -H \"X-SH-Timestamp: $TS\" \\\n  -H \"X-SH-Signature: $SIG\" \\\n  -H \"Accept: application/vnd.symplehost.partner.v1+json\"\n"
+          },
+          {
+            "lang": "Python",
+            "source": "import time, hmac, hashlib, requests\nBASE = \"https://platform-dev.symplehost.ai\"\nmethod, path = \"GET\", \"/api/v1/partner/transactions\"\nts = str(int(time.time()))\nh = hashlib.sha256(b\"\").hexdigest()\ncanon = f\"{method}\\n{path}\\n{ts}\\n{h}\"\nsig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()\nres = requests.get(f\"{BASE}{path}\", headers={\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts, \"X-SH-Signature\": sig,\n    \"Accept\": \"application/vnd.symplehost.partner.v1+json\",\n})\ndata = res.json()\n"
+          }
+        ]
+      }
+    },
+    "/api/v1/partner/transactions/{id}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Retrieve a transaction",
+        "operationId": "getTransaction",
+        "security": [
+          {
+            "hmacAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PathId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The transaction.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Transaction"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/api/v1/partner/properties": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "summary": "List properties",
+        "operationId": "listProperties",
+        "description": "SH listings visible to the account. `properties:read` (non-sensitive \u2192 Basic OK).",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PerPage"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedSince"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of properties.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Property"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/CursorMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl \"https://platform-dev.symplehost.ai/api/v1/partner/properties\" \\\n  -u \"$SH_KEY_ID:$SH_SECRET\" \\\n  -H \"Accept: application/vnd.symplehost.partner.v1+json\"\n"
+          },
+          {
+            "lang": "Node",
+            "source": "const auth = \"Basic \" + Buffer.from(`${KEY_ID}:${SECRET}`).toString(\"base64\");\nconst res = await fetch(\"https://platform-dev.symplehost.ai/api/v1/partner/properties\", {\n  headers: { Authorization: auth, Accept: \"application/vnd.symplehost.partner.v1+json\" },\n});\nconst json = await res.json();\n"
+          }
+        ]
+      }
+    },
+    "/api/v1/partner/properties/{id}": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "summary": "Retrieve a property",
+        "operationId": "getProperty",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PathId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The property.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Property"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/api/v1/partner/properties/{id}/link": {
+      "post": {
+        "tags": [
+          "Properties"
+        ],
+        "summary": "Link a property to your external reference",
+        "operationId": "linkProperty",
+        "description": "Store your PMS's external reference against an SH listing. Idempotent \u2014\nrequires `properties:link` (sensitive \u2192 **HMAC**) and an `Idempotency-Key`.\n",
+        "security": [
+          {
+            "hmacAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PathId"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "external_ref"
+                ],
+                "properties": {
+                  "external_ref": {
+                    "type": "string",
+                    "example": "PMS-1001"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Linked (or already linked \u2014 idempotent).",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Property"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/Unprocessable"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "TS=$(date +%s)\nPATH_=\"/api/v1/partner/properties/$LISTING_ID/link\"\nBODY='{\"external_ref\":\"PMS-1001\"}'\nHASH=$(printf %s \"$BODY\" | shasum -a 256 | cut -d\" \" -f1)\nCANON=$(printf '%s\\n%s\\n%s\\n%s' POST \"$PATH_\" \"$TS\" \"$HASH\")\nSIG=$(printf %s \"$CANON\" | openssl dgst -sha256 -hmac \"$SH_SIGNING_SECRET\" -hex | sed 's/.* //')\ncurl -X POST \"https://platform-dev.symplehost.ai$PATH_\" \\\n  -H \"X-SH-Key-Id: $SH_KEY_ID\" \\\n  -H \"X-SH-Timestamp: $TS\" \\\n  -H \"X-SH-Nonce: $(uuidgen)\" \\\n  -H \"X-SH-Signature: $SIG\" \\\n  -H \"Idempotency-Key: $(uuidgen)\" \\\n  -H \"Content-Type: application/json\" \\\n  -d \"$BODY\"\n"
+          },
+          {
+            "lang": "Node",
+            "source": "import { createHmac, createHash, randomUUID } from \"crypto\";\nconst BASE = \"https://platform-dev.symplehost.ai\";\nconst path = `/api/v1/partner/properties/${LISTING_ID}/link`;\nconst body = JSON.stringify({ external_ref: \"PMS-1001\" });\nconst ts = Math.floor(Date.now() / 1000).toString();\nconst hash = createHash(\"sha256\").update(body).digest(\"hex\");\nconst sig = createHmac(\"sha256\", SIGNING_SECRET)\n  .update(`POST\\n${path}\\n${ts}\\n${hash}`).digest(\"hex\");\nawait fetch(`${BASE}${path}`, {\n  method: \"POST\",\n  headers: {\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts,\n    \"X-SH-Nonce\": randomUUID(), \"X-SH-Signature\": sig,\n    \"Idempotency-Key\": randomUUID(), \"Content-Type\": \"application/json\",\n    Accept: \"application/vnd.symplehost.partner.v1+json\",\n  },\n  body,\n});\n"
+          }
+        ]
+      }
+    },
+    "/api/v1/partner/conversations": {
+      "get": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "List conversations",
+        "operationId": "listConversations",
+        "description": "Unified-inbox threads. `messaging:read`. Guest fields gate on `guest_name:read`/`guest_contact:read`.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PerPage"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedSince"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of conversations.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Conversation"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/CursorMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl \"https://platform-dev.symplehost.ai/api/v1/partner/conversations\" \\\n  -u \"$SH_KEY_ID:$SH_SECRET\" \\\n  -H \"Accept: application/vnd.symplehost.partner.v1+json\"\n"
+          }
+        ]
+      }
+    },
+    "/api/v1/partner/conversations/{id}": {
+      "get": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "Retrieve a conversation",
+        "operationId": "getConversation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PathId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Conversation"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/api/v1/partner/conversations/{conversation_id}/messages": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "List messages in a conversation",
+        "operationId": "listMessages",
+        "description": "Messages within a thread. `messaging:read`. **Bodies gate on `message_content:read`**\n(not contact scopes) \u2014 without it, `content` returns `\"***\"`.\n",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PerPage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of messages.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Message"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/CursorMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Send a message",
+        "operationId": "sendMessage",
+        "description": "Sends a partner-originated message into the\nconversation's channel (attributed to the account's partner system user). Requires\n`messaging:send` (sensitive \u2192 **HMAC**) and a **mandatory** `Idempotency-Key` \u2014 a retried\nsend is a duplicate guest WhatsApp/email, which is irreversible.\n",
+        "security": [
+          {
+            "hmacAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendMessageRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Message accepted for delivery.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Message"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/Unprocessable"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "TS=$(date +%s)\nPATH_=\"/api/v1/partner/conversations/$CONVERSATION_ID/messages\"\nBODY='{\"content\":\"Hi! Check-in is from 3pm. Let me know if you need anything.\"}'\nHASH=$(printf %s \"$BODY\" | shasum -a 256 | cut -d\" \" -f1)\nCANON=$(printf '%s\\n%s\\n%s\\n%s' POST \"$PATH_\" \"$TS\" \"$HASH\")\nSIG=$(printf %s \"$CANON\" | openssl dgst -sha256 -hmac \"$SH_SIGNING_SECRET\" -hex | sed 's/.* //')\ncurl -X POST \"https://platform-dev.symplehost.ai$PATH_\" \\\n  -H \"X-SH-Key-Id: $SH_KEY_ID\" \\\n  -H \"X-SH-Timestamp: $TS\" \\\n  -H \"X-SH-Nonce: $(uuidgen)\" \\\n  -H \"X-SH-Signature: $SIG\" \\\n  -H \"Idempotency-Key: $(uuidgen)\" \\\n  -H \"Content-Type: application/json\" \\\n  -d \"$BODY\"\n"
+          },
+          {
+            "lang": "Node",
+            "source": "import { createHmac, createHash, randomUUID } from \"crypto\";\nconst BASE = \"https://platform-dev.symplehost.ai\";\nconst path = `/api/v1/partner/conversations/${CONVERSATION_ID}/messages`;\nconst body = JSON.stringify({ content: \"Hi! Check-in is from 3pm.\" });\nconst ts = Math.floor(Date.now() / 1000).toString();\nconst hash = createHash(\"sha256\").update(body).digest(\"hex\");\nconst sig = createHmac(\"sha256\", SIGNING_SECRET)\n  .update(`POST\\n${path}\\n${ts}\\n${hash}`).digest(\"hex\");\nawait fetch(`${BASE}${path}`, {\n  method: \"POST\",\n  headers: {\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts,\n    \"X-SH-Nonce\": randomUUID(), \"X-SH-Signature\": sig,\n    \"Idempotency-Key\": randomUUID(), \"Content-Type\": \"application/json\",\n    Accept: \"application/vnd.symplehost.partner.v1+json\",\n  },\n  body,\n});\n"
+          },
+          {
+            "lang": "Python",
+            "source": "import time, json, hmac, hashlib, uuid, requests\nBASE = \"https://platform-dev.symplehost.ai\"\npath = f\"/api/v1/partner/conversations/{CONVERSATION_ID}/messages\"\nbody = json.dumps({\"content\": \"Hi! Check-in is from 3pm.\"})\nts = str(int(time.time()))\nh = hashlib.sha256(body.encode()).hexdigest()\ncanon = f\"POST\\n{path}\\n{ts}\\n{h}\"\nsig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()\nrequests.post(f\"{BASE}{path}\", data=body, headers={\n    \"X-SH-Key-Id\": KEY_ID, \"X-SH-Timestamp\": ts,\n    \"X-SH-Nonce\": str(uuid.uuid4()), \"X-SH-Signature\": sig,\n    \"Idempotency-Key\": str(uuid.uuid4()), \"Content-Type\": \"application/json\",\n})\n"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "`Authorization: Basic base64(key_id:secret)` \u2014 read-only, non-sensitive scopes only."
+      },
+      "hmacAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-SH-Signature",
+        "description": "HMAC-SHA256 over `\"<METHOD>\\n<fullpath>\\n<unix_ts>\\n<sha256_hex(body)>\"` using the key's\n`signing_secret`, hex-encoded (lowercase). Also send `X-SH-Key-Id`, `X-SH-Timestamp`, and\n`X-SH-Nonce` (writes). 120s window. **\"Try it\" cannot auto-sign \u2014 use the code samples.**\n"
+      }
+    },
+    "parameters": {
+      "PathId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "Cursor": {
+        "name": "cursor",
+        "in": "query",
+        "description": "Opaque keyset cursor from `meta.next_cursor`.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PerPage": {
+        "name": "per_page",
+        "in": "query",
+        "description": "Items per page (default 25, max 100).",
+        "schema": {
+          "type": "integer",
+          "default": 25,
+          "maximum": 100
+        }
+      },
+      "UpdatedSince": {
+        "name": "updated_since",
+        "in": "query",
+        "description": "ISO-8601 seed for the first page only; afterwards use `cursor`.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "IdempotencyKey": {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": true,
+        "description": "Client-generated UUID; replays return the original result.",
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "headers": {
+      "RateLimitRemaining": {
+        "description": "Requests remaining in the current window (IETF RateLimit).",
+        "schema": {
+          "type": "integer",
+          "example": 998
+        }
+      }
+    },
+    "schemas": {
+      "Reservation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "reservation"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "reservation_number": {
+                "type": "string",
+                "example": "RES-202607-0091"
+              },
+              "status": {
+                "type": "string",
+                "example": "confirmed"
+              },
+              "payment_status": {
+                "type": "string",
+                "example": "paid"
+              },
+              "start_date": {
+                "type": "string",
+                "format": "date",
+                "example": "2026-07-02"
+              },
+              "end_date": {
+                "type": "string",
+                "format": "date",
+                "example": "2026-07-05"
+              },
+              "nights_count": {
+                "type": "integer",
+                "example": 3
+              },
+              "guest_count": {
+                "type": "integer",
+                "example": 2
+              },
+              "currency": {
+                "type": "string",
+                "example": "USD"
+              },
+              "source_platform": {
+                "type": "string",
+                "example": "airbnb"
+              },
+              "total_amount": {
+                "type": "number",
+                "description": "Gated on transactions:read.",
+                "example": 450.0
+              },
+              "amount_paid": {
+                "type": "number",
+                "example": 450.0
+              },
+              "amount_due": {
+                "type": "number",
+                "example": 0.0
+              },
+              "host_payout": {
+                "type": "number",
+                "example": 405.0
+              },
+              "guest": {
+                "type": "object",
+                "description": "PII per-field gated; withheld fields return \"***\".",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Ada Lovelace"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "ada@example.com"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "+15551234567"
+                  }
+                }
+              },
+              "masked_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": []
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "transaction"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "example": 450.0
+              },
+              "currency": {
+                "type": "string",
+                "example": "USD"
+              },
+              "transaction_type": {
+                "type": "string",
+                "example": "payment"
+              },
+              "status": {
+                "type": "string",
+                "example": "completed"
+              },
+              "reference_number": {
+                "type": "string",
+                "example": "pms_txn_99213"
+              },
+              "payment_method": {
+                "type": "string",
+                "example": "card"
+              },
+              "fee_amount": {
+                "type": "number",
+                "example": 13.5
+              },
+              "net_amount": {
+                "type": "number",
+                "example": 436.5
+              },
+              "listing_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "processed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "Property": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "property"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Villa Rosa"
+              },
+              "description": {
+                "type": "string"
+              },
+              "property_type": {
+                "type": "string",
+                "example": "villa"
+              },
+              "listing_type": {
+                "type": "string",
+                "example": "entire_place"
+              },
+              "city": {
+                "type": "string",
+                "example": "Seoul"
+              },
+              "state": {
+                "type": "string",
+                "nullable": true
+              },
+              "country": {
+                "type": "string",
+                "example": "KR"
+              },
+              "postal_code": {
+                "type": "string",
+                "example": "04524"
+              },
+              "timezone": {
+                "type": "string",
+                "example": "Asia/Seoul"
+              },
+              "max_guests": {
+                "type": "integer",
+                "example": 4
+              },
+              "bedrooms": {
+                "type": "integer",
+                "example": 2
+              },
+              "beds": {
+                "type": "integer",
+                "example": 3
+              },
+              "bathrooms": {
+                "type": "number",
+                "example": 1
+              },
+              "currency": {
+                "type": "string",
+                "example": "USD"
+              },
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "published": {
+                "type": "boolean",
+                "example": true
+              },
+              "external_ref": {
+                "type": "string",
+                "nullable": true,
+                "description": "Your reference for this listing, if linked by this key.",
+                "example": "PMS-1001"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "Conversation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "conversation"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string",
+                "example": "whatsapp"
+              },
+              "status": {
+                "type": "string",
+                "example": "open"
+              },
+              "lifecycle_stage": {
+                "type": "string",
+                "example": "inquiry"
+              },
+              "guest": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Ada Lovelace"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "ada@example.com"
+                  }
+                }
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "message"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string",
+                "example": "whatsapp"
+              },
+              "source": {
+                "type": "string",
+                "example": "guest"
+              },
+              "sender_type": {
+                "type": "string",
+                "example": "Guest"
+              },
+              "message_status": {
+                "type": "string",
+                "example": "delivered"
+              },
+              "is_read": {
+                "type": "boolean",
+                "example": true
+              },
+              "content": {
+                "type": "string",
+                "description": "Gated on message_content:read; \"***\" when withheld.",
+                "example": "Hi! What time is check-in?"
+              },
+              "masked_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": []
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "CreateReservationRequest": {
+        "type": "object",
+        "required": [
+          "listing_id",
+          "start_date",
+          "end_date",
+          "guest_count",
+          "currency"
+        ],
+        "properties": {
+          "listing_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "SH listing to book (resolve via /properties or your linked external_ref)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-07-02"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-07-05"
+          },
+          "guest_count": {
+            "type": "integer",
+            "example": 2
+          },
+          "currency": {
+            "type": "string",
+            "example": "USD",
+            "description": "Must match the account currency."
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 450.0
+          },
+          "source_platform": {
+            "type": "string",
+            "example": "partner"
+          },
+          "external_ref": {
+            "type": "string",
+            "example": "PMS-7781",
+            "description": "Your booking reference (for idempotent dedupe + linking)."
+          },
+          "guest": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Ada Lovelace"
+              },
+              "email": {
+                "type": "string",
+                "example": "ada@example.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "+15551234567"
+              }
+            }
+          }
+        }
+      },
+      "SendMessageRequest": {
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "properties": {
+          "content": {
+            "type": "string",
+            "example": "Hi! Check-in is from 3pm."
+          },
+          "channel": {
+            "type": "string",
+            "description": "Optional; defaults to the conversation's channel.",
+            "example": "whatsapp"
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "payload_version": {
+            "type": "string",
+            "example": "2025-06-01"
+          }
+        }
+      },
+      "CursorMeta": {
+        "type": "object",
+        "properties": {
+          "next_cursor": {
+            "type": "string",
+            "nullable": true,
+            "example": "eyJ1cGRhdGVkX2F0Ijoi\u2026"
+          },
+          "has_more": {
+            "type": "boolean",
+            "example": true
+          },
+          "payload_version": {
+            "type": "string",
+            "example": "2025-06-01"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "401"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "auth_invalid_key"
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Invalid API key"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Missing/invalid key, or signature expired/invalid.",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "invalid_key": {
+                "value": {
+                  "errors": [
+                    {
+                      "status": "401",
+                      "code": "auth_invalid_key",
+                      "title": "Invalid API key"
+                    }
+                  ]
+                }
+              },
+              "signature_expired": {
+                "value": {
+                  "errors": [
+                    {
+                      "status": "401",
+                      "code": "signature_expired",
+                      "title": "Signature timestamp outside window"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Key lacks the required scope.",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "scope_missing": {
+                "value": {
+                  "errors": [
+                    {
+                      "status": "403",
+                      "code": "scope_missing",
+                      "title": "Missing required scope",
+                      "meta": {
+                        "required": "transactions:read"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not found (or not in your account).",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "Idempotency-key reuse with a different payload.",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Unprocessable": {
+        "description": "Validation failed.",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Too many requests.",
+        "headers": {
+          "Retry-After": {
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          }
+        },
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    }
+  }
+}

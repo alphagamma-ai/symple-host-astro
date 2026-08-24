@@ -1,0 +1,931 @@
+openapi: 3.1.0
+info:
+  title: SympleHost Partner API
+  version: "2025-06-01"
+  description: |
+    The **Partner API** lets an approved third-party PMS run alongside SympleHost — pull
+    reservations, transactions and unified-inbox messages, and link properties.
+
+    ## Authentication
+    Per-account, scoped API keys. Two modes:
+
+    - **HTTP Basic** — for read-only, non-sensitive scopes. `Authorization: Basic base64(key_id:secret)`.
+    - **HMAC-SHA256** — **mandatory** for any key holding a *sensitive* scope
+      (`guest_name:read`, `guest_contact:read`, `message_content:read`, `transactions:read`,
+      `reservations:write`, `pricing:write`, `availability:write`, `properties:link`,
+      `messaging:send`, `webhooks:manage`).
+      Sign with the key's `signing_secret`:
+
+      ```
+      X-SH-Signature = hex( HMAC-SHA256( signing_secret,
+        "<METHOD>\n<fullpath>\n<unix_ts>\n<sha256_hex(raw_body)>" ) )
+      ```
+
+      Send `X-SH-Key-Id`, `X-SH-Timestamp`, `X-SH-Signature` (and `X-SH-Nonce` on writes).
+      The timestamp window is **120s**. Empty body signs `sha256("")`.
+
+    ## Conventions
+    - **Media type:** request `Accept: application/vnd.symplehost.partner.v1+json`.
+    - **Pagination:** opaque keyset cursor — seed with `updated_since`, then follow `meta.next_cursor`.
+      Feed is at-least-once; dedupe by `id`.
+    - **PII gating:** fields you lack scope for return `"***"`, listed in `meta.masked_fields` / `masked_fields`.
+    - **Errors:** single JSON:API `errors` envelope with stable machine `code`s.
+    - **Versioning:** `meta.payload_version` echoed on every response.
+  contact:
+    name: SympleHost Partner Support
+    email: partners@symplehost.ai
+
+servers:
+  - url: https://platform-dev.symplehost.ai
+    description: Development (hosted)
+  - url: https://platform.symplehost.ai
+    description: Production
+  - url: http://localhost:3000
+    description: Local
+
+tags:
+  - name: Reservations
+    description: Bookings received across SH channels and OTAs.
+  - name: Transactions
+    description: Financial records (gated on `transactions:read`).
+  - name: Properties
+    description: SH listings + partner-side linking.
+  - name: Conversations
+    description: Unified-inbox threads.
+  - name: Messages
+    description: Messages within a conversation.
+
+security:
+  - basicAuth: []
+  - hmacAuth: []
+
+paths:
+  /api/v1/partner/reservations:
+    get:
+      tags: [Reservations]
+      summary: List reservations
+      operationId: listReservations
+      description: |
+        Returns reservations for the account, newest-updated first, keyset-paginated.
+        Base fields need `reservations:read`; the financial summary needs `transactions:read`
+        and guest PII needs `guest_name:read` / `guest_contact:read` (all sensitive → HMAC).
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+        - name: status
+          in: query
+          description: Filter by reservation status.
+          schema: { type: string, example: confirmed }
+        - name: start_date
+          in: query
+          schema: { type: string, format: date, example: "2026-07-01" }
+        - name: end_date
+          in: query
+          schema: { type: string, format: date, example: "2026-07-31" }
+        - name: source_platform
+          in: query
+          schema: { type: string, example: airbnb }
+      responses:
+        '200':
+          description: A page of reservations.
+          headers:
+            RateLimit-Remaining: { $ref: '#/components/headers/RateLimitRemaining' }
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Reservation' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+      x-codeSamples:
+        - lang: cURL
+          label: Basic (read-only)
+          source: |
+            curl "https://platform-dev.symplehost.ai/api/v1/partner/reservations?status=confirmed" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+        - lang: cURL
+          label: HMAC (with PII/financials)
+          source: |
+            # sensitive scopes ⇒ HMAC. Sign METHOD\npath\nts\nsha256(body); GET body is empty.
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/reservations"
+            HASH=$(printf %s "" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' GET "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+        - lang: Node
+          source: |
+            import { createHmac, createHash } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const method = "GET", path = "/api/v1/partner/reservations";
+            const body = "";
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`${method}\n${path}\n${ts}\n${hash}`).digest("hex");
+            const res = await fetch(`${BASE}${path}`, {
+              headers: {
+                "X-SH-Key-Id": KEY_ID,
+                "X-SH-Timestamp": ts,
+                "X-SH-Signature": sig,
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+            });
+            const json = await res.json();
+        - lang: Python
+          source: |
+            import time, hmac, hashlib, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            method, path = "GET", "/api/v1/partner/reservations"
+            body = ""
+            ts = str(int(time.time()))
+            h = hashlib.sha256(body.encode()).hexdigest()
+            canon = f"{method}\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            res = requests.get(f"{BASE}{path}", headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts, "X-SH-Signature": sig,
+                "Accept": "application/vnd.symplehost.partner.v1+json",
+            })
+            data = res.json()
+    post:
+      tags: [Reservations]
+      summary: Create a reservation (push a direct booking)
+      operationId: createReservation
+      description: |
+        Pushes a partner-originated direct booking
+        into SympleHost as a `Reservation`. Requires `reservations:write` (sensitive → **HMAC**)
+        and an `Idempotency-Key` — a retried create must never double-book.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateReservationRequest' }
+      responses:
+        '201':
+          description: Reservation created.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Reservation' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '409': { $ref: '#/components/responses/Conflict' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/reservations"
+            BODY='{"listing_id":"<uuid>","start_date":"2026-07-02","end_date":"2026-07-05","guest_count":2,"currency":"USD","total_amount":450.0,"external_ref":"PMS-7781","guest":{"name":"Ada Lovelace","email":"ada@example.com","phone":"+15551234567"}}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+        - lang: Node
+          source: |
+            import { createHmac, createHash, randomUUID } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const path = "/api/v1/partner/reservations";
+            const body = JSON.stringify({
+              listing_id: "<uuid>", start_date: "2026-07-02", end_date: "2026-07-05",
+              guest_count: 2, currency: "USD", total_amount: 450.0, external_ref: "PMS-7781",
+              guest: { name: "Ada Lovelace", email: "ada@example.com", phone: "+15551234567" },
+            });
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`POST\n${path}\n${ts}\n${hash}`).digest("hex");
+            await fetch(`${BASE}${path}`, {
+              method: "POST",
+              headers: {
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": randomUUID(), "X-SH-Signature": sig,
+                "Idempotency-Key": randomUUID(), "Content-Type": "application/json",
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+              body,
+            });
+        - lang: Python
+          source: |
+            import time, json, hmac, hashlib, uuid, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            path = "/api/v1/partner/reservations"
+            body = json.dumps({
+                "listing_id": "<uuid>", "start_date": "2026-07-02", "end_date": "2026-07-05",
+                "guest_count": 2, "currency": "USD", "total_amount": 450.0, "external_ref": "PMS-7781",
+                "guest": {"name": "Ada Lovelace", "email": "ada@example.com", "phone": "+15551234567"},
+            })
+            ts = str(int(time.time()))
+            h = hashlib.sha256(body.encode()).hexdigest()
+            canon = f"POST\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            requests.post(f"{BASE}{path}", data=body, headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": str(uuid.uuid4()), "X-SH-Signature": sig,
+                "Idempotency-Key": str(uuid.uuid4()), "Content-Type": "application/json",
+            })
+
+  /api/v1/partner/reservations/{id}:
+    get:
+      tags: [Reservations]
+      summary: Retrieve a reservation
+      operationId: getReservation
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The reservation.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Reservation' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/transactions:
+    get:
+      tags: [Transactions]
+      summary: List transactions
+      operationId: listTransactions
+      description: Financial records. Requires `transactions:read` (sensitive → **HMAC required**).
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+        - name: transaction_type
+          in: query
+          schema: { type: string, example: payment }
+      responses:
+        '200':
+          description: A page of transactions.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Transaction' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/transactions"
+            HASH=$(printf %s "" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' GET "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+        - lang: Python
+          source: |
+            import time, hmac, hashlib, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            method, path = "GET", "/api/v1/partner/transactions"
+            ts = str(int(time.time()))
+            h = hashlib.sha256(b"").hexdigest()
+            canon = f"{method}\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            res = requests.get(f"{BASE}{path}", headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts, "X-SH-Signature": sig,
+                "Accept": "application/vnd.symplehost.partner.v1+json",
+            })
+            data = res.json()
+
+  /api/v1/partner/transactions/{id}:
+    get:
+      tags: [Transactions]
+      summary: Retrieve a transaction
+      operationId: getTransaction
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The transaction.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Transaction' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/properties:
+    get:
+      tags: [Properties]
+      summary: List properties
+      operationId: listProperties
+      description: SH listings visible to the account. `properties:read` (non-sensitive → Basic OK).
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+      responses:
+        '200':
+          description: A page of properties.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Property' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl "https://platform-dev.symplehost.ai/api/v1/partner/properties" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+        - lang: Node
+          source: |
+            const auth = "Basic " + Buffer.from(`${KEY_ID}:${SECRET}`).toString("base64");
+            const res = await fetch("https://platform-dev.symplehost.ai/api/v1/partner/properties", {
+              headers: { Authorization: auth, Accept: "application/vnd.symplehost.partner.v1+json" },
+            });
+            const json = await res.json();
+
+  /api/v1/partner/properties/{id}:
+    get:
+      tags: [Properties]
+      summary: Retrieve a property
+      operationId: getProperty
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The property.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Property' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/properties/{id}/link:
+    post:
+      tags: [Properties]
+      summary: Link a property to your external reference
+      operationId: linkProperty
+      description: |
+        Store your PMS's external reference against an SH listing. Idempotent —
+        requires `properties:link` (sensitive → **HMAC**) and an `Idempotency-Key`.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [external_ref]
+              properties:
+                external_ref:
+                  type: string
+                  example: PMS-1001
+      responses:
+        '200':
+          description: Linked (or already linked — idempotent).
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Property' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '409': { $ref: '#/components/responses/Conflict' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/properties/$LISTING_ID/link"
+            BODY='{"external_ref":"PMS-1001"}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+        - lang: Node
+          source: |
+            import { createHmac, createHash, randomUUID } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const path = `/api/v1/partner/properties/${LISTING_ID}/link`;
+            const body = JSON.stringify({ external_ref: "PMS-1001" });
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`POST\n${path}\n${ts}\n${hash}`).digest("hex");
+            await fetch(`${BASE}${path}`, {
+              method: "POST",
+              headers: {
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": randomUUID(), "X-SH-Signature": sig,
+                "Idempotency-Key": randomUUID(), "Content-Type": "application/json",
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+              body,
+            });
+
+  /api/v1/partner/conversations:
+    get:
+      tags: [Conversations]
+      summary: List conversations
+      operationId: listConversations
+      description: Unified-inbox threads. `messaging:read`. Guest fields gate on `guest_name:read`/`guest_contact:read`.
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+      responses:
+        '200':
+          description: A page of conversations.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Conversation' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl "https://platform-dev.symplehost.ai/api/v1/partner/conversations" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+
+  /api/v1/partner/conversations/{id}:
+    get:
+      tags: [Conversations]
+      summary: Retrieve a conversation
+      operationId: getConversation
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The conversation.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Conversation' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/conversations/{conversation_id}/messages:
+    get:
+      tags: [Messages]
+      summary: List messages in a conversation
+      operationId: listMessages
+      description: |
+        Messages within a thread. `messaging:read`. **Bodies gate on `message_content:read`**
+        (not contact scopes) — without it, `content` returns `"***"`.
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: A page of messages.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Message' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    post:
+      tags: [Messages]
+      summary: Send a message
+      operationId: sendMessage
+      description: |
+        Sends a partner-originated message into the
+        conversation's channel (attributed to the account's partner system user). Requires
+        `messaging:send` (sensitive → **HMAC**) and a **mandatory** `Idempotency-Key` — a retried
+        send is a duplicate guest WhatsApp/email, which is irreversible.
+      security:
+        - hmacAuth: []
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SendMessageRequest' }
+      responses:
+        '201':
+          description: Message accepted for delivery.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Message' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '409': { $ref: '#/components/responses/Conflict' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/conversations/$CONVERSATION_ID/messages"
+            BODY='{"content":"Hi! Check-in is from 3pm. Let me know if you need anything."}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+        - lang: Node
+          source: |
+            import { createHmac, createHash, randomUUID } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const path = `/api/v1/partner/conversations/${CONVERSATION_ID}/messages`;
+            const body = JSON.stringify({ content: "Hi! Check-in is from 3pm." });
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`POST\n${path}\n${ts}\n${hash}`).digest("hex");
+            await fetch(`${BASE}${path}`, {
+              method: "POST",
+              headers: {
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": randomUUID(), "X-SH-Signature": sig,
+                "Idempotency-Key": randomUUID(), "Content-Type": "application/json",
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+              body,
+            });
+        - lang: Python
+          source: |
+            import time, json, hmac, hashlib, uuid, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            path = f"/api/v1/partner/conversations/{CONVERSATION_ID}/messages"
+            body = json.dumps({"content": "Hi! Check-in is from 3pm."})
+            ts = str(int(time.time()))
+            h = hashlib.sha256(body.encode()).hexdigest()
+            canon = f"POST\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            requests.post(f"{BASE}{path}", data=body, headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": str(uuid.uuid4()), "X-SH-Signature": sig,
+                "Idempotency-Key": str(uuid.uuid4()), "Content-Type": "application/json",
+            })
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: '`Authorization: Basic base64(key_id:secret)` — read-only, non-sensitive scopes only.'
+    hmacAuth:
+      type: apiKey
+      in: header
+      name: X-SH-Signature
+      description: |
+        HMAC-SHA256 over `"<METHOD>\n<fullpath>\n<unix_ts>\n<sha256_hex(body)>"` using the key's
+        `signing_secret`, hex-encoded (lowercase). Also send `X-SH-Key-Id`, `X-SH-Timestamp`, and
+        `X-SH-Nonce` (writes). 120s window. **"Try it" cannot auto-sign — use the code samples.**
+
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque keyset cursor from `meta.next_cursor`.
+      schema: { type: string }
+    PerPage:
+      name: per_page
+      in: query
+      description: Items per page (default 25, max 100).
+      schema: { type: integer, default: 25, maximum: 100 }
+    UpdatedSince:
+      name: updated_since
+      in: query
+      description: ISO-8601 seed for the first page only; afterwards use `cursor`.
+      schema: { type: string, format: date-time }
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      description: Client-generated UUID; replays return the original result.
+      schema: { type: string, format: uuid }
+
+  headers:
+    RateLimitRemaining:
+      description: Requests remaining in the current window (IETF RateLimit).
+      schema: { type: integer, example: 998 }
+
+  schemas:
+    Reservation:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [reservation] }
+        attributes:
+          type: object
+          properties:
+            reservation_number: { type: string, example: RES-202607-0091 }
+            status: { type: string, example: confirmed }
+            payment_status: { type: string, example: paid }
+            start_date: { type: string, format: date, example: "2026-07-02" }
+            end_date: { type: string, format: date, example: "2026-07-05" }
+            nights_count: { type: integer, example: 3 }
+            guest_count: { type: integer, example: 2 }
+            currency: { type: string, example: USD }
+            source_platform: { type: string, example: airbnb }
+            total_amount: { type: number, description: "Gated on transactions:read.", example: 450.0 }
+            amount_paid: { type: number, example: 450.0 }
+            amount_due: { type: number, example: 0.0 }
+            host_payout: { type: number, example: 405.0 }
+            guest:
+              type: object
+              description: PII per-field gated; withheld fields return "***".
+              properties:
+                id: { type: string, format: uuid }
+                name: { type: string, example: Ada Lovelace }
+                email: { type: string, example: ada@example.com }
+                phone: { type: string, example: "+15551234567" }
+            masked_fields:
+              type: array
+              items: { type: string }
+              example: []
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    Transaction:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [transaction] }
+        attributes:
+          type: object
+          properties:
+            amount: { type: number, example: 450.0 }
+            currency: { type: string, example: USD }
+            transaction_type: { type: string, example: payment }
+            status: { type: string, example: completed }
+            reference_number: { type: string, example: pms_txn_99213 }
+            payment_method: { type: string, example: card }
+            fee_amount: { type: number, example: 13.5 }
+            net_amount: { type: number, example: 436.5 }
+            listing_id: { type: string, format: uuid }
+            processed_at: { type: string, format: date-time }
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    Property:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [property] }
+        attributes:
+          type: object
+          properties:
+            name: { type: string, example: Villa Rosa }
+            description: { type: string }
+            property_type: { type: string, example: villa }
+            listing_type: { type: string, example: entire_place }
+            city: { type: string, example: Seoul }
+            state: { type: string, nullable: true }
+            country: { type: string, example: KR }
+            postal_code: { type: string, example: "04524" }
+            timezone: { type: string, example: Asia/Seoul }
+            max_guests: { type: integer, example: 4 }
+            bedrooms: { type: integer, example: 2 }
+            beds: { type: integer, example: 3 }
+            bathrooms: { type: number, example: 1 }
+            currency: { type: string, example: USD }
+            active: { type: boolean, example: true }
+            published: { type: boolean, example: true }
+            external_ref:
+              type: string
+              nullable: true
+              description: Your reference for this listing, if linked by this key.
+              example: PMS-1001
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    Conversation:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [conversation] }
+        attributes:
+          type: object
+          properties:
+            channel: { type: string, example: whatsapp }
+            status: { type: string, example: open }
+            lifecycle_stage: { type: string, example: inquiry }
+            guest:
+              type: object
+              properties:
+                id: { type: string, format: uuid }
+                name: { type: string, example: Ada Lovelace }
+                email: { type: string, example: ada@example.com }
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    Message:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [message] }
+        attributes:
+          type: object
+          properties:
+            channel: { type: string, example: whatsapp }
+            source: { type: string, example: guest }
+            sender_type: { type: string, example: Guest }
+            message_status: { type: string, example: delivered }
+            is_read: { type: boolean, example: true }
+            content:
+              type: string
+              description: Gated on message_content:read; "***" when withheld.
+              example: "Hi! What time is check-in?"
+            masked_fields:
+              type: array
+              items: { type: string }
+              example: []
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    CreateReservationRequest:
+      type: object
+      required: [listing_id, start_date, end_date, guest_count, currency]
+      properties:
+        listing_id:
+          type: string
+          format: uuid
+          description: SH listing to book (resolve via /properties or your linked external_ref).
+        start_date: { type: string, format: date, example: "2026-07-02" }
+        end_date: { type: string, format: date, example: "2026-07-05" }
+        guest_count: { type: integer, example: 2 }
+        currency: { type: string, example: USD, description: Must match the account currency. }
+        total_amount: { type: number, example: 450.0 }
+        source_platform: { type: string, example: partner }
+        external_ref: { type: string, example: PMS-7781, description: Your booking reference (for idempotent dedupe + linking). }
+        guest:
+          type: object
+          required: [name]
+          properties:
+            name: { type: string, example: Ada Lovelace }
+            email: { type: string, example: ada@example.com }
+            phone: { type: string, example: "+15551234567" }
+
+    SendMessageRequest:
+      type: object
+      required: [content]
+      properties:
+        content: { type: string, example: "Hi! Check-in is from 3pm." }
+        channel:
+          type: string
+          description: Optional; defaults to the conversation's channel.
+          example: whatsapp
+
+    Meta:
+      type: object
+      properties:
+        payload_version: { type: string, example: "2025-06-01" }
+
+    CursorMeta:
+      type: object
+      properties:
+        next_cursor: { type: string, nullable: true, example: "eyJ1cGRhdGVkX2F0Ijoi…" }
+        has_more: { type: boolean, example: true }
+        payload_version: { type: string, example: "2025-06-01" }
+
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status: { type: string, example: "401" }
+              code: { type: string, example: auth_invalid_key }
+              title: { type: string, example: Invalid API key }
+              detail: { type: string }
+              meta: { type: object }
+
+  responses:
+    Unauthorized:
+      description: Missing/invalid key, or signature expired/invalid.
+      content:
+        application/vnd.api+json:
+          schema: { $ref: '#/components/schemas/Error' }
+          examples:
+            invalid_key:
+              value: { errors: [ { status: "401", code: auth_invalid_key, title: Invalid API key } ] }
+            signature_expired:
+              value: { errors: [ { status: "401", code: signature_expired, title: Signature timestamp outside window } ] }
+    Forbidden:
+      description: Key lacks the required scope.
+      content:
+        application/vnd.api+json:
+          schema: { $ref: '#/components/schemas/Error' }
+          examples:
+            scope_missing:
+              value: { errors: [ { status: "403", code: scope_missing, title: Missing required scope, meta: { required: transactions:read } } ] }
+    NotFound:
+      description: Not found (or not in your account).
+      content:
+        application/vnd.api+json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Conflict:
+      description: Idempotency-key reuse with a different payload.
+      content:
+        application/vnd.api+json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Unprocessable:
+      description: Validation failed.
+      content:
+        application/vnd.api+json:
+          schema: { $ref: '#/components/schemas/Error' }
+    RateLimited:
+      description: Too many requests.
+      headers:
+        Retry-After: { schema: { type: integer, example: 30 } }
+      content:
+        application/vnd.api+json:
+          schema: { $ref: '#/components/schemas/Error' }

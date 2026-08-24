@@ -11,10 +11,21 @@ services:
       - path: /*
         name: X-Frame-Options
         value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
       - path: /assets/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+      - path: "/*.md"
+        name: Content-Type
+        value: text/markdown; charset=utf-8
+      - path: "/*.md"
+        name: Vary
+        value: Accept, Accept-Encoding
+      - path: /llms.txt
+        name: Content-Type
+        value: text/plain; charset=utf-8
+      - path: /llms.txt
+        name: Vary
+        value: Accept, Accept-Encoding
