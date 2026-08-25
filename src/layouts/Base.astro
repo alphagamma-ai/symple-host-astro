@@ -28,6 +28,73 @@ const { title, locale = DEFAULT_LOCALE, searchable = false, searchCategory } = A
 const copy = uiCopy[locale];
 const description = Astro.props.description ?? copy.defaultDescription;
 const currentPath = Astro.url.pathname;
+const siteOrigin = Astro.site?.origin ?? 'https://help.symplehost.ai';
+const canonicalUrl = new URL(currentPath === '/' ? '/' : currentPath.replace(/\/$/, '') || '/', siteOrigin).href;
+const ogImage = new URL('/logos/symplehost.png', siteOrigin).href;
+const pageTitle = `${title} | ${copy.titleSuffix}`;
+const isHome = currentPath === '/' || currentPath === `/${locale}/` || currentPath === `/${locale}`;
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.symplehost.ai/#organization',
+      name: 'SympleHost',
+      url: 'https://www.symplehost.ai',
+      logo: 'https://help.symplehost.ai/logos/symplehost.png',
+      description:
+        'AI co-host and property management software for short-term rentals. Multi-channel messaging, dynamic pricing, operations, and direct bookings.',
+      sameAs: [
+        'https://www.linkedin.com/company/symplehost-ai',
+        'https://www.symplehost.ai',
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: 'support@symplehost.ai',
+          url: 'https://help.symplehost.ai/contact',
+          availableLanguage: ['English', 'Japanese', 'Indonesian'],
+        },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'SG',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://help.symplehost.ai/#website',
+      url: 'https://help.symplehost.ai',
+      name: 'SympleHost Knowledge Base',
+      description:
+        'Guides, tutorials, webinars, and platform documentation for SympleHost hosts and operators.',
+      publisher: { '@id': 'https://www.symplehost.ai/#organization' },
+      inLanguage: LOCALE_LANG[locale],
+    },
+    ...(isHome
+      ? [
+          {
+            '@type': 'SoftwareApplication',
+            name: 'SympleHost',
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web',
+            url: 'https://www.symplehost.ai',
+            description:
+              'AI co-host for short-term rentals: guest messaging, channel manager, dynamic pricing, operations, and direct bookings.',
+            offers: {
+              '@type': 'Offer',
+              priceCurrency: 'USD',
+              price: '15.00',
+              description: 'From $15 per listing per month',
+            },
+            publisher: { '@id': 'https://www.symplehost.ai/#organization' },
+          },
+        ]
+      : []),
+  ],
+};
 ---
 
 <html lang={LOCALE_LANG[locale]}>
@@ -38,10 +105,27 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="describedby" href="/openapi.json" type="application/openapi+json" />
+    <link rel="service-desc" href="/openapi.json" type="application/openapi+json" />
+    <link rel="api" href="/openapi.json" type="application/openapi+json" />
+    <link rel="alternate" type="text/markdown" href={isHome ? '/index.md' : `${canonicalUrl.replace(/\/$/, '')}.md`} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={isHome ? 'website' : 'article'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="SympleHost" />
+    <meta property="og:site_name" content="SympleHost Knowledge Base" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>{title} | {copy.titleSuffix}</title>
+    <title>{pageTitle}</title>
     {/* Pagefind search UI. Both files are emitted by `pagefind --site dist`
         after the Astro build, so they are referenced as-is rather than
         bundled. The stylesheet is loaded before the site theme below so our
@@ -174,6 +258,15 @@ const currentPath = Astro.url.pathname;
 
     <footer class="footer">
       <p>&copy; {new Date().getFullYear()} <a href="https://www.symplehost.ai">SympleHost</a>. {copy.copyright}</p>
+      <p class="footer-links">
+        <a href="/developers">Developers</a>
+        · <a href="/openapi.json">OpenAPI</a>
+        · <a href="/partner-api.html">Partner API</a>
+        · <a href="/llms.txt">llms.txt</a>
+        · <a href="/about">About</a>
+        · <a href="/contact">Contact</a>
+        · <a href="/privacy">Privacy</a>
+      </p>
     </footer>
 
     <style>

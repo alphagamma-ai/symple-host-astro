@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found" description="This SympleHost Knowledge Base path does not exist. Use the links below to recover.">
+  <section class="not-found">
+    <h1>Page not found</h1>
+    <p>
+      The requested SympleHost Knowledge Base resource does not exist. Use one of these
+      public indexes to recover:
+    </p>
+    <ul>
+      <li><a href="/">Knowledge base home</a> — category grid and search</li>
+      <li><a href="/llms.txt">llms.txt</a> — machine-readable site guide for agents</li>
+      <li><a href="/sitemap-index.xml">XML sitemap</a> — full URL list</li>
+      <li><a href="/index.md">Homepage markdown</a> — compact text overview</li>
+      <li><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a></li>
+      <li><a href="/partner-api.html">Partner API docs</a></li>
+    </ul>
+    <p>
+      Article content is also available as raw markdown at
+      <code>{'/{category}/{slug}.md'}</code> (for example
+      <a href="/platform-guides/setting-up-autopilot.md">/platform-guides/setting-up-autopilot.md</a>).
+    </p>
+  </section>
+</Base>
+
+<style>
+  .not-found {
+    max-width: 40rem;
+    margin: 2rem auto;
+  }
+  .not-found h1 {
+    font-size: 1.75rem;
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+  }
+  .not-found p,
+  .not-found li {
+    color: var(--foreground);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+  .not-found ul {
+    margin: 1rem 0 1.25rem 1.25rem;
+  }
+  .not-found a {
+    color: var(--primary);
+  }
+  .not-found code {
+    font-size: 0.9em;
+    background: #f4f4f5;
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+</style>

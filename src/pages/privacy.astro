@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Privacy"
+  description="Privacy information for the SympleHost Knowledge Base and how it relates to the SympleHost product."
+>
+  <article class="prose-page">
+    <h1>Privacy</h1>
+    <p>
+      This page describes privacy practices for the <strong>SympleHost Knowledge Base</strong> at
+      help.symplehost.ai. The knowledge base is a public documentation site. It does not require an
+      account to read articles, and it does not collect reservation, guest, or payment data through
+      these pages.
+    </p>
+    <h2>What this site collects</h2>
+    <p>
+      Standard web server and CDN logs may record IP address, user agent, requested URL, referrer, and
+      approximate location for security, reliability, and traffic analysis. If site search is used,
+      query text may be processed in the browser against a static index; we do not operate a separate
+      search backend that stores individual search histories for this documentation site.
+    </p>
+    <h2>Cookies and analytics</h2>
+    <p>
+      The knowledge base is designed to work without mandatory marketing cookies. Any analytics or
+      performance tooling that may be added will be limited to understanding documentation usefulness
+      and site health. You can control cookies through your browser settings.
+    </p>
+    <h2>Product and account data</h2>
+    <p>
+      Guest messages, calendars, payments, and property data are processed inside the SympleHost
+      application (symplehost.ai and related platform domains), not on this help site. Privacy terms
+      for the product, including data processing for AI features and integrations, are governed by the
+      agreements and privacy policy published on the main SympleHost product website.
+    </p>
+    <h2>Contact</h2>
+    <p>
+      Privacy questions about this knowledge base or the SympleHost product can be sent to
+      <a href="mailto:support@symplehost.ai">support@symplehost.ai</a>. For general support channels,
+      see <a href="/contact">Contact</a>.
+    </p>
+    <p>
+      Last updated: August 2026. This summary is provided so agents and users can verify that the
+      documentation site is a legitimate public resource; it is not a substitute for the full product
+      privacy policy on symplehost.ai where account data is concerned.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose-page { max-width: 42rem; margin: 0 auto; }
+  .prose-page h1 { font-size: 1.75rem; color: var(--heading-color); margin-bottom: 1rem; }
+  .prose-page h2 { font-size: 1.2rem; color: var(--heading-color); margin: 1.5rem 0 0.5rem; }
+  .prose-page p, .prose-page li { color: var(--foreground); line-height: 1.65; margin-bottom: 0.85rem; }
+  .prose-page a { color: var(--primary); }
+</style>

@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "status": "401",
+      "code": "unauthorized",
+      "title": "Unauthorized",
+      "detail": "Missing or invalid Partner API credentials.",
+      "meta": {
+        "resolution": "Send Authorization: Basic base64(key_id:secret) or HMAC headers X-SH-Key-Id, X-SH-Timestamp, X-SH-Signature."
+      }
+    }
+  ],
+  "meta": { "payload_version": "2025-06-01" }
+}
