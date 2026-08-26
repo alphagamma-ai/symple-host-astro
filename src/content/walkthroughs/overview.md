@@ -1,21 +1,21 @@
 ---
-title: "Overview"
-description: "A quick tour of what SympleHost does and how the pieces fit together — start here if you're new to the platform."
+title: "Get Oriented"
+description: "Take a quick tour of the SympleHost workspace and learn where the main modules live."
 youtubeId: "LYhRA5iC7dM"
 duration: "1 min"
 order: 10
 draft: false
 ---
 
-Get a high-level view of the SympleHost workspace: where listings, calendar, messages, guide books, team ops, and reporting live, and how they connect.
+Start here if you want to understand the shape of SympleHost before going deeper. This walkthrough shows the main dashboard, sidebar, and daily work areas.
 
-## Recording Flow
+## What You’ll See
 
-1. Open the Overview dashboard and show the main sidebar.
-2. Point out the daily cards: unread messages, open tasks, check-ins, check-outs, reviews, and reservations.
-3. Explain that each module feeds into daily operations: bookings create work, messages support guests, and reports show performance.
-4. End by telling new users to follow the Getting Started path before deep-diving into each module.
+1. The Overview dashboard and daily action cards.
+2. Where Calendar, Messages, Reservations, Operations, Listings, Direct, and Analytics live.
+3. How bookings, guest messages, tasks, and reports connect across the workspace.
+4. Where to go next after you understand the layout.
 
-## 1-Minute Voiceover
+## Good To Know
 
-"This is the SympleHost Overview. Think of it as your daily command center. At the top, you can see what needs attention today: unread guest messages, open tasks, arrivals, departures, reviews, and new reservations. The sidebar takes you into the core modules: Calendar for availability and rates, Messages for guest communication, Reservations for booking details, Operations for tasks and checklists, Listings for properties and channels, Direct for quotes and websites, and Analytics for financial reporting. If you are new, start with account setup and listings first, then connect channels, payments, and messaging."
+If you are brand new, watch this first, then continue to Sign Up and Set Up.
