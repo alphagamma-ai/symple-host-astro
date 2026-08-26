@@ -7,6 +7,7 @@ Product: https://www.symplehost.ai
 Partner API docs: https://help.symplehost.ai/partner-api.html
 OpenAPI: https://help.symplehost.ai/openapi.json
 Developers: https://help.symplehost.ai/developers
+CLI: https://www.npmjs.com/package/symplehost (npm install -g symplehost)
 Sitemap: https://help.symplehost.ai/sitemap-index.xml
 
 ## When to use this

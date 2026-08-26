@@ -31,6 +31,16 @@ import Base from '../layouts/Base.astro';
       <li><a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a> — API catalog</li>
     </ul>
 
+    <h2>CLI</h2>
+    <p>
+      The official <strong>SympleHost CLI</strong> (<a href="https://www.npmjs.com/package/symplehost"><code>symplehost</code> on npm</a>)
+      queries the Partner API from the terminal — reservations, transactions, properties, and
+      conversations, with cursor pagination:
+    </p>
+    <pre><code>npm install -g symplehost
+export SYMPLEHOST_KEY_ID=key_... SYMPLEHOST_SECRET=...
+symplehost reservations</code></pre>
+
     <h2>Base URLs</h2>
     <ul>
       <li>Production: <code>https://platform.symplehost.ai</code></li>
