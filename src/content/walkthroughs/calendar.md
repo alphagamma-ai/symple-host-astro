@@ -1,8 +1,9 @@
 ---
 title: "Calendar"
 description: "See every booking across every channel, block dates, add manual reservations, and spot conflicts before they happen."
-youtubeId: "n4hLcTVHonY"
-duration: "1 min"
+videoFile: "/videos/symplehost-walkthrough-calendar.mp4"
+poster: "/screenshots/videos/walkthrough-calendar.png"
+duration: "31 sec"
 order: 30
 draft: false
 ---
@@ -16,6 +17,6 @@ A tour of the unified calendar: filtering by listing, creating direct bookings, 
 3. Demonstrate blocking dates, changing prices, and starting a reservation from the calendar.
 4. Mention drag-to-select multiple cells as an upcoming faster workflow.
 
-## 1-Minute Voiceover
+## Steps Shown
 
-"The Calendar is where hosts manage availability, rates, blocks, and quick booking actions across properties. You can filter down to one listing, scan occupancy, spot gaps, and open reservations directly from the calendar. From here you can block dates, update prices, and start a manual reservation or direct booking workflow. It is also the fastest way to understand what is happening operationally: arrivals, departures, blocked periods, and channel reservations all sit in one view. Multi-cell selection is also being added to make bulk date updates faster."
+Open Calendar, review listing timelines, open booking details, and start a reservation from the calendar.

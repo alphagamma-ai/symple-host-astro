@@ -1,8 +1,9 @@
 ---
 title: "Operations"
 description: "Coordinate cleaning, maintenance, checklists, expenses, owner approvals, and recurring operational work."
-youtubeId: "GtNu1-bgPYc"
-duration: "1 min"
+videoFile: "/videos/symplehost-walkthrough-operations.mp4"
+poster: "/screenshots/videos/walkthrough-operations.png"
+duration: "39 sec"
 order: 60
 draft: false
 ---
@@ -16,6 +17,6 @@ A walkthrough of Operations: creating tasks, using templates and turnover checkl
 3. Show templates/turnover checklists for repeatable cleaning and maintenance.
 4. Mention expenses and owner approvals for managed properties.
 
-## 1-Minute Voiceover
+## Steps Shown
 
-"Operations is where day-to-day work gets tracked. Use it for cleaning, maintenance, inspections, guest issues, turnover checklists, expenses, and approvals. A task can have an assignee, due date, priority, checklist, notes, and attachments, so the team knows what done looks like. Templates help you repeat the same standard every time, especially for checkout cleaning or pre-arrival inspections. For managed properties, expenses and owner approvals give hosts a cleaner way to document work and keep owners informed."
+Open Operations, create a task, reuse templates, track expenses and approvals, then review operations reports.

@@ -1,8 +1,9 @@
 ---
 title: "Owner Portal"
 description: "Invite owners, show property performance, share upcoming reservations, and route invoice approvals."
-poster: "/screenshots/videos/module-placeholder.svg"
-duration: "1 min"
+videoFile: "/videos/symplehost-walkthrough-owner-portal.mp4"
+poster: "/screenshots/videos/walkthrough-owner-portal.png"
+duration: "31 sec"
 order: 76
 draft: false
 ---
@@ -16,6 +17,6 @@ Position this for property managers who manage homes on behalf of owners.
 3. Show reservations or guest activity owners can see.
 4. Show invoice or expense approval concept.
 
-## 1-Minute Voiceover
+## Steps Shown
 
-"Owner Portal is for property managers who want transparent owner communication. Add owners to managed properties, set management fees, and invite owners into their portal. Owners can see how their property is performing, view upcoming reservations, understand guest activity, and review invoices or expenses that need approval. This reduces back-and-forth reporting and gives owners confidence that the property is being managed professionally."
+Set managed property details, show owner performance, share booking visibility, and route approvals.
