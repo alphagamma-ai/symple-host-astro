@@ -1,0 +1,32 @@
+{
+  "name": "symplehost",
+  "version": "0.1.0",
+  "description": "Official SympleHost CLI — query the SympleHost Partner API (reservations, transactions, properties, conversations) from the terminal.",
+  "keywords": [
+    "symplehost",
+    "cli",
+    "partner-api",
+    "short-term-rental",
+    "property-management",
+    "vacation-rental"
+  ],
+  "homepage": "https://help.symplehost.ai/developers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphagamma-ai/symple-host-astro.git",
+    "directory": "cli"
+  },
+  "license": "MIT",
+  "author": "SympleHost <partners@symplehost.ai>",
+  "type": "module",
+  "bin": {
+    "symplehost": "bin/symplehost.mjs"
+  },
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
