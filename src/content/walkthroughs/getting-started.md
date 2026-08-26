@@ -1,23 +1,23 @@
 ---
 title: "Sign Up and Set Up"
-description: "Create your account, set up your workspace, import your first listing, and connect the essentials."
-videoFile: "/videos/symplehost-walkthrough-getting-started.mp4"
-poster: "/screenshots/videos/walkthrough-getting-started.png"
-duration: "39 sec"
+description: "Create your account, set up your workspace, and connect your payment gateway."
+videoFile: "/videos/sign-up-and-set-up.mp4"
+poster: "/screenshots/videos/sign-up-and-set-up.png"
+duration: "5 min"
 order: 10
 draft: false
 ---
 
-Use this walkthrough when you are setting up SympleHost for the first time. It shows the best early sequence before you start using the daily modules.
+Use this walkthrough when you are setting up SympleHost for the first time. It shows the early setup flow, including account setup and payment gateway connection.
 
 ## What You’ll Do
 
 1. Create your account.
 2. Add your company and workspace details.
-3. Import your Airbnb listing first if you already host on Airbnb.
-4. Connect payments from Settings.
-5. Check the Overview dashboard once the basics are in place.
+3. Open Settings from your profile menu.
+4. Connect your payment gateway.
+5. Confirm the setup is ready before moving into listings and daily operations.
 
 ## Good To Know
 
-Most hosts should import Airbnb first, then connect other OTAs through Channel Manager. Manual listing setup is mainly for direct-booking-only businesses.
+Payment setup lives inside Settings. After this step, most hosts should import Airbnb first, then connect other OTAs through Channel Manager.
