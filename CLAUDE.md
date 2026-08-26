@@ -91,12 +91,21 @@ Use `data-pagefind-ignore` for in-content chrome that pollutes excerpts (breadcr
 
 ## Deployment
 
-Deployed to **Render** as a static site. Config in `render.yaml`.
+Deployed to **Render** as a Node web service. Config in `render.yaml`.
 
-- Build command: `pnpm install && pnpm run build`
-- Publish directory: `./dist`
+- Build command: `pnpm install && pnpm run build` (+ `verify-build` and `verify-server` smoke checks)
+- Start command: `node server/index.mjs` — an express origin that serves `dist/`
+  and performs `Accept: text/markdown` content negotiation (acceptmarkdown.com):
+  any page URL returns its `.md` twin when an agent asks for markdown, with
+  `Vary: Accept` on both variants, and 404s answer markdown clients with
+  markdown recovery pointers. Header rules that previously lived in
+  `render.yaml` (`static` runtime) now live in `server/index.mjs`.
 - Node version: 22.12.0
 - Required env vars: `TINA_CLIENT_ID`, `TINA_TOKEN` (set in Render dashboard, not committed)
+
+The site itself is still fully static — the server adds no SSR, only
+negotiation and headers. Test it locally with `node scripts/verify-server.mjs`
+after a build.
 
 ## Key Dependencies
 

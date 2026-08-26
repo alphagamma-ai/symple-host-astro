@@ -1,31 +1,13 @@
 services:
   - type: web
     name: symplehost-knowledge-base
-    runtime: static
-    buildCommand: pnpm install && pnpm run build
-    staticPublishPath: ./dist
+    runtime: node
+    # Not `free` — free web services spin down when idle, and a 50s cold start
+    # in front of the docs defeats the point of serving agents quickly.
+    plan: starter
+    buildCommand: pnpm install && pnpm run build && node scripts/verify-build.mjs && node scripts/verify-server.mjs
+    startCommand: node server/index.mjs
+    healthCheckPath: /llms.txt
     envVars:
       - key: NODE_VERSION
         value: 22.12.0
-    headers:
-      - path: /*
-        name: X-Frame-Options
-        value: SAMEORIGIN
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /assets/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-      - path: "/*.md"
-        name: Content-Type
-        value: text/markdown; charset=utf-8
-      - path: "/*.md"
-        name: Vary
-        value: Accept, Accept-Encoding
-      - path: /llms.txt
-        name: Content-Type
-        value: text/plain; charset=utf-8
-      - path: /llms.txt
-        name: Vary
-        value: Accept, Accept-Encoding
