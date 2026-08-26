@@ -1,6 +1,6 @@
 ---
 title: "Calendar"
-description: "See every booking across every channel, block dates, add manual reservations, and spot conflicts before they happen."
+description: "Use the Calendar to see availability, bookings, blocked dates, and quick actions across your properties."
 videoFile: "/videos/symplehost-walkthrough-calendar.mp4"
 poster: "/screenshots/videos/walkthrough-calendar.png"
 duration: "31 sec"
@@ -8,15 +8,17 @@ order: 30
 draft: false
 ---
 
-A tour of the unified calendar: filtering by listing, creating direct bookings, applying date blocks, and reading colour-coded statuses at a glance.
+The Calendar gives you a clear day-by-day view of what is happening across your properties. Use it to check availability, review reservations, block dates, adjust pricing, and start a manual booking when needed.
 
-## Recording Flow
+## What You Can Do
 
-1. Open Calendar and show multi-property availability.
-2. Filter by property or date range.
-3. Demonstrate blocking dates, changing prices, and starting a reservation from the calendar.
-4. Mention drag-to-select multiple cells as an upcoming faster workflow.
+1. View bookings and availability across connected channels.
+2. Filter the calendar by property or date range.
+3. Open booking details directly from the calendar.
+4. Block dates when a property is unavailable.
+5. Update prices for selected dates.
+6. Start a manual reservation from the calendar.
 
-## Steps Shown
+## Good To Know
 
-Open Calendar, review listing timelines, open booking details, and start a reservation from the calendar.
+Drag-to-select for multiple calendar cells is being added to make bulk date updates faster. Until then, use the available date actions from the calendar view.

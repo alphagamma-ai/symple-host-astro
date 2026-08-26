@@ -1,16 +1,30 @@
 ---
 import { getCollection } from 'astro:content';
 import EventDetail from '../../components/EventDetail.astro';
+import WalkthroughDetail from '../../components/WalkthroughDetail.astro';
 
 export async function getStaticPaths() {
   const videos = await getCollection('events', ({ data }) => !data.draft && data.eventType === 'tutorial');
-  return videos.map((event) => ({
+  const walkthroughs = await getCollection('walkthroughs', ({ data }) => !data.draft);
+
+  const videoPaths = videos.map((event) => ({
     params: { slug: event.id },
-    props: { event },
+    props: { item: event, type: 'event' },
   }));
+
+  const walkthroughPaths = walkthroughs.map((walkthrough) => ({
+    params: { slug: walkthrough.id },
+    props: { item: walkthrough, type: 'walkthrough' },
+  }));
+
+  return [...videoPaths, ...walkthroughPaths];
 }
 
-const { event } = Astro.props;
+const { item, type } = Astro.props;
 ---
 
-<EventDetail event={event} sectionTitle="Videos" sectionHref="/videos/" />
+{type === 'walkthrough' ? (
+  <WalkthroughDetail walkthrough={item} sectionTitle="Videos" sectionHref="/videos/" />
+) : (
+  <EventDetail event={item} sectionTitle="Videos" sectionHref="/videos/" />
+)}

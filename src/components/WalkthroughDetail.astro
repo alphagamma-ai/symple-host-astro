@@ -1,0 +1,168 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import YouTubeEmbed from './YouTubeEmbed.astro';
+
+const { walkthrough, sectionTitle = 'Videos', sectionHref = '/videos/' } = Astro.props;
+const { Content } = await render(walkthrough);
+---
+
+<Base
+  title={walkthrough.data.title}
+  description={walkthrough.data.description}
+  searchCategory={sectionTitle}
+>
+  <nav class="breadcrumb" data-pagefind-ignore>
+    <a href="/">All Topics</a>
+    <span class="sep">/</span>
+    <a href={sectionHref}>{sectionTitle}</a>
+    <span class="sep">/</span>
+    <span>{walkthrough.data.title}</span>
+  </nav>
+
+  <article class="walkthrough-detail">
+    <header class="page-header">
+      <p class="eyebrow">Product walkthrough</p>
+      <h1 class="page-title">{walkthrough.data.title}</h1>
+      {walkthrough.data.description && <p class="page-desc">{walkthrough.data.description}</p>}
+      {walkthrough.data.duration && <p class="duration">{walkthrough.data.duration}</p>}
+    </header>
+
+    <section class="player-shell" aria-label={`${walkthrough.data.title} video`}>
+      {walkthrough.data.youtubeId ? (
+        <YouTubeEmbed videoId={walkthrough.data.youtubeId} title={walkthrough.data.title} />
+      ) : walkthrough.data.videoFile ? (
+        <video controls preload="metadata" poster={walkthrough.data.poster}>
+          <source src={walkthrough.data.videoFile} type="video/mp4" />
+        </video>
+      ) : (
+        <div class="coming-soon">
+          {walkthrough.data.poster && <img src={walkthrough.data.poster} alt="" />}
+          <span>Video coming soon.</span>
+        </div>
+      )}
+    </section>
+
+    <div class="walkthrough-notes">
+      <Content />
+    </div>
+  </article>
+
+  <style>
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: var(--muted-foreground); }
+    .breadcrumb a:hover { color: var(--heading-color); }
+    .sep { margin: 0 0.4rem; }
+
+    .walkthrough-detail {
+      max-width: 58rem;
+    }
+    .page-header {
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow {
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 0.45rem;
+    }
+    .page-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      color: var(--heading-color);
+      margin: 0;
+    }
+    .page-desc {
+      color: var(--muted-foreground);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 48rem;
+      margin: 0.8rem 0 0;
+    }
+    .duration {
+      display: inline-flex;
+      width: fit-content;
+      margin: 1rem 0 0;
+      padding: 0.4rem 0.65rem;
+      border-radius: 999px;
+      background: var(--primary-50);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .player-shell {
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.75rem;
+      box-shadow: 0 16px 42px rgba(49, 24, 85, 0.08);
+    }
+    .player-shell video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      background: #000;
+      border-radius: 10px;
+    }
+    .coming-soon {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--primary-50);
+      border-radius: 10px;
+      border: 1px dashed var(--primary-200);
+    }
+    .coming-soon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .coming-soon span {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--heading-color);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.45rem 0.75rem;
+    }
+    .walkthrough-notes {
+      margin-top: 1.5rem;
+      color: var(--muted-foreground);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .walkthrough-notes :global(h2),
+    .walkthrough-notes :global(h3) {
+      color: var(--heading-color);
+      font-size: 1.05rem;
+      margin: 1.4rem 0 0.45rem;
+    }
+    .walkthrough-notes :global(p) {
+      margin: 0 0 0.8rem;
+    }
+    .walkthrough-notes :global(ol),
+    .walkthrough-notes :global(ul) {
+      margin: 0.35rem 0 1rem;
+      padding-left: 1.25rem;
+    }
+    .walkthrough-notes :global(li) {
+      margin: 0.28rem 0;
+    }
+  </style>
+</Base>
