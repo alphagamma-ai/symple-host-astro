@@ -4,7 +4,7 @@ description: "Create your account, set up your workspace, import your first list
 videoFile: "/videos/symplehost-walkthrough-getting-started.mp4"
 poster: "/screenshots/videos/walkthrough-getting-started.png"
 duration: "39 sec"
-order: 15
+order: 10
 draft: false
 ---
 

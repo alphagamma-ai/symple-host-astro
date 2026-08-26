@@ -3,7 +3,7 @@ title: "Get Oriented"
 description: "Take a quick tour of the SympleHost workspace and learn where the main modules live."
 youtubeId: "LYhRA5iC7dM"
 duration: "1 min"
-order: 10
+order: 15
 draft: false
 ---
 
@@ -18,4 +18,4 @@ Start here if you want to understand the shape of SympleHost before going deeper
 
 ## Good To Know
 
-If you are brand new, watch this first, then continue to Sign Up and Set Up.
+After you finish the first setup steps, use this walkthrough to understand where everything lives day to day.
