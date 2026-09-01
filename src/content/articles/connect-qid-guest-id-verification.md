@@ -27,7 +27,7 @@ Make sure you have:
 5. An international guest template form ID.
 6. Admin access in SympleHost so you can open **Settings -> Integrations**.
 
-Create or confirm your QID templates in QID first. SympleHost does not create the QID forms for you; it stores the form IDs so the correct check-in forms can be used from SympleHost.
+Create or confirm your QID templates in QID first. SympleHost does not create the QID forms for you; it stores the form IDs so the correct check-in forms can be used from SympleHost. In QID, the template form IDs appear at the bottom of each form you create, so copy the national ID form ID and the international guest form ID from there.
 
 For the operational reasons behind guest ID checks, see [Guest ID Verification for Short-Term Rentals](https://www.symplehost.ai/en/blog/guest-id-verification-short-term-rentals).
 
@@ -44,7 +44,7 @@ For the operational reasons behind guest ID checks, see [Guest ID Verification f
 
 ## Connect or Update QID
 
-In the **Manage QID** modal, add or confirm the template IDs from your QID dashboard.
+In the **Manage QID** modal, add or confirm the template IDs from your QID dashboard. You can find each template ID at the bottom of the matching form inside QID.
 
 1. Confirm the QID organisation is connected.
 2. Check that the API key is present.
