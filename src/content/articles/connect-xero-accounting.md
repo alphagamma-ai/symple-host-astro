@@ -29,7 +29,9 @@ Make sure you have:
 4. Admin access in SympleHost so you can open **Settings -> Integrations**.
 5. Your Xero chart of accounts reviewed with your accountant or bookkeeper.
 6. The bank account, revenue accounts, expense accounts, tax/liability accounts, and owner payout account you want to use in Xero.
-7. Your reservation, payment, expense, and payout workflows set up in SympleHost.
+7. Unique account codes on the Xero accounts you plan to map.
+8. Any payment-enabled account settings checked in Xero for accounts that should accept payments.
+9. Your reservation, payment, expense, and payout workflows set up in SympleHost.
 
 If you manage multiple companies or accounting entities, confirm which Xero organisation should receive the SympleHost records before connecting.
 
@@ -60,6 +62,8 @@ If your Xero login has access to more than one organisation, choose the organisa
 
 After Xero is connected, SympleHost pulls your live Xero chart of accounts into the mapping screen. Map each SympleHost category to the Xero account code your accountant wants to use.
 
+Each mapped Xero account should have a unique account code. If an expected account is missing from the dropdown, open Xero first and confirm the account is active, has an account code, and is the correct account type for the category you are mapping. For payment-related accounts, also confirm the account can accept payments where Xero requires that setting.
+
 Sync cannot be enabled until the required mappings and sync start date are saved.
 
 | SympleHost category | Map this to in Xero | Why it matters |
@@ -86,6 +90,10 @@ For better reporting, map each SympleHost expense category to the matching Xero 
 If an expense category is not mapped, SympleHost uses the **Default expense account**. This keeps the sync moving, but your reports will be more useful if common categories have their own Xero accounts.
 
 Only approved expenses sync to Xero. If an expense needs owner approval, it will not sync until the approval step is complete.
+
+## Optional: Discuss Tracking Categories
+
+If your accountant uses Xero tracking categories to report by property, region, or business unit, set those up in Xero before you start syncing. Tracking can be useful for multi-property reporting, but it does not replace the required account mappings above.
 
 ## Choose a Sync Start Date
 
@@ -152,7 +160,7 @@ When you see errors:
 ## Common Mapping Issues
 
 **An account is missing from the dropdown**  
-Check the account in Xero. It may be archived, missing an account code, or not the right account type for the SympleHost category you are mapping.
+Check the account in Xero. It may be archived, missing a unique account code, missing the right payment setting, or not the right account type for the SympleHost category you are mapping.
 
 **The enable-sync toggle is disabled**  
 Save all required mappings and choose a sync start date. SympleHost keeps sync disabled until the required accounting categories are complete.
@@ -169,6 +177,7 @@ OTA reservations can show gross revenue and a negative commission line. This is 
 ## Best Practices
 
 - Ask your accountant to confirm the account mappings before enabling sync.
+- Create any missing Xero accounts before mapping them in SympleHost.
 - Keep separate accounts for accommodation revenue, cleaning fees, other fees, OTA commissions, security deposits, and owner payouts if you want cleaner reporting.
 - Map high-volume expense categories individually instead of relying only on the default expense account.
 - Choose a sync start date that matches the start of a clean accounting period.
