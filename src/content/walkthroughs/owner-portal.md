@@ -1,14 +1,14 @@
 ---
 title: "Owner Portal"
 description: "Invite owners, show property performance, share upcoming reservations, and route invoice approvals."
-videoFile: "/videos/symplehost-walkthrough-owner-portal.mp4"
-poster: "/screenshots/videos/walkthrough-owner-portal.png"
-duration: "31 sec"
+videoFile: "/videos/symplehost-walkthrough-team-management-owner-portal.mp4"
+poster: "/screenshots/videos/walkthrough-team-management-owner-portal.png"
+duration: "2 min 46 sec"
 order: 76
 draft: false
 ---
 
-Position this for property managers who manage homes on behalf of owners.
+Use this walkthrough for property managers who manage homes on behalf of owners and need owners to see booking, performance, and approval information clearly.
 
 ## Recording Flow
 

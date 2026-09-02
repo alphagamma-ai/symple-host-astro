@@ -3,7 +3,7 @@ title: "Calendar"
 description: "Use the Calendar to see availability, bookings, blocked dates, and quick actions across your properties."
 videoFile: "/videos/symplehost-walkthrough-calendar.mp4"
 poster: "/screenshots/videos/walkthrough-calendar.png"
-duration: "31 sec"
+duration: "1 min 49 sec"
 order: 30
 draft: false
 ---

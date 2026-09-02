@@ -3,7 +3,7 @@ title: "Messages"
 description: "Use the main Messages inbox to search, filter, assign, escalate, translate, and reply to guest conversations across connected channels."
 videoFile: "/videos/symplehost-walkthrough-messages.mp4"
 poster: "/screenshots/videos/walkthrough-messages.png"
-duration: "31 sec"
+duration: "3 min 46 sec"
 order: 40
 draft: false
 ---

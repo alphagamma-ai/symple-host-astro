@@ -3,7 +3,7 @@ title: "Reservations"
 description: "Review bookings, guest details, payment status, source, stay dates, and operational follow-up in one place."
 videoFile: "/videos/symplehost-walkthrough-reservations.mp4"
 poster: "/screenshots/videos/walkthrough-reservations.png"
-duration: "31 sec"
+duration: "1 min 54 sec"
 order: 35
 draft: false
 ---
