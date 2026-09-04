@@ -27,6 +27,124 @@ const { Content } = await render(localizedArticleBody ?? article);
 const shouldRenderFallback = locale !== DEFAULT_LOCALE && !localizedArticleBody;
 const articleTitle = getArticleTitle(article, locale);
 const articleDescription = getArticleDescription(article, locale);
+const rawArticleBody = (localizedArticleBody?.body ?? article.body ?? '').trim();
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const allCategories = await getCollection('categories');
+const categoryById = new Map(allCategories.map((entry) => [entry.id, entry]));
+const siteOrigin = Astro.site?.origin ?? 'https://help.symplehost.ai';
+const articlePath = localizePath(`/${article.data.category}/${article.id}/`, locale);
+const articleUrl = new URL(articlePath, siteOrigin).href;
+const categoryPath = category ? localizePath(`/${category.id}/`, locale) : localizePath('/', locale);
+const categoryUrl = new URL(categoryPath, siteOrigin).href;
+
+type ArticleEntry = Props['article'];
+
+function plainText(markdown: string): string {
+  return markdown
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[#>*_~|]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function excerpt(markdown: string, maxLength = 280): string {
+  const text = plainText(markdown);
+  if (text.length <= maxLength) return text;
+  const clipped = text.slice(0, maxLength).replace(/\s+\S*$/, '');
+  return `${clipped}...`;
+}
+
+function extractFaqItems(markdown: string) {
+  if (!markdown) return [];
+  const lines = markdown.split(/\r?\n/);
+  const items: { question: string; answer: string }[] = [];
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = lines[i].match(/^###\s+(.+\?)\s*$/);
+    if (!match) continue;
+
+    const answerLines: string[] = [];
+    for (let j = i + 1; j < lines.length; j += 1) {
+      if (/^#{2,3}\s+/.test(lines[j])) break;
+      answerLines.push(lines[j]);
+    }
+
+    const answer = excerpt(answerLines.join('\n'), 360);
+    if (answer) items.push({ question: plainText(match[1]), answer });
+  }
+
+  return items.slice(0, 20);
+}
+
+function getRelatedLabel(candidate: ArticleEntry): string {
+  const relatedCategory = categoryById.get(candidate.data.category);
+  return candidate.data.section ?? (relatedCategory ? getCategoryTitle(relatedCategory, locale) : candidate.data.category);
+}
+
+function relatedScore(candidate: ArticleEntry): number {
+  let score = 0;
+  if (candidate.data.category === article.data.category) score += 6;
+  if (candidate.data.section && candidate.data.section === article.data.section) score += 5;
+
+  const currentTags = new Set(article.data.tags ?? []);
+  const sharedTags = (candidate.data.tags ?? []).filter((tag) => currentTags.has(tag)).length;
+  score += sharedTags * 3;
+
+  return score;
+}
+
+const relatedArticles = allArticles
+  .filter((candidate) => candidate.id !== article.id)
+  .map((candidate) => ({ article: candidate, score: relatedScore(candidate) }))
+  .filter((item) => item.score > 0)
+  .sort((a, b) => b.score - a.score || (a.article.data.sectionOrder ?? 999) - (b.article.data.sectionOrder ?? 999))
+  .slice(0, 4)
+  .map((item) => item.article);
+
+const articleDate = article.data.date ? new Date(article.data.date).toISOString() : undefined;
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: copy.allTopics, item: new URL(localizePath('/', locale), siteOrigin).href },
+    ...(category ? [{ '@type': 'ListItem', position: 2, name: getCategoryTitle(category, locale), item: categoryUrl }] : []),
+    { '@type': 'ListItem', position: category ? 3 : 2, name: articleTitle, item: articleUrl },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${articleUrl}#article`,
+  headline: articleTitle,
+  description: articleDescription,
+  url: articleUrl,
+  mainEntityOfPage: articleUrl,
+  inLanguage: locale === 'jp' ? 'ja' : locale === 'id' ? 'id' : 'en',
+  ...(articleDate ? { datePublished: articleDate, dateModified: articleDate } : {}),
+  author: { '@type': 'Organization', name: 'SympleHost', url: 'https://www.symplehost.ai' },
+  publisher: { '@id': 'https://www.symplehost.ai/#organization' },
+  image: new URL('/logos/symplehost.png', siteOrigin).href,
+};
+
+const faqItems = article.data.category === 'faqs' ? extractFaqItems(rawArticleBody) : [];
+const faqJsonLd = faqItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+} : null;
+
+const structuredData = [breadcrumbJsonLd, articleJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
 const formattedDate = article.data.date
   ? new Date(article.data.date).toLocaleDateString(locale === 'jp' ? 'ja-JP' : locale === 'id' ? 'id-ID' : 'en-US', {
@@ -43,6 +161,7 @@ const formattedDate = article.data.date
   locale={locale}
   searchable
   searchCategory={category ? getCategoryTitle(category, locale) : undefined}
+  structuredData={structuredData}
 >
   <nav class="breadcrumb" data-pagefind-ignore>
     <a href={localizePath('/', locale)}>{copy.allTopics}</a>
@@ -81,6 +200,21 @@ const formattedDate = article.data.date
       )}
     </div>
   </article>
+
+  {relatedArticles.length > 0 && (
+    <aside class="related-articles" aria-labelledby="related-articles-title">
+      <h2 id="related-articles-title">Related guides</h2>
+      <div class="related-grid">
+        {relatedArticles.map((related) => (
+          <a class="related-card" href={localizePath(`/${related.data.category}/${related.id}/`, locale)}>
+            <span>{getRelatedLabel(related)}</span>
+            <strong>{getArticleTitle(related, locale)}</strong>
+            {getArticleDescription(related, locale) && <p>{getArticleDescription(related, locale)}</p>}
+          </a>
+        ))}
+      </div>
+    </aside>
+  )}
 
   <style>
     .breadcrumb {
@@ -250,6 +384,58 @@ const formattedDate = article.data.date
       background: var(--primary-50);
     }
 
+    .related-articles {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .related-articles h2 {
+      margin: 0 0 1rem;
+      color: var(--heading-color);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+    .related-card {
+      display: block;
+      min-height: 100%;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--foreground);
+    }
+    .related-card:hover {
+      border-color: var(--primary-300);
+      background: var(--primary-50);
+      color: var(--foreground);
+    }
+    .related-card span {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .related-card strong {
+      display: block;
+      color: var(--heading-color);
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+    .related-card p {
+      margin: 0.5rem 0 0;
+      color: var(--muted-foreground);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
     @media (max-width: 640px) {
       .locale-notice {
         display: block;
@@ -257,6 +443,9 @@ const formattedDate = article.data.date
       .locale-notice strong {
         display: block;
         margin-bottom: 0.25rem;
+      }
+      .related-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>

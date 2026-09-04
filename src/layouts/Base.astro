@@ -14,6 +14,7 @@ interface Props {
   title: string;
   description?: string;
   locale?: Locale;
+  structuredData?: unknown[];
   /**
    * Opt this page into the Pagefind search index. Content pages (articles,
    * event detail pages, walkthroughs) set this; listing pages and duplicate
@@ -24,7 +25,7 @@ interface Props {
   searchCategory?: string;
 }
 
-const { title, locale = DEFAULT_LOCALE, searchable = false, searchCategory } = Astro.props;
+const { title, locale = DEFAULT_LOCALE, searchable = false, searchCategory, structuredData = [] } = Astro.props;
 const copy = uiCopy[locale];
 const description = Astro.props.description ?? copy.defaultDescription;
 const currentPath = Astro.url.pathname;
@@ -122,6 +123,9 @@ const organizationJsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+    {structuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
