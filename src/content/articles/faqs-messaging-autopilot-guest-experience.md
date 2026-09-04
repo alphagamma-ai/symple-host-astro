@@ -1,6 +1,6 @@
 ---
-title: Messaging, Autopilot & Guest Experience FAQs
-description: Answers about the Messages inbox, connected channels, Autopilot modes, translation, assignment, escalation, and guest-facing experience tools.
+title: "Guest Messaging, Unified Inbox, Autopilot and Concierge FAQs"
+description: "Answers to common questions about SympleHost guest messaging, unified inbox channels, WhatsApp replies, Autopilot, Concierge, translation, and escalation."
 category: faqs
 tags:
   - Messaging

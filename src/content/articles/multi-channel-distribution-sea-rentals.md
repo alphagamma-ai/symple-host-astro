@@ -1,6 +1,6 @@
 ---
-title: "The Ultimate Guide to Multi-Channel Distribution for SEA Rentals"
-description: "A practical guide to listing short-term rentals across Airbnb, Booking.com, direct bookings, and WhatsApp without creating double-bookings or operational chaos."
+title: "Short-Term Rental Channel Manager Guide for Airbnb, Booking.com and Direct Bookings"
+description: "How short-term rental hosts can use multi-channel distribution across Airbnb, Booking.com, direct bookings, WhatsApp, and social channels without double-bookings."
 category: marketing-for-hosts
 sectionOrder: 5
 tags:

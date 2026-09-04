@@ -1,6 +1,6 @@
 ---
-title: "Why Manual Guest Messaging Is Quietly Killing Your Margins"
-description: "Manual guest messaging looks free, but slow replies, repeated questions, missed upsells, and team bottlenecks can quietly reduce short-term rental profitability."
+title: "Guest Messaging Automation for Vacation Rentals: Stop Losing Margin"
+description: "Why manual guest messaging costs vacation rental hosts bookings, reviews, upsells, and time — and how automation and a unified inbox protect margins."
 category: marketing-for-hosts
 sectionOrder: 7
 tags:

@@ -1,6 +1,6 @@
 ---
-title: 'Using Messages: the Unified Guest Inbox'
-description: 'Use Messages to search guest conversations, reply across connected channels, assign ownership, escalate issues, open guest context, and manage AI-assisted replies.'
+title: "Unified Inbox for Guest Messages in SympleHost"
+description: "Use SympleHost Messages as a unified guest inbox for WhatsApp, Instagram, Messenger, Gmail, OTA messages, AI replies, assignments, and escalations."
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 1
