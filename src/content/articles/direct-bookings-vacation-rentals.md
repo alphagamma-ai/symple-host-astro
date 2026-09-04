@@ -1,6 +1,6 @@
 ---
-title: "How to Get More Direct Bookings for Your Vacation Rental"
-description: "Direct bookings mean no OTA commissions and higher profit margins. Here's a practical playbook for vacation rental hosts to reduce Airbnb dependence and build a direct booking channel."
+title: "How to Get More Direct Bookings for Vacation Rentals"
+description: "A practical direct booking playbook for vacation rental hosts: reduce OTA dependence, keep more margin, build a guest list, and convert repeat guests."
 category: marketing-for-hosts
 sectionOrder: 3
 tags:

@@ -1,6 +1,6 @@
 ---
-title: "Guest Communication at Scale: The Complete WhatsApp Automation Playbook"
-description: "A practical WhatsApp automation playbook for short-term rental hosts who want faster replies, fewer repetitive messages, and a better guest experience."
+title: "Vacation Rental Guest Communication: WhatsApp Automation Playbook"
+description: "How short-term rental hosts can automate WhatsApp guest communication, answer FAQs faster, reduce repeat messages, and protect hospitality as they scale."
 category: marketing-for-hosts
 sectionOrder: 6
 tags:
