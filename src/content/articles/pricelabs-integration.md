@@ -9,7 +9,7 @@ tags:
   - Dynamic Pricing
   - Revenue Management
   - Integrations
-date: '2026-07-08'
+date: '2026-09-16'
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 ---
 
-> **TL;DR:** First enable SympleHost inside PriceLabs. Then open **Settings → Integrations** in SympleHost, click **Connect PriceLabs**, enter your **PriceLabs Account Email**, click **Manage**, add the listings you want to enrol, review them in PriceLabs, and enable syncing when the rates look right.
+> **TL;DR:** First enable SympleHost inside PriceLabs. Then open **Settings → Integrations** in SympleHost, click **Connect PriceLabs**, enter your **PriceLabs Account Email**, click **Manage**, and add the listings you want to enrol. Enrolling a listing connects it to PriceLabs, but it does **not** start automatic price updates by itself. After you review the listing in PriceLabs, you must turn on **Sync Prices** for each individual listing you want PriceLabs to update, or use **Sync Now** to push an immediate update.
 
 ---
 
@@ -30,7 +30,7 @@ The connection has two jobs:
 
 When you enrol a listing, SympleHost pushes listing metadata, rates, calendar data, reservations, and blocks to PriceLabs. In the SympleHost app, the PriceLabs manage page lists these synced capabilities: nightly rates, availability, minimum stay, check-in and check-out restrictions, weekly and monthly discounts, extra-person fees, and amenities.
 
-PriceLabs can send pricing updates back to SympleHost for up to **365 days in advance**.
+PriceLabs can send pricing updates back to SympleHost for up to **365 days in advance**, but only for listings where **Sync Prices** is enabled inside PriceLabs.
 
 Supported updates include:
 
@@ -109,13 +109,15 @@ After PriceLabs is connected:
 3. Select the SympleHost listings or room-type units you want to enrol in PriceLabs.
 4. Click **Enrol** to send the selected listings to PriceLabs.
 
+This step only sends the selected listing information from SympleHost to PriceLabs. It does not automatically start nightly price updates. Each listing still needs to be reviewed in PriceLabs, then switched on for syncing from the PriceLabs side.
+
 ![PriceLabs manage page in SympleHost with the Add listings button](/screenshots/pricelabs-integration/add-listings-button.png)
 
 ![Add listings drawer showing available SympleHost listings to enrol in PriceLabs](/screenshots/pricelabs-integration/select-listings-drawer.png)
 
 ![PriceLabs manage page showing enrolled listings and sync status](/screenshots/pricelabs-integration/listings-enrolled.png)
 
-Only add listings that you want PriceLabs to manage. If a listing should keep using SympleHost pricing rules only, leave it out of the PriceLabs connection.
+Only add listings that you want PriceLabs to manage. If a listing should keep using SympleHost pricing rules only, leave it out of the PriceLabs connection. If you add a listing by mistake, do not enable **Sync Prices** for that listing in PriceLabs.
 
 > **Multi-unit note:** In SympleHost, multi-unit parent listings act as groups. PriceLabs enrolment happens at the room-type or unit level, so you may see child units listed under a parent property.
 
@@ -123,7 +125,7 @@ Only add listings that you want PriceLabs to manage. If a listing should keep us
 
 ## Step 4: Review Pricing in PriceLabs
 
-Once the listings are connected, return to PriceLabs and review each listing before turning on syncing.
+Once the listings are connected, return to PriceLabs and review each listing before turning on syncing. This review happens listing by listing. Do not assume that turning on sync for one property turns it on for every enrolled property.
 
 Check:
 
@@ -140,16 +142,19 @@ Do not turn on automatic syncing until the recommendations look right for the li
 
 ---
 
-## Step 5: Sync Prices
+## Step 5: Turn On Sync for Each Listing
 
-When you are ready:
+When you are ready, turn on sync inside PriceLabs for every listing you want PriceLabs to update. This is an individual listing setting.
 
 1. In PriceLabs, open the connected listing.
 2. Review the recommended rates and rules.
-3. Enable **Sync Prices** for automatic syncing.
-4. Use **Sync Now** if you want to push updates immediately.
+3. Enable **Sync Prices** for that listing if you want automatic nightly syncing.
+4. Use **Sync Now** if you want to push that listing's updates immediately.
+5. Repeat this for each SympleHost listing or room-type unit that should receive PriceLabs updates.
 
-After sync is enabled, PriceLabs sends pricing updates to SympleHost according to your PriceLabs settings.
+After **Sync Prices** is enabled for a listing, PriceLabs sends pricing updates to SympleHost according to your PriceLabs settings. Listings that are enrolled but do not have **Sync Prices** enabled will remain connected, but PriceLabs will not automatically push nightly price updates for them.
+
+For the PriceLabs-side screenshots, use the official PriceLabs guide: [How to Integrate PriceLabs with SympleHost](https://help.pricelabs.co/portal/en/kb/articles/how-to-integrate-pricelabs-with-symplehost#Step_3_Reviewing__Syncing_Prices). Their Step 3 shows where to review rates and switch on **Sync Prices** or run **Sync Now**.
 
 ---
 
@@ -159,6 +164,7 @@ After your first sync, review the listing in SympleHost.
 
 Check that:
 
+- The correct listings have **Sync Prices** enabled in PriceLabs
 - Rates appear on the expected dates
 - Minimum stay rules match your PriceLabs setup
 - Check-in and check-out restrictions are correct
@@ -185,7 +191,11 @@ Connect listings where you want PriceLabs to control pricing recommendations. Ke
 
 ### What should I do before enabling automatic sync?
 
-Review each listing inside PriceLabs first. Confirm the base price, minimum price, maximum price, seasonality, stay restrictions, and discounts before enabling **Sync Prices**.
+Review each listing inside PriceLabs first. Confirm the base price, minimum price, maximum price, seasonality, stay restrictions, and discounts before enabling **Sync Prices**. Then enable **Sync Prices** only on the individual listings you are ready to let PriceLabs update.
+
+### I added listings in SympleHost. Why are prices not updating?
+
+Adding or enrolling a listing from SympleHost only sends that listing to PriceLabs. It does not switch on automatic pricing updates. Open that listing in PriceLabs and enable **Sync Prices**, or click **Sync Now** for an immediate push. Repeat this for every listing or room-type unit that should sync.
 
 ### Where do I manage dynamic pricing after connecting?
 
