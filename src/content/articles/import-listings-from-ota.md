@@ -1,6 +1,6 @@
 ---
 title: 'How to Import Airbnb and Connect OTA Channels'
-description: Import Airbnb listings, then connect Booking.com, Expedia, Agoda, VRBO, and other OTAs through Channel Manager.
+description: 'Start with Airbnb, then connect Booking.com, VRBO, Expedia, Agoda, MakeMyTrip, and Trip.com through SympleHost Channel Manager.'
 category: getting-started
 section: Connect your listings
 sectionOrder: 2
@@ -11,209 +11,210 @@ tags:
   - Import
   - OTA
   - Channel Manager
-date: '2026-08-08'
+date: '2026-09-17'
 draft: false
 ---
 
-## What Is OTA Import?
+SympleHost brings your booking channels into one Channel Manager so you can manage inventory mappings, availability, rates, and connection health from one place.
 
-OTA stands for Online Travel Agency — platforms like Airbnb, Booking.com, Expedia, Agoda, VRBO, MakeMyTrip, and Trip.com where your listings may already be published. SympleHost supports two related workflows:
+For most hosts, **Airbnb should be the first connection**. Airbnb can import an existing listing as a new SympleHost property. After the property exists, connect Booking.com, VRBO, Expedia, Agoda, MakeMyTrip, Trip.com, and other supported platforms by mapping their rooms and rates to that property.
 
-- **Importing from Airbnb** to pull an existing Airbnb listing into SympleHost.
-- **Connecting channels through Channel Manager** after the property exists in SympleHost.
+## Choose the Right Starting Point
 
-For most hosts, the best first step is **Airbnb Import**. Once that property is in SympleHost, you can connect the same property to Booking.com, Expedia, Agoda, VRBO, MakeMyTrip, Trip.com, and other enabled channels through Channel Manager.
+| Your current setup | Best path |
+| --- | --- |
+| You already list on Airbnb | Connect Airbnb first and import the listing into SympleHost. |
+| The property already exists in SympleHost and Airbnb | Connect Airbnb, then choose **Map** instead of creating a duplicate property. |
+| You start with Booking.com | Create the property in SympleHost, approve Channex.io in the Booking.com Extranet, then connect the Hotel ID and map rooms. |
+| You run a direct-booking-only business | Add the property manually, then set up pricing, payments, and direct booking. |
 
----
-
-## When to Use This
-
-- You already have listings on Airbnb and want to bring them into SympleHost
-- You want to connect Booking.com, Expedia, Agoda, VRBO, MakeMyTrip, Trip.com, or another supported OTA through Channel Manager
-- You're setting up SympleHost for the first time and want to bring over your existing portfolio
-- You've added a new listing on an OTA and want to sync it into SympleHost
-
----
-
-## Which Setup Path Should I Use?
-
-### If you already have Airbnb
-Use **Airbnb Import** first. This creates the property in SympleHost using the Airbnb listing as the source. After that, connect other OTAs through **Channel Manager**.
-
-### If you run a direct-booking business
-Create the property manually in **Listings → + New Property → Manual**. Then set up direct booking settings, payments, calendar, and pricing.
-
-### If you want to start from Booking.com
-Start in **Channel Manager**, choose **Booking.com**, and follow the Booking.com connection flow. You will still need the property to exist in SympleHost so you can map Booking.com rooms or room types to the correct SympleHost listing or units.
-
-Before SympleHost can verify the connection, Booking.com must be set to use **Channex.io** as the connectivity provider in the Booking.com Extranet.
-
----
-
-## Where Channel Connectivity Is Managed
-
-Use **Channel Manager** as the central place for OTA connectivity. This is where hosts can:
-
-- see connected OTA accounts and sync health
-- check which properties, rooms, or units are covered by each channel
-- open the channel connection to review mappings
-- connect another OTA account
-- manage channel-level actions such as reconnecting or disconnecting
-
-For day-to-day property setup, think of it this way:
-
-1. Create or import the property first.
-2. Open **Channel Manager** to connect the OTA account and map the property, room, or unit.
-3. Open the listing's **Channels** tab when you need listing-specific controls such as per-channel markup.
-
-In the listing **Channels** tab, each OTA row shows the channel status, listing ID, listing URL, markup, and actions. The **Markup** chip lets hosts set the percentage adjustment sent to that connected OTA. The action area lets hosts connect the channel, manage the connection in Channel Manager, or disconnect legacy mappings.
-
-<!-- TODO: Add a current product screenshot here once captured from a logged-in latest platform session.
-Recommended screenshot: Channel Manager v2 table showing connected OTA rows, Covers, Sync, Status, and the Edit action, plus a second crop of a listing Channels tab showing the Markup chip/actions. -->
-
----
-
-## How to Import from Airbnb
+## Open Channel Manager
 
 1. Click **Listings** in the sidebar.
+2. Open **Channel Managers** above the property list.
+3. Review existing channel accounts, the properties and rooms they cover, and their sync status.
+4. Click **Connect OTA**.
 
-2. Click **+ New Property** in the top right.
+![Channel Manager showing connected OTA accounts, covered properties and rooms, and sync status](/screenshots/connect-otas/channel-manager-v2.png)
 
-3. Select **Import**.
+The connection wizard shows each supported platform and the type of information it needs.
 
-4. On the **Import Property** screen, click the **Airbnb** card or continue through the Airbnb authorization popup.
+![Connect OTA screen showing Airbnb, Booking.com, VRBO, Expedia, Agoda, MakeMyTrip, and Trip.com](/screenshots/connect-otas/choose-ota.png)
 
-5. Click **Authorize with Airbnb**. This opens a pop-up where you log in to your Airbnb account and grant SympleHost permission to access your listings.
+| Platform | Connection method | What happens next |
+| --- | --- | --- |
+| **Airbnb** | One-click sign-in | Import or map Airbnb listings. |
+| **Booking.com** | Hotel ID from the Extranet | Request the connection, then map rooms. |
+| **VRBO** | Login and verification code | Connect the account, then map listings. |
+| **Expedia** | Extranet ID | Connect the property, then map rooms and rates. |
+| **Agoda** | Extranet ID | Connect the property, then map rooms and rates. |
+| **MakeMyTrip** | API credentials | Authorize the account, then map inventory. |
+| **Trip.com** | Extranet ID | Connect the property, then map rooms and rates. |
 
-![Airbnb authorization popup shown during the import flow](/uploads/import-listings-from-ota/02-airbnb-authorization.png)
+## Connect Airbnb First
 
-6. Once authorized, you'll see a list of your Airbnb listings. Tick the ones you want to import.
+### Step 1: Choose Airbnb
 
-7. Click **Import**.
+1. Open **Listings → Channel Managers**.
+2. Click **Connect OTA**.
+3. Select **Airbnb**.
 
-SympleHost will pull in the listing details, photos, and settings. You'll see a summary showing how many were imported, how many were skipped if already in SympleHost, and if any failed.
+Airbnb is the recommended first connection because SympleHost can use it to create the initial property record rather than making you enter the same listing information again.
 
----
+### Step 2: Connect or Choose an Airbnb Account
 
-## How to Connect Booking.com
+SympleHost shows Airbnb accounts already connected to the workspace.
 
-Booking.com connects through **Channex.io** (the connectivity provider that syncs your reservations, availability, rates, and room mapping between SympleHost and Booking.com). Booking.com only allows one connectivity provider at a time, so this step matters.
+- Choose **Use this account** when the correct Airbnb account is already present.
+- Choose **Connect another account** to sign in to a different Airbnb account.
+- Choose **Invite the owner** when you manage the property but do not own the Airbnb account.
 
-The SympleHost flow has four stages:
+![Airbnb connection step showing an existing account, Connect another account, and Invite the owner](/screenshots/connect-otas/airbnb-connect-account.png)
 
-1. **Pre-flight** — confirm the property exists in SympleHost, Booking.com is open and bookable, no other PMS or channel manager is connected, and Channex.io is approved as the connectivity provider.
-2. **Connect** — enter the Booking.com Hotel ID.
-3. **Map rooms** — map Booking.com rooms to the correct SympleHost listing, unit, and rate plan.
-4. **Sync** — push rates, calendar, and room mappings to Booking.com through Channex.io.
+If you connect another account, complete Airbnb's authorization screen in the popup. Sign in with the Airbnb account that owns or manages the listings and approve the requested access.
 
-### Step 1: Set up Channex.io as your connectivity provider
+### Step 3: Choose What to Do With Each Listing
 
-Before connecting in SympleHost, update the connectivity provider in the Booking.com Extranet:
+SympleHost fetches the listings available in the connected Airbnb account. This can take up to a minute.
 
-1. Log in to your **Booking.com Extranet** at admin.booking.com.
-2. Open the account menu and go to **Connectivity provider**.
+| Choice | Use it when |
+| --- | --- |
+| **Import** | The Airbnb listing does not exist in SympleHost. A new SympleHost property will be created. |
+| **Map** | The same property already exists in SympleHost. Link Airbnb to the existing property instead of creating a duplicate. |
+| **Skip** | You do not want to connect this Airbnb listing now, or it is already linked. |
+
+![Airbnb listing selection showing Import, Map, Skip, and an already-linked property](/screenshots/connect-otas/airbnb-choose-listings.png)
+
+Review the totals for **Import**, **Map**, and **Skip**, then click **Continue**. Keep the tab open while SympleHost completes the setup.
+
+### Step 4: Verify the Airbnb Connection
+
+Return to **Channel Manager** and confirm:
+
+- the Airbnb account shows **Connected**
+- the expected property is covered
+- the channel is **Live**
+- the sync status is **In sync**
+
+If you manage several owners, you can connect more than one Airbnb account. Keep each listing mapped to the correct SympleHost property.
+
+## Connect Booking.com
+
+Booking.com connects differently from Airbnb. It does not create the SympleHost property through this flow. The property should already exist so Booking.com rooms can be mapped to it.
+
+### Step 1: Choose Channex.io in the Booking.com Extranet
+
+Booking.com allows one connectivity provider at a time.
+
+1. Sign in to the **Booking.com Extranet**.
+2. Open the account menu and choose **Connectivity provider**.
 
 ![Booking.com Extranet account menu with Connectivity provider highlighted](/screenshots/import-listings-from-ota/booking-extranet-account-menu.png)
 
-3. If another PMS or channel manager is connected, disconnect it first. Booking.com only allows one connectivity provider at a time.
+3. Disconnect the previous PMS or channel manager if required.
 4. Search for **Channex.io**.
 
-![Booking.com Extranet provider search showing Channex.io](/screenshots/import-listings-from-ota/booking-extranet-search-channex.png)
+![Booking.com Extranet connectivity-provider search showing Channex.io](/screenshots/import-listings-from-ota/booking-extranet-search-channex.png)
 
-5. Confirm **Channex.io** as the connectivity provider.
+5. Select Channex.io and complete the approval steps.
 
-![Booking.com Extranet connection request waiting for Channex.io provider confirmation](/screenshots/import-listings-from-ota/booking-extranet-provider-confirmation.png)
+![Booking.com Extranet connection request waiting for Channex.io confirmation](/screenshots/import-listings-from-ota/booking-extranet-provider-confirmation.png)
 
-**Tip:** If you're not sure how to do this, SympleHost has a built-in setup guide — you'll see it when you start the connection process.
+### Step 2: Request the Connection in SympleHost
 
-### Step 2: Connect in SympleHost
+1. Open **Listings → Channel Managers**.
+2. Click **Connect OTA**.
+3. Choose **Booking.com**.
+4. Enter the numeric **Hotel ID** from the Booking.com Extranet.
+5. Click **Request connection**.
 
-1. Make sure the property already exists in SympleHost. If it started on Airbnb, import it first. If it is direct-only, create it manually.
+![Booking.com connection screen in SympleHost requesting the Hotel ID from the Extranet](/screenshots/connect-otas/booking-com-connect-account.png)
 
-2. Open **Channel Manager**.
+SympleHost will notify you when the connection is approved.
 
-3. Find **Booking.com** and click **Connect**. A wizard will open.
+### Step 3: Map Rooms and Rates
 
-4. Enter your **Hotel ID**.
+After approval:
 
-   Your Hotel ID is the numeric code in the Booking.com Extranet URL, for example `admin.booking.com/hotel/1234567`. Click **Where to find your Hotel ID** in the wizard if you need help locating it.
+1. Open the Booking.com connection in Channel Manager.
+2. Match each Booking.com room or room type to the correct SympleHost property or unit.
+3. Match the correct rate plans.
+4. Review availability and pricing before starting sync.
+5. Save the mappings and complete the sync step.
 
-![SympleHost Booking.com connection modal where you enter the Hotel ID](/screenshots/import-listings-from-ota/symplehost-booking-hotel-id.png)
+Do not map different physical rooms to the same SympleHost unit unless they genuinely share inventory.
 
-5. Click **Connect & verify**.
+## Connect Other Booking Platforms
 
-### Step 3: Verify and sync
+For VRBO, Expedia, Agoda, MakeMyTrip, and Trip.com:
 
-6. SympleHost verifies the Booking.com connection through Channex.io. You'll see the status progress:
-   - "Creating connection..."
-   - "Verifying with Booking.com..."
-   - **"Connected!"** (with a green checkmark)
+1. Create or import the property in SympleHost first.
+2. Open **Listings → Channel Managers → Connect OTA**.
+3. Choose the platform.
+4. Enter the requested login, verification code, Extranet ID, Hotel ID, hotel code, or API credentials.
+5. Complete any connectivity-provider approval required in the OTA portal.
+6. Map the OTA listing, rooms, and rate plans to the correct SympleHost property or units.
+7. Start the sync and confirm the connection becomes live.
 
-7. Click **Continue**.
+The screens vary by platform, but the operating rule is the same: **connect the account, map the correct inventory, then verify sync health**.
 
-8. Map each Booking.com room or room type to the correct SympleHost listing, unit, and rate plan.
+## Review Channel Health
 
-9. Click **Save & continue**, then start the sync.
+Use Channel Manager after setup to check:
 
-10. Wait for the sync to queue. First sync usually takes a few minutes.
+- whether the account is connected
+- how many properties, rooms, and rate plans it covers
+- whether the connection is live
+- whether it is in sync
+- when it last synced
 
-Your Booking.com listing is now connected. You can review the connection later from **Channel Manager**, where connected properties, sync health, price rules, and last sync status are shown.
+Return here before troubleshooting rates or availability on the OTA. A disconnected or unhealthy channel cannot reliably receive updates.
 
----
+## Important Checks After Connecting
 
-## Connecting Expedia, Agoda, VRBO, MakeMyTrip, and Trip.com
+1. Open **Listings** and confirm there are no duplicate properties.
+2. Check property details, photos, capacity, and address.
+3. Review the **Pricing Calendar** and minimum-stay rules.
+4. Open **Calendars** and compare availability with the OTA.
+5. Confirm that a future availability or rate update reaches the connected channel.
+6. Review any channel markup or pricing adjustment before going live.
 
-After the property exists in SympleHost, connect additional OTAs from **Channel Manager**:
-
-1. Open **Channel Manager**.
-2. Choose the OTA you want to connect.
-3. Follow the pre-flight checklist for that OTA.
-4. Approve **Channex.io** as the connectivity provider in the OTA's extranet or partner portal when the flow asks for it.
-5. Enter the required hotel ID, hotel code, account details, or verification details.
-6. Map the OTA's rooms or rate plans to the correct SympleHost listing or units.
-7. Start sync.
-
-Each OTA has slightly different requirements, but the pattern is the same: property in SympleHost first, connectivity provider approved on the OTA side, then mapping and sync in Channel Manager.
-
----
-
-## Verifying Your Import
-
-After importing, it's a good idea to check that everything came over correctly:
-
-1. Go to **Listings** and open each imported listing.
-2. Review the **name, description, and photos** — make sure they match what's on the OTA.
-3. Check **capacity** (bedrooms, beds, bathrooms, max guests) — these sometimes need adjusting.
-4. Set up **pricing** and review the **Pricing Calendar** — imported listings may still need SympleHost pricing and availability checks. See: How to Set Up Your Pricing & Rate Rules.
-
-**Important:** Importing a listing does not automatically sync future changes between the OTA and SympleHost. If you update a listing on Airbnb, you'll need to update it in SympleHost too (or vice versa).
-
----
+Importing a property and connecting a channel are related but different actions. Import creates or maps the property. Channel sync keeps supported availability, rates, restrictions, and reservations moving between systems.
 
 ## Troubleshooting
 
-### I don't see the "Import" option
-The **+ New Property** button and import options are only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
+### Airbnb shows the property as already linked
 
-### Authorization failed for Airbnb
-Make sure you're logging in with the correct Airbnb account — the one that owns the listings. If you manage listings on behalf of someone else, the account owner needs to authorize the connection.
+Choose **Skip** unless you intentionally need to change the existing mapping. Do not import it again, because that can create a duplicate property.
 
-### Some listings show as "skipped"
-This means those listings were already imported into SympleHost. You won't have duplicate listings — SympleHost recognizes them and skips the re-import.
+### The correct Airbnb account is not listed
 
-### Booking.com connection failed
-Check that your Hotel ID is correct — it should be a numeric ID up to 10 digits from the Booking.com Extranet URL. Also make sure you've approved **Channex.io** as your connectivity provider in Booking.com first. If the connection still fails, click **Try Again** in the wizard.
+Choose **Connect another account**. If the Airbnb account belongs to the property owner, use **Invite the owner** so they can authorize it directly.
 
-### Booking.com sync failed
-If the sync step fails, click **Try Again** in the wizard, or return to **Channel Manager → Booking.com** and re-open the connection.
+### Airbnb listings are still loading
 
-### My photos didn't come through
-This can happen if the OTA's image links have expired or if there's a temporary connection issue. Try re-importing the listing. If photos still don't appear, upload them manually from the listing's edit page.
+Keep the tab open for up to a minute. If the list does not appear, return to Channel Manager, confirm the Airbnb account is connected, and restart the flow.
 
----
+### Booking.com will not connect
+
+Confirm that the Hotel ID is correct and that **Channex.io** is approved as the connectivity provider in the Booking.com Extranet. Booking.com cannot use two connectivity providers at the same time.
+
+### A room is connected to the wrong property
+
+Stop before syncing more changes. Open the channel connection, review the room mapping, and match it to the correct SympleHost property or unit.
+
+### Availability or rates are not updating
+
+Open Channel Manager and check whether the connection is live and in sync. Then review room mapping, rate-plan mapping, property pricing, availability restrictions, and any channel markup.
+
+### I cannot see Connect OTA
+
+Your role may not have permission to manage listings or channel connections. Ask the account owner or administrator to review your role under **Settings → Team Members**.
 
 ## Related Articles
 
+- [How to Link Property Calendars](/platform-guides/link-property-calendars/)
 - [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
+- [Adding a Multi-Unit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
