@@ -105,6 +105,8 @@ These messages are temporary and only appear while a real import is running or n
 
 Do not start the same import again just because setup is still in progress. Larger or multi-unit listings can take several minutes while SympleHost creates rooms, rate plans, availability, pricing, and channel mappings.
 
+> **Give the first sync time to finish.** SympleHost shows the setup status while it sends availability, rates, reservations, and restrictions between systems. During this initial sync, an OTA calendar may temporarily appear blocked or not yet show the latest availability. This is a protective state while the calendars reconcile, not necessarily a problem with the connection. Owner blocks can also take a little time to reach every connected channel. Wait until the listing changes from **Setting up** to **Live / In sync**, then refresh the OTA calendar and check again before changing mappings or reconnecting the account.
+
 ### Step 5: Verify the Airbnb Connection
 
 Return to **Channel Manager** and confirm:
