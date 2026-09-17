@@ -87,7 +87,25 @@ SympleHost fetches the listings available in the connected Airbnb account. This 
 
 Review the totals for **Import**, **Map**, and **Skip**, then click **Continue**. Keep the tab open while SympleHost completes the setup.
 
-### Step 4: Verify the Airbnb Connection
+### Step 4: Follow the Import Progress
+
+After you continue, SympleHost sets up each selected listing in the background. You can leave the import screen and continue using the platform.
+
+During setup, progress can appear in several places:
+
+| What you see | What it means | What to do |
+| --- | --- | --- |
+| **Importing X/Y** in the top bar | SympleHost is still creating or linking listings. | Let the import continue. Click the indicator to open the affected properties. |
+| **Setting up** on a property | That listing is moving through its setup steps. | Open the property to see its current step and progress. |
+| **Setting up X listings** in Channel Manager | One or more listings under that channel connection are still being prepared. | You can continue working elsewhere and return later. |
+| **Import finished** | Every listing in that import completed successfully. | Review the new properties, then dismiss the message when ready. |
+| **Needs attention** or a red count | One or more listings stopped before setup completed. | Open the indicator or channel connection, select the affected listing, and review the failed step. |
+
+These messages are temporary and only appear while a real import is running or needs attention, so your screen may move directly to the completed connection view.
+
+Do not start the same import again just because setup is still in progress. Larger or multi-unit listings can take several minutes while SympleHost creates rooms, rate plans, availability, pricing, and channel mappings.
+
+### Step 5: Verify the Airbnb Connection
 
 Return to **Channel Manager** and confirm:
 
@@ -95,6 +113,8 @@ Return to **Channel Manager** and confirm:
 - the expected property is covered
 - the channel is **Live**
 - the sync status is **In sync**
+
+If a listing still shows **Setting up**, wait for it to finish before checking the final connection state. If it shows **Needs attention**, open that listing to identify the failed step before reconnecting the entire Airbnb account.
 
 If you manage several owners, you can connect more than one Airbnb account. Keep each listing mapped to the correct SympleHost property.
 
