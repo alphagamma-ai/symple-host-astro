@@ -26,6 +26,73 @@ Common uses include:
 
 > **Webhooks require a receiving system.** You need an HTTPS endpoint built by your developer, integration partner, or automation platform. If you do not have one yet, use [webhook.site](https://webhook.site) temporarily to inspect test payloads. Do not use a temporary inspection URL as your permanent production endpoint.
 
+## Do You Need Webhooks?
+
+You probably need webhooks when information from SympleHost must trigger something in another system immediately. A webhook is the notification that starts the workflow; the receiving system decides what happens next.
+
+You do **not** need webhooks for normal work inside SympleHost. Reservations, guest messages, operational tasks, automated messages, pricing, and availability already work inside the platform without you creating an endpoint.
+
+### Easy-to-Understand Use Cases
+
+#### 1. Alert Your Team About a New Booking
+
+When `reservation.created` arrives, your automation can post a message in Slack or Microsoft Teams, create a record in your CRM, or notify an external operations system.
+
+**Example:** A 30-night direct booking is created. Your internal workflow immediately alerts the sales and operations teams so they can review payment terms and prepare the stay.
+
+#### 2. Start a Custom Turnover Workflow
+
+A new or updated reservation can be sent to an external cleaning or workforce platform. That system can calculate the checkout date and prepare its own cleaning job.
+
+**Example:** A reservation is moved by two days. The external housekeeping schedule updates without someone copying the new checkout date manually.
+
+> SympleHost's own Operations module can already create and manage tasks. Use a webhook only when another system must receive the change.
+
+#### 3. Keep an Owner or Management Dashboard Current
+
+Use reservation events to update a private reporting database or owner dashboard whenever a stay is created, changed, or cancelled.
+
+**Example:** A cancelled reservation is removed from a company's custom occupancy forecast and the affected owner report is recalculated.
+
+#### 4. Send Booking Data Into Accounting or CRM Software
+
+A developer can use `reservation.created` and `reservation.updated` to create or update records in a CRM, finance workflow, data warehouse, or business-intelligence tool.
+
+**Example:** A new direct booking creates a CRM contact and deal so the commercial team can track repeat guests and booking value.
+
+> Use SympleHost's native Xero integration when Xero is your accounting destination. A custom webhook is most useful when your accounting or reporting process uses another system or requires additional logic.
+
+#### 5. Route Guest Messages Into Another Support Tool
+
+When `message.created` arrives, your integration can send the inbound guest message to an external help desk, analytics service, or escalation workflow.
+
+**Example:** A message containing an urgent maintenance phrase creates an alert in an external incident-management system for human review.
+
+The receiving system should not send an automatic guest reply unless it has the correct permissions, conversation context, safeguards, and a separate supported way to send the response.
+
+#### 6. Audit Pricing and Availability Changes
+
+Use `pricing.updated` or `availability.updated` to keep an external audit log or refresh a connected revenue-management view.
+
+**Example:** When a nightly rate changes, the event is written to a reporting database so the revenue manager can compare pricing decisions over time.
+
+#### 7. Build a Custom Integration
+
+Webhooks can tell your PMS, channel manager, mobile app, or internal server that data has changed. The external system can then use an authorised API integration to retrieve more information or send an approved update back to SympleHost.
+
+**Example:** A custom guest app receives a booking event, retrieves the information it is permitted to access, and prepares the correct pre-arrival experience.
+
+### Webhooks Are Not the Whole Automation
+
+A webhook does not create a Slack message, spreadsheet row, cleaning task, or accounting entry by itself. It sends a secure event to a receiver. You still need one of the following:
+
+- your own server or application
+- an integration partner
+- an automation service that can receive custom webhooks
+- a developer-built workflow that validates and processes the event
+
+Start with one clear outcome and one event type. Test it end to end before subscribing to every available event.
+
 ## Before You Start
 
 Make sure you have:
