@@ -10,7 +10,7 @@ tags:
   - Availability
   - Channel Manager
   - Multi-unit
-date: '2026-09-17'
+date: '2026-09-18'
 draft: false
 ---
 
@@ -108,16 +108,37 @@ Use this only when you understand the complete inventory structure. A nested set
 
 ## Add a Date-Range Exception
 
-An exception temporarily stops a calendar link from carrying bookings or blocks across a selected date range. This is useful when linked properties should be sold independently for a season, event, or temporary operating period.
+An exception temporarily switches off one linked-calendar rule for a date range you choose. Inside that range, nothing carries between the linked listings in either direction: neither your manual blocks nor real bookings. Outside the range, the link continues working normally.
+
+For example, a whole villa and its individual rooms may normally close each other's availability. You could add an exception over Christmas when you want to sell the rooms independently instead of only selling the whole villa.
 
 1. Open **Listings → Linked Calendars**.
 2. Open **Actions** for the relevant group.
 3. Choose **Manage exceptions**.
-4. Add the start date, end date, and an optional note.
-5. Choose whether the exception should apply to existing affected dates now or only to future changes.
-6. Save the exception.
 
-During an exception, neither manual blocks nor real bookings propagate through that calendar link for the selected dates. Review the impact carefully before applying it to dates that already contain bookings or linked blocks.
+![Linked Calendars group menu showing Edit, Manage exceptions, and Unlink all](/screenshots/link-calendars/manage-exceptions-menu.png)
+
+4. Review the calendar. Its legend distinguishes dates **Blocked by you**, **Closed by the link**, and covered by an **Exception**.
+5. Click **Add exception**.
+6. Choose the start and end dates. Both dates are included.
+7. Add an optional reason, such as “Selling the units separately over Christmas.”
+8. Click **Save exception**.
+9. Choose what should happen to nights the link already closed:
+   - **Reopen them now** to remove those linked closures and push the updated availability to connected channels.
+   - **Leave them as they are** to keep existing closures and apply the exception only to future changes.
+
+![Exceptions calendar showing linked closures, manual blocks, the exception legend, and the Add exception action](/screenshots/link-calendars/calendar-link-exceptions.png)
+
+### Important Exception Rules
+
+- An exception applies only to the selected linked-calendar rule and date range.
+- Both the start and end dates are included.
+- One exception can cover up to two years.
+- Exception ranges can overlap and are never merged. Deleting one exception leaves any other overlapping exceptions in force.
+- Saving or deleting an exception can reopen dates previously closed by the link, but only when you choose that option.
+- Real reservations are never deleted, reopened, or otherwise changed when you save or remove an exception.
+
+Use the calendar preview before saving so you can see which nights were blocked manually and which were closed by the link. If the linked properties connect to Airbnb, Booking.com, or another OTA, allow time for reopened availability to reach those channels.
 
 ## Edit or Remove a Link
 
