@@ -1,21 +1,22 @@
 ---
-title: "Pricing and Rate Rules"
-description: "Set base pricing, seasonal rules, channel markups, and rate adjustments that keep bookings profitable."
-poster: "/screenshots/videos/module-placeholder.svg"
-duration: "1 min"
+title: "Prices and Rates"
+description: "Set base prices, create rate plans, apply seasonal adjustments, and control what guests pay."
+videoFile: "/videos/symplehost-walkthrough-prices-and-rates.mp4"
+poster: "/screenshots/videos/walkthrough-prices-and-rates.png"
+duration: "1 min 35 sec"
 order: 74
 draft: false
 ---
 
-Use this demo to orient hosts before they adjust rates.
+See how to configure the prices and rate rules used for your listings.
 
 ## Recording Flow
 
-1. Open pricing or rate rules for a listing.
-2. Show base price, minimum stay, seasonal adjustments, and markups.
-3. Mention channel-specific markups through Channel Manager where relevant.
-4. End with the need to check synced channels after rate changes.
+1. Open pricing for a listing.
+2. Review the base price and rate plans.
+3. Add seasonal adjustments and stay rules where needed.
+4. Check the final rates before they are used across connected channels.
 
-## 1-Minute Voiceover
+## Steps Shown
 
-"Pricing and Rate Rules help hosts control what guests see across channels. Start with a clean base price, then add rules for seasons, minimum stays, special dates, or channel-specific adjustments. If you use Channel Manager, remember that channel markups can affect the final price guests see on Airbnb, Booking.com, Expedia, Agoda, or other OTAs. After changing pricing, check the Calendar and connected channels so you know availability and rates are syncing the way you expect."
+Open listing pricing, set the base price, configure rate plans and adjustments, and review the resulting rates.
