@@ -78,7 +78,7 @@ SympleHost was built for exactly this kind of market. WhatsApp-first guest messa
 
 ---
 
-**Related reading:** [Asia-Pacific vacation rental market overview](/str-market-trends/asia-pacific-str-overview) · [Facebook marketing and Groups strategy for vacation rental hosts](/marketing-for-hosts/facebook-marketing-vacation-rentals) · [Instagram marketing for vacation rentals](/marketing-for-hosts/instagram-marketing-vacation-rentals)
+**Related reading:** [Airbnb's 15.5% host fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026) · [Best Airbnb management software in India](/marketing-for-hosts/best-airbnb-management-software-india) · [How to manage multiple Airbnb properties in India](/marketing-for-hosts/manage-multiple-airbnb-properties-india) · [Asia-Pacific vacation rental market overview](/str-market-trends/asia-pacific-str-overview)
 
 ---
 
