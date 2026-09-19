@@ -146,7 +146,7 @@ This doesn't happen overnight. But hosts who start building this system now will
 
 ---
 
-**Related reading:** [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [Facebook Groups and ads strategy for STR hosts](/marketing-for-hosts/facebook-marketing-vacation-rentals) · [Turn guest reviews into a booking engine](/marketing-for-hosts/guest-reviews-to-bookings) · [Asia-Pacific vacation rental market trends 2026](/str-market-trends/asia-pacific-str-overview)
+**Related reading:** [Airbnb's 15.5% host fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026) · [Best Airbnb management software in India](/marketing-for-hosts/best-airbnb-management-software-india) · [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [Turn guest reviews into a booking engine](/marketing-for-hosts/guest-reviews-to-bookings) · [Asia-Pacific vacation rental market trends 2026](/str-market-trends/asia-pacific-str-overview)
 
 ---
 
