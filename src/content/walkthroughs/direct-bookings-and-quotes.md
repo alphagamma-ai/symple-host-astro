@@ -1,22 +1,22 @@
 ---
-title: "Direct Bookings and Quotes"
-description: "Create direct reservations, build property or service quotes, send guest links, and convert confirmed enquiries."
-videoFile: "/videos/symplehost-walkthrough-direct-bookings-and-quotes.mp4"
-poster: "/screenshots/videos/walkthrough-direct-bookings-and-quotes.png"
-duration: "31 sec"
+title: "Quotes"
+description: "Create property or service quotes, review the price, send them to guests, and track their status."
+videoFile: "/videos/symplehost-walkthrough-quotes.mp4"
+poster: "/screenshots/videos/walkthrough-quotes.png"
+duration: "1 min 28 sec"
 order: 65
 draft: false
 ---
 
-Show how Direct supports hosts who want more control beyond OTA bookings.
+See how to turn a guest enquiry into a clear, professional quote.
 
 ## Recording Flow
 
-1. Start from Calendar or Direct -> Quotes.
-2. Show creating a direct reservation or quote.
-3. Show guest/customer details, dates, pricing, services, and payment/confirmation flow.
-4. End with where the confirmed booking appears.
+1. Open Quotes from the sidebar.
+2. Choose a property or service quote.
+3. Add the guest, dates, pricing, and relevant services.
+4. Review the quote before sending it and track its status afterwards.
 
 ## Steps Shown
 
-Start a direct booking, create a property quote, create a service quote, and review quote actions before sending or confirming.
+Create a property or service quote, review the details, send it to the guest, and follow its progress.
