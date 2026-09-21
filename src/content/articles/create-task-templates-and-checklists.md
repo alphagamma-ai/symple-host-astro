@@ -52,14 +52,14 @@ Choose this approach when most of the process is shared but each property has a 
 
 1. Build a complete master template, such as **Master Checkout Turnover**.
 2. On the template card, select the **copy icon** beside the active toggle.
-3. Rename the copy clearly, such as **Checkout Turnover - Turner Apartment**.
+3. Rename the copy clearly, such as **Checkout Turnover - Property A**.
 4. Add that property's access details, room-specific steps, supply locations, linen counts, reference photos, and final checks.
 5. Repeat for the other properties.
 6. Keep the master as the starting point for future properties.
 
 This avoids rebuilding 40 or 70 common checklist items every time, while still giving the cleaner the exact instructions for the property they are entering.
 
-> **Recommended naming:** use **Task type - Property name**, for example **Checkout Turnover - Turner**, **Checkout Turnover - Harbour View**, and **Monthly Inspection - Turner**.
+> **Recommended naming:** use **Task type - Property name**, for example **Checkout Turnover - Property A**, **Checkout Turnover - Property B**, and **Monthly Inspection - Property A**.
 
 ## Create a Task Template
 
@@ -166,13 +166,11 @@ The saved checklist is copied into that task so the assignee can complete it ste
 For a property-specific workflow:
 
 1. Select the property or related listing for the task.
-2. Choose the matching template, such as **Checkout Turnover - Turner**.
+2. Choose the matching template, such as **Checkout Turnover - Property A**.
 3. Confirm the assignee and timing.
 4. Create the task.
 
 The property-specific access notes, checklist order, counts, and proof requirements now come through with the task. You do not need to add the same lockbox note, towel count, or room instruction again for every turnover.
-
-![Create New Task modal showing property-specific templates in the Job Template selector](/screenshots/task-template-workflow/select-template-for-task.png)
 
 > **Important:** the task receives a copy of the template as it exists when the task is created. Editing the template improves future tasks; it does not rewrite work that has already been created or completed.
 
@@ -210,11 +208,11 @@ Start with **Master Checkout Turnover** containing the common cleaning and inspe
 
 | Template | Property-specific changes |
 | --- | --- |
-| **Checkout Turnover - Turner** | Garage lockbox, PIN, 2 bedrooms, 8 towels, basement linen cupboard. |
-| **Checkout Turnover - Harbour View** | Reception key collection, balcony inspection, 3 bedrooms, beach-towel count. |
+| **Checkout Turnover - Property A** | Garage lockbox, 2 bedrooms, 8 towels, ground-floor linen cupboard. |
+| **Checkout Turnover - Property B** | Reception key collection, balcony inspection, 3 bedrooms, beach-towel count. |
 | **Checkout Turnover - City Studio** | Smart-lock code, sofa-bed setup, compact kitchen checklist, no outdoor section. |
 
-When a Turner turnover is created, select **Checkout Turnover - Turner**. The cleaner sees the Turner instructions. When Harbour View needs work, select its template instead. The shared operating standard stays consistent, but each task carries the details of the correct property.
+When a task is created for Property A, select **Checkout Turnover - Property A**. The cleaner sees the instructions for Property A. When Property B needs work, select its template instead. The shared operating standard stays consistent, but each task carries the details of the correct property.
 
 If the same task is created automatically after checkout, attach the matching property template to that property's automation. This removes the need for a manager to select or edit the checklist each time.
 
