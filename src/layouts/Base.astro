@@ -23,14 +23,22 @@ interface Props {
   searchable?: boolean;
   /** Value recorded for the `category` search filter. Requires `searchable`. */
   searchCategory?: string;
+  /**
+   * Absolute URL to point the canonical tag at instead of this page's own URL.
+   * Used when the same content also lives on www.symplehost.ai and that copy
+   * is the one we want ranked. Only the canonical tag moves: og:url and the
+   * .md alternate still describe this page.
+   */
+  canonical?: string;
 }
 
-const { title, locale = DEFAULT_LOCALE, searchable = false, searchCategory, structuredData = [] } = Astro.props;
+const { title, locale = DEFAULT_LOCALE, searchable = false, searchCategory, structuredData = [], canonical } = Astro.props;
 const copy = uiCopy[locale];
 const description = Astro.props.description ?? copy.defaultDescription;
 const currentPath = Astro.url.pathname;
 const siteOrigin = Astro.site?.origin ?? 'https://help.symplehost.ai';
 const canonicalUrl = new URL(currentPath === '/' ? '/' : currentPath.replace(/\/$/, '') || '/', siteOrigin).href;
+const canonicalHref = canonical ?? canonicalUrl;
 const ogImage = new URL('/logos/symplehost.png', siteOrigin).href;
 const pageTitle = `${title} | ${copy.titleSuffix}`;
 const isHome = currentPath === '/' || currentPath === `/${locale}/` || currentPath === `/${locale}`;
@@ -106,7 +114,7 @@ const organizationJsonLd = {
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={canonicalHref} />
     <link rel="describedby" href="/openapi.json" type="application/openapi+json" />
     <link rel="service-desc" href="/openapi.json" type="application/openapi+json" />
     <link rel="api" href="/openapi.json" type="application/openapi+json" />

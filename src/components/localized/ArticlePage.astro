@@ -162,6 +162,7 @@ const formattedDate = article.data.date
   searchable
   searchCategory={category ? getCategoryTitle(category, locale) : undefined}
   structuredData={structuredData}
+  canonical={article.data.canonical}
 >
   <nav class="breadcrumb" data-pagefind-ignore>
     <a href={localizePath('/', locale)}>{copy.allTopics}</a>
