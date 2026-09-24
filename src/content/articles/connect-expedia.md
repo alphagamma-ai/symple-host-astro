@@ -107,4 +107,3 @@ Check room and rate-plan mappings, the applicable calendar pricing, channel mark
 - [How to Import Airbnb and Connect OTA Channels](/getting-started/import-listings-from-ota/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
 - [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/)
-
