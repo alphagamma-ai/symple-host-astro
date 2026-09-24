@@ -12,6 +12,7 @@ tags:
   - PMS
 date: '2026-09-19'
 draft: false
+canonical: https://www.symplehost.ai/en/blog/airbnb-host-fee-india-2026
 ---
 
 > **Short answer:** Airbnb is phasing out its split-fee model and moving home hosts to a single host-paid fee. Airbnb says most hosts on this model pay **15.5%**, although the rate can generally range from 14% to 16%. Indian hosts should check the fee shown in their own Airbnb account before changing prices.

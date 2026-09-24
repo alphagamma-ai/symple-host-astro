@@ -24,6 +24,12 @@ const articles = defineCollection({
       val instanceof Date ? val.toISOString().split('T')[0] : val
     ),
     draft: z.boolean().optional().default(false),
+    /**
+     * Absolute URL of the copy that should rank instead of this one. Set it
+     * when the same piece also runs on www.symplehost.ai, so the two don't
+     * compete for the same searches.
+     */
+    canonical: z.string().url().optional(),
   }),
 });
 
