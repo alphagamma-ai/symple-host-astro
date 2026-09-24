@@ -206,6 +206,8 @@ For Booking.com hotel-style connections, markups are managed at the mapped room/
 
 This is useful if you want the OTA price to be higher than your direct booking price to cover commission or channel costs.
 
+See [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/) for step-by-step instructions and pricing examples.
+
 ---
 
 ## Troubleshooting

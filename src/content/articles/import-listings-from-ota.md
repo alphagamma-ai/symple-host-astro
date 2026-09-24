@@ -19,6 +19,17 @@ SympleHost brings your booking channels into one Channel Manager so you can mana
 
 For most hosts, **Airbnb should be the first connection**. Airbnb can import an existing listing as a new SympleHost property. After the property exists, connect Booking.com, VRBO, Expedia, Agoda, MakeMyTrip, Trip.com, and other supported platforms by mapping their rooms and rates to that property.
 
+## Step-by-Step OTA Connection Guides
+
+For these channels, approve **Channex.io** as the connectivity provider in the OTA account, then copy the hotel's or property's identifier into the SympleHost connection flow:
+
+- [Connect Booking.com](/getting-started/connect-booking-com/)
+- [Connect Expedia](/getting-started/connect-expedia/)
+- [Connect Agoda](/getting-started/connect-agoda/)
+- [Connect Trip.com](/getting-started/connect-trip-com/)
+
+After connecting, use [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/) to adjust each channel's prices.
+
 ## Choose the Right Starting Point
 
 | Your current setup | Best path |
