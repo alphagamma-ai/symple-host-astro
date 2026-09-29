@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: SympleHost Partner API
-  version: "2025-06-01"
+  version: "2026-09-22"
   description: |
     The **Partner API** lets an approved third-party PMS run alongside SympleHost — pull
     reservations, transactions and unified-inbox messages, and link properties.
@@ -9,11 +9,15 @@ info:
     ## Authentication
     Per-account, scoped API keys. Two modes:
 
-    - **HTTP Basic** — for read-only, non-sensitive scopes. `Authorization: Basic base64(key_id:secret)`.
-    - **HMAC-SHA256** — **mandatory** for any key holding a *sensitive* scope
-      (`guest_name:read`, `guest_contact:read`, `message_content:read`, `transactions:read`,
-      `reservations:write`, `pricing:write`, `availability:write`, `properties:link`,
-      `messaging:send`, `webhooks:manage`).
+    - **HTTP Basic** — only for a key whose scopes are **all** non-sensitive (read-only).
+      `Authorization: Basic base64(key_id:secret)`.
+    - **HMAC-SHA256** — **mandatory on every request, GETs included,** for any key holding a
+      *sensitive* scope (`guest_name:read`, `guest_contact:read`, `message_content:read`,
+      `transactions:read`, `customers:read`, `reservations:write`, `pricing:write`,
+      `availability:write`, `properties:link`, `messaging:send`, `webhooks:manage`, `reviews:write`).
+      The check is per key, not per endpoint: `availability:read`, `pricing:read` and
+      `reviews:read` are non-sensitive, but a key that also holds any sensitive scope gets
+      `401 signature_required` on Basic even for those reads.
       Sign with the key's `signing_secret`:
 
       ```
@@ -21,15 +25,19 @@ info:
         "<METHOD>\n<fullpath>\n<unix_ts>\n<sha256_hex(raw_body)>" ) )
       ```
 
-      Send `X-SH-Key-Id`, `X-SH-Timestamp`, `X-SH-Signature` (and `X-SH-Nonce` on writes).
-      The timestamp window is **120s**. Empty body signs `sha256("")`.
+      `<fullpath>` is the request path **including the query string**, exactly as sent
+      (e.g. `/api/v1/partner/reservations?status=confirmed`).
+      Send `X-SH-Key-Id`, `X-SH-Timestamp`, `X-SH-Signature`, plus a fresh `X-SH-Nonce` (UUID)
+      on writes **and on every `webhooks:manage` call, GETs included**. Sending a nonce on
+      every request is always safe. The timestamp window is **120s**. Empty body signs `sha256("")`.
 
     ## Conventions
     - **Media type:** request `Accept: application/vnd.symplehost.partner.v1+json`.
     - **Pagination:** opaque keyset cursor — seed with `updated_since`, then follow `meta.next_cursor`.
       Feed is at-least-once; dedupe by `id`.
     - **PII gating:** fields you lack scope for return `"***"`, listed in `meta.masked_fields` / `masked_fields`.
-    - **Errors:** single JSON:API `errors` envelope with stable machine `code`s.
+    - **Errors:** single JSON:API `errors` envelope with stable machine `code`s — always
+      `application/vnd.api+json`, even on endpoints whose success response is `application/json`.
     - **Versioning:** `meta.payload_version` echoed on every response.
   contact:
     name: SympleHost Partner Support
@@ -54,6 +62,22 @@ tags:
     description: Unified-inbox threads.
   - name: Messages
     description: Messages within a conversation.
+  - name: Attachments
+    description: "Upload outbound files and download inbound message attachments (OTA threads only)."
+  - name: Blocks
+    description: Calendar holds on a property (no guest, no PII).
+  - name: Availability
+    description: Per-date inventory and restrictions (ARI) for a property.
+  - name: Pricing
+    description: Per-date nightly rates and min/max price bounds for a property.
+  - name: Amenities
+    description: Global SH amenity vocabulary (reference data, `properties:read`).
+  - name: Webhooks
+    description: "Manage this key's own webhook endpoints and their deliveries (`webhooks:manage`, sensitive → HMAC)."
+  - name: Reviews
+    description: "OTA guest reviews across the account's listings (`reviews:read`, non-sensitive → Basic OK)."
+  - name: Customers
+    description: "Account customers with contact PII (`customers:read`, sensitive → HMAC; fields gated per scope)."
 
 security:
   - basicAuth: []
@@ -100,6 +124,37 @@ paths:
                     type: array
                     items: { $ref: '#/components/schemas/Reservation' }
                   meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "d2aa8fe7-d82c-4ffd-98a3-576a0f361e4c"
+                    type: "reservation"
+                    attributes:
+                      reservation_number: "RES-202608-0C13"
+                      status: "confirmed"
+                      payment_status: "pending"
+                      start_date: "2026-06-22"
+                      end_date: "2026-06-23"
+                      guest_count: 2
+                      currency: "INR"
+                      source_platform: "direct"
+                      created_at: "2026-06-19T10:00:00.000Z"
+                      updated_at: "2026-06-19T10:00:00.000Z"
+                      nights_count: 1
+                      listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                      total_amount: "4500.0"
+                      amount_paid: "0.0"
+                      amount_due: "4500.0"
+                      host_payout: null
+                      guest:
+                        id: "301e5a3a-41d4-4fd1-9c60-78e82a97320e"
+                        name: "Ada Lovelace"
+                        email: "ada@example.com"
+                        phone: "+15551234567"
+                      masked_fields: []
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: "eyJ1cGRhdGVkX2F0Ijoi…"
+                  count: 1
         '401': { $ref: '#/components/responses/Unauthorized' }
         '403': { $ref: '#/components/responses/Forbidden' }
         '429': { $ref: '#/components/responses/RateLimited' }
@@ -114,8 +169,9 @@ paths:
           label: HMAC (with PII/financials)
           source: |
             # sensitive scopes ⇒ HMAC. Sign METHOD\npath\nts\nsha256(body); GET body is empty.
+            # The signed path INCLUDES the query string, byte-for-byte as sent.
             TS=$(date +%s)
-            PATH_="/api/v1/partner/reservations"
+            PATH_="/api/v1/partner/reservations?status=confirmed"
             HASH=$(printf %s "" | shasum -a 256 | cut -d" " -f1)
             CANON=$(printf '%s\n%s\n%s\n%s' GET "$PATH_" "$TS" "$HASH")
             SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
@@ -128,7 +184,8 @@ paths:
           source: |
             import { createHmac, createHash } from "crypto";
             const BASE = "https://platform-dev.symplehost.ai";
-            const method = "GET", path = "/api/v1/partner/reservations";
+            // Sign the path INCLUDING its query string, exactly as requested.
+            const method = "GET", path = "/api/v1/partner/reservations?status=confirmed";
             const body = "";
             const ts = Math.floor(Date.now() / 1000).toString();
             const hash = createHash("sha256").update(body).digest("hex");
@@ -147,7 +204,8 @@ paths:
           source: |
             import time, hmac, hashlib, requests
             BASE = "https://platform-dev.symplehost.ai"
-            method, path = "GET", "/api/v1/partner/reservations"
+            # Sign the path INCLUDING its query string, exactly as requested.
+            method, path = "GET", "/api/v1/partner/reservations?status=confirmed"
             body = ""
             ts = str(int(time.time()))
             h = hashlib.sha256(body.encode()).hexdigest()
@@ -179,7 +237,7 @@ paths:
         '201':
           description: Reservation created.
           content:
-            application/vnd.api+json:
+            application/json:
               schema:
                 type: object
                 properties:
@@ -187,14 +245,13 @@ paths:
                   meta: { $ref: '#/components/schemas/Meta' }
         '401': { $ref: '#/components/responses/Unauthorized' }
         '403': { $ref: '#/components/responses/Forbidden' }
-        '409': { $ref: '#/components/responses/Conflict' }
         '422': { $ref: '#/components/responses/Unprocessable' }
       x-codeSamples:
         - lang: cURL
           source: |
             TS=$(date +%s)
             PATH_="/api/v1/partner/reservations"
-            BODY='{"listing_id":"<uuid>","start_date":"2026-07-02","end_date":"2026-07-05","guest_count":2,"currency":"USD","total_amount":450.0,"external_ref":"PMS-7781","guest":{"name":"Ada Lovelace","email":"ada@example.com","phone":"+15551234567"}}'
+            BODY='{"listing_id":"<uuid>","start_date":"2026-07-02","end_date":"2026-07-05","adults":2,"kids":1,"currency":"INR","total_amount":4500.0,"external_ref":"PMS-7781","guest":{"name":"Ada Lovelace","email":"ada@example.com","phone":"+15551234567"}}'
             HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
             CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
             SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
@@ -213,7 +270,7 @@ paths:
             const path = "/api/v1/partner/reservations";
             const body = JSON.stringify({
               listing_id: "<uuid>", start_date: "2026-07-02", end_date: "2026-07-05",
-              guest_count: 2, currency: "USD", total_amount: 450.0, external_ref: "PMS-7781",
+              adults: 2, kids: 1, currency: "INR", total_amount: 4500.0, external_ref: "PMS-7781",
               guest: { name: "Ada Lovelace", email: "ada@example.com", phone: "+15551234567" },
             });
             const ts = Math.floor(Date.now() / 1000).toString();
@@ -237,7 +294,7 @@ paths:
             path = "/api/v1/partner/reservations"
             body = json.dumps({
                 "listing_id": "<uuid>", "start_date": "2026-07-02", "end_date": "2026-07-05",
-                "guest_count": 2, "currency": "USD", "total_amount": 450.0, "external_ref": "PMS-7781",
+                "adults": 2, "kids": 1, "currency": "INR", "total_amount": 4500.0, "external_ref": "PMS-7781",
                 "guest": {"name": "Ada Lovelace", "email": "ada@example.com", "phone": "+15551234567"},
             })
             ts = str(int(time.time()))
@@ -267,8 +324,243 @@ paths:
                 properties:
                   data: { $ref: '#/components/schemas/Reservation' }
                   meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "d2aa8fe7-d82c-4ffd-98a3-576a0f361e4c"
+                  type: "reservation"
+                  attributes:
+                    reservation_number: "RES-202608-0C13"
+                    status: "confirmed"
+                    payment_status: "pending"
+                    start_date: "2026-06-22"
+                    end_date: "2026-06-23"
+                    guest_count: 2
+                    currency: "INR"
+                    source_platform: "direct"
+                    created_at: "2026-06-19T10:00:00.000Z"
+                    updated_at: "2026-06-19T10:00:00.000Z"
+                    nights_count: 1
+                    listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                    total_amount: "4500.0"
+                    amount_paid: "0.0"
+                    amount_due: "4500.0"
+                    host_payout: null
+                    guest:
+                      id: "301e5a3a-41d4-4fd1-9c60-78e82a97320e"
+                      name: "Ada Lovelace"
+                      email: "ada@example.com"
+                      phone: "+15551234567"
+                    masked_fields: []
+                meta:
+                  payload_version: "2026-09-22"
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/reservations/{id}/modify:
+    post:
+      tags: [Reservations]
+      summary: Modify a reservation (dates / guests / total)
+      operationId: modifyReservation
+      description: |
+        Changes the stay dates, guest count and/or total on a partner reservation.
+        Partner reservations are **external** — SH persists the supplied `total_amount`
+        verbatim and does **not** re-price from listing pricing or trigger a payment/refund
+        flow. Any linked bookings have their dates/guests updated so the stay reflects
+        natively. Requires `reservations:write` (sensitive → **HMAC**) and an `Idempotency-Key`.
+        A `cancelled`/`completed` reservation cannot be modified (422).
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Only the fields you send are changed.
+              properties:
+                start_date:   { type: string, format: date, example: "2026-07-11" }
+                end_date:     { type: string, format: date, example: "2026-07-15" }
+                guest_count:  { type: integer, example: 4 }
+                adults:       { type: integer, example: 3 }
+                kids:         { type: integer, example: 1 }
+                infants:      { type: integer, example: 0 }
+                total_amount: { type: number, format: float, example: 28000.0 }
+                currency:     { type: string, example: "INR" }
+                notes:        { type: string, example: "Guest extended by one night." }
+      responses:
+        '200':
+          description: The updated reservation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Reservation' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/reservations/$RES_ID/modify"
+            BODY='{"start_date":"2026-07-11","end_date":"2026-07-15","guest_count":4,"total_amount":28000.0}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+
+  /api/v1/partner/reservations/{id}/cancel:
+    post:
+      tags: [Reservations]
+      summary: Cancel a reservation
+      operationId: cancelReservation
+      description: |
+        Cancels the reservation and releases its blocked dates (each linked
+        `ReservationItem` is cancelled). Requires `reservations:write` (sensitive → **HMAC**)
+        and an `Idempotency-Key`. **Idempotent** — replaying on an already-cancelled
+        reservation returns `200` with the cancelled record.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason: { type: string, example: "Guest requested cancellation" }
+      responses:
+        '200':
+          description: The cancelled reservation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Reservation' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/reservations/$RES_ID/cancel"
+            BODY='{"reason":"Guest requested cancellation"}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+
+  /api/v1/partner/amenities:
+    get:
+      tags: [Amenities]
+      summary: List amenities (master vocabulary)
+      operationId: listAmenities
+      description: |
+        Returns the full global SH amenity vocabulary, ordered by `display_order`
+        then name. Reference data — gated behind the non-sensitive `properties:read`
+        scope, so **HTTP Basic** is permitted.
+      responses:
+        '200':
+          description: The amenity vocabulary.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Amenity' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "11"
+                    type: "amenity"
+                    attributes:
+                      name: "Air Conditioning"
+                      category: "comfort"
+                      is_premium: false
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl "https://platform-dev.symplehost.ai/api/v1/partner/amenities" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+
+  /api/v1/partner/amenities/room-options:
+    get:
+      tags: [Amenities]
+      summary: List amenities grouped by category
+      operationId: listAmenityRoomOptions
+      description: |
+        The amenity vocabulary grouped by category. SH models amenities by
+        category rather than by composition room, so categories are the grouping
+        dimension (the SH analog to the legacy "room-options" shape). `properties:read`.
+      responses:
+        '200':
+          description: Amenities grouped by category.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        category: { type: string, example: "comfort" }
+                        amenities:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              amenity_id: { type: string, example: "11" }
+                              name: { type: string, example: "Air Conditioning" }
+                  meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  - category: "comfort"
+                    amenities:
+                      - amenity_id: "11"
+                        name: "Air Conditioning"
+                meta:
+                  payload_version: "2026-09-22"
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
 
   /api/v1/partner/transactions:
     get:
@@ -297,6 +589,27 @@ paths:
                     type: array
                     items: { $ref: '#/components/schemas/Transaction' }
                   meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "bbd159fc-1e07-40a8-b176-a476a8d42257"
+                    type: "transaction"
+                    attributes:
+                      amount: "490.0"
+                      currency: "USD"
+                      transaction_type: "booking_payment"
+                      status: "pending"
+                      reference_number: "TXN-BK4CFF8395-001"
+                      payment_method: null
+                      fee_amount: "0.0"
+                      net_amount: "490.0"
+                      processed_at: null
+                      created_at: "2026-05-23T00:48:16.719Z"
+                      updated_at: "2026-05-23T00:48:16.719Z"
+                      listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: "eyJ1cGRhdGVkX2F0Ijoi…"
+                  count: 1
         '401': { $ref: '#/components/responses/Unauthorized' }
         '403': { $ref: '#/components/responses/Forbidden' }
       x-codeSamples:
@@ -346,15 +659,335 @@ paths:
                 properties:
                   data: { $ref: '#/components/schemas/Transaction' }
                   meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "bbd159fc-1e07-40a8-b176-a476a8d42257"
+                  type: "transaction"
+                  attributes:
+                    amount: "490.0"
+                    currency: "USD"
+                    transaction_type: "booking_payment"
+                    status: "pending"
+                    reference_number: "TXN-BK4CFF8395-001"
+                    payment_method: null
+                    fee_amount: "0.0"
+                    net_amount: "490.0"
+                    processed_at: null
+                    created_at: "2026-05-23T00:48:16.719Z"
+                    updated_at: "2026-05-23T00:48:16.719Z"
+                    listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                meta:
+                  payload_version: "2026-09-22"
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/reviews:
+    get:
+      tags: [Reviews]
+      summary: List reviews
+      operationId: listReviews
+      description: |
+        OTA guest reviews for the account's listings. `reviews:read`
+        (non-sensitive → Basic OK). Batched via keyset cursor. All filters are
+        optional; the default returns every review. `platform` narrows to a single
+        OTA; `start_date`/`end_date` bound `reviewed_at` (both inclusive). Default
+        order is newest-first (`sort=-created_at`); pass `sort` to change it.
+      parameters:
+        - $ref: '#/components/parameters/Sort'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+        - name: platform
+          in: query
+          description: Filter to a single OTA platform. Default = all platforms.
+          schema: { type: string, enum: [airbnb, booking, vrbo, expedia, google] }
+        - name: start_date
+          in: query
+          description: Inclusive lower bound on `reviewed_at`. Default = no lower bound.
+          schema: { type: string, format: date, example: "2026-06-01" }
+        - name: end_date
+          in: query
+          description: Inclusive upper bound on `reviewed_at`. Default = no upper bound.
+          schema: { type: string, format: date, example: "2026-06-30" }
+      responses:
+        '200':
+          description: A page of reviews.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Review' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "3f1a9c2e-2b1d-4a77-9a3c-1b2c3d4e5f60"
+                    type: "review"
+                    attributes:
+                      listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                      platform: "airbnb"
+                      rating: 9.0
+                      review_title: null
+                      review_text: "A lovely stay, spotless and well located."
+                      reviewer_name: "Ada L."
+                      reviewer_location: "London, UK"
+                      status: "approved"
+                      reviewed_at: "2026-06-01T10:00:00Z"
+                      host_response: "Thanks for staying!"
+                      host_response_at: "2026-06-02T08:00:00Z"
+                      category_scores: { clean: 9.0, communication: 10.0, location: 9.0, value: 8.0 }
+                      created_at: "2026-06-01T10:05:00Z"
+                      updated_at: "2026-06-02T08:00:00Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl "https://platform-dev.symplehost.ai/api/v1/partner/reviews?platform=airbnb&start_date=2026-06-01" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+
+  /api/v1/partner/reviews/{id}:
+    get:
+      tags: [Reviews]
+      summary: Get a review
+      operationId: getReview
+      description: |
+        One OTA guest review by id. `reviews:read` (non-sensitive → Basic OK).
+        Scoped to the account's listings — a review on another account's listing
+        returns `404`.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The review id.
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: The review.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Review' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl "https://platform-dev.symplehost.ai/api/v1/partner/reviews/$REVIEW_ID" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+
+  /api/v1/partner/reviews/{id}/respond:
+    post:
+      tags: [Reviews]
+      summary: Respond to a review
+      operationId: respondToReview
+      description: |
+        Posts a host response to an OTA guest review. Requires `reviews:write`
+        (sensitive → **HMAC**) and a **mandatory** `Idempotency-Key` — a retried
+        respond must not double-post to the OTA. Attributed to the account's
+        partner system user.
+
+        **`meta.delivery` says whether the guest will ever see the reply. Read it.**
+
+        - `"sent"` — submitted to the OTA. The guest can see it.
+        - `"recorded"` — **stored on SympleHost only. It was NOT sent to the OTA and
+          the guest will never see it.** A `200` here means the write succeeded, not
+          that the reply was delivered.
+        - `"failed"` — the OTA rejected it. Returned as `422` with error code
+          `channel_rejected` (never a `500`); nothing is stored.
+
+        The `reply_status` attribute on the returned review tells the two
+        `"recorded"` cases apart: `not_deliverable` means the review is OTA-linked
+        but its reply window has closed, so the reply is held locally and is
+        undeliverable; `null` means the review was never OTA-linked to begin with
+        (a direct or imported review), so local IS its only home.
+
+        A review that already has a `host_response` is never re-posted to the OTA,
+        whatever `can_reply` says — so an edit, or a retry with a fresh
+        `Idempotency-Key`, cannot put a second reply in front of the guest.
+
+        Whether that edit is accepted depends on where the stored reply lives:
+
+        - The reply is **already published on the channel** (`reply_status:
+          "published"`, or `ota_is_replied: true`) → **`409`** with error code
+          `reply_already_published`, and nothing is written. There is no way to change
+          a posted reply from this API, so accepting the edit would leave your text
+          here while the guest keeps reading the original. Edit it on the channel.
+        - The reply was only **recorded locally** (`reply_status: "not_deliverable"`,
+          or `null` for a non-OTA review) → edited in place, `200` + `"recorded"`.
+
+        The same holds when the OTA reports a host reply whose text was never synced
+        here (`host_response` is null but the channel already shows one): the reply is
+        stored locally with `reply_status: "not_deliverable"` and returns
+        `"recorded"`, rather than being posted as a second guest-visible reply.
+      security:
+        - hmacAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The review id.
+          schema: { type: string, format: uuid }
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RespondToReviewRequest' }
+      responses:
+        '200':
+          description: >
+            Response stored. Submitted to the OTA only when meta.delivery is "sent" —
+            "recorded" means it was stored locally and NOT sent to the OTA.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Review' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "3f1a9c2e-2b1d-4a77-9a3c-1b2c3d4e5f60"
+                  type: "review"
+                  attributes:
+                    listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                    platform: "airbnb"
+                    rating: 9.0
+                    review_text: "A lovely stay, spotless and well located."
+                    reviewer_name: "Ada L."
+                    status: "approved"
+                    reviewed_at: "2026-06-01T10:00:00Z"
+                    host_response: "Thank you so much for the kind words!"
+                    host_response_at: "2026-07-16T18:20:11Z"
+                    can_reply: false
+                    reply_deadline: "2026-06-08T10:00:00Z"
+                    reply_status: "published"
+                    reply_error: null
+                    created_at: "2026-06-01T10:05:00Z"
+                    updated_at: "2026-07-16T18:20:11Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  delivery: "sent"
+        '409':
+          description: >-
+            The stored reply is already published on the channel and cannot be changed
+            from here. Nothing was written.
+          content:
+            application/vnd.api+json:
+              schema: { $ref: '#/components/schemas/Error' }
+              example:
+                errors:
+                  - status: "409"
+                    code: reply_already_published
+                    title: "Reply already published"
+                    detail: "This reply is already published on the channel; edit it on the channel."
+                    meta: {}
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/reviews/$REVIEW_ID/respond"
+            BODY='{"data":{"attributes":{"response":"Thank you so much for the kind words!"}}}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+
+  /api/v1/partner/customers:
+    get:
+      tags: [Customers]
+      summary: List customers
+      operationId: listCustomers
+      description: |
+        The account's customers. Requires `customers:read` (sensitive → **HMAC required**).
+        Batched via keyset cursor. `search` is an optional case-insensitive match on
+        name, email, or phone (default = all). Guest PII is additionally gated:
+        `name` on `guest_name:read`, `email`/`phone` on `guest_contact:read`; withheld
+        fields return `"***"` and are listed in `masked_fields`.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+        - name: search
+          in: query
+          description: Case-insensitive match on name, email, or phone. Default = all.
+          schema: { type: string, example: "ada@example.com" }
+      responses:
+        '200':
+          description: A page of customers.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Customer' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e"
+                    type: "customer"
+                    attributes:
+                      name: "Ada Lovelace"
+                      email: "ada@example.com"
+                      phone: "+15551234567"
+                      status: "active"
+                      masked_fields: []
+                      created_at: "2026-05-01T09:00:00Z"
+                      updated_at: "2026-05-01T09:00:00Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/customers?search=ada"
+            HASH=$(printf %s "" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' GET "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
 
   /api/v1/partner/properties:
     get:
       tags: [Properties]
       summary: List properties
       operationId: listProperties
-      description: SH listings visible to the account. `properties:read` (non-sensitive → Basic OK).
+      description: SH listings visible to the account. `properties:read` (non-sensitive; HTTP Basic works only if the key holds no sensitive scope).
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/PerPage'
@@ -371,6 +1004,74 @@ paths:
                     type: array
                     items: { $ref: '#/components/schemas/Property' }
                   meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                    type: "property"
+                    attributes:
+                      name: "Brisbane River Retreat"
+                      description: "Quiet riverside retreat with balcony access."
+                      descriptions:
+                        summary: "Quiet riverside retreat"
+                        space: "Two-bedroom apartment with a private balcony and river views."
+                        access: "Self check-in via smart lock."
+                        notes: "No parties. Quiet hours after 10pm."
+                      property_type: "apartment"
+                      listing_type: "entire_place"
+                      address_line1: "44 Eagle Street"
+                      address_line2: "Level 3"
+                      city: "Brisbane"
+                      state: "QLD"
+                      country: "Australia"
+                      postal_code: "4000"
+                      timezone: "Australia/Brisbane"
+                      latitude: -27.4698
+                      longitude: 153.0251
+                      max_guests: 5
+                      bedrooms: 2
+                      beds: 3
+                      bathrooms: 2
+                      minimum_stay: 2
+                      maximum_stay: 30
+                      check_in_time: "15:00"
+                      check_out_time: "11:00"
+                      cancellation_policy_type: "flexible"
+                      pets_allowed: false
+                      smoking_allowed: false
+                      parties_allowed: false
+                      additional_rules: ["No loud music after 10pm"]
+                      instant_book: false
+                      archived: false
+                      unit_name: null
+                      unit_number: null
+                      unit_count: 1
+                      amenities: ["Wifi", "Kitchen", "Air conditioning"]
+                      images:
+                        - id: "fc17b8a4-db81-41f4-84d3-ef969e950e4b"
+                          url: "https://cdn.symplehost.ai/listings/hero.jpg"
+                          is_primary: true
+                          display_order: 1
+                      primary_image_url: "https://cdn.symplehost.ai/listings/hero.jpg"
+                      created_at: "2026-05-15T12:38:51.214Z"
+                      updated_at: "2026-05-15T12:38:51.224Z"
+                      currency: "INR"
+                      base_rate_season:
+                        currency: "INR"
+                        price: 240.0
+                        base_guest_count: 2
+                        additional_guest_price: 25.0
+                        weekly_discount_percent: 10.0
+                        monthly_discount_percent: 20.0
+                        length_of_stay_discount: { enabled: true, nights: 7, percent: 15.0 }
+                      ota_platforms: ["airbnb", "booking"]
+                      ota_listing_mappings:
+                        - { platform: "airbnb", external_id: "1234567890123456789" }
+                        - { platform: "booking", external_id: "8765432" }
+                      external_ref: "PMS-7781"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: "eyJ1cGRhdGVkX2F0Ijoi…"
+                  count: 1
         '401': { $ref: '#/components/responses/Unauthorized' }
       x-codeSamples:
         - lang: cURL
@@ -403,6 +1104,72 @@ paths:
                 properties:
                   data: { $ref: '#/components/schemas/Property' }
                   meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                  type: "property"
+                  attributes:
+                    name: "Brisbane River Retreat"
+                    description: "Quiet riverside retreat with balcony access."
+                    descriptions:
+                      summary: "Quiet riverside retreat"
+                      space: "Two-bedroom apartment with a private balcony and river views."
+                      access: "Self check-in via smart lock."
+                      notes: "No parties. Quiet hours after 10pm."
+                    property_type: "apartment"
+                    listing_type: "entire_place"
+                    address_line1: "44 Eagle Street"
+                    address_line2: "Level 3"
+                    city: "Brisbane"
+                    state: "QLD"
+                    country: "Australia"
+                    postal_code: "4000"
+                    timezone: "Australia/Brisbane"
+                    latitude: -27.4698
+                    longitude: 153.0251
+                    max_guests: 5
+                    bedrooms: 2
+                    beds: 3
+                    bathrooms: 2
+                    minimum_stay: 2
+                    maximum_stay: 30
+                    check_in_time: "15:00"
+                    check_out_time: "11:00"
+                    cancellation_policy_type: "flexible"
+                    pets_allowed: false
+                    smoking_allowed: false
+                    parties_allowed: false
+                    additional_rules: ["No loud music after 10pm"]
+                    instant_book: false
+                    archived: false
+                    unit_name: null
+                    unit_number: null
+                    unit_count: 1
+                    amenities: ["Wifi", "Kitchen", "Air conditioning"]
+                    images:
+                      - id: "fc17b8a4-db81-41f4-84d3-ef969e950e4b"
+                        url: "https://cdn.symplehost.ai/listings/hero.jpg"
+                        is_primary: true
+                        display_order: 1
+                    primary_image_url: "https://cdn.symplehost.ai/listings/hero.jpg"
+                    created_at: "2026-05-15T12:38:51.214Z"
+                    updated_at: "2026-05-15T12:38:51.224Z"
+                    currency: "INR"
+                    base_rate_season:
+                      currency: "INR"
+                      price: 240.0
+                      base_guest_count: 2
+                      additional_guest_price: 25.0
+                      weekly_discount_percent: 10.0
+                      monthly_discount_percent: 20.0
+                      length_of_stay_discount: { enabled: true, nights: 7, percent: 15.0 }
+                    ota_platforms: ["airbnb", "booking"]
+                    ota_listing_mappings:
+                      - { platform: "airbnb", external_id: "1234567890123456789" }
+                      - { platform: "booking", external_id: "8765432" }
+                    external_ref: "PMS-7781"
+                meta:
+                  payload_version: "2026-09-22"
         '404': { $ref: '#/components/responses/NotFound' }
 
   /api/v1/partner/properties/{id}/link:
@@ -411,13 +1178,19 @@ paths:
       summary: Link a property to your external reference
       operationId: linkProperty
       description: |
-        Store your PMS's external reference against an SH listing. Idempotent —
-        requires `properties:link` (sensitive → **HMAC**) and an `Idempotency-Key`.
+        Store your PMS's external reference against an SH listing. Naturally idempotent —
+        requires `properties:link` (sensitive → **HMAC**). An `Idempotency-Key` is
+        **accepted but optional** here (dedup-only); unlike other writes it is not
+        enforced, because re-linking the same reference is a safe no-op.
       security:
         - hmacAuth: []
       parameters:
         - $ref: '#/components/parameters/PathId'
-        - $ref: '#/components/parameters/IdempotencyKey'
+        - name: Idempotency-Key
+          in: header
+          required: false
+          description: Optional for linking (dedup-only) — the shared write-idempotency requirement is relaxed for this naturally-idempotent operation.
+          schema: { type: string, format: uuid }
       requestBody:
         required: true
         content:
@@ -433,14 +1206,25 @@ paths:
         '200':
           description: Linked (or already linked — idempotent).
           content:
-            application/vnd.api+json:
+            application/json:
               schema:
                 type: object
                 properties:
-                  data: { $ref: '#/components/schemas/Property' }
+                  data:
+                    type: object
+                    properties:
+                      status: { type: string, example: "ok" }
+                      listing_id: { type: string, format: uuid }
+                      external_ref: { type: string, example: "PMS-7781" }
                   meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  status: "ok"
+                  listing_id: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+                  external_ref: "PMS-7781"
+                meta:
+                  payload_version: "2026-09-22"
         '401': { $ref: '#/components/responses/Unauthorized' }
-        '409': { $ref: '#/components/responses/Conflict' }
         '422': { $ref: '#/components/responses/Unprocessable' }
       x-codeSamples:
         - lang: cURL
@@ -480,16 +1264,592 @@ paths:
               body,
             });
 
+  /api/v1/partner/properties/{property_id}/blocks:
+    parameters:
+      - name: property_id
+        in: path
+        required: true
+        schema: { type: string, format: uuid }
+    get:
+      tags: [Blocks]
+      summary: List calendar blocks
+      operationId: listBlocks
+      description: Blocks on the property, keyset-paginated. Optional `start_date`/`end_date` filter to overlapping blocks. Needs `availability:read`.
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - name: start_date
+          in: query
+          schema: { type: string, format: date, example: "2026-08-01" }
+        - name: end_date
+          in: query
+          schema: { type: string, format: date, example: "2026-08-31" }
+      responses:
+        '200':
+          description: A page of blocks.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Block' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "34dcd490-e698-4845-b9b8-3425b3b31853"
+                    type: "block"
+                    attributes:
+                      block_reason: "blocked"
+                      source: "partner"
+                      notes: null
+                      external_ref: "PMS-7781"
+                      created_at: "2027-01-01T00:00:00.000Z"
+                      updated_at: "2027-01-01T00:00:00.000Z"
+                      start_date: "2027-08-01"
+                      end_date: "2027-08-03"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    post:
+      tags: [Blocks]
+      summary: Create a calendar block (hold dates)
+      operationId: createBlock
+      description: |
+        Holds an inclusive `start_date`..`end_date` range on the property — no guest, no PII.
+        Needs `availability:write` (sensitive → HMAC) and an `Idempotency-Key`.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateBlockRequest' }
+      responses:
+        '201':
+          description: Block created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Block' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "34dcd490-e698-4845-b9b8-3425b3b31853"
+                  type: "block"
+                  attributes:
+                    block_reason: "blocked"
+                    source: "partner"
+                    notes: null
+                    external_ref: "PMS-7781"
+                    created_at: "2027-01-01T00:00:00.000Z"
+                    updated_at: "2027-01-01T00:00:00.000Z"
+                    start_date: "2027-08-01"
+                    end_date: "2027-08-03"
+                meta:
+                  payload_version: "2026-09-22"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/properties/$PROPERTY_ID/blocks"
+            BODY='{"start_date":"2026-08-01","end_date":"2026-08-03","block_reason":"blocked","external_ref":"PMS-7781"}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+        - lang: Node
+          source: |
+            import { createHmac, createHash, randomUUID } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const path = `/api/v1/partner/properties/${PROPERTY_ID}/blocks`;
+            const body = JSON.stringify({
+              start_date: "2026-08-01", end_date: "2026-08-03",
+              block_reason: "blocked", external_ref: "PMS-7781",
+            });
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`POST\n${path}\n${ts}\n${hash}`).digest("hex");
+            await fetch(`${BASE}${path}`, {
+              method: "POST",
+              headers: {
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": randomUUID(), "X-SH-Signature": sig,
+                "Idempotency-Key": randomUUID(), "Content-Type": "application/json",
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+              body,
+            });
+        - lang: Python
+          source: |
+            import time, json, hmac, hashlib, uuid, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            path = f"/api/v1/partner/properties/{PROPERTY_ID}/blocks"
+            body = json.dumps({
+                "start_date": "2026-08-01", "end_date": "2026-08-03",
+                "block_reason": "blocked", "external_ref": "PMS-7781",
+            })
+            ts = str(int(time.time()))
+            h = hashlib.sha256(body.encode()).hexdigest()
+            canon = f"POST\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            requests.post(f"{BASE}{path}", data=body, headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": str(uuid.uuid4()), "X-SH-Signature": sig,
+                "Idempotency-Key": str(uuid.uuid4()), "Content-Type": "application/json",
+            })
+  /api/v1/partner/properties/{property_id}/blocks/{id}:
+    delete:
+      tags: [Blocks]
+      summary: Release a calendar block
+      operationId: deleteBlock
+      description: Removes the block and restores availability. Needs `availability:write` (HMAC).
+      security:
+        - hmacAuth: []
+      parameters:
+        - name: property_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '204': { description: Block removed. }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/properties/{property_id}/availability:
+    parameters:
+      - name: property_id
+        in: path
+        required: true
+        schema: { type: string, format: uuid }
+    get:
+      tags: [Availability]
+      summary: Read availability + restrictions
+      operationId: getAvailability
+      description: |
+        One entry per inclusive date in `start_date`..`end_date` (max 370 days). Dates with no
+        override return the listing's default availability and no restrictions. Needs `availability:read`.
+      parameters:
+        - name: start_date
+          in: query
+          required: true
+          schema: { type: string, format: date, example: "2027-04-01" }
+        - name: end_date
+          in: query
+          required: true
+          schema: { type: string, format: date, example: "2027-04-30" }
+      responses:
+        '200':
+          description: Per-date availability.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/AvailabilityDay' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "2027-04-01"
+                    type: "availability_day"
+                    attributes:
+                      date: "2027-04-01"
+                      availability: 1
+                      min_stay: null
+                      max_stay: null
+                      closed_to_arrival: false
+                      closed_to_departure: false
+                      stop_sell: false
+                  - id: "2027-04-02"
+                    type: "availability_day"
+                    attributes:
+                      date: "2027-04-02"
+                      availability: 2
+                      min_stay: 3
+                      max_stay: 14
+                      closed_to_arrival: true
+                      closed_to_departure: false
+                      stop_sell: false
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 2
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+    post:
+      tags: [Availability]
+      summary: Bulk-set availability + restrictions
+      operationId: updateAvailability
+      description: |
+        Sets inventory and/or restrictions across one or more inclusive date ranges. Only the
+        fields you send are changed (others, including price, are preserved). Max 370 days per
+        entry and 500 dates total. Needs `availability:write` (sensitive → HMAC) and an `Idempotency-Key`.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdateAvailabilityRequest' }
+      responses:
+        '200':
+          description: Dates updated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      updated_count: { type: integer, example: 30 }
+                  meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  updated_count: 3
+                meta:
+                  payload_version: "2026-09-22"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/properties/$PROPERTY_ID/availability"
+            BODY='{"updates":[{"start_date":"2026-08-01","end_date":"2026-08-31","availability":2,"min_stay":3,"closed_to_arrival":false}]}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+        - lang: Node
+          source: |
+            import { createHmac, createHash, randomUUID } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const path = `/api/v1/partner/properties/${PROPERTY_ID}/availability`;
+            const body = JSON.stringify({
+              updates: [{ start_date: "2026-08-01", end_date: "2026-08-31",
+                availability: 2, min_stay: 3, closed_to_arrival: false }],
+            });
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`POST\n${path}\n${ts}\n${hash}`).digest("hex");
+            await fetch(`${BASE}${path}`, {
+              method: "POST",
+              headers: {
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": randomUUID(), "X-SH-Signature": sig,
+                "Idempotency-Key": randomUUID(), "Content-Type": "application/json",
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+              body,
+            });
+        - lang: Python
+          source: |
+            import time, json, hmac, hashlib, uuid, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            path = f"/api/v1/partner/properties/{PROPERTY_ID}/availability"
+            body = json.dumps({"updates": [{"start_date": "2026-08-01", "end_date": "2026-08-31",
+                "availability": 2, "min_stay": 3, "closed_to_arrival": False}]})
+            ts = str(int(time.time()))
+            h = hashlib.sha256(body.encode()).hexdigest()
+            canon = f"POST\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            requests.post(f"{BASE}{path}", data=body, headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": str(uuid.uuid4()), "X-SH-Signature": sig,
+                "Idempotency-Key": str(uuid.uuid4()), "Content-Type": "application/json",
+            })
+
+  /api/v1/partner/properties/{property_id}/pricing_settings:
+    parameters:
+      - name: property_id
+        in: path
+        required: true
+        schema: { type: string, format: uuid }
+    get:
+      tags: [Pricing]
+      summary: Read listing pricing settings
+      operationId: getPricingSettings
+      description: |
+        The listing's base-rate pricing rules — price bounds, extra-guest pricing, and
+        weekly/monthly + length-of-stay discounts. Complements the per-date pricing calendar.
+        Needs `pricing:read`. 404 if the listing has no base-rate season.
+      responses:
+        '200':
+          description: Pricing settings.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/PricingSettings' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  currency: "INR"
+                  price: 3000.0
+                  base_guest_count: 2
+                  additional_guest_price: 500.0
+                  weekly_discount_percent: 10.0
+                  monthly_discount_percent: 20.0
+                  length_of_stay_discount: { enabled: true, nights: 7, percent: 5.0 }
+                meta:
+                  payload_version: "2026-09-22"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    post:
+      tags: [Pricing]
+      summary: Update listing pricing settings
+      operationId: updatePricingSettings
+      description: |
+        Partial update of the base-rate pricing rules — send only the fields you want to change.
+        Needs `pricing:write` (sensitive → HMAC) and an `Idempotency-Key`. 404 if no base-rate season.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdatePricingSettingsRequest' }
+      responses:
+        '200':
+          description: Updated settings (echoes the full current settings).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/PricingSettings' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+
+  /api/v1/partner/properties/{property_id}/pricing:
+    parameters:
+      - name: property_id
+        in: path
+        required: true
+        schema: { type: string, format: uuid }
+    get:
+      tags: [Pricing]
+      summary: Read the nightly-rate calendar
+      operationId: getPricing
+      description: |
+        One entry per inclusive date in `start_date`..`end_date` (max 370 days). `rate` is the
+        effective nightly rate (your `custom_rate` override wins; otherwise the season base, or
+        `null` if unset). Needs `pricing:read`.
+      parameters:
+        - name: start_date
+          in: query
+          required: true
+          schema: { type: string, format: date, example: "2027-06-01" }
+        - name: end_date
+          in: query
+          required: true
+          schema: { type: string, format: date, example: "2027-06-30" }
+      responses:
+        '200':
+          description: Per-date rates.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/PricingDay' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "2027-05-01"
+                    type: "pricing_day"
+                    attributes:
+                      date: "2027-05-01"
+                      rate: 245.0
+                      currency: "USD"
+                  - id: "2027-05-02"
+                    type: "pricing_day"
+                    attributes:
+                      date: "2027-05-02"
+                      rate: 199.5
+                      currency: "USD"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 2
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+    post:
+      tags: [Pricing]
+      summary: Bulk-set nightly rates and/or price bounds
+      operationId: updatePricing
+      description: |
+        Sets the nightly `rate` across one or more inclusive date ranges (your per-date override),
+        and/or the listing's `min_price`/`max_price` bounds. Max 370 days per entry and 500 dates
+        total. Needs `pricing:write` (sensitive → HMAC) and an `Idempotency-Key`.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdatePricingRequest' }
+      responses:
+        '200':
+          description: Rates/bounds updated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      updated_count: { type: integer, example: 30 }
+                  meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  updated_count: 3
+                meta:
+                  payload_version: "2026-09-22"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/properties/$PROPERTY_ID/pricing"
+            BODY='{"updates":[{"start_date":"2026-08-01","end_date":"2026-08-31","rate":199.5}],"min_price":120,"max_price":400}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+        - lang: Node
+          source: |
+            import { createHmac, createHash, randomUUID } from "crypto";
+            const BASE = "https://platform-dev.symplehost.ai";
+            const path = `/api/v1/partner/properties/${PROPERTY_ID}/pricing`;
+            const body = JSON.stringify({
+              updates: [{ start_date: "2026-08-01", end_date: "2026-08-31", rate: 199.5 }],
+              min_price: 120, max_price: 400,
+            });
+            const ts = Math.floor(Date.now() / 1000).toString();
+            const hash = createHash("sha256").update(body).digest("hex");
+            const sig = createHmac("sha256", SIGNING_SECRET)
+              .update(`POST\n${path}\n${ts}\n${hash}`).digest("hex");
+            await fetch(`${BASE}${path}`, {
+              method: "POST",
+              headers: {
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": randomUUID(), "X-SH-Signature": sig,
+                "Idempotency-Key": randomUUID(), "Content-Type": "application/json",
+                Accept: "application/vnd.symplehost.partner.v1+json",
+              },
+              body,
+            });
+        - lang: Python
+          source: |
+            import time, json, hmac, hashlib, uuid, requests
+            BASE = "https://platform-dev.symplehost.ai"
+            path = f"/api/v1/partner/properties/{PROPERTY_ID}/pricing"
+            body = json.dumps({"updates": [{"start_date": "2026-08-01", "end_date": "2026-08-31",
+                "rate": 199.5}], "min_price": 120, "max_price": 400})
+            ts = str(int(time.time()))
+            h = hashlib.sha256(body.encode()).hexdigest()
+            canon = f"POST\n{path}\n{ts}\n{h}"
+            sig = hmac.new(SIGNING_SECRET.encode(), canon.encode(), hashlib.sha256).hexdigest()
+            requests.post(f"{BASE}{path}", data=body, headers={
+                "X-SH-Key-Id": KEY_ID, "X-SH-Timestamp": ts,
+                "X-SH-Nonce": str(uuid.uuid4()), "X-SH-Signature": sig,
+                "Idempotency-Key": str(uuid.uuid4()), "Content-Type": "application/json",
+            })
+
   /api/v1/partner/conversations:
     get:
       tags: [Conversations]
       summary: List conversations
       operationId: listConversations
-      description: Unified-inbox threads. `messaging:read`. Guest fields gate on `guest_name:read`/`guest_contact:read`.
+      description: >-
+        Unified-inbox threads. `messaging:read`. Guest fields gate on
+        `guest_name:read`/`guest_contact:read`. Defaults to newest-created first
+        (`sort=-created_at`); pass `sort` to change order.
       parameters:
+        - $ref: '#/components/parameters/Sort'
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/PerPage'
         - $ref: '#/components/parameters/UpdatedSince'
+        - name: listing_id
+          in: query
+          required: false
+          schema: { type: string, format: uuid }
+          description: >-
+            Only conversations linked to this property, by any of the three links
+            the `property` attribute resolves (discussed listing, reservation's
+            booking, or OTA-mapped listing). Note this is a superset of "threads
+            whose `property.id` equals this value": a thread linked to two
+            properties by different paths matches both, while `property` reports
+            only the winning one. Must be a UUID; anything else returns
+            `422 validation_failed`.
       responses:
         '200':
           description: A page of conversations.
@@ -502,7 +1862,36 @@ paths:
                     type: array
                     items: { $ref: '#/components/schemas/Conversation' }
                   meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "9a0f2410-28e4-40cf-8d3d-18c54d7fa71c"
+                    type: "conversation"
+                    attributes:
+                      channel: "whatsapp"
+                      status: "enquiry"
+                      lifecycle_stage: "inquiry"
+                      listing_id: "3f1c9d20-8b41-4f0a-9d77-2f0c1a6d5e33"
+                      property:
+                        id: "3f1c9d20-8b41-4f0a-9d77-2f0c1a6d5e33"
+                        name: "Villa Anandi"
+                        unit_number: "2B"
+                        listing_type: "villa"
+                      created_at: "2026-06-19T17:19:18.481Z"
+                      updated_at: "2026-06-19T17:19:18.565Z"
+                      guest:
+                        id: "0225f33c-5213-4cc3-9d4b-923e898c9616"
+                        name: "Ada Lovelace"
+                        email: "ada@example.com"
+                      last_host_reply:
+                        name: "Risha"
+                        role: "COHOST"
+                        at: "2026-06-19T17:20:00.000Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
         '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
       x-codeSamples:
         - lang: cURL
           source: |
@@ -527,7 +1916,64 @@ paths:
                 properties:
                   data: { $ref: '#/components/schemas/Conversation' }
                   meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "9a0f2410-28e4-40cf-8d3d-18c54d7fa71c"
+                  type: "conversation"
+                  attributes:
+                    channel: "whatsapp"
+                    status: "enquiry"
+                    lifecycle_stage: "inquiry"
+                    listing_id: "3f1c9d20-8b41-4f0a-9d77-2f0c1a6d5e33"
+                    property:
+                      id: "3f1c9d20-8b41-4f0a-9d77-2f0c1a6d5e33"
+                      name: "Villa Anandi"
+                      unit_number: "2B"
+                      listing_type: "villa"
+                    created_at: "2026-06-19T17:19:18.481Z"
+                    updated_at: "2026-06-19T17:19:18.565Z"
+                    guest:
+                      id: "0225f33c-5213-4cc3-9d4b-923e898c9616"
+                      name: "Ada Lovelace"
+                      email: "ada@example.com"
+                    last_host_reply:
+                      name: "Risha"
+                      role: "COHOST"
+                      at: "2026-06-19T17:20:00.000Z"
+                meta:
+                  payload_version: "2026-09-22"
         '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/conversations/{id}/read:
+    put:
+      tags: [Conversations]
+      summary: Mark a conversation read
+      operationId: markConversationRead
+      description: |
+        Marks the conversation's inbound (guest) messages as read. `messaging:read`
+        (non-sensitive → **HTTP Basic** permitted). Naturally **idempotent** — a replay
+        is a no-op. Returns the conversation.
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The conversation (now read).
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Conversation' }
+                  meta: { $ref: '#/components/schemas/Meta' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -X PUT "https://platform-dev.symplehost.ai/api/v1/partner/conversations/$CONVERSATION_ID/read" \
+              -u "$SH_KEY_ID:$SH_SECRET" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
 
   /api/v1/partner/conversations/{conversation_id}/messages:
     get:
@@ -556,6 +2002,41 @@ paths:
                     type: array
                     items: { $ref: '#/components/schemas/Message' }
                   meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "152a8a03-6005-4ed9-9489-4d65be17ea60"
+                    type: "message"
+                    attributes:
+                      channel: "whatsapp"
+                      source: "guest"
+                      sender_type: "Customer"
+                      host: null
+                      message_status: "delivered"
+                      is_read: false
+                      created_at: "2026-06-19T17:19:18.551Z"
+                      updated_at: "2026-06-19T17:19:18.551Z"
+                      content: "Hi, is it available?"
+                      masked_fields: []
+                  - id: "35c3e211-d360-42d1-b274-c00d24f057f0"
+                    type: "message"
+                    attributes:
+                      channel: "whatsapp"
+                      source: "host"
+                      sender_type: "User"
+                      host:
+                        name: "Risha"
+                        role: "COHOST"
+                        at: "2026-06-19T17:21:02.113Z"
+                      message_status: "sent"
+                      is_read: true
+                      created_at: "2026-06-19T17:21:02.113Z"
+                      updated_at: "2026-06-19T17:21:02.113Z"
+                      content: "Yes, it's available for those dates!"
+                      masked_fields: []
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 2
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
     post:
@@ -567,6 +2048,13 @@ paths:
         conversation's channel (attributed to the account's partner system user). Requires
         `messaging:send` (sensitive → **HMAC**) and a **mandatory** `Idempotency-Key` — a retried
         send is a duplicate guest WhatsApp/email, which is irreversible.
+
+        **Sending a photo?** Send it as its own request, with `attachment_ids` and **no**
+        `content`. Text and an attachment in the same request delivers the text and drops
+        the photo — see `SendMessageRequest`.
+
+        **`meta.delivery` says whether the guest will ever see the message. Read it.**
+        `201` means we accepted and stored the message, not that the channel delivered it.
       security:
         - hmacAuth: []
       parameters:
@@ -584,15 +2072,35 @@ paths:
         '201':
           description: Message accepted for delivery.
           content:
-            application/vnd.api+json:
+            application/json:
               schema:
                 type: object
                 properties:
                   data: { $ref: '#/components/schemas/Message' }
                   meta: { $ref: '#/components/schemas/Meta' }
+              example:
+                data:
+                  id: "35c3e211-d360-42d1-b274-c00d24f057f0"
+                  type: "message"
+                  attributes:
+                    channel: "whatsapp"
+                    source: "host"
+                    sender_type: "User"
+                    host:
+                      name: "Partner System (Acme Rentals)"
+                      role: null
+                      at: "2026-06-19T17:19:18.847Z"
+                    message_status: "sent"
+                    is_read: true
+                    created_at: "2026-06-19T17:19:18.847Z"
+                    updated_at: "2026-06-19T17:19:18.924Z"
+                    content: "Check-in is from 3pm."
+                    masked_fields: []
+                meta:
+                  payload_version: "2026-09-22"
+                  delivery: "sent"
         '401': { $ref: '#/components/responses/Unauthorized' }
         '403': { $ref: '#/components/responses/Forbidden' }
-        '409': { $ref: '#/components/responses/Conflict' }
         '422': { $ref: '#/components/responses/Unprocessable' }
       x-codeSamples:
         - lang: cURL
@@ -647,6 +2155,480 @@ paths:
                 "Idempotency-Key": str(uuid.uuid4()), "Content-Type": "application/json",
             })
 
+  /api/v1/partner/attachments:
+    post:
+      tags: [Attachments]
+      summary: Upload an attachment
+      operationId: uploadAttachment
+      description: |
+        Uploads a file to Channex and returns an attachment id to pass to
+        `POST /conversations/{conversation_id}/messages` as `attachment_ids[]`.
+        **Outbound attachments are OTA-thread-only.**
+
+        The file is sent **base64 in the JSON body (not multipart)** so the request is
+        signable via the standard HMAC raw-body flow. Requires `messaging:send`
+        (sensitive → **HMAC** + `X-SH-Nonce`). Max **25 MB**; the MIME type is sniffed
+        from the bytes (client-declared type ignored) against an allow-list:
+        `image/jpeg,png,gif,webp`, `application/pdf`, `video/mp4`.
+
+        The returned id is bound to your account for 24h; the send endpoint rejects
+        an id minted by another account (`422 attachment_not_found`).
+      security:
+        - hmacAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UploadAttachmentRequest' }
+      responses:
+        '201':
+          description: File uploaded; returns the Channex attachment id.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id: { type: string }
+                      type: { type: string, enum: [attachment] }
+                      attributes:
+                        type: object
+                        properties:
+                          content_type: { type: string }
+                          filename: { type: string }
+              example:
+                data:
+                  id: "a1b2c3d4-0000-0000-0000-000000000000"
+                  type: attachment
+                  attributes: { content_type: image/png, filename: id-front.png }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/attachments"
+            BODY=$(printf '{"file":"%s","filename":"id-front.png"}' "$(base64 -i id-front.png)")
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" -H "X-SH-Signature: $SIG" \
+              -H "Content-Type: application/json" -d "$BODY"
+
+  /api/v1/partner/conversations/{conversation_id}/messages/{message_id}/attachments:
+    get:
+      tags: [Attachments]
+      summary: List a message's attachments
+      operationId: listMessageAttachments
+      description: |
+        Attachment metadata for a message. Scope `message_content:read`; account-scoped
+        via the conversation. Each `url` is the download endpoint below.
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: message_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: The message's attachments.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: string }
+                        type: { type: string, enum: [attachment] }
+                        attributes: { $ref: '#/components/schemas/Attachment' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/conversations/{conversation_id}/messages/{message_id}/attachments/{id}:
+    get:
+      tags: [Attachments]
+      summary: Download an attachment
+      operationId: downloadMessageAttachment
+      description: |
+        **302 redirect** to a short-lived signed source URL (Channex today; a re-hosted
+        store later — the partner contract is this endpoint). Scope `message_content:read`;
+        account-scoped via the conversation; every call is audit-logged. The redirect
+        target needs no auth, so the caller's HTTP client follows it transparently.
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: message_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: id
+          in: path
+          required: true
+          description: Attachment id from the message's `attachments[].id`.
+          schema: { type: string }
+      responses:
+        '302':
+          description: Redirect to the signed download URL (`Location` header).
+          headers:
+            Location:
+              description: Short-lived signed source URL.
+              schema: { type: string, format: uri }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/webhook_endpoints:
+    get:
+      tags: [Webhooks]
+      summary: List webhook endpoints
+      operationId: listWebhookEndpoints
+      description: |
+        Lists the webhook endpoints owned by **this API key** (never the account's
+        host-created endpoints or another key's), newest first, keyset-paginated.
+        Requires `webhooks:manage` (sensitive → **HMAC**). `webhooks:manage` is a write
+        scope, so `X-SH-Nonce` is required here too, even though this is a GET.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+      responses:
+        '200':
+          description: A page of webhook endpoints.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/WebhookEndpoint' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "f3a1c2d4-5e6f-47a8-9b0c-1d2e3f4a5b6c"
+                    type: "webhook_endpoint"
+                    attributes:
+                      url: "https://pms.example.com/hooks/symplehost"
+                      subscribed_events: ["reservation.created", "reservation.cancelled"]
+                      active: true
+                      payload_version: "2026-09-22"
+                      consecutive_failures: 0
+                      created_at: "2026-06-19T10:00:00.000Z"
+                      updated_at: "2026-06-19T10:00:00.000Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/webhook_endpoints"
+            HASH=$(printf %s "" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' GET "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            # webhooks:manage is a write scope → X-SH-Nonce is required even on GET.
+            curl "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Accept: application/vnd.symplehost.partner.v1+json"
+    post:
+      tags: [Webhooks]
+      summary: Create a webhook endpoint
+      operationId: createWebhookEndpoint
+      description: |
+        Registers a webhook endpoint for **this key**. Requires `webhooks:manage`
+        (sensitive → **HMAC**) and an `Idempotency-Key`. The response reveals the
+        endpoint's `signing_secret` **exactly once**, under `meta.signing_secret` — it
+        is never returned again and is never serialized in the resource `attributes`,
+        so store it now. Use it to verify the `X-SH-Signature` on delivered events.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url, subscribed_events]
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  example: "https://pms.example.com/hooks/symplehost"
+                  description: HTTPS endpoint that will receive event deliveries.
+                subscribed_events:
+                  type: array
+                  maxItems: 32
+                  items: { type: string, maxLength: 64 }
+                  example: ["reservation.created", "reservation.cancelled"]
+                  description: Event types to subscribe to (max 32 items; each ≤ 64 chars).
+                payload_version:
+                  type: string
+                  description: Optional payload version; defaults to the current version.
+                  example: "2026-09-22"
+      responses:
+        '201':
+          description: |
+            Endpoint created. `meta.signing_secret` is revealed **once here only** —
+            persist it immediately; it is never shown again.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/WebhookEndpoint' }
+                  meta:
+                    type: object
+                    properties:
+                      payload_version: { type: string, example: "2026-09-22" }
+                      signing_secret:
+                        type: string
+                        description: One-time HMAC signing secret for this endpoint. Shown only on create — store it now.
+                        example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c0ff"
+              example:
+                data:
+                  id: "f3a1c2d4-5e6f-47a8-9b0c-1d2e3f4a5b6c"
+                  type: "webhook_endpoint"
+                  attributes:
+                    url: "https://pms.example.com/hooks/symplehost"
+                    subscribed_events: ["reservation.created", "reservation.cancelled"]
+                    active: true
+                    payload_version: "2026-09-22"
+                    consecutive_failures: 0
+                    created_at: "2026-06-19T10:00:00.000Z"
+                    updated_at: "2026-06-19T10:00:00.000Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  signing_secret: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c0ff"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/webhook_endpoints"
+            BODY='{"url":"https://pms.example.com/hooks/symplehost","subscribed_events":["reservation.created","reservation.cancelled"]}'
+            HASH=$(printf %s "$BODY" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)" \
+              -H "Content-Type: application/json" \
+              -d "$BODY"
+
+  /api/v1/partner/webhook_endpoints/{id}:
+    delete:
+      tags: [Webhooks]
+      summary: Delete a webhook endpoint
+      operationId: deleteWebhookEndpoint
+      description: Permanently removes one of **this key's** webhook endpoints. Requires `webhooks:manage` (sensitive → **HMAC**).
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '204': { description: Endpoint removed. }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/webhook_endpoints/{id}/reactivate:
+    post:
+      tags: [Webhooks]
+      summary: Reactivate a disabled webhook endpoint
+      operationId: reactivateWebhookEndpoint
+      description: |
+        Re-enables an endpoint that was auto-disabled after repeated delivery failures
+        (resets it to active). Requires `webhooks:manage` (sensitive → **HMAC**) and an
+        `Idempotency-Key`. The `signing_secret` is **not** re-revealed.
+      security:
+        - hmacAuth: []
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '200':
+          description: Endpoint reactivated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/WebhookEndpoint' }
+                  meta:
+                    type: object
+                    properties:
+                      payload_version: { type: string, example: "2026-09-22" }
+              example:
+                data:
+                  id: "f3a1c2d4-5e6f-47a8-9b0c-1d2e3f4a5b6c"
+                  type: "webhook_endpoint"
+                  attributes:
+                    url: "https://pms.example.com/hooks/symplehost"
+                    subscribed_events: ["reservation.created"]
+                    active: true
+                    payload_version: "2026-09-22"
+                    consecutive_failures: 0
+                    created_at: "2026-06-19T10:00:00.000Z"
+                    updated_at: "2026-06-19T12:00:00.000Z"
+                meta:
+                  payload_version: "2026-09-22"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/webhook_endpoints/{webhook_endpoint_id}/deliveries:
+    get:
+      tags: [Webhooks]
+      summary: List deliveries for an endpoint
+      operationId: listWebhookDeliveries
+      description: |
+        Lists delivery attempts for one of **this key's** webhook endpoints, newest
+        first, keyset-paginated. Requires `webhooks:manage` (sensitive → **HMAC**,
+        and `X-SH-Nonce` even though this is a GET).
+      security:
+        - hmacAuth: []
+      parameters:
+        - name: webhook_endpoint_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/UpdatedSince'
+      responses:
+        '200':
+          description: A page of deliveries.
+          content:
+            application/vnd.api+json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/WebhookDelivery' }
+                  meta: { $ref: '#/components/schemas/CursorMeta' }
+              example:
+                data:
+                  - id: "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+                    type: "webhook_delivery"
+                    attributes:
+                      event_type: "reservation.created"
+                      event_id: "evt_8f3c1a"
+                      status: "delivered"
+                      attempts: 1
+                      response_status: 200
+                      next_retry_at: null
+                      delivered_at: "2026-06-19T10:00:05.000Z"
+                      created_at: "2026-06-19T10:00:00.000Z"
+                meta:
+                  payload_version: "2026-09-22"
+                  next_cursor: null
+                  count: 1
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/partner/webhook_endpoints/{webhook_endpoint_id}/deliveries/{id}/replay:
+    post:
+      tags: [Webhooks]
+      summary: Replay a webhook delivery
+      operationId: replayWebhookDelivery
+      description: |
+        Re-queues a past delivery for re-send. Only `dead`, `delivered`, or `failed`
+        deliveries may be replayed — anything else returns `409`. Requires
+        `webhooks:manage` (sensitive → **HMAC**) and an `Idempotency-Key`.
+      security:
+        - hmacAuth: []
+      parameters:
+        - name: webhook_endpoint_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '202':
+          description: Delivery re-queued for delivery.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      type: { type: string, enum: [webhook_delivery] }
+                      id: { type: string, format: uuid }
+                      attributes:
+                        type: object
+                        properties:
+                          status: { type: string, enum: [queued], example: queued }
+                          event_id: { type: string, example: "evt_8f3c1a" }
+                  meta:
+                    type: object
+                    properties:
+                      payload_version: { type: string, example: "2026-09-22" }
+              example:
+                data:
+                  type: "webhook_delivery"
+                  id: "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+                  attributes:
+                    status: "queued"
+                    event_id: "evt_8f3c1a"
+                meta:
+                  payload_version: "2026-09-22"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            TS=$(date +%s)
+            PATH_="/api/v1/partner/webhook_endpoints/$WEBHOOK_ENDPOINT_ID/deliveries/$DELIVERY_ID/replay"
+            HASH=$(printf %s "" | shasum -a 256 | cut -d" " -f1)
+            CANON=$(printf '%s\n%s\n%s\n%s' POST "$PATH_" "$TS" "$HASH")
+            SIG=$(printf %s "$CANON" | openssl dgst -sha256 -hmac "$SH_SIGNING_SECRET" -hex | sed 's/.* //')
+            curl -X POST "https://platform-dev.symplehost.ai$PATH_" \
+              -H "X-SH-Key-Id: $SH_KEY_ID" \
+              -H "X-SH-Timestamp: $TS" \
+              -H "X-SH-Nonce: $(uuidgen)" \
+              -H "X-SH-Signature: $SIG" \
+              -H "Idempotency-Key: $(uuidgen)"
+
 components:
   securitySchemes:
     basicAuth:
@@ -659,8 +2641,9 @@ components:
       name: X-SH-Signature
       description: |
         HMAC-SHA256 over `"<METHOD>\n<fullpath>\n<unix_ts>\n<sha256_hex(body)>"` using the key's
-        `signing_secret`, hex-encoded (lowercase). Also send `X-SH-Key-Id`, `X-SH-Timestamp`, and
-        `X-SH-Nonce` (writes). 120s window. **"Try it" cannot auto-sign — use the code samples.**
+        `signing_secret`, hex-encoded (lowercase). `<fullpath>` includes the query string. Also send
+        `X-SH-Key-Id`, `X-SH-Timestamp`, and `X-SH-Nonce` (writes and all `webhooks:manage` calls;
+        safe to send always). 120s window. **"Try it" cannot auto-sign — use the code samples.**
 
   parameters:
     PathId:
@@ -681,8 +2664,24 @@ components:
     UpdatedSince:
       name: updated_since
       in: query
-      description: ISO-8601 seed for the first page only; afterwards use `cursor`.
+      description: >-
+        ISO-8601 seed for the first page only; afterwards use `cursor`. On
+        endpoints that accept `sort`, seeding `updated_since` without an explicit
+        `sort` selects the `updated_at`-ascending polling feed, overriding the
+        default order.
       schema: { type: string, format: date-time }
+    Sort:
+      name: sort
+      in: query
+      description: >-
+        Sort order (default `-created_at`, newest first). A `-` prefix means
+        descending. Supplying `updated_since` without `sort` keeps the
+        `updated_at`-ascending polling feed. Keep the same `sort` across a
+        paginated run — a `cursor` is only valid within the sort that minted it.
+      schema:
+        type: string
+        default: '-created_at'
+        enum: ['-created_at', created_at, '-updated_at', updated_at]
     IdempotencyKey:
       name: Idempotency-Key
       in: header
@@ -710,6 +2709,11 @@ components:
             start_date: { type: string, format: date, example: "2026-07-02" }
             end_date: { type: string, format: date, example: "2026-07-05" }
             nights_count: { type: integer, example: 3 }
+            listing_id:
+              type: string
+              format: uuid
+              example: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326"
+              description: Primary listing this reservation is for (derived from the first booking's line item).
             guest_count: { type: integer, example: 2 }
             currency: { type: string, example: USD }
             source_platform: { type: string, example: airbnb }
@@ -724,7 +2728,11 @@ components:
                 id: { type: string, format: uuid }
                 name: { type: string, example: Ada Lovelace }
                 email: { type: string, example: ada@example.com }
-                phone: { type: string, example: "+15551234567" }
+                phone:
+                  type: string
+                  nullable: true
+                  example: "+15551234567"
+                  description: 'E.164. Null when no calling code is on file for this guest.'
             masked_fields:
               type: array
               items: { type: string }
@@ -762,21 +2770,245 @@ components:
           type: object
           properties:
             name: { type: string, example: Villa Rosa }
-            description: { type: string }
+            description:
+              type: string
+              nullable: true
+              description: >
+                Primary listing description, sanitized to partner-safe plain text
+                (HTML tags/entities and emoji stripped, whitespace and line-endings
+                normalized) for PMS/OTA compatibility.
+            descriptions:
+              type: object
+              description: >
+                Structured description sections imported from the OTA (e.g. Airbnb)
+                and persisted on the listing, each sanitized to partner-safe plain
+                text (HTML/entities and emoji stripped). Blank sections are omitted;
+                an empty object `{}` when nothing was imported. The OTA `description`
+                section is intentionally omitted here — it duplicates the top-level
+                `description` attribute (a redundant full-text dump); `notes` carries
+                the host's written house rules verbatim (also surfaced as `house_rules`).
+              properties:
+                summary:     { type: string, description: Short headline / summary. }
+                space:       { type: string, description: "“The space” — layout and what's included." }
+                access:      { type: string, description: How guests access the property. }
+                interaction: { type: string, description: Host interaction / availability during the stay. }
+                notes:       { type: string, description: Host's written house rules, verbatim. }
+              example:
+                summary: "Quiet riverside retreat"
+                space: "Two-bedroom apartment with a private balcony and river views."
+                access: "Self check-in via smart lock; code sent 24h before arrival."
+                interaction: "Reachable anytime through the app."
+                notes: "No parties. Quiet hours after 10pm. No smoking indoors."
             property_type: { type: string, example: villa }
             listing_type: { type: string, example: entire_place }
+            address_line1: { type: string, nullable: true, example: "44 Eagle Street" }
+            address_line2: { type: string, nullable: true, example: "Level 3" }
             city: { type: string, example: Seoul }
             state: { type: string, nullable: true }
             country: { type: string, example: KR }
             postal_code: { type: string, example: "04524" }
             timezone: { type: string, example: Asia/Seoul }
+            latitude:
+              type: number
+              format: double
+              nullable: true
+              description: Geographic latitude (decimal degrees).
+              example: 1.3521
+            longitude:
+              type: number
+              format: double
+              nullable: true
+              description: Geographic longitude (decimal degrees).
+              example: 103.8198
             max_guests: { type: integer, example: 4 }
             bedrooms: { type: integer, example: 2 }
             beds: { type: integer, example: 3 }
             bathrooms: { type: number, example: 1 }
-            currency: { type: string, example: USD }
-            active: { type: boolean, example: true }
-            published: { type: boolean, example: true }
+            minimum_stay:
+              type: integer
+              description: Effective minimum nights (listing override → account default → 1).
+              example: 2
+            maximum_stay:
+              type: integer
+              description: Effective maximum nights (listing override → account default → 365).
+              example: 30
+            check_in_time: { type: string, description: "Normalized check-in time.", example: "15:00" }
+            check_out_time: { type: string, description: "Normalized check-out time.", example: "11:00" }
+            cancellation_policy_type:
+              type: string
+              nullable: true
+              description: Cancellation policy category (honors parent-unit inheritance). Retained for back-compat; see `cancellation_policy` for the full object.
+              enum: [flexible, moderate, strict, super_strict, custom]
+              example: flexible
+            cancellation_policy:
+              type: object
+              nullable: true
+              description: >-
+                Full cancellation policy (honors parent-unit inheritance): human-readable
+                name/description plus the refund schedule and grace period. Null when no
+                policy is set on the listing.
+              properties:
+                type:
+                  type: string
+                  enum: [flexible, moderate, strict, super_strict, custom]
+                  example: moderate
+                name: { type: string, example: Moderate }
+                description:
+                  type: string
+                  nullable: true
+                  description: Free-text policy description (sanitized to plain text).
+                  example: "Full refund 5 days prior to arrival."
+                grace_period_hours: { type: integer, example: 48 }
+                refund_rules:
+                  type: array
+                  description: Refund schedule — percentage refunded at each hours-before-check-in tier.
+                  items:
+                    type: object
+                    properties:
+                      hours_before: { type: integer, example: 120 }
+                      refund_percentage: { type: number, example: 100 }
+            pets_allowed: { type: boolean, example: false }
+            smoking_allowed: { type: boolean, example: false }
+            parties_allowed: { type: boolean, example: false }
+            additional_rules:
+              type: array
+              items: { type: string }
+              description: Structured house rules (array). See also `house_rules` (the OTA `notes` free-text) and `guest_policy`.
+              example: ["No loud music after 10pm"]
+            house_rules:
+              type: string
+              nullable: true
+              description: >-
+                Host's written house rules as free text (the OTA `notes` section, same
+                text as `descriptions.notes`), sanitized to plain text. Null when none
+                were imported.
+              example: "No smoking indoors. Quiet after 10pm."
+            guest_policy:
+              type: object
+              description: >-
+                Consolidated guest policy — house-level permissions and stay/timing rules
+                bundled for convenience. Each field is also exposed at the top level; this
+                is a grouped view, not new data.
+              properties:
+                pets_allowed: { type: boolean, example: false }
+                smoking_allowed: { type: boolean, example: false }
+                parties_allowed: { type: boolean, example: false }
+                check_in_time: { type: string, example: "15:00" }
+                check_out_time: { type: string, example: "11:00" }
+                minimum_stay: { type: integer, example: 2 }
+                maximum_stay: { type: integer, example: 30 }
+            instant_book: { type: boolean, example: false }
+            archived: { type: boolean, example: false }
+            unit_name: { type: string, nullable: true, example: "Unit 101" }
+            unit_number: { type: string, nullable: true, example: "101" }
+            unit_count: { type: integer, description: "Number of units (1 for standalone).", example: 1 }
+            amenities:
+              type: array
+              items: { type: string }
+              description: Resolved amenity list (honors parent-unit inheritance).
+              example: ["Wifi", "Kitchen", "Air conditioning"]
+            images:
+              type: array
+              description: >-
+                Active images ordered by display_order. `url` is the public URL
+                (falls back to the storage copy). Images are NOT inherited from a
+                parent unit — a unit returns only its own photos. Image metadata,
+                including room/space category when known, is included under the
+                existing `properties:read` scope; no separate image scope is required.
+              items:
+                type: object
+                properties:
+                  id: { type: string, format: uuid }
+                  url: { type: string, example: "https://cdn.symplehost.ai/listings/hero.jpg" }
+                  is_primary: { type: boolean, example: true }
+                  display_order: { type: integer, example: 1 }
+                  caption:
+                    type: string
+                    nullable: true
+                    description: Optional caption stored with the image.
+                    example: "Primary bedroom"
+                  alt_text:
+                    type: string
+                    nullable: true
+                    description: Optional accessibility/SEO text for the image.
+                    example: "King bed beside a window"
+                  room_category:
+                    type: string
+                    nullable: true
+                    description: >-
+                      Room or space category for the image when known, such as
+                      `bedroom`, `living_room`, `bathroom`, `kitchen`, or an
+                      imported channel category.
+                    example: bedroom
+                  source_room_id:
+                    type: string
+                    nullable: true
+                    description: Source/channel room identifier when the image was imported with room metadata.
+                    example: room_123
+                  width: { type: integer, nullable: true, example: 1600 }
+                  height: { type: integer, nullable: true, example: 1067 }
+            primary_image_url:
+              type: string
+              nullable: true
+              description: Convenience hero image URL (own photos only).
+              example: "https://cdn.symplehost.ai/listings/hero.jpg"
+            currency:
+              type: string
+              description: >-
+                Listing's own currency first (OTA-imported listings keep their
+                source currency), then account currency, then USD.
+              example: USD
+            base_rate_season:
+              type: object
+              nullable: true
+              description: >-
+                The listing's base-rate pricing season (same shape as
+                `GET /api/v1/partner/properties/{id}/pricing_settings`). Requires
+                the `pricing:read` scope — `null` if the key lacks that scope or
+                the listing has no base-rate season. Own season only (not
+                inherited from a parent unit).
+              properties:
+                currency: { type: string, example: USD }
+                price: { type: number, format: double, nullable: true, example: 240.0, description: "Base nightly rate (min == max in the system)." }
+                base_guest_count: { type: integer, nullable: true, example: 2 }
+                additional_guest_price: { type: number, format: double, nullable: true, example: 25.0 }
+                weekly_discount_percent: { type: number, format: double, nullable: true, example: 10.0 }
+                monthly_discount_percent: { type: number, format: double, nullable: true, example: 20.0 }
+                length_of_stay_discount:
+                  type: object
+                  properties:
+                    enabled: { type: boolean, example: true }
+                    nights: { type: integer, nullable: true, example: 7 }
+                    percent: { type: number, format: double, nullable: true, example: 15.0 }
+            ota_platforms:
+              type: array
+              items: { type: string }
+              description: >-
+                Distinct OTA platform slugs (`airbnb`, `booking`, `vrbo`,
+                `expedia`, …) the property is actively connected to via the
+                channel manager. A platform can appear here with no entry in
+                `ota_listing_mappings` if its external id hasn't been resolved
+                yet. Empty for direct-only properties.
+              example: ["airbnb", "booking"]
+            ota_listing_mappings:
+              type: array
+              description: >-
+                The property's identifiers on external OTAs — one entry per
+                active channel mapping. `external_id` is the property's id on
+                the OTA (the id visible in the OTA's own dashboard/URLs).
+                Inactive (disconnected) mappings and mappings with no resolvable
+                id are omitted; parents union child-unit mappings and identical
+                `{platform, external_id}` pairs are deduped. Empty for
+                direct-only properties.
+              items:
+                type: object
+                required: [platform, external_id]
+                properties:
+                  platform: { type: string, example: airbnb }
+                  external_id: { type: string, example: "1234567890123456789" }
+              example:
+                - { platform: "airbnb", external_id: "1234567890123456789" }
+                - { platform: "booking", external_id: "8765432" }
             external_ref:
               type: string
               nullable: true
@@ -796,14 +3028,140 @@ components:
             channel: { type: string, example: whatsapp }
             status: { type: string, example: open }
             lifecycle_stage: { type: string, example: inquiry }
+            listing_id:
+              type: string
+              format: uuid
+              nullable: true
+              description: >-
+                Property this enquiry is about, as a flat id for targeting
+                availability/pricing writes. Null until the thread is linked to a
+                property. Added in payload version 2026-08-10.
+              example: "3f1c9d20-8b41-4f0a-9d77-2f0c1a6d5e33"
+            property:
+              type: object
+              nullable: true
+              description: >-
+                The same property, expanded. Resolved from the conversation's
+                discussed listing, else its reservation's first booking, else the
+                OTA-mapped listing for a pre-reservation inquiry — so it matches
+                what the SympleHost dashboard shows for the thread. Null when the
+                enquiry is not linked to a property yet (common on older OTA
+                threads). `name`, `unit_number` and `listing_type` are property
+                catalogue data and require `properties:read`; without that scope
+                only `id` is returned and the omitted keys are listed in
+                `masked_fields`. Added in payload version 2026-08-10.
+              properties:
+                id: { type: string, format: uuid }
+                name: { type: string, example: "Villa Anandi" }
+                unit_number: { type: string, nullable: true, example: "2B" }
+                listing_type: { type: string, nullable: true, example: "villa" }
+            inquiry:
+              $ref: '#/components/schemas/Inquiry'
+            masked_fields:
+              type: array
+              description: >-
+                Field paths withheld from this response because the key lacks the
+                scope that gates them. Empty when nothing was withheld.
+              items: { type: string }
+              example: []
             guest:
               type: object
               properties:
                 id: { type: string, format: uuid }
                 name: { type: string, example: Ada Lovelace }
                 email: { type: string, example: ada@example.com }
+            last_host_reply:
+              type: object
+              nullable: true
+              description: >-
+                The host who most recently replied in the thread. `name`/`role` reflect
+                the real OTA replier captured from Channex (e.g. a cohost); `role` is
+                null for in-app SympleHost replies. Null when no host has replied yet.
+              properties:
+                name: { type: string, example: "Risha" }
+                role: { type: string, nullable: true, example: "COHOST", description: "OTA role (e.g. HOST/COHOST); null for in-app replies." }
+                at: { type: string, format: date-time }
             created_at: { type: string, format: date-time }
             updated_at: { type: string, format: date-time }
+
+    Inquiry:
+      type: object
+      nullable: true
+      description: >-
+        The dates and guest breakdown the guest **enquired about**, sourced from the
+        OTA's enquiry event (Airbnb via Channex) and frozen at enquiry time. Added in
+        payload version 2026-09-22.
+
+
+        This is NOT the booking. These values do not follow a later reservation — if
+        the guest books different dates, `inquiry` still reports what they originally
+        asked for. The authoritative stay dates are `start_date`/`end_date` on
+        `GET /partner/reservations`.
+
+
+        Served on the conversation resource only — the message payload and the
+        `message.created` webhook do not carry it. Fetch the conversation when you
+        need an enquiry's dates.
+
+
+        Served under `messaging:read` with no additional scope, and never listed in
+        `masked_fields`.
+
+
+        `null` is ambiguous by omission: it means either the thread carries no enquiry
+        data, or the enquiry event never reached us (it is skipped when it arrives
+        before the thread's first message creates the conversation, and there is no
+        backfill). Expect it on older OTA threads. Treat it as "unknown", never as
+        "no dates requested".
+
+
+        Each field is independently nullable, and `0` is not `null`: `"kids": 0` means
+        the guest declared no children, `"kids": null` means the OTA did not send that
+        field. Do not coalesce the two.
+      properties:
+        check_in:
+          type: string
+          format: date
+          nullable: true
+          description: First night the guest enquired about.
+          example: "2026-09-02"
+        check_out:
+          type: string
+          format: date
+          nullable: true
+          description: Departure date the guest enquired about.
+          example: "2026-09-07"
+        guest_count:
+          type: integer
+          nullable: true
+          description: >-
+            Computed as `adults + kids + infants` — the same derivation
+            `POST /partner/reservations` applies to those three fields, so a read →
+            write round-trip does not shift the total. NOTE: Airbnb excludes infants
+            from the guest count it shows the host, so for an enquiry with infants
+            this reads higher than the host's Airbnb screen; the split fields below
+            reconcile the two. `pets` is never counted as a guest.
+          example: 4
+        adults:
+          type: integer
+          nullable: true
+          description: Same field name `POST /partner/reservations` accepts.
+          example: 4
+        kids:
+          type: integer
+          nullable: true
+          description: Children, excluding infants. Same field name reservation create accepts.
+          example: 0
+        infants:
+          type: integer
+          nullable: true
+          description: Same field name `POST /partner/reservations` accepts.
+          example: 0
+        pets:
+          type: integer
+          nullable: true
+          description: Declared pets. Never contributes to `guest_count`.
+          example: 0
 
     Message:
       type: object
@@ -816,32 +3174,214 @@ components:
             channel: { type: string, example: whatsapp }
             source: { type: string, example: guest }
             sender_type: { type: string, example: Guest }
+            host:
+              type: object
+              nullable: true
+              description: >-
+                Host-side identity of the replier, set on every host-sent message
+                (`sender_type: "User"`); null on guest/AI/system messages. Same
+                shape as the conversation's `last_host_reply`. `name`/`role`
+                prefer the real OTA replier captured from the channel (e.g. a
+                cohost); for in-app replies `name` is the SympleHost user and
+                `role` is null. Host identity — never scope-gated.
+              properties:
+                name: { type: string, nullable: true, example: "Risha" }
+                role: { type: string, nullable: true, example: "COHOST", description: "OTA role (e.g. HOST/COHOST); null for in-app replies." }
+                at: { type: string, format: date-time }
             message_status: { type: string, example: delivered }
             is_read: { type: boolean, example: true }
+            conversation_id:
+              type: string
+              format: uuid
+              description: The conversation thread this message belongs to (bare ID, never gated).
+            customer_id:
+              type: string
+              format: uuid
+              description: The conversation's customer/guest this message is from (bare ID, never gated).
+            guest:
+              type: object
+              description: >-
+                Guest contact for the conversation's customer. PII per-field gated —
+                `name` on `guest_name:read`, `email`/`phone` on `guest_contact:read`;
+                withheld fields return "***" and are listed in `masked_fields` as
+                `guest.name` / `guest.email` / `guest.phone`.
+              properties:
+                name: { type: string, nullable: true, example: Ada Lovelace }
+                email: { type: string, nullable: true, example: ada@example.com }
+                phone:
+                  type: string
+                  nullable: true
+                  example: "+15551234567"
+                  description: 'E.164. Null when no calling code is on file for this guest.'
             content:
               type: string
               description: Gated on message_content:read; "***" when withheld.
               example: "Hi! What time is check-in?"
+            attachments:
+              type: array
+              description: >-
+                OTA/Channex attachments. Gated on `message_content:read` — returns `[]`
+                (and `attachments` is listed in `masked_fields`) without it. Each `url`
+                is the SH-owned, auth-gated download endpoint
+                (`GET .../messages/{message_id}/attachments/{id}`), NOT a raw Channex
+                link — it 302-redirects to a short-lived signed source.
+              items: { $ref: '#/components/schemas/Attachment' }
             masked_fields:
               type: array
               items: { type: string }
+              description: >-
+                Fields withheld for lack of scope. May include `content` and
+                `attachments` (message_content:read), `guest.name` (guest_name:read),
+                and `guest.email` / `guest.phone` (guest_contact:read).
               example: []
             created_at: { type: string, format: date-time }
             updated_at: { type: string, format: date-time }
 
+    Attachment:
+      type: object
+      description: >-
+        A normalized message attachment. `url` is the SH-owned download endpoint — GET
+        it (scope `message_content:read`) to receive a 302 redirect to a short-lived
+        signed source.
+      properties:
+        id: { type: string, example: "35c3e211-d360-42d1-b274-c00d24f057f0-att-0" }
+        type:
+          type: string
+          enum: [image, video, audio, document]
+          example: document
+        url:
+          type: string
+          format: uri
+          description: SH download endpoint (GET → 302 to the signed source).
+          example: "https://platform-dev.symplehost.ai/api/v1/partner/conversations/CID/messages/MID/attachments/MID-att-0"
+        name: { type: string, example: invoice.pdf }
+        size: { type: integer, description: "Bytes when known; 0 for path-only OTA attachments.", example: 0 }
+        mime_type: { type: string, nullable: true, example: null }
+
+    WebhookEndpoint:
+      type: object
+      description: >-
+        A webhook endpoint owned by the API key. Note: `signing_secret` is NEVER
+        included in `attributes` — it is revealed exactly once via `meta.signing_secret`
+        on create (`POST /api/v1/partner/webhook_endpoints`).
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [webhook_endpoint] }
+        attributes:
+          type: object
+          properties:
+            url: { type: string, format: uri, example: "https://pms.example.com/hooks/symplehost" }
+            subscribed_events:
+              type: array
+              items: { type: string }
+              example: ["reservation.created", "reservation.cancelled"]
+            active: { type: boolean, example: true }
+            payload_version: { type: string, example: "2026-09-22" }
+            consecutive_failures:
+              type: integer
+              description: Consecutive failed deliveries; the endpoint is auto-disabled past a threshold.
+              example: 0
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    WebhookDelivery:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [webhook_delivery] }
+        attributes:
+          type: object
+          properties:
+            event_type: { type: string, example: "reservation.created" }
+            event_id: { type: string, example: "evt_8f3c1a" }
+            status: { type: string, example: delivered }
+            attempts: { type: integer, example: 1 }
+            response_status: { type: integer, nullable: true, example: 200 }
+            next_retry_at: { type: string, format: date-time, nullable: true }
+            delivered_at: { type: string, format: date-time, nullable: true }
+            created_at: { type: string, format: date-time }
+            # No updated_at: the delivery serializer exposes created_at only. Track
+            # delivery progress via status / attempts / next_retry_at / delivered_at.
+
     CreateReservationRequest:
       type: object
-      required: [listing_id, start_date, end_date, guest_count, currency]
+      required: [listing_id, start_date, end_date, currency, total_amount]
+      description: |
+        When `listing_id` is supplied, the push creates a property booking under the
+        reservation, so the listing and guest count resolve everywhere in SympleHost
+        (reservation list, detail, calendar, availability). Your `total_amount` and
+        `currency` are preserved as-is — SympleHost does **not** re-price from listing
+        rates for partner pushes.
       properties:
         listing_id:
           type: string
           format: uuid
-          description: SH listing to book (resolve via /properties or your linked external_ref).
+          description: SH listing to book (resolve via /properties or your linked external_ref). Required to link the reservation to a property.
         start_date: { type: string, format: date, example: "2026-07-02" }
         end_date: { type: string, format: date, example: "2026-07-05" }
-        guest_count: { type: integer, example: 2 }
-        currency: { type: string, example: USD, description: Must match the account currency. }
-        total_amount: { type: number, example: 450.0 }
+        adults:
+          type: integer
+          minimum: 1
+          example: 2
+          description: Number of adult guests. Recommended. Drives the reservation's guest count.
+        kids:
+          type: integer
+          minimum: 0
+          example: 1
+          description: Number of children. Defaults to 0.
+        infants:
+          type: integer
+          minimum: 0
+          example: 0
+          description: Number of infants. Defaults to 0. Counts toward the guest total.
+        guest_count:
+          type: integer
+          example: 2
+          deprecated: true
+          description: >-
+            Legacy total guest count. Still accepted and mapped to `adults` when
+            `adults` is omitted. Prefer the explicit `adults` / `kids` fields.
+        status:
+          type: string
+          enum: [confirmed, pending]
+          default: confirmed
+          example: confirmed
+          description: >-
+            Reservation status on creation. Defaults to `confirmed` (a pushed direct
+            booking is already booked). Send `pending` to create it awaiting
+            confirmation instead.
+        currency:
+          type: string
+          example: INR
+          description: The booking's currency, recorded as provided (your own/partner currency).
+        total_amount:
+          type: number
+          example: 4500.0
+          description: Your authoritative booking total. Preserved as-is (no re-pricing).
+        payment_status:
+          type: string
+          enum: [pending, paid]
+          default: pending
+          example: pending
+          description: >-
+            Whether the booking is already paid. Defaults to `pending` (amount due =
+            total). Send `paid` to mark it fully settled. For partial payments, send
+            `amount_paid` instead.
+        amount_paid:
+          type: number
+          example: 1000.0
+          description: >-
+            Amount already collected by the partner. Overrides `payment_status`:
+            ≥ total → paid, > 0 → partially_paid, else pending. `amount_due` is
+            derived as total − amount_paid.
+        special_requests:
+          type: string
+          example: "Late check-in around 9pm"
+          description: Free-text guest requests, stored on the booking.
+        notes:
+          type: string
+          example: "VIP — returning guest"
+          description: Internal note stored on the reservation.
         source_platform: { type: string, example: partner }
         external_ref: { type: string, example: PMS-7781, description: Your booking reference (for idempotent dedupe + linking). }
         guest:
@@ -849,30 +3389,336 @@ components:
           required: [name]
           properties:
             name: { type: string, example: Ada Lovelace }
-            email: { type: string, example: ada@example.com }
+            email:
+              type: string
+              example: ada@example.com
+              description: >-
+                Optional. When omitted on a listing-backed push, a deterministic
+                `@guest.symplehost.ai` address is generated (from the phone when
+                present) so the property booking has a guest email.
             phone: { type: string, example: "+15551234567" }
 
     SendMessageRequest:
       type: object
-      required: [content]
+      description: >-
+        `content` is required unless at least one `attachment_ids` entry is present (an
+        attachment-only send).
+
+
+        **Do not send `content` and `attachment_ids` in the same request.** The upstream
+        OTA messaging API accepts *either* text *or* one attachment per message, and
+        **silently ignores the attachment when text is present** — the guest receives the
+        text only, and the stored message comes back with an empty `attachments` array.
+        Send the text as one request and each photo as its own attachment-only request.
       properties:
-        content: { type: string, example: "Hi! Check-in is from 3pm." }
+        content:
+          type: string
+          description: >-
+            Message body. Optional when `attachment_ids` has at least one entry — and on an
+            attachment send you must omit it entirely, or the attachment is silently
+            dropped. See the schema description above.
+          example: "Hi! Check-in is from 3pm."
+        attachment_ids:
+          type: array
+          description: >-
+            Channex attachment ids from `POST /api/v1/partner/attachments`. OTA threads
+            only — a non-OTA conversation returns `422 attachments_unsupported`. Each id
+            must have been uploaded by **your account** (valid 24h) — an id you did not
+            upload returns `422 attachment_not_found`.
+
+
+            One attachment is delivered per underlying OTA message: several ids here fan
+            out to one message each, in the order given. Pair them with a **blank**
+            `content` — see the schema description above.
+          items: { type: string }
+          example: ["a1b2c3d4-0000-0000-0000-000000000000"]
         channel:
           type: string
           description: Optional; defaults to the conversation's channel.
           example: whatsapp
 
+    RespondToReviewRequest:
+      type: object
+      required: [data]
+      description: >-
+        The host reply text, JSON:API-shaped. A top-level `response` is also accepted.
+      properties:
+        data:
+          type: object
+          properties:
+            attributes:
+              type: object
+              required: [response]
+              properties:
+                response:
+                  type: string
+                  description: The host response to post to the review.
+                  example: "Thank you so much for the kind words — we'd love to host you again!"
+
+    UploadAttachmentRequest:
+      type: object
+      required: [file, filename]
+      properties:
+        file:
+          type: string
+          format: byte
+          description: Base64-encoded file bytes (≤ 25 MB decoded; base64 inflates this to ~33 MB on the wire, so size your HTTP timeouts against the encoded length). Sent in the JSON body (not multipart) so the request is HMAC-signable.
+        filename:
+          type: string
+          example: id-front.png
+
+    Block:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, example: block }
+        attributes:
+          type: object
+          properties:
+            start_date: { type: string, format: date }
+            end_date: { type: string, format: date, description: Inclusive last blocked night. }
+            block_reason: { type: string, enum: [owner_stay, maintenance, owner_block, blocked, other] }
+            source: { type: string, example: partner }
+            notes: { type: string, nullable: true }
+            external_ref: { type: string, nullable: true }
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+    Amenity:
+      type: object
+      properties:
+        id: { type: string, description: Master amenity id (RU "amenity_id"). }
+        type: { type: string, example: amenity }
+        attributes:
+          type: object
+          properties:
+            name: { type: string, example: "Air Conditioning" }
+            category:
+              type: string
+              description: SH amenity grouping (RU "category_id" analog).
+              enum: [essential, comfort, entertainment, safety, accessibility, outdoor, kitchen, bathroom, bedroom, technology]
+            is_premium: { type: boolean }
+
+    CreateBlockRequest:
+      type: object
+      required: [start_date, end_date]
+      properties:
+        start_date: { type: string, format: date, example: "2026-08-01" }
+        end_date: { type: string, format: date, example: "2026-08-03", description: Inclusive — the last night held. }
+        block_reason:
+          type: string
+          enum: [owner_stay, maintenance, owner_block, blocked, other]
+          default: blocked
+          description: >-
+            Defaults to the generic "blocked" when omitted. Pass "owner_block"
+            only for a deliberate owner hold — it feeds owner-attributable
+            reporting. (Default changed from "owner_block" in 2026-07.)
+        notes: { type: string, example: "PMS hold" }
+        external_ref: { type: string, example: PMS-7781, description: Your reference for this hold. }
+
+    AvailabilityDay:
+      type: object
+      properties:
+        id: { type: string, example: "2027-04-01" }
+        type: { type: string, example: availability_day }
+        attributes:
+          type: object
+          properties:
+            date: { type: string, format: date }
+            availability: { type: integer, description: Sellable units for the date (override, or the listing default). }
+            min_stay: { type: integer, nullable: true }
+            max_stay: { type: integer, nullable: true }
+            closed_to_arrival: { type: boolean }
+            closed_to_departure: { type: boolean }
+            stop_sell: { type: boolean }
+    UpdateAvailabilityRequest:
+      type: object
+      required: [updates]
+      properties:
+        updates:
+          type: array
+          items:
+            type: object
+            required: [start_date, end_date]
+            properties:
+              start_date: { type: string, format: date, example: "2027-04-01" }
+              end_date: { type: string, format: date, example: "2027-04-30", description: Inclusive. }
+              availability: { type: integer, minimum: 0, description: Sellable units (→ total_availability). }
+              min_stay: { type: integer, minimum: 1 }
+              max_stay: { type: integer, minimum: 1, description: Must be ≥ min_stay. }
+              closed_to_arrival: { type: boolean }
+              closed_to_departure: { type: boolean }
+              stop_sell: { type: boolean }
+
+    PricingDay:
+      type: object
+      properties:
+        id: { type: string, example: "2027-06-01" }
+        type: { type: string, example: pricing_day }
+        attributes:
+          type: object
+          properties:
+            date: { type: string, format: date }
+            rate: { type: number, nullable: true, description: Effective nightly rate, or null if unset. }
+            currency: { type: string, example: USD }
+    PricingSettings:
+      type: object
+      properties:
+        currency: { type: string, example: INR }
+        price: { type: number, nullable: true, example: 3000.0, description: "Base nightly rate (min == max in the system)." }
+        base_guest_count: { type: integer, nullable: true, example: 2, description: Guests included before the extra-guest fee. }
+        additional_guest_price: { type: number, nullable: true, example: 500.0, description: Charge per extra guest, per night. }
+        weekly_discount_percent: { type: number, nullable: true, example: 10.0 }
+        monthly_discount_percent: { type: number, nullable: true, example: 20.0 }
+        length_of_stay_discount:
+          type: object
+          properties:
+            enabled: { type: boolean }
+            nights: { type: integer, example: 7, description: Minimum nights to qualify. }
+            percent: { type: number, example: 5.0 }
+    UpdatePricingSettingsRequest:
+      type: object
+      description: Partial update — send only the fields to change. Discounts are 0–100; prices > 0.
+      properties:
+        price: { type: number, minimum: 0, description: "Base nightly rate; sets both bounds. (min_price/max_price still accepted for backward compatibility.)" }
+        base_guest_count: { type: integer, minimum: 0 }
+        additional_guest_price: { type: number, minimum: 0 }
+        weekly_discount_percent: { type: number, minimum: 0, maximum: 100 }
+        monthly_discount_percent: { type: number, minimum: 0, maximum: 100 }
+        length_of_stay_discount:
+          type: object
+          properties:
+            enabled: { type: boolean }
+            nights: { type: integer, minimum: 1 }
+            percent: { type: number, minimum: 0, maximum: 100 }
+    UpdatePricingRequest:
+      type: object
+      description: Provide `updates` (per-date rates) and/or `min_price`/`max_price` bounds.
+      properties:
+        updates:
+          type: array
+          items:
+            type: object
+            required: [start_date, end_date, rate]
+            properties:
+              start_date: { type: string, format: date, example: "2027-06-01" }
+              end_date: { type: string, format: date, example: "2027-06-30", description: Inclusive. }
+              rate: { type: number, minimum: 0, example: 199.5, description: Nightly rate (custom_rate). }
+        min_price: { type: number, minimum: 0, example: 120.0, description: Lower dynamic-pricing bound (base season). }
+        max_price: { type: number, minimum: 0, example: 400.0, description: Upper bound; must be ≥ min_price. }
+
+    Review:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [review] }
+        attributes:
+          type: object
+          properties:
+            listing_id: { type: string, format: uuid, example: "0e2f8e3a-0ba0-43cf-911c-794e6ab05326" }
+            platform:
+              type: string
+              enum: [airbnb, booking, vrbo, expedia, google, direct]
+              description: Normalized OTA platform key.
+              example: airbnb
+            stay_review_id:
+              type: string
+              format: uuid
+              nullable: true
+              description: >
+                Id of the same review on the host-facing portal, where reviews are
+                addressed as stay reviews rather than channel reviews. Use it to
+                correlate a reply posted here with what the host sees. null when the
+                review never matched a booking.
+            rating: { type: number, nullable: true, example: 9.0, description: "1–10 scale (nullable for rating-only or textless reviews)." }
+            review_title: { type: string, nullable: true }
+            review_text: { type: string, nullable: true, example: "A lovely stay, spotless and well located." }
+            reviewer_name: { type: string, example: "Ada L." }
+            reviewer_location: { type: string, nullable: true, example: "London, UK" }
+            status:
+              type: string
+              enum: [pending, published, hidden, approved, rejected, spam, disputed]
+              example: published
+              description: >
+                Lifecycle of the review on the channel. `published` is live on the OTA and
+                readable by anyone; `hidden` is held back by the OTA (double-blind period
+                or a takedown); `pending` means no channel state has been recorded yet —
+                before 2026-09-21 every ingested review sat there, so treat `pending` on an
+                older review as "unknown", not as "awaiting publication". The remaining
+                values are moderation decisions made in SympleHost for the direct-booking
+                site and are never written by channel sync.
+            reviewed_at: { type: string, format: date-time, nullable: true, description: When the guest posted the review on the OTA. }
+            host_response: { type: string, nullable: true }
+            host_response_at: { type: string, format: date-time, nullable: true }
+            can_reply: { type: boolean, description: "Whether a first reply should be submitted to the OTA. Airbnb stays true until a host response exists (Channex expired_at is informational). Other OTAs honour reply_deadline. POST .../respond submits to the OTA when true." }
+            reply_deadline: { type: string, format: date-time, nullable: true, description: "Channex expired_at when present. Informational for Airbnb; enforced for other OTAs." }
+            reply_status:
+              type: string
+              nullable: true
+              enum: [pending, published, failed, not_deliverable]
+              description: >
+                Delivery outcome of `host_response`. `published` reached the OTA and the
+                guest can see it. `not_deliverable` was recorded locally only because the
+                OTA reply window is shut. `failed` was rejected by the OTA, in which case
+                `host_response` is absent. `pending` was submitted but the outcome was
+                never recorded. `null` means no OTA delivery was ever attempted (a direct
+                review, or a reply stored before this field existed).
+            reply_error: { type: string, nullable: true, description: "Why the reply was not published, when reply_status is failed or not_deliverable." }
+            ota_is_replied:
+              type: boolean
+              nullable: true
+              description: >
+                The OTA's own flag: `true` means the channel shows a host reply, whose
+                text may never have been synced here. `null` means no payload has said
+                either way. Together with `reply_status: published` it is what makes a
+                further POST .../respond a `409`.
+            category_scores:
+              type: object
+              description: >
+                Per-category ratings (1–10) keyed by category, e.g. clean,
+                communication, checkin, accuracy, location, value. Keys vary by
+                OTA; empty object when no breakdown was provided.
+              additionalProperties: { type: number }
+              example: { clean: 8.0, communication: 8.0, checkin: 10.0, accuracy: 6.0, location: 10.0, value: 8.0 }
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
+    Customer:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [customer] }
+        attributes:
+          type: object
+          description: PII per-field gated; withheld fields return "***".
+          properties:
+            name: { type: string, example: Ada Lovelace, description: "Gated on guest_name:read." }
+            email: { type: string, example: ada@example.com, description: "Gated on guest_contact:read." }
+            phone:
+              type: string
+              nullable: true
+              example: "+15551234567"
+              description: >-
+                E.164 (e.g. "+15551234567"). Gated on guest_contact:read. Null when the
+                account has no calling code on file for this customer.
+            status: { type: string, example: active }
+            masked_fields:
+              type: array
+              items: { type: string }
+              example: []
+            created_at: { type: string, format: date-time }
+            updated_at: { type: string, format: date-time }
+
     Meta:
       type: object
       properties:
-        payload_version: { type: string, example: "2025-06-01" }
+        payload_version: { type: string, example: "2026-09-22" }
 
     CursorMeta:
       type: object
       properties:
         next_cursor: { type: string, nullable: true, example: "eyJ1cGRhdGVkX2F0Ijoi…" }
-        has_more: { type: boolean, example: true }
-        payload_version: { type: string, example: "2025-06-01" }
+        count: { type: integer, description: Number of items in this page (always emitted)., example: 1 }
+        payload_version: { type: string, example: "2026-09-22" }
 
     Error:
       type: object
@@ -882,11 +3728,28 @@ components:
           items:
             type: object
             properties:
-              status: { type: string, example: "401" }
-              code: { type: string, example: auth_invalid_key }
+              status: { type: string, example: "401", description: HTTP status as a string. }
+              code:
+                type: string
+                description: Stable, machine-readable error code — branch on this.
+                example: auth_invalid_key
+                enum:
+                  - auth_invalid_key       # 401 — no/unknown key, or basic secret mismatch
+                  - signature_invalid      # 401 — HMAC signature verification failed
+                  - signature_expired      # 401 — timestamp missing or outside the 120s window
+                  - signature_required     # 401 — sensitive scope requires HMAC (Basic rejected)
+                  - nonce_replayed         # 401 — X-SH-Nonce missing or already used (write replay)
+                  - program_suspended      # 401 — the partner program is suspended
+                  - scope_missing          # 403 — key lacks the required scope
+                  - not_found              # 404 — resource missing or not in your account
+                  - conflict               # 409 — delivery not in a replayable state (webhook replay)
+                  - reply_already_published # 409 — the review reply is live on the channel; edit it there
+                  - channel_rejected       # 422 — the OTA rejected the review reply
+                  - idempotency_key_required # 422 — write missing the Idempotency-Key header
+                  - validation_failed      # 422 — payload/param/model validation failed
               title: { type: string, example: Invalid API key }
-              detail: { type: string }
-              meta: { type: object }
+              detail: { type: string, description: Human-readable explanation; safe to surface to operators. }
+              meta: { type: object, description: Optional structured context (e.g. required scope). }
 
   responses:
     Unauthorized:
@@ -895,10 +3758,40 @@ components:
         application/vnd.api+json:
           schema: { $ref: '#/components/schemas/Error' }
           examples:
-            invalid_key:
-              value: { errors: [ { status: "401", code: auth_invalid_key, title: Invalid API key } ] }
+            auth_invalid_key:
+              value:
+                errors:
+                  - status: "401"
+                    code: auth_invalid_key
+                    title: "Auth invalid key"
+                    detail: "Provide HTTP Basic (key_id:secret) or HMAC headers."
+                    meta: {}
+            signature_invalid:
+              value:
+                errors:
+                  - status: "401"
+                    code: signature_invalid
+                    title: "Signature invalid"
+                    detail: "Signature verification failed."
+                    meta:
+                      expected_signed_string_format: "<method>\\n<path>\\n<timestamp>\\n<sha256_hex(raw_body)>"
             signature_expired:
-              value: { errors: [ { status: "401", code: signature_expired, title: Signature timestamp outside window } ] }
+              value:
+                errors:
+                  - status: "401"
+                    code: signature_expired
+                    title: "Signature expired"
+                    detail: "Timestamp missing or outside the 120s window."
+                    meta:
+                      expected_signed_string_format: "<method>\\n<path>\\n<timestamp>\\n<sha256_hex(raw_body)>"
+            nonce_replayed:
+              value:
+                errors:
+                  - status: "401"
+                    code: nonce_replayed
+                    title: "Nonce replayed"
+                    detail: "X-SH-Nonce is required for availability:write."
+                    meta: {}
     Forbidden:
       description: Key lacks the required scope.
       content:
@@ -906,14 +3799,33 @@ components:
           schema: { $ref: '#/components/schemas/Error' }
           examples:
             scope_missing:
-              value: { errors: [ { status: "403", code: scope_missing, title: Missing required scope, meta: { required: transactions:read } } ] }
+              value:
+                errors:
+                  - status: "403"
+                    code: scope_missing
+                    title: "Scope missing"
+                    detail: "Missing required scope: pricing:write"
+                    meta:
+                      required_scope: "pricing:write"
     NotFound:
       description: Not found (or not in your account).
       content:
         application/vnd.api+json:
           schema: { $ref: '#/components/schemas/Error' }
+          examples:
+            not_found:
+              value:
+                errors:
+                  - status: "404"
+                    code: not_found
+                    title: "Not found"
+                    detail: "Resource not found."
+                    meta: {}
     Conflict:
-      description: Idempotency-key reuse with a different payload.
+      description: >-
+        Request conflicts with the resource's current state — e.g. replaying a webhook
+        delivery that is not in a replayable state (only `dead` / `delivered` / `failed`
+        deliveries may be replayed).
       content:
         application/vnd.api+json:
           schema: { $ref: '#/components/schemas/Error' }
@@ -922,6 +3834,31 @@ components:
       content:
         application/vnd.api+json:
           schema: { $ref: '#/components/schemas/Error' }
+          examples:
+            idempotency_key_required:
+              value:
+                errors:
+                  - status: "422"
+                    code: idempotency_key_required
+                    title: "Idempotency key required"
+                    detail: "Idempotency-Key header is required for this write."
+                    meta: {}
+            validation_failed_rate:
+              value:
+                errors:
+                  - status: "422"
+                    code: validation_failed
+                    title: "Validation failed"
+                    detail: "rate must be >= 0"
+                    meta: {}
+            validation_failed_date:
+              value:
+                errors:
+                  - status: "422"
+                    code: validation_failed
+                    title: "Validation failed"
+                    detail: "invalid or missing date: \"nope\""
+                    meta: {}
     RateLimited:
       description: Too many requests.
       headers:

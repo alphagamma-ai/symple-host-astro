@@ -4,7 +4,7 @@ Build integrations against the SympleHost Partner API.
 
 ## Quickstart
 
-1. Partner API HTML docs: /partner-api.html
+1. Complete API reference (every endpoint, from the OpenAPI contract): /partner-api-scalar.html — guide with worked examples for the core endpoints: /partner-api.html
 2. OpenAPI: /openapi.json
 3. Authenticate (Basic or HMAC-SHA256 for sensitive scopes)
 4. Accept: application/vnd.symplehost.partner.v1+json

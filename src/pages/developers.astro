@@ -10,13 +10,14 @@ import Base from '../layouts/Base.astro';
     <h1>SympleHost Developers</h1>
     <p>
       Build integrations against the <strong>SympleHost Partner API</strong>. Pull reservations,
-      transactions, and unified-inbox messages; link properties; and automate partner workflows with
+      transactions, customers, reviews, and unified-inbox messages; link properties and manage their
+      availability, blocks, and pricing; subscribe to webhooks; and automate partner workflows with
       scoped API keys.
     </p>
 
     <h2>Quickstart</h2>
     <ol>
-      <li>Read the <a href="/partner-api.html">Partner API HTML docs</a>.</li>
+      <li>Browse the <a href="/partner-api-scalar.html">complete API reference</a> (every endpoint, generated from the OpenAPI contract), or start with the <a href="/partner-api.html">guide with worked examples</a> for the core endpoints.</li>
       <li>Load the machine-readable contract: <a href="/openapi.json">/openapi.json</a> (also <a href="/partner-api/openapi.yaml">YAML</a>).</li>
       <li>Authenticate with HTTP Basic for read-only non-sensitive scopes, or HMAC-SHA256 for sensitive scopes.</li>
       <li>Request <code>Accept: application/vnd.symplehost.partner.v1+json</code>.</li>
