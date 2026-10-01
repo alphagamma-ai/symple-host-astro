@@ -14,6 +14,8 @@ draft: false
 
 Connect an existing Trip.com property to SympleHost by approving **Channex.io** as its connectivity provider, copying its **Hotel code**, and completing the connection and mapping flow in **Channel Manager**.
 
+Channex.io is the connectivity provider used by SympleHost. Complete the provider approval in Trip.com, then return to **SympleHost** to connect your property and map rooms and rates. You do not need to sign in to Channex or create a channel there.
+
 ## Before You Start
 
 Have the following ready:
@@ -24,14 +26,14 @@ Have the following ready:
 
 If the property does not exist in SympleHost yet, [add it manually](/getting-started/adding-a-listing-manually/) or [import it from Airbnb](/getting-started/import-listings-from-ota/). For a property with several room types, see [Adding a MultiUnit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/).
 
-## Step 1: Add Channex.io as Your Connectivity Provider
+## Step 1: Select the Connectivity Provider in Trip.com
 
 1. Sign in to the **Trip.com / Ctrip partner portal** and select your property.
 2. Find the **channel manager** section and choose **Channex** as your connectivity partner.
 3. Complete the connection request shown by the portal.
 4. If the section or provider is unavailable, contact Trip.com / Ctrip support to request a connection to Channex for your property.
 
-[Channex's Trip.com guide](https://help.channex.io/en/articles/8229275-ctrip-trip-com) confirms this process but does not publish an extranet screenshot or an exact menu path. The portal layout may vary. Ask support to confirm Channex is linked if the connection cannot be approved.
+The Trip.com portal layout may vary. If you need help, ask Trip.com / Ctrip support to confirm that Channex is linked to your property, then continue with the SympleHost steps below.
 
 ## Step 2: Copy Your Hotel code
 
