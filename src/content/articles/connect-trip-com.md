@@ -28,12 +28,16 @@ If the property does not exist in SympleHost yet, [add it manually](/getting-sta
 
 ## Step 1: Select the Connectivity Provider in Trip.com
 
-1. Sign in to the **Trip.com / Ctrip partner portal** and select your property.
-2. Find the **channel manager** section and choose **Channex** as your connectivity partner.
-3. Complete the connection request shown by the portal.
-4. If the section or provider is unavailable, contact Trip.com / Ctrip support to request a connection to Channex for your property.
+To approve the connectivity provider for your property, follow these steps in Trip.com. If these options are unavailable in your account, contact Trip.com at [lodgingsupport@trip.com](mailto:lodgingsupport@trip.com).
 
-The Trip.com portal layout may vary. If you need help, ask Trip.com / Ctrip support to confirm that Channex is linked to your property, then continue with the SympleHost steps below.
+1. Log in to **Trip.com eBooking**.
+2. Go to **Rates & Availability** and select **Connectivity Settings** from the drop-down menu.
+3. Search for **Channex** in the search box and select **Channex**.
+4. Click **Continue**.
+5. Click **Connect** to confirm and initiate the connection.
+6. Your connection with the connectivity provider is now activated on the **Trip.com side**.
+
+Next, return to **SympleHost** and continue with the steps below to connect your property and map rooms and rates.
 
 ## Step 2: Copy Your Hotel code
 
