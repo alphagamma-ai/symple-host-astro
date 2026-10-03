@@ -1,7 +1,7 @@
 ---
 title: "Vacation Rental Market in Asia-Pacific 2026: What's Actually Changing for Hosts"
 description: "Asia-Pacific's vacation rental market hits $33.8B in 2026. See the latest short-term rental trends, Airbnb data, and what's changing for hosts in Bali, Australia, India, and Thailand."
-category: platform-guides
+category: articles
 section: STR market trends
 sectionOrder: 1
 tags:
@@ -58,13 +58,13 @@ The property management software market alone is projected to grow from $238 mil
 
 ## Short-Term Rental Trends by Market: Bali, Australia, India, Thailand
 
-**Bali** — An oversaturated market (84,000+ listings) where differentiation and dynamic pricing separate 46% average occupancy from 75–85% at well-run properties. The challenge is standing out in a sea of similar villas. [Read the full Bali vacation rental market analysis →](/platform-guides/bali-str-trends/)
+**Bali** — An oversaturated market (84,000+ listings) where differentiation and dynamic pricing separate 46% average occupancy from 75–85% at well-run properties. The challenge is standing out in a sea of similar villas. [Read the full Bali vacation rental market analysis →](/articles/bali-str-trends/)
 
-**Australia & New Zealand** — A mature market with 62–64% national occupancy, tightening regulation (60–180 day caps), and guests who expect hotel-level service. Professional operations are baseline, not aspirational. [Read the full Australia & NZ short-term rental analysis →](/platform-guides/australia-nz-str-trends/)
+**Australia & New Zealand** — A mature market with 62–64% national occupancy, tightening regulation (60–180 day caps), and guests who expect hotel-level service. Professional operations are baseline, not aspirational. [Read the full Australia & NZ short-term rental analysis →](/articles/australia-nz-str-trends/)
 
-**India** — The breakout market. Just 3.8% user penetration with 17.66% CAGR growth. Domestic travelers drive 91% of bookings. WhatsApp is the default communication channel. Early professionalization = structural advantage. [Read the full India vacation rental market analysis →](/platform-guides/india-str-trends/)
+**India** — The breakout market. Just 3.8% user penetration with 17.66% CAGR growth. Domestic travelers drive 91% of bookings. WhatsApp is the default communication channel. Early professionalization = structural advantage. [Read the full India vacation rental market analysis →](/articles/india-str-trends/)
 
-**Thailand** — Demand outpacing supply in key areas, with rates rising even as listings double. Formalized digital nomad visas, low regulation, and sharp seasonality. The window for easy entry won't stay open indefinitely. [Read the full Thailand vacation rental market analysis →](/platform-guides/thailand-str-trends/)
+**Thailand** — Demand outpacing supply in key areas, with rates rising even as listings double. Formalized digital nomad visas, low regulation, and sharp seasonality. The window for easy entry won't stay open indefinitely. [Read the full Thailand vacation rental market analysis →](/articles/thailand-str-trends/)
 
 ---
 
@@ -96,7 +96,7 @@ The hosts who set up these systems now — while their competitors are still man
 
 ---
 
-**Related reading:** [Instagram marketing for vacation rental hosts](/platform-guides/instagram-marketing-vacation-rentals/) · [Facebook marketing strategy for STR hosts](/platform-guides/facebook-marketing-vacation-rentals/) · [How to get more direct bookings](/platform-guides/direct-bookings-vacation-rentals/) · [Turn guest reviews into bookings](/platform-guides/guest-reviews-to-bookings/)
+**Related reading:** [Instagram marketing for vacation rental hosts](/articles/instagram-marketing-vacation-rentals/) · [Facebook marketing strategy for STR hosts](/articles/facebook-marketing-vacation-rentals/) · [How to get more direct bookings](/articles/direct-bookings-vacation-rentals/) · [Turn guest reviews into bookings](/articles/guest-reviews-to-bookings/)
 
 ---
 

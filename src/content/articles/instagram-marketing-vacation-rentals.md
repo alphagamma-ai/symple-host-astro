@@ -1,7 +1,7 @@
 ---
 title: "Instagram Marketing for Vacation Rentals: A Practical Guide for Hosts"
 description: "Turn your vacation rental Instagram into a booking machine. Actionable tips on Reels, Stories, hashtags, and automating guest inquiries — built for busy hosts."
-category: platform-guides
+category: articles
 section: Marketing for hosts
 sectionOrder: 1
 tags:
@@ -143,7 +143,7 @@ Check Instagram Insights weekly (Business accounts only). Look for patterns: whi
 
 ---
 
-**Related reading:** [Facebook marketing strategy for vacation rental hosts](/platform-guides/facebook-marketing-vacation-rentals/) · [How to get more direct bookings](/platform-guides/direct-bookings-vacation-rentals/) · [Turn guest reviews into a booking engine](/platform-guides/guest-reviews-to-bookings/) · [Asia-Pacific vacation rental market trends 2026](/platform-guides/asia-pacific-str-overview/)
+**Related reading:** [Facebook marketing strategy for vacation rental hosts](/articles/facebook-marketing-vacation-rentals/) · [How to get more direct bookings](/articles/direct-bookings-vacation-rentals/) · [Turn guest reviews into a booking engine](/articles/guest-reviews-to-bookings/) · [Asia-Pacific vacation rental market trends 2026](/articles/asia-pacific-str-overview/)
 
 ---
 

@@ -2,6 +2,8 @@
 title: How to Set Up Payments
 description: Connect the payment gateway available for your country so you can collect payments for direct bookings, services, store items, and payment links.
 category: getting-started
+section: Set up payments
+sectionOrder: 1
 tags:
   - Payments
   - Payment Gateway

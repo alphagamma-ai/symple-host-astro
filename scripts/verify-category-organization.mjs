@@ -7,8 +7,8 @@ const files = readdirSync('src/content/articles').filter(name => name.endsWith('
 for (const file of files) {
   const body = readFileSync(`src/content/articles/${file}`, 'utf8');
   const category = body.match(/^category: (.+)$/m)?.[1];
-  assert(['getting-started', 'platform-guides'].includes(category), file);
-  if (category === 'platform-guides') assert(/^section: .+/m.test(body), `${file}: missing topic group`);
+  assert(['getting-started', 'platform-guides', 'articles'].includes(category), file);
+  if (category !== 'getting-started') assert(/^section: .+/m.test(body), `${file}: missing topic group`);
 }
 const app = createApp();
 const server = app.listen(0, '127.0.0.1');

@@ -127,7 +127,7 @@ export default defineConfig({
         const lastmod = CONTENT_LASTMOD.get(path);
         if (lastmod) item.lastmod = lastmod;
 
-        if (/\/(getting-started|platform-guides|faqs|integrations|marketing-for-hosts|str-market-trends)\//.test(path)) {
+        if (/\/(getting-started|platform-guides|articles|faqs|integrations|marketing-for-hosts|str-market-trends)\//.test(path)) {
           item.changefreq = ChangeFreqEnum.WEEKLY;
           item.priority = 0.8;
         }

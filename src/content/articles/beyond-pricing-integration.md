@@ -136,4 +136,4 @@ No. The goal is to connect dynamic pricing intelligence with SympleHost's existi
 
 ---
 
-**Related reading:** [Dynamic Pricing for Short-Term Rentals](/platform-guides/dynamic-pricing-short-term-rentals-sea/) · [What Is RevPAR](/platform-guides/what-is-revpar-short-term-rentals/) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
+**Related reading:** [Dynamic Pricing for Short-Term Rentals](/articles/dynamic-pricing-short-term-rentals-sea/) · [What Is RevPAR](/articles/what-is-revpar-short-term-rentals/) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)

@@ -1,7 +1,7 @@
 ---
 title: "Short-Term Rental Channel Manager Guide for Airbnb, Booking.com and Direct Bookings"
 description: "How short-term rental hosts can use multi-channel distribution across Airbnb, Booking.com, direct bookings, WhatsApp, and social channels without double-bookings."
-category: platform-guides
+category: articles
 section: Marketing for hosts
 sectionOrder: 5
 tags:
@@ -186,8 +186,8 @@ That is the difference between multi-channel distribution and multi-channel chao
 
 ---
 
-**Related reading:** [How to manage multiple Airbnb properties in India](/platform-guides/manage-multiple-airbnb-properties-india/) · [Best Airbnb management software in India](/platform-guides/best-airbnb-management-software-india/) · [How to get more direct bookings for your vacation rental](/platform-guides/direct-bookings-vacation-rentals/) · [How to Import Listings from an OTA](/getting-started/import-listings-from-ota) · [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar)
+**Related reading:** [How to manage multiple Airbnb properties in India](/articles/manage-multiple-airbnb-properties-india/) · [Best Airbnb management software in India](/articles/best-airbnb-management-software-india/) · [How to get more direct bookings for your vacation rental](/articles/direct-bookings-vacation-rentals/) · [How to Import Listings from an OTA](/getting-started/import-listings-from-ota) · [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar)
 
 ---
 
-*Sources: [Airbnb Statistics 2026](https://www.searchlogistics.com/learn/statistics/airbnb-statistics/) · [Asia-Pacific vacation rental market overview](/platform-guides/asia-pacific-str-overview/) · [Direct booking strategy for vacation rental hosts](/platform-guides/direct-bookings-vacation-rentals/)*
+*Sources: [Airbnb Statistics 2026](https://www.searchlogistics.com/learn/statistics/airbnb-statistics/) · [Asia-Pacific vacation rental market overview](/articles/asia-pacific-str-overview/) · [Direct booking strategy for vacation rental hosts](/articles/direct-bookings-vacation-rentals/)*

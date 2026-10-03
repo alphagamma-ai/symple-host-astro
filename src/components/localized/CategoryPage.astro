@@ -23,7 +23,10 @@ const { category, locale = DEFAULT_LOCALE } = Astro.props;
 const copy = uiCopy[locale];
 const categoryTitle = getCategoryTitle(category, locale);
 const categoryDescription = getCategoryDescription(category, locale);
-const isPlatformGuides = category.id === 'platform-guides';
+const isArticles = category.id === 'articles';
+const hasSectionGrid = category.id === 'platform-guides' || isArticles;
+const sectionUnit = isArticles ? 'articles' : 'guides';
+const otherSectionLabel = isArticles ? 'Other articles' : 'Other guides';
 const articles = await getCollection('articles', ({ data }) =>
   !data.draft && data.category === category.id
 );
@@ -35,6 +38,7 @@ const SECTION_ORDER: Record<string, string[]> = {
     'Know your workspace',
     'Connect your listings',
     'Your first reservations',
+    'Set up payments',
   ],
   'platform-guides': [
     'Messaging & guest communication',
@@ -48,6 +52,8 @@ const SECTION_ORDER: Record<string, string[]> = {
     'Property management',
     'AI & API',
     'FAQs',
+  ],
+  articles: [
     'Marketing for hosts',
     'STR market trends',
   ],
@@ -223,9 +229,9 @@ const faqMeta = {
 
   {articles.length === 0 ? (
     <p class="empty">{copy.noArticles}</p>
-  ) : isPlatformGuides ? (
+  ) : hasSectionGrid ? (
     <>
-      <nav class="section-jump" aria-label="Platform guide categories">
+      <nav class="section-jump" aria-label={`${categoryTitle} topics`}>
         {orderedSectionKeys.map((sectionKey) => {
           const sectionArticles = groups.get(sectionKey)!;
           return (
@@ -237,7 +243,7 @@ const faqMeta = {
         })}
         {hasUngrouped && (
           <a href="#section-other" class="section-chip">
-            <span>Other guides</span>
+            <span>{otherSectionLabel}</span>
             <strong>{groups.get(UNGROUPED)!.length}</strong>
           </a>
         )}
@@ -249,7 +255,7 @@ const faqMeta = {
             {column.map((sectionKey) => {
               const sectionArticles = groups.get(sectionKey)!;
               const sectionId = getSectionAnchor(sectionKey);
-              const sectionTitle = sectionKey === UNGROUPED ? 'Other guides' : getSectionTitle(sectionKey, locale);
+              const sectionTitle = sectionKey === UNGROUPED ? otherSectionLabel : getSectionTitle(sectionKey, locale);
               return (
                 <section class="section-group platform-section" id={sectionId}>
                   <div class="platform-section-head">
@@ -259,7 +265,7 @@ const faqMeta = {
                         <span class="section-anchor-mark" aria-hidden="true">#</span>
                       </a>
                     </h2>
-                    <span class="section-count">{sectionArticles.length} guides</span>
+                    <span class="section-count">{sectionArticles.length} {sectionUnit}</span>
                   </div>
                   <div class="articles">
                     {sectionArticles.map((article) => (

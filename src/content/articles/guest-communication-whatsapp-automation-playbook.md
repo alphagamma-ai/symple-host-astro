@@ -1,7 +1,7 @@
 ---
 title: "Vacation Rental Guest Communication: WhatsApp Automation Playbook"
 description: "How short-term rental hosts can automate WhatsApp guest communication, answer FAQs faster, reduce repeat messages, and protect hospitality as they scale."
-category: platform-guides
+category: articles
 section: Marketing for hosts
 sectionOrder: 6
 tags:
@@ -250,4 +250,4 @@ The point is not "AI for the sake of AI." The point is fewer missed messages, fa
 
 ---
 
-*Sources: [WhatsApp Business overview](https://en.wikipedia.org/wiki/WhatsApp#WhatsApp_Business) · [Asia-Pacific vacation rental market overview](/platform-guides/asia-pacific-str-overview/)*
+*Sources: [WhatsApp Business overview](https://en.wikipedia.org/wiki/WhatsApp#WhatsApp_Business) · [Asia-Pacific vacation rental market overview](/articles/asia-pacific-str-overview/)*

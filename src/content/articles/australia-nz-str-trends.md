@@ -1,7 +1,7 @@
 ---
 title: "Short-Term Rental Market in Australia & New Zealand 2026: Revenue, Regulation, and What Hosts Need to Know"
 description: "Australia's Airbnb hosts earn $71,770/year with 62-64% national occupancy. See 2026 trends including new rental day caps, AI adoption, and what's changing for hosts in ANZ."
-category: platform-guides
+category: articles
 section: STR market trends
 sectionOrder: 3
 tags:
@@ -74,7 +74,7 @@ The key challenge is seasonality. Hosts who can attract shoulder-season traveler
 
 ---
 
-**Related reading:** [Asia-Pacific vacation rental market overview](/platform-guides/asia-pacific-str-overview/) · [Turn guest reviews into a booking engine](/platform-guides/guest-reviews-to-bookings/) · [How to reduce OTA commissions with direct bookings](/platform-guides/direct-bookings-vacation-rentals/)
+**Related reading:** [Asia-Pacific vacation rental market overview](/articles/asia-pacific-str-overview/) · [Turn guest reviews into a booking engine](/articles/guest-reviews-to-bookings/) · [How to reduce OTA commissions with direct bookings](/articles/direct-bookings-vacation-rentals/)
 
 ---
 
