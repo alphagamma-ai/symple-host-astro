@@ -1,7 +1,8 @@
 ---
 title: Account & Setup FAQs
 description: Signing up, login issues, profile and company settings, and account security — the questions hosts ask most when getting started.
-category: faqs
+category: platform-guides
+section: FAQs
 tags:
   - Account
   - Onboarding

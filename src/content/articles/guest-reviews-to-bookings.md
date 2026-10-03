@@ -1,7 +1,8 @@
 ---
 title: "Turn Guest Reviews Into Bookings: A Vacation Rental Host's Guide"
 description: "Guest reviews are your best marketing asset. Learn how to get more 5-star reviews, use them as social proof across channels, and turn happy guests into repeat bookers."
-category: marketing-for-hosts
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 4
 tags:
   - Reviews
@@ -152,7 +153,7 @@ This is the cycle. Each review makes the next booking easier to get. Each great 
 
 ---
 
-**Related reading:** [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [Facebook marketing strategy for STR hosts](/marketing-for-hosts/facebook-marketing-vacation-rentals) · [How to get more direct bookings](/marketing-for-hosts/direct-bookings-vacation-rentals) · [Asia-Pacific vacation rental market trends 2026](/str-market-trends/asia-pacific-str-overview)
+**Related reading:** [Instagram marketing for vacation rental hosts](/platform-guides/instagram-marketing-vacation-rentals/) · [Facebook marketing strategy for STR hosts](/platform-guides/facebook-marketing-vacation-rentals/) · [How to get more direct bookings](/platform-guides/direct-bookings-vacation-rentals/) · [Asia-Pacific vacation rental market trends 2026](/platform-guides/asia-pacific-str-overview/)
 
 ---
 

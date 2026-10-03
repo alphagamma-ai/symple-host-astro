@@ -34,14 +34,6 @@ for (const article of articles) {
 const categoryById = new Map(categories.map((c) => [c.id, c]));
 const gettingStarted = categoryById.get('getting-started');
 const platformGuides = categoryById.get('platform-guides');
-const aiAndApi = categoryById.get('ai-and-api');
-const faqs = categoryById.get('faqs');
-const integrations = categoryById.get('integrations');
-
-const articlesHubCount =
-  (articleCounts.get('str-market-trends') || 0) +
-  (articleCounts.get('marketing-for-hosts') || 0);
-
 const webinarEvents = events.filter((e) => e.data.eventType !== 'tutorial');
 const videoEvents = events.filter((e) => e.data.eventType === 'tutorial');
 const { past: pastWebinars } = partitionEvents(webinarEvents);
@@ -49,7 +41,7 @@ const upcomingWebinarsCount = webinarEvents.filter((e) => isUpcoming(e)).length;
 const videoCount = videoEvents.length;
 const walkthroughCount = walkthroughs.length;
 
-const coreCategories = [gettingStarted, platformGuides, aiAndApi].filter(Boolean) as NonNullable<
+const coreCategories = [gettingStarted, platformGuides].filter(Boolean) as NonNullable<
   typeof gettingStarted
 >[];
 ---
@@ -104,32 +96,6 @@ const coreCategories = [gettingStarted, platformGuides, aiAndApi].filter(Boolean
           : `${videoCount} ${copy.videos.toLowerCase()} · ${walkthroughCount} ${copy.walkthroughs}`}
       </span>
     </a>
-    <a href={localizePath('/articles/', locale)} class="category-card">
-      <span class="category-emoji">💡</span>
-      <h2 class="category-title">{copy.articles}</h2>
-      <p class="category-desc">{copy.articlesHubDescription}</p>
-      <span class="category-count">{countLabel(articlesHubCount, copy.article, `${copy.article}s`, locale)}</span>
-    </a>
-    {[integrations, faqs].filter(Boolean).map((category) => {
-      const count = articleCounts.get(category!.id) || 0;
-      return (
-        <a href={localizePath(`/${category!.id}`, locale)} class="category-card">
-          {category!.data.emoji && <span class="category-emoji">{category!.data.emoji}</span>}
-          <h2 class="category-title">{getCategoryTitle(category!, locale)}</h2>
-          {getCategoryDescription(category!, locale) && (
-            <p class="category-desc">{getCategoryDescription(category!, locale)}</p>
-          )}
-          <span class="category-count">
-            {countLabel(
-              count,
-              category!.id === 'integrations' ? copy.integrations : copy.article,
-              category!.id === 'integrations' ? copy.integrations : `${copy.article}s`,
-              locale,
-            )}
-          </span>
-        </a>
-      );
-    })}
   </section>
 
   <style>

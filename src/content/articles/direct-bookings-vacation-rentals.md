@@ -1,7 +1,8 @@
 ---
 title: "How to Get More Direct Bookings for Vacation Rentals"
 description: "A practical direct booking playbook for vacation rental hosts: reduce OTA dependence, keep more margin, build a guest list, and convert repeat guests."
-category: marketing-for-hosts
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 3
 tags:
   - Direct Bookings
@@ -112,7 +113,7 @@ The hosts who succeed with direct bookings treat them with the same operational 
 
 ## Step 6: Use Social Media to Drive Direct Traffic
 
-This is where your [Instagram](/marketing-for-hosts/instagram-marketing-vacation-rentals) and [Facebook](/marketing-for-hosts/facebook-marketing-vacation-rentals) efforts connect to your booking strategy.
+This is where your [Instagram](/platform-guides/instagram-marketing-vacation-rentals/) and [Facebook](/platform-guides/facebook-marketing-vacation-rentals/) efforts connect to your booking strategy.
 
 **The pathway:** Social content → profile visit → booking link click → direct booking.
 
@@ -146,7 +147,7 @@ This doesn't happen overnight. But hosts who start building this system now will
 
 ---
 
-**Related reading:** [Airbnb's 15.5% host fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026) · [Best Airbnb management software in India](/marketing-for-hosts/best-airbnb-management-software-india) · [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [Turn guest reviews into a booking engine](/marketing-for-hosts/guest-reviews-to-bookings) · [Asia-Pacific vacation rental market trends 2026](/str-market-trends/asia-pacific-str-overview)
+**Related reading:** [Airbnb's 15.5% host fee in India](/platform-guides/airbnb-host-fee-india-2026/) · [Best Airbnb management software in India](/platform-guides/best-airbnb-management-software-india/) · [Instagram marketing for vacation rental hosts](/platform-guides/instagram-marketing-vacation-rentals/) · [Turn guest reviews into a booking engine](/platform-guides/guest-reviews-to-bookings/) · [Asia-Pacific vacation rental market trends 2026](/platform-guides/asia-pacific-str-overview/)
 
 ---
 

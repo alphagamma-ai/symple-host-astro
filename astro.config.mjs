@@ -79,6 +79,7 @@ function collectContentLastmod() {
 }
 
 const CONTENT_LASTMOD = collectContentLastmod();
+const categoryRedirects = JSON.parse(readFileSync(new URL('./src/lib/category-redirects.json', import.meta.url), 'utf8'));
 
 function pagefindDevServer() {
   const root = fileURLToPath(new URL('./dist/pagefind', import.meta.url));
@@ -114,6 +115,7 @@ function pagefindDevServer() {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://help.symplehost.ai',
+  redirects: categoryRedirects,
   integrations: [
     react(),
     markdoc(),

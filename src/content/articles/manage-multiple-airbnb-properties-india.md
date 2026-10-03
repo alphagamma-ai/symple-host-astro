@@ -1,8 +1,8 @@
 ---
 title: "How to Manage Multiple Airbnb Properties in India Without Spreadsheets or Double Bookings"
 description: "A practical operating system for Indian Airbnb managers: connect OTAs, centralize calendars and messages, standardize cleaners, track owners, and grow direct bookings."
-category: marketing-for-hosts
-section: India Airbnb Growth
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 3
 tags:
   - Airbnb
@@ -87,7 +87,7 @@ Do not maintain unrelated prices in every OTA extranet. Define the commercial lo
 
 Channel markups matter because Airbnb, Booking.com, direct payments, and other channels have different costs. Calculate the net amount you want to retain, then work backwards to the guest-facing price.
 
-Airbnb's move toward a 15.5% host-paid fee makes this especially important. See [Airbnb's 15.5% Host Fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026/) for rupee examples.
+Airbnb's move toward a 15.5% host-paid fee makes this especially important. See [Airbnb's 15.5% Host Fee in India](/platform-guides/airbnb-host-fee-india-2026/) for rupee examples.
 
 ### 4. One Guest Inbox and Messaging Plan
 
@@ -245,6 +245,6 @@ The goal of a PMS is not to make the business look bigger. It is to make growth 
 
 When calendars, prices, messages, turnovers, payments, and owner reporting operate as one system, the next property adds inventory without adding the same amount of chaos.
 
-**Continue the series:** [Airbnb's 15.5% Host Fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026/) · [Best Airbnb Management Software in India](/marketing-for-hosts/best-airbnb-management-software-india/) · [Managing Direct Bookings](/marketing-for-hosts/direct-bookings-vacation-rentals/)
+**Continue the series:** [Airbnb's 15.5% Host Fee in India](/platform-guides/airbnb-host-fee-india-2026/) · [Best Airbnb Management Software in India](/platform-guides/best-airbnb-management-software-india/) · [Managing Direct Bookings](/platform-guides/direct-bookings-vacation-rentals/)
 
 *Sources: [Airbnb service fees](https://www.airbnb.com/help/article/1857) · [Airbnb policy on collecting fees outside Airbnb](https://www.airbnb.com/help/article/2827) · [Airbnb tax considerations for India](https://assets.airbnb.com/help/Airbnb_TaxGuide2025_India_ENGLISH.pdf). Confirm local licensing, tax, guest-registration, and accounting obligations with qualified advisers.*

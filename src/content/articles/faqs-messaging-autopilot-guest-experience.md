@@ -1,7 +1,8 @@
 ---
 title: "Guest Messaging, Unified Inbox, Autopilot and Concierge FAQs"
 description: "Answers to common questions about SympleHost guest messaging, unified inbox channels, WhatsApp replies, Autopilot, Concierge, translation, and escalation."
-category: faqs
+category: platform-guides
+section: FAQs
 tags:
   - Messaging
   - Autopilot

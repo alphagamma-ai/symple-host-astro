@@ -1,7 +1,8 @@
 ---
 title: "What Is RevPAR — and Why It Matters More Than Occupancy for SEA Hosts"
 description: "A plain-English guide to RevPAR for short-term rental hosts, including the formula, examples, and why occupancy alone can hide weak pricing."
-category: str-market-trends
+category: platform-guides
+section: STR market trends
 sectionOrder: 8
 tags:
   - RevPAR
@@ -185,7 +186,7 @@ The best RevPAR improvements usually come from several small improvements, not o
 
 ---
 
-**Related reading:** [12 Metrics Every Short-Term Rental Host Should Track](/str-market-trends/short-term-rental-metrics-hosts-should-track) · [Dynamic Pricing for Short-Term Rentals](/str-market-trends/dynamic-pricing-short-term-rentals-sea) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
+**Related reading:** [12 Metrics Every Short-Term Rental Host Should Track](/platform-guides/short-term-rental-metrics-hosts-should-track/) · [Dynamic Pricing for Short-Term Rentals](/platform-guides/dynamic-pricing-short-term-rentals-sea/) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
 
 ---
 

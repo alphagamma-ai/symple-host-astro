@@ -1,7 +1,8 @@
 ---
 title: "Facebook Marketing for Vacation Rentals: Groups, Ads, and Messenger Strategy"
 description: "Facebook still drives more vacation rental bookings than Instagram. Learn how to use Groups, targeted ads, and Messenger automation to fill your calendar."
-category: marketing-for-hosts
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 2
 tags:
   - Facebook
@@ -133,7 +134,7 @@ It won't be your primary booking channel, but it takes 10 minutes to set up and 
 
 ---
 
-**Related reading:** [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [How to get more direct bookings and reduce OTA commissions](/marketing-for-hosts/direct-bookings-vacation-rentals) · [Turn guest reviews into bookings](/marketing-for-hosts/guest-reviews-to-bookings) · [Asia-Pacific vacation rental market trends 2026](/str-market-trends/asia-pacific-str-overview)
+**Related reading:** [Instagram marketing for vacation rental hosts](/platform-guides/instagram-marketing-vacation-rentals/) · [How to get more direct bookings and reduce OTA commissions](/platform-guides/direct-bookings-vacation-rentals/) · [Turn guest reviews into bookings](/platform-guides/guest-reviews-to-bookings/) · [Asia-Pacific vacation rental market trends 2026](/platform-guides/asia-pacific-str-overview/)
 
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: Bookings & Calendar FAQs
 description: Creating bookings, confirming or cancelling reservations, understanding statuses, and managing your calendar across properties.
-category: faqs
+category: platform-guides
+section: FAQs
 tags:
   - Bookings
   - Reservations

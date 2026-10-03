@@ -1,7 +1,8 @@
 ---
 title: "12 Metrics Every Short-Term Rental Host Should Track"
 description: "The core vacation rental metrics hosts should track, including occupancy, ADR, RevPAR, booking pace, channel mix, response time, review score, and operating costs."
-category: str-market-trends
+category: platform-guides
+section: STR market trends
 sectionOrder: 7
 tags:
   - Metrics
@@ -248,7 +249,7 @@ You do not need a complicated analytics department. You need the discipline to l
 
 ---
 
-**Related reading:** [What Is RevPAR — and Why It Matters More Than Occupancy](/str-market-trends/what-is-revpar-short-term-rentals) · [Dynamic Pricing for Short-Term Rentals](/str-market-trends/dynamic-pricing-short-term-rentals-sea) · [Understanding the Overview Dashboard](/getting-started/understanding-the-overview-dashboard)
+**Related reading:** [What Is RevPAR — and Why It Matters More Than Occupancy](/platform-guides/what-is-revpar-short-term-rentals/) · [Dynamic Pricing for Short-Term Rentals](/platform-guides/dynamic-pricing-short-term-rentals-sea/) · [Understanding the Overview Dashboard](/getting-started/understanding-the-overview-dashboard)
 
 ---
 

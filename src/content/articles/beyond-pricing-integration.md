@@ -1,8 +1,8 @@
 ---
 title: "SympleHost + Beyond Pricing: Revenue Management Integration"
 description: "A coming-soon integration for hosts who want to connect Beyond Pricing revenue management workflows with SympleHost calendars, bookings, and operations."
-category: integrations
-section: Revenue management
+category: platform-guides
+section: Integrations
 sectionOrder: 2
 tags:
   - Beyond Pricing
@@ -136,4 +136,4 @@ No. The goal is to connect dynamic pricing intelligence with SympleHost's existi
 
 ---
 
-**Related reading:** [Dynamic Pricing for Short-Term Rentals](/str-market-trends/dynamic-pricing-short-term-rentals-sea) · [What Is RevPAR](/str-market-trends/what-is-revpar-short-term-rentals) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
+**Related reading:** [Dynamic Pricing for Short-Term Rentals](/platform-guides/dynamic-pricing-short-term-rentals-sea/) · [What Is RevPAR](/platform-guides/what-is-revpar-short-term-rentals/) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)

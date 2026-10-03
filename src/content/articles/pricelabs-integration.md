@@ -1,8 +1,8 @@
 ---
 title: "How to Integrate PriceLabs with SympleHost"
 description: "Connect PriceLabs to SympleHost so your listings can sync pricing, availability, restrictions, reservations, blocks, and revenue-management settings between both systems."
-category: integrations
-section: Revenue management
+category: platform-guides
+section: Integrations
 sectionOrder: 1
 tags:
   - PriceLabs
@@ -212,5 +212,5 @@ Use PriceLabs to manage dynamic pricing strategy and recommendations. Use Symple
 ## Related Articles
 
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules)
-- [Dynamic Pricing for Short-Term Rentals](/str-market-trends/dynamic-pricing-short-term-rentals-sea)
-- [What Is RevPAR](/str-market-trends/what-is-revpar-short-term-rentals)
+- [Dynamic Pricing for Short-Term Rentals](/platform-guides/dynamic-pricing-short-term-rentals-sea/)
+- [What Is RevPAR](/platform-guides/what-is-revpar-short-term-rentals/)

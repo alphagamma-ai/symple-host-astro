@@ -1,7 +1,8 @@
 ---
 title: "Bali Airbnb & Vacation Rental Market 2026: 84,000 Listings and Counting"
 description: "Bali has 84,000+ vacation rental listings but only 46% average occupancy. See the latest Airbnb data, revenue trends, and what separates top-performing Bali hosts in 2026."
-category: str-market-trends
+category: platform-guides
+section: STR market trends
 sectionOrder: 2
 tags:
   - Bali
@@ -70,7 +71,7 @@ This is where tools like SympleHost come in. When you're managing multiple villa
 
 ---
 
-**Related reading:** [Asia-Pacific vacation rental market overview](/str-market-trends/asia-pacific-str-overview) · [Instagram marketing for vacation rental hosts](/marketing-for-hosts/instagram-marketing-vacation-rentals) · [How to get more direct bookings and reduce OTA commissions](/marketing-for-hosts/direct-bookings-vacation-rentals)
+**Related reading:** [Asia-Pacific vacation rental market overview](/platform-guides/asia-pacific-str-overview/) · [Instagram marketing for vacation rental hosts](/platform-guides/instagram-marketing-vacation-rentals/) · [How to get more direct bookings and reduce OTA commissions](/platform-guides/direct-bookings-vacation-rentals/)
 
 ---
 

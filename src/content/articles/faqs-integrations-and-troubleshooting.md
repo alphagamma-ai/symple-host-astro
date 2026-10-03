@@ -1,7 +1,8 @@
 ---
 title: Integrations, Channels, Reviews & Troubleshooting FAQs
 description: Connecting Airbnb and Booking.com, managing reviews, and common troubleshooting — empty dashboards, missing menu items, sync issues, and more.
-category: faqs
+category: platform-guides
+section: FAQs
 tags:
   - Integrations
   - Channels

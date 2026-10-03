@@ -1,7 +1,8 @@
 ---
 title: "Guest Messaging Automation for Vacation Rentals: Stop Losing Margin"
 description: "Why manual guest messaging costs vacation rental hosts bookings, reviews, upsells, and time — and how automation and a unified inbox protect margins."
-category: marketing-for-hosts
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 7
 tags:
   - Guest Messaging
@@ -201,4 +202,4 @@ This turns messaging from a scattered chore into an operating system.
 
 ---
 
-**Related reading:** [Guest Communication at Scale: The WhatsApp Automation Playbook](/marketing-for-hosts/guest-communication-whatsapp-automation-playbook) · [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests) · [Setting Up Autopilot](/platform-guides/setting-up-autopilot)
+**Related reading:** [Guest Communication at Scale: The WhatsApp Automation Playbook](/platform-guides/guest-communication-whatsapp-automation-playbook/) · [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests) · [Setting Up Autopilot](/platform-guides/setting-up-autopilot)

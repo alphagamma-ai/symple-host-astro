@@ -1,7 +1,8 @@
 ---
 title: Listings, Pricing & Multi-Unit FAQs
 description: How to add, edit, and price your listings — plus how multi-unit properties work with Booking.com.
-category: faqs
+category: platform-guides
+section: FAQs
 tags:
   - Listings
   - Pricing

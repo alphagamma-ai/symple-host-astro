@@ -1,8 +1,8 @@
 ---
 title: SympleHost Partner API Reference
 description: Learn what the SympleHost Partner API is for, which data it exposes, how authentication works, and where developers can open the full API reference.
-category: ai-and-api
-section: Developer API
+category: platform-guides
+section: AI & API
 sectionOrder: 2
 tags:
   - API
@@ -43,8 +43,8 @@ This guide is for:
 If you are a host trying to connect WhatsApp, Instagram, Facebook Messenger, PriceLabs, or an AI assistant, this is probably not the guide you need. Start with one of these instead:
 
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations)
-- [SympleHost + PriceLabs: Revenue Management Integration](/integrations/pricelabs-integration)
-- [Connect SympleHost to Claude & Other AI Assistants (MCP)](/ai-and-api/connect-symplehost-to-ai-assistants)
+- [SympleHost + PriceLabs: Revenue Management Integration](/platform-guides/pricelabs-integration/)
+- [Connect SympleHost to Claude & Other AI Assistants (MCP)](/platform-guides/connect-symplehost-to-ai-assistants/)
 
 ---
 
@@ -132,6 +132,6 @@ For sync workflows, seed the first request with `updated_since`, then follow the
 
 ## Related Articles
 
-- [Connect SympleHost to Claude & Other AI Assistants (MCP)](/ai-and-api/connect-symplehost-to-ai-assistants)
+- [Connect SympleHost to Claude & Other AI Assistants (MCP)](/platform-guides/connect-symplehost-to-ai-assistants/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations)
-- [SympleHost + PriceLabs: Revenue Management Integration](/integrations/pricelabs-integration)
+- [SympleHost + PriceLabs: Revenue Management Integration](/platform-guides/pricelabs-integration/)

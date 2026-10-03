@@ -1,8 +1,8 @@
 ---
 title: "Airbnb's 15.5% Host Fee in India (2026): New Fees, Rupee Calculator and Pricing Fix"
 description: "Airbnb is moving hosts to a 15.5% host-only fee. See the old vs new fee math in rupees, how much to adjust prices, and what Indian hosts should do next."
-category: marketing-for-hosts
-section: India Airbnb Growth
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 1
 tags:
   - Airbnb
@@ -109,7 +109,7 @@ That does not mean every PMS is automatically worthwhile. It means the decision 
 - direct-booking websites and payment collection
 - owner reporting and expense tracking
 
-See [Best Airbnb Management Software in India](/marketing-for-hosts/best-airbnb-management-software-india/) for the full selection checklist.
+See [Best Airbnb Management Software in India](/platform-guides/best-airbnb-management-software-india/) for the full selection checklist.
 
 ## A Practical Pricing Plan After the Fee Change
 
@@ -161,6 +161,6 @@ The fee change is not a reason to abandon Airbnb. It is a reason to stop treatin
 
 Calculate net payout, price by demand, synchronize every channel, standardize guest communication, and create a direct relationship with repeat guests. The operators who understand their numbers and build systems will be better placed than hosts who respond with one blanket price increase.
 
-**Continue the series:** [Best Airbnb Management Software in India](/marketing-for-hosts/best-airbnb-management-software-india/) · [How to Manage Multiple Airbnb Properties in India](/marketing-for-hosts/manage-multiple-airbnb-properties-india/) · [India Vacation Rental Market 2026](/str-market-trends/india-str-trends/)
+**Continue the series:** [Best Airbnb Management Software in India](/platform-guides/best-airbnb-management-software-india/) · [How to Manage Multiple Airbnb Properties in India](/platform-guides/manage-multiple-airbnb-properties-india/) · [India Vacation Rental Market 2026](/platform-guides/india-str-trends/)
 
 *Sources: [Airbnb service fees](https://www.airbnb.com/help/article/1857) · [Airbnb: Simplifying service fees](https://www.airbnb.com/resources/hosting-homes/a/simplifying-airbnb-service-fees-746) · [Airbnb: Calculating your payout](https://www.airbnb.com/help/article/459) · [Airbnb tax collection and remittance in India](https://www.airbnb.com/help/article/2286) · [Airbnb policy on collecting fees outside Airbnb](https://www.airbnb.com/help/article/2827). This article provides general operational information and is not tax, legal, or accounting advice.*

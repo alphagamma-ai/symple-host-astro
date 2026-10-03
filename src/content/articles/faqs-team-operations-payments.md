@@ -1,7 +1,8 @@
 ---
 title: Team, Operations, Payments & Websites FAQs
 description: Team roles and permissions, tasks and automations, Stripe payments, direct booking websites, quotes, customers, and notifications.
-category: faqs
+category: platform-guides
+section: FAQs
 tags:
   - Team
   - Operations

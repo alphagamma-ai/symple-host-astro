@@ -1,8 +1,8 @@
 ---
 title: "Best Airbnb Management Software in India (2026): PMS and Channel Manager Guide"
 description: "How Indian Airbnb and homestay operators should compare PMS and channel manager software for Airbnb, Booking.com, MakeMyTrip, WhatsApp, pricing, cleaners, owners, and direct bookings."
-category: marketing-for-hosts
-section: India Airbnb Growth
+category: platform-guides
+section: Marketing for hosts
 sectionOrder: 2
 tags:
   - Airbnb
@@ -92,7 +92,7 @@ The PMS should let you manage:
 - channel-specific markups
 - integrations with dynamic-pricing tools
 
-Read [Airbnb's 15.5% Host Fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026/) before applying a blanket markup.
+Read [Airbnb's 15.5% Host Fee in India](/platform-guides/airbnb-host-fee-india-2026/) before applying a blanket markup.
 
 ### 5. Guest Communication and WhatsApp
 
@@ -230,6 +230,6 @@ If your Airbnb business still depends on one person's memory, several spreadshee
 
 Choose a PMS when you are ready to replace improvised coordination with a repeatable operating system.
 
-**Continue the series:** [Airbnb's 15.5% Host Fee in India](/marketing-for-hosts/airbnb-host-fee-india-2026/) · [How to Manage Multiple Airbnb Properties in India](/marketing-for-hosts/manage-multiple-airbnb-properties-india/) · [Short-Term Rental Channel Manager Guide](/marketing-for-hosts/multi-channel-distribution-sea-rentals/)
+**Continue the series:** [Airbnb's 15.5% Host Fee in India](/platform-guides/airbnb-host-fee-india-2026/) · [How to Manage Multiple Airbnb Properties in India](/platform-guides/manage-multiple-airbnb-properties-india/) · [Short-Term Rental Channel Manager Guide](/platform-guides/multi-channel-distribution-sea-rentals/)
 
 *Sources: [Airbnb service fees](https://www.airbnb.com/help/article/1857) · [Airbnb: Simplifying service fees](https://www.airbnb.com/resources/hosting-homes/a/simplifying-airbnb-service-fees-746) · [Airbnb tax considerations for India](https://assets.airbnb.com/help/Airbnb_TaxGuide2025_India_ENGLISH.pdf). Product capabilities and channel availability can change; verify current availability for your account during onboarding.*

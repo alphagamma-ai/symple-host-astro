@@ -53,6 +53,14 @@ export function createApp(dist = fileURLToPath(new URL('../dist', import.meta.ur
   const app = express();
   app.disable('x-powered-by');
 
+  const categoryRedirects = JSON.parse(readFileSync(new URL('../src/lib/category-redirects.json', import.meta.url), 'utf8'));
+  app.use((req, res, next) => {
+    const pathname = req.path.replace(/\/$/, '').replace(/\.md$/, '');
+    const target = categoryRedirects[pathname];
+    if (target) return res.redirect(301, req.path.endsWith('.md') && !target.includes('#') ? target.replace(/\/$/, '') + '.md' : target);
+    next();
+  });
+
   const notFoundMd = existsSync(path.join(dist, '404.md'))
     ? readFileSync(path.join(dist, '404.md'), 'utf8')
     : FALLBACK_404_MD;

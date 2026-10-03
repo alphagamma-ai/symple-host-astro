@@ -230,4 +230,4 @@ Check that every rate plan has a valid name and nightly price. In per-person mod
 - [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
 - [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
-- [PriceLabs Integration](/integrations/pricelabs-integration/)
+- [PriceLabs Integration](/platform-guides/pricelabs-integration/)

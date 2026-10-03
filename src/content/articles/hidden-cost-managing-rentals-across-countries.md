@@ -1,7 +1,8 @@
 ---
 title: "The Hidden Cost of Managing Rentals Across 4 Countries"
 description: "Why cross-border short-term rental operations become expensive, messy, and fragile without standardized systems for channels, messaging, pricing, and teams."
-category: str-market-trends
+category: platform-guides
+section: STR market trends
 sectionOrder: 9
 tags:
   - Operations
@@ -205,5 +206,5 @@ Use the same report structure for every owner, with local context added where ne
 
 ---
 
-**Related reading:** [The Ultimate Guide to Multi-Channel Distribution for SEA Rentals](/marketing-for-hosts/multi-channel-distribution-sea-rentals) · [12 Metrics Every Short-Term Rental Host Should Track](/str-market-trends/short-term-rental-metrics-hosts-should-track) · [Asia-Pacific Vacation Rental Market 2026](/str-market-trends/asia-pacific-str-overview)
+**Related reading:** [The Ultimate Guide to Multi-Channel Distribution for SEA Rentals](/platform-guides/multi-channel-distribution-sea-rentals/) · [12 Metrics Every Short-Term Rental Host Should Track](/platform-guides/short-term-rental-metrics-hosts-should-track/) · [Asia-Pacific Vacation Rental Market 2026](/platform-guides/asia-pacific-str-overview/)
 

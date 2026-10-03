@@ -1,8 +1,8 @@
 ---
 title: Connect SympleHost to Claude & Other AI Assistants (MCP)
 description: Connect your SympleHost account to Claude (and any MCP-capable AI tool) so you can ask about your properties, bookings, and guests in plain language — and let your assistant draft replies, manage tasks, and update your calendar with your permission. Step-by-step setup for Claude on the web and Claude Desktop, what the assistant can see and do, and how your data stays safe.
-category: ai-and-api
-section: AI assistants
+category: platform-guides
+section: AI & API
 sectionOrder: 1
 tags:
   - AI
@@ -287,7 +287,7 @@ That immediately revokes access on SympleHost's side — the token stops working
 
 ## Related Articles
 
-- [SympleHost Partner API Reference](/ai-and-api/symplehost-partner-api-reference)
+- [SympleHost Partner API Reference](/platform-guides/symplehost-partner-api-reference/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations)
 - [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests)

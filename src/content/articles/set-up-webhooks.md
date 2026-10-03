@@ -265,7 +265,7 @@ Confirm the endpoint is active and subscribed to that event type. Events generat
 
 ## Related Articles
 
-- [SympleHost Partner API Reference](/ai-and-api/symplehost-partner-api-reference/)
-- [Connect SympleHost to Claude & Other AI Assistants](/ai-and-api/connect-symplehost-to-ai-assistants/)
+- [SympleHost Partner API Reference](/platform-guides/symplehost-partner-api-reference/)
+- [Connect SympleHost to Claude & Other AI Assistants](/platform-guides/connect-symplehost-to-ai-assistants/)
 - [How to Import Airbnb and Connect OTA Channels](/getting-started/import-listings-from-ota/)
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
