@@ -1,7 +1,7 @@
 ---
 title: "India's Vacation Rental & Airbnb Market 2026: The Fastest-Growing Opportunity Nobody's Talking About"
 description: "India's vacation rental market is growing at 17.66% CAGR with 91% domestic demand. See Airbnb India data, emerging destinations, and why early movers have a structural advantage."
-category: platform-guides
+category: articles
 section: STR market trends
 sectionOrder: 4
 tags:
@@ -79,7 +79,7 @@ SympleHost was built for exactly this kind of market. WhatsApp-first guest messa
 
 ---
 
-**Related reading:** [Airbnb's 15.5% host fee in India](/platform-guides/airbnb-host-fee-india-2026/) · [Best Airbnb management software in India](/platform-guides/best-airbnb-management-software-india/) · [How to manage multiple Airbnb properties in India](/platform-guides/manage-multiple-airbnb-properties-india/) · [Asia-Pacific vacation rental market overview](/platform-guides/asia-pacific-str-overview/)
+**Related reading:** [Airbnb's 15.5% host fee in India](/articles/airbnb-host-fee-india-2026/) · [Best Airbnb management software in India](/articles/best-airbnb-management-software-india/) · [How to manage multiple Airbnb properties in India](/articles/manage-multiple-airbnb-properties-india/) · [Asia-Pacific vacation rental market overview](/articles/asia-pacific-str-overview/)
 
 ---
 

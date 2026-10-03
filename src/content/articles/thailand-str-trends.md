@@ -1,7 +1,7 @@
 ---
 title: "Thailand Vacation Rental & Airbnb Market 2026: Where Demand Is Outpacing Supply"
 description: "Thailand's short-term rental demand is outpacing supply in 2026. See Airbnb revenue data for Koh Samui, Krabi, Chiang Mai, and Bangkok — plus digital nomad visa opportunities for hosts."
-category: platform-guides
+category: articles
 section: STR market trends
 sectionOrder: 5
 tags:
@@ -94,7 +94,7 @@ SympleHost handles this naturally. Your Airbnb and Booking.com calendars stay sy
 
 ---
 
-**Related reading:** [Asia-Pacific vacation rental market overview](/platform-guides/asia-pacific-str-overview/) · [How to get more direct bookings for your vacation rental](/platform-guides/direct-bookings-vacation-rentals/) · [Turn guest reviews into a booking engine](/platform-guides/guest-reviews-to-bookings/)
+**Related reading:** [Asia-Pacific vacation rental market overview](/articles/asia-pacific-str-overview/) · [How to get more direct bookings for your vacation rental](/articles/direct-bookings-vacation-rentals/) · [Turn guest reviews into a booking engine](/articles/guest-reviews-to-bookings/)
 
 ---
 

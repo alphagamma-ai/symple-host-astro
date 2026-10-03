@@ -34,6 +34,7 @@ for (const article of articles) {
 const categoryById = new Map(categories.map((c) => [c.id, c]));
 const gettingStarted = categoryById.get('getting-started');
 const platformGuides = categoryById.get('platform-guides');
+const articlesCategory = categoryById.get('articles');
 const webinarEvents = events.filter((e) => e.data.eventType !== 'tutorial');
 const videoEvents = events.filter((e) => e.data.eventType === 'tutorial');
 const { past: pastWebinars } = partitionEvents(webinarEvents);
@@ -41,7 +42,7 @@ const upcomingWebinarsCount = webinarEvents.filter((e) => isUpcoming(e)).length;
 const videoCount = videoEvents.length;
 const walkthroughCount = walkthroughs.length;
 
-const coreCategories = [gettingStarted, platformGuides].filter(Boolean) as NonNullable<
+const coreCategories = [gettingStarted, platformGuides, articlesCategory].filter(Boolean) as NonNullable<
   typeof gettingStarted
 >[];
 ---

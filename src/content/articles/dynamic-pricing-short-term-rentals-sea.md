@@ -1,7 +1,7 @@
 ---
 title: "Dynamic Pricing for Short-Term Rentals: A Complete Guide for Indonesia, Thailand & Vietnam"
 description: "Learn how dynamic pricing works for short-term rentals, why occupancy alone is misleading, and how hosts in Indonesia, Thailand, and Vietnam can price around seasonality and demand."
-category: platform-guides
+category: articles
 section: STR market trends
 sectionOrder: 6
 tags:
@@ -192,9 +192,9 @@ SympleHost helps hosts manage listings, pricing rules, bookings, guest messages,
 
 ---
 
-**Related reading:** [What Is RevPAR — and Why It Matters More Than Occupancy](/platform-guides/what-is-revpar-short-term-rentals/) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules) · [Bali Airbnb & Vacation Rental Market 2026](/platform-guides/bali-str-trends/)
+**Related reading:** [What Is RevPAR — and Why It Matters More Than Occupancy](/articles/what-is-revpar-short-term-rentals/) · [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules) · [Bali Airbnb & Vacation Rental Market 2026](/articles/bali-str-trends/)
 
 ---
 
-*Sources: [RevPAR definition](https://en.wikipedia.org/wiki/RevPAR) · [Average daily rate definition](https://en.wikipedia.org/wiki/Average_daily_rate) · [Bali short-term rental market analysis](/platform-guides/bali-str-trends/) · [Thailand vacation rental market analysis](/platform-guides/thailand-str-trends/)*
+*Sources: [RevPAR definition](https://en.wikipedia.org/wiki/RevPAR) · [Average daily rate definition](https://en.wikipedia.org/wiki/Average_daily_rate) · [Bali short-term rental market analysis](/articles/bali-str-trends/) · [Thailand vacation rental market analysis](/articles/thailand-str-trends/)*
 
