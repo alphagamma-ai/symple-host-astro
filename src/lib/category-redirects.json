@@ -17,9 +17,9 @@
   "/marketing-for-hosts/instagram-marketing-vacation-rentals": "/articles/instagram-marketing-vacation-rentals/",
   "/jp/marketing-for-hosts/instagram-marketing-vacation-rentals": "/jp/articles/instagram-marketing-vacation-rentals/",
   "/id/marketing-for-hosts/instagram-marketing-vacation-rentals": "/id/articles/instagram-marketing-vacation-rentals/",
-  "/faqs/faqs-listings-pricing-multi-unit": "/platform-guides/faqs-listings-pricing-multi-unit/",
-  "/jp/faqs/faqs-listings-pricing-multi-unit": "/jp/platform-guides/faqs-listings-pricing-multi-unit/",
-  "/id/faqs/faqs-listings-pricing-multi-unit": "/id/platform-guides/faqs-listings-pricing-multi-unit/",
+  "/faqs/faqs-listings-pricing-multi-unit": "/platform-guides/faqs-listings-and-pricing/",
+  "/jp/faqs/faqs-listings-pricing-multi-unit": "/jp/platform-guides/faqs-listings-and-pricing/",
+  "/id/faqs/faqs-listings-pricing-multi-unit": "/id/platform-guides/faqs-listings-and-pricing/",
   "/marketing-for-hosts/multi-channel-distribution-sea-rentals": "/articles/multi-channel-distribution-sea-rentals/",
   "/jp/marketing-for-hosts/multi-channel-distribution-sea-rentals": "/jp/articles/multi-channel-distribution-sea-rentals/",
   "/id/marketing-for-hosts/multi-channel-distribution-sea-rentals": "/id/articles/multi-channel-distribution-sea-rentals/",
@@ -157,5 +157,11 @@
   "/id/platform-guides/thailand-str-trends": "/id/articles/thailand-str-trends/",
   "/platform-guides/what-is-revpar-short-term-rentals": "/articles/what-is-revpar-short-term-rentals/",
   "/jp/platform-guides/what-is-revpar-short-term-rentals": "/jp/articles/what-is-revpar-short-term-rentals/",
-  "/id/platform-guides/what-is-revpar-short-term-rentals": "/id/articles/what-is-revpar-short-term-rentals/"
+  "/id/platform-guides/what-is-revpar-short-term-rentals": "/id/articles/what-is-revpar-short-term-rentals/",
+  "/platform-guides/faqs-listings-pricing-multi-unit": "/platform-guides/faqs-listings-and-pricing/",
+  "/platform-guides/add-multi-unit-listing-for-bookingcom": "/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/",
+  "/jp/platform-guides/faqs-listings-pricing-multi-unit": "/jp/platform-guides/faqs-listings-and-pricing/",
+  "/jp/platform-guides/add-multi-unit-listing-for-bookingcom": "/jp/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/",
+  "/id/platform-guides/faqs-listings-pricing-multi-unit": "/id/platform-guides/faqs-listings-and-pricing/",
+  "/id/platform-guides/add-multi-unit-listing-for-bookingcom": "/id/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/"
 }

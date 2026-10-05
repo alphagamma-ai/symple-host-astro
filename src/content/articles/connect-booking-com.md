@@ -19,10 +19,10 @@ Connect an existing Booking.com property to SympleHost by approving **Channex.io
 Have the following ready:
 
 - Access to the property in **Booking.com Extranet**, with permission to manage its connectivity provider.
-- The matching property in SympleHost, with its units or room types and pricing set up.
+- The matching property in SympleHost, with its room count (quantity) and pricing set up.
 - The Booking.com rooms and rate plans you want to connect.
 
-If the property does not exist in SympleHost yet, [add it manually](/getting-started/adding-a-listing-manually/) or [import it from Airbnb](/getting-started/import-listings-from-ota/). For a property with several room types, see [Adding a MultiUnit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/).
+If the property does not exist in SympleHost yet, [add it manually](/getting-started/adding-a-listing-manually/) or [import it from Airbnb](/getting-started/import-listings-from-ota/). For a guesthouse or boutique hotel that is one standalone property with several rooms, set the room count (quantity) when you create the listing — the calendar handles that inventory. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
 
 ## Step 1: Add Channex.io as Your Connectivity Provider
 
@@ -64,12 +64,12 @@ SympleHost will notify you once the connection is approved. After approval, open
 
 Once the connection is approved, review the rooms and rate plans loaded from Booking.com.
 
-1. Match each room you want to sell to the corresponding SympleHost unit or listing.
+1. Match each room you want to sell to the corresponding SympleHost listing.
 2. Select the appropriate SympleHost rate plan for each channel rate you are mapping.
 3. Review room names, occupancy, and rate-plan choices so each channel rate points to the intended accommodation and pricing.
 4. Save the mappings and complete the remaining setup prompts.
 
-If the flow shows occupancy-based rates, review each occupancy and the primary selection used for restrictions. Avoid mapping different room types to the same unit unless that matches your actual inventory setup.
+If the flow shows occupancy-based rates, review each occupancy and the primary selection used for restrictions. Avoid mapping different room types to the same SympleHost listing unless they genuinely share the same rooms and room count.
 
 ## Step 5: Complete Sync and Check the Connection
 
@@ -98,9 +98,9 @@ Confirm that Channex.io is approved for the correct property in Booking.com Extr
 
 Confirm that the identifier belongs to the intended property and that its rooms and rate plans exist in Booking.com. Check provider approval, then retry loading the connection.
 
-### I Cannot Find the Matching SympleHost Unit
+### I Cannot Find the Matching SympleHost Listing
 
-Check that the property and its units have been created in SympleHost. Finish their pricing setup before returning to the mapping step.
+Check that the property has been created in SympleHost with the correct room count (quantity). Finish its pricing setup before returning to the mapping step.
 
 ### Prices or Availability Do Not Match
 

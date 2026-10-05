@@ -27,7 +27,7 @@ The markup belongs to the selected listing's channel connection. Changing an Air
 
 - Set your listing's pricing and check the dates in **Pricing Calendar**. See [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/).
 - Connect the booking channel. The markup control is available for connected channels.
-- For Booking.com, confirm that the rooms are mapped to the correct SympleHost units. See [Adding a MultiUnit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/).
+- For Booking.com, confirm that the rooms are mapped to the correct SympleHost listing. For a guesthouse or boutique hotel with several rooms, see [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
 
 ## Set a Markup for a Connected Channel
 
@@ -49,7 +49,7 @@ The percentage control accepts values from **0 to 500**. Negative values are not
 For hotel-style Booking.com connections, markups are managed at the **mapped room/listing level**.
 
 1. Open the Booking.com connection in **Channel Manager**.
-2. Find the mapped room you want to update and check that it belongs to the intended SympleHost unit.
+2. Find the mapped room you want to update and check that it belongs to the intended SympleHost listing.
 3. Click **Set** or the existing markup percentage on that room's row.
 4. Enter the percentage and click **Save**.
 5. Repeat for the other mapped rooms that need a markup.
@@ -104,7 +104,7 @@ Check whether the channel is connected. Complete the channel connection before t
 
 ### A Booking.com Room Has No Markup Control
 
-Check that the room is mapped to a SympleHost listing or unit. The room-level control is only shown where that mapping is available.
+Check that the room is mapped to a SympleHost listing. The room-level control is only shown where that mapping is available.
 
 ### The Percentage Will Not Save
 
@@ -118,4 +118,4 @@ Check the selected dates, the applicable rate, the saved markup, and the room an
 
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
 - [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
-- [Adding a MultiUnit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/)
+- [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/)

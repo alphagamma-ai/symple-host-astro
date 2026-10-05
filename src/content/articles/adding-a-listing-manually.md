@@ -44,6 +44,8 @@ Use manual setup when you are starting from scratch, running a fully direct-book
    - **Max Guests** — the maximum number of people allowed
    - **Bedrooms**, **Beds**, **Bathrooms** — all required fields
 
+   Running a guesthouse or boutique hotel with several rooms? Keep it as one property and set the **room count (quantity)** — the number of rooms guests can book. The calendar handles that inventory, so you do not need a separate listing for each room. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
+
 7. Upload **Property Images** — drag and drop your photos or click **browse files**. Supports JPEG, PNG, and WebP (up to 10MB per file).
 
 ![The Capacity and Property Images sections showing guest count fields and the image upload area](/uploads/adding-a-listing-manually/05.png)
@@ -72,6 +74,7 @@ Before you connect Booking.com, Expedia, Agoda, VRBO, or other channels through 
 
 - **Address and timezone** — these affect calendar and check-in information.
 - **Capacity** — max guests, bedrooms, beds, and bathrooms should match what guests can actually book.
+- **Room count (quantity)** — for a guesthouse or boutique hotel, the number of rooms guests can book at this property.
 - **Photos and amenities** — these become guest-facing references for your team and AI workflows.
 - **Cancellation policy** — make sure the policy matches how you want direct bookings handled.
 - **Standard rate** — set a realistic base rate before opening availability.

@@ -59,8 +59,6 @@ This keeps owner communication out of spreadsheets and one-off messages. Owners 
 
 The commission percent is your management fee for that property. SympleHost uses it when calculating management commission, owner payout, and owner statements.
 
-For multi-unit properties, child units may inherit the parent property's management settings. If you are updating a unit and cannot edit the management section, open the parent property settings instead.
-
 ---
 
 ## Invite or Connect a Property Owner
