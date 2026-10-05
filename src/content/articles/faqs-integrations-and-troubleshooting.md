@@ -22,7 +22,7 @@ SympleHost connects to major OTAs including **Airbnb**, **Booking.com**, **Exped
 Use **Airbnb Import** from **Listings → + New Property → Import** if you are bringing in an existing Airbnb listing. If the property already exists in SympleHost, open **Channel Manager**, choose **Airbnb**, and authorize the connection. Once linked, Airbnb bookings sync into SympleHost automatically.
 
 ### How do I connect my Booking.com account?
-Open **Channel Manager**, choose **Booking.com**, and follow the Booking.com connection flow. In the Booking.com Extranet, change the connectivity provider to **Channex.io** first, then return to SympleHost to enter the Hotel ID and map Booking.com rooms to the right listing. For a guesthouse or boutique hotel with several rooms, set the room count (quantity) on the listing first — the calendar handles that inventory.
+Open **Channel Manager**, choose **Booking.com**, and follow the Booking.com connection flow. In the Booking.com Extranet, change the connectivity provider to **Channex.io** first, then return to SympleHost to enter the Hotel ID and map Booking.com rooms to the right listing. For a guesthouse or boutique hotel with several rooms, set the Number of units on the listing first — the calendar handles that inventory.
 
 ### Will bookings from Airbnb and Booking.com show up automatically?
 Yes. Once an OTA is connected, new bookings sync into SympleHost automatically. They'll appear in your **Reservations** and on your calendar.

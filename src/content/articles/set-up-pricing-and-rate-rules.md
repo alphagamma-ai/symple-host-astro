@@ -171,7 +171,7 @@ Use the Pricing Calendar to:
 - Block or unblock dates
 - Add restrictions such as no check-in or no check-out when available
 
-For a guesthouse or boutique hotel with a room count above one, pricing changes apply to the listing as a whole. Use **Block day** to take individual rooms out of the available count.
+For a guesthouse or boutique hotel with **Number of units** above one, pricing changes apply to the listing as a whole. Use **Block day** to take individual units out of the available count.
 
 ---
 

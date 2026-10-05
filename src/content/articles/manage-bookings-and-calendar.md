@@ -63,20 +63,28 @@ Each row is a property. Each column is a date.
 | **Payment stripe** | For direct/SympleHost bookings, the calendar can show paid, pending, deposit paid, partial, overdue, unpaid, refunded, or held-payment states. |
 | **Blocked bar** | The date is unavailable because of a manual block, owner stay, maintenance, linked calendar, migration import, or channel sync. |
 | **Unavailable cell** | The date cannot be booked from the calendar. |
-| **Pool badge** | For listings with a room count above one, shows how many rooms are still available out of the total. |
+| **xN / UNITS badge** | For listings with **Number of units** above one, shows the unit total next to the property name (for example **x5** or **6 UNITS**). |
 | **Calendar-link pill** | Shows when a listing is connected to related calendar inventory. |
 
 Hover over rate cells to check price details where available. Click an open cell, reservation bar, or blocked bar to open the relevant actions.
 
 ## Work With Guesthouses and Boutique Hotels
 
-If your guesthouse or boutique hotel is one standalone property with several rooms, set its **room count (quantity)** on the listing. The calendar uses that number as your inventory for each night: every booking or block uses one room, and the date stays bookable until all rooms are taken. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
+If your guesthouse or boutique hotel is one **Standalone** property with several identical rooms, set **Number of units** on the listing. The calendar uses that number as your inventory for each night: every booking or block uses one unit, and the date stays bookable until all units are taken. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
 
-For these listings you can:
+![Calendar with unit lanes, xN and UNITS badges, and availability ratios like 0/6](/screenshots/manage-bookings-and-calendar/calendar-number-of-units.png)
 
-- see how many rooms are still available on each date
-- block a specific number of rooms for maintenance or owner use
-- create direct reservations while rooms are still available
+For these listings the calendar can show:
+
+- expandable **Unit 1**, **Unit 2**, … lanes under the property
+- **xN** or **UNITS** badges for the total inventory
+- per-date availability ratios such as **0/6** or **2/6**
+
+You can also:
+
+- see how many units are still available on each date
+- block a specific number of units for maintenance or owner use
+- create direct reservations while units are still available
 - manage pricing and stay rules for the property as a whole
 
 ## Update an Open Date
@@ -104,7 +112,7 @@ Use **Availability** to update stay rules for one date or a range:
 - maximum nights
 - whether guests can check in
 - whether guests can check out
-- available room count for listings with a room count above one
+- available unit count for listings with **Number of units** above one
 
 If you mark a date as unavailable, SympleHost creates the appropriate block or restriction for that date. If you are updating a large range and the platform asks you to shorten it, split the update into smaller ranges.
 
@@ -119,7 +127,7 @@ Common block reasons include:
 - blocked
 - other internal holds
 
-Add notes so your team understands why the block exists. For a listing with a room count above one, choose how many rooms should be blocked.
+Add notes so your team understands why the block exists. For a listing with **Number of units** above one, choose how many units should be blocked.
 
 ### New Reservation
 

@@ -34,6 +34,8 @@ Think of roles like keys to different rooms in your house — everyone on your t
 
 ## How to Add a Team Member
 
+Prefer a quick demo? Watch [Invite Team Members](/videos/invite-team-members/) (about 1 minute).
+
 1. Click your **profile photo or name** in the top right, then choose **Settings**.
 2. Click **Team Members**.
 

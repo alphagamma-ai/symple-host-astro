@@ -26,41 +26,44 @@ Use manual setup when you are starting from scratch, running a fully direct-book
 
 3. Select **Manual** to create from scratch.
 
-   You may also see **Airbnb Import** depending on your account. Use Airbnb Import when the property is already live on Airbnb. Once the property exists in SympleHost, connect Booking.com, Expedia, Agoda, VRBO, and other supported OTAs through **Channel Manager**.
+   You may also see **Airbnb Import** or **Use Copilot** depending on your account. Use Airbnb Import when the property is already live on Airbnb. Once the property exists in SympleHost, connect Booking.com, Expedia, Agoda, VRBO, and other supported OTAs through **Channel Manager**.
 
-![The New Property screen showing Manual and Import from Airbnb setup options](/uploads/adding-a-listing-manually/02.png)
+![The New Property screen showing Manual (create from scratch) and other setup options](/uploads/adding-a-listing-manually/02.png)
 
-4. Fill in your **Property Details**:
+4. Choose **Standalone** when asked what type of property you are creating. Standalone covers a single apartment, house, villa, or a guesthouse/boutique hotel with identical rooms under one listing.
+
+5. Fill in your **Property Details**:
    - **Property Name** — this is what guests will see
    - **Description** — a summary of your property (minimum 50 characters, up to 3,000)
 
-![The Create Standalone Property form showing property name and description fields](/uploads/adding-a-listing-manually/03.png)
+![The Create Standalone Property form showing property name, description, and location](/uploads/adding-a-listing-manually/03.png)
 
-5. Add your **Location** — use the address search bar for auto-complete, or enter it manually. **Street Address**, **City**, and **Country** are required. **State/Province**, **Postal Code**, and **Neighborhood** are optional.
+6. Add your **Location** — use the address search bar for auto-complete, or enter it manually. **Street Address**, **City**, and **Country** are required. **State/Province**, **Postal Code**, and **Neighborhood** are optional.
 
 ![The Location section showing address, street address, city, state, postal code, country, and neighborhood fields](/uploads/adding-a-listing-manually/04.png)
 
-6. Set **Capacity**:
+7. Set **Capacity**:
    - **Max Guests** — the maximum number of people allowed
    - **Bedrooms**, **Beds**, **Bathrooms** — all required fields
+   - **Number of units** — identical rooms or apartments sold under this one listing. Each unit can take its own booking on the same night.
 
-   Running a guesthouse or boutique hotel with several rooms? Keep it as one property and set the **room count (quantity)** — the number of rooms guests can book. The calendar handles that inventory, so you do not need a separate listing for each room. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
+   Running a guesthouse or boutique hotel with several identical rooms? Keep it as one **Standalone** property and set **Number of units**. The calendar handles that inventory, so you do not need a separate listing for each room. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
 
-7. Upload **Property Images** — drag and drop your photos or click **browse files**. Supports JPEG, PNG, and WebP (up to 10MB per file).
+8. Upload **Property Images** — drag and drop your photos or click **browse files**. Supports JPEG, PNG, and WebP (up to 10MB per file).
 
-![The Capacity and Property Images sections showing guest count fields and the image upload area](/uploads/adding-a-listing-manually/05.png)
+![The Capacity section including Number of units, plus the Property Images upload area](/uploads/adding-a-listing-manually/05.png)
 
-8. Select **Amenities** — browse through categories like Bathroom, Bedroom and laundry, Entertainment, Family, Heating and cooling, Home safety, Internet and office, Kitchen and dining, and more. Expand each category to tick everything your property offers.
+9. Select **Amenities** — browse through categories like Bathroom, Bedroom and laundry, Entertainment, Family, Heating and cooling, Home safety, Internet and office, Kitchen and dining, and more. Expand each category to tick everything your property offers.
 
 ![The Amenities section showing expandable amenity categories](/uploads/adding-a-listing-manually/06.png)
 
-9. Choose a **Cancellation Policy**:
+10. Choose a **Cancellation Policy**:
    - **Use account default** — applies your account's default moderate cancellation policy
    - **Flexible** — full refund up to 24 hours before check-in
    - **Moderate** — full refund 5+ days before check-in, 50% refund 1–5 days before
    - **Strict** — full refund 60+ days before check-in, no refund after
 
-10. Click **Save & Continue to Pricing** to set your rates, or click **Save as Draft** if you want to come back and finish later.
+11. Click **Save & Continue to Pricing** to set your rates, or click **Save as Draft** if you want to come back and finish later.
 
 ![The Policies section showing cancellation policy options and the Save and Continue to Pricing button](/uploads/adding-a-listing-manually/07.png)
 
@@ -74,7 +77,7 @@ Before you connect Booking.com, Expedia, Agoda, VRBO, or other channels through 
 
 - **Address and timezone** — these affect calendar and check-in information.
 - **Capacity** — max guests, bedrooms, beds, and bathrooms should match what guests can actually book.
-- **Room count (quantity)** — for a guesthouse or boutique hotel, the number of rooms guests can book at this property.
+- **Number of units** — for a guesthouse or boutique hotel, how many identical rooms are sold under this listing.
 - **Photos and amenities** — these become guest-facing references for your team and AI workflows.
 - **Cancellation policy** — make sure the policy matches how you want direct bookings handled.
 - **Standard rate** — set a realistic base rate before opening availability.

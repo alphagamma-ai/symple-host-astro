@@ -175,7 +175,7 @@ After approval:
 4. Review availability and pricing before starting sync.
 5. Save the mappings and complete the sync step.
 
-Do not map different room types to the same SympleHost listing unless they genuinely share the same rooms and room count.
+Do not map different room types to the same SympleHost listing unless they genuinely share the same rooms and **Number of units**.
 
 ## Connect Other Booking Platforms
 

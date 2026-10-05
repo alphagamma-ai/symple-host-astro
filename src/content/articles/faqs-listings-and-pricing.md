@@ -1,12 +1,12 @@
 ---
-title: Listings, Pricing & Room Quantity FAQs
-description: How to add, edit, and price your listings — plus how to set the room count for a guesthouse or boutique hotel.
+title: Listings, Pricing & Number of Units FAQs
+description: How to add, edit, and price your listings — plus how to set Number of units for a guesthouse or boutique hotel.
 category: platform-guides
 section: FAQs
 tags:
   - Listings
   - Pricing
-  - Room quantity
+  - Number of units
   - Properties
 date: '2026-04-14'
 draft: false
@@ -19,7 +19,7 @@ Go to **Listings** and click **+ New Property**. If you already have Airbnb, use
 → See: *Adding a Listing Manually*
 
 ### I have a guesthouse or boutique hotel with several rooms. Should I create separate listings for each room?
-No. Create the property once as a standalone listing and set its **room count (quantity)** — the number of rooms guests can book. The calendar handles that inventory, so each booking uses one room and the date stays bookable until every room is taken.
+No. Create the property once as a **Standalone** listing and set **Number of units** — identical rooms sold under that listing. The calendar handles that inventory, so each booking uses one unit and the date stays bookable until every unit is taken.
 → See: *Setting Up a Guesthouse or Boutique Hotel with Several Rooms*
 
 ### Can I import my listings from Airbnb?
@@ -75,14 +75,14 @@ SympleHost prevents overlapping date ranges automatically. If you try to create 
 ## Guesthouses & Boutique Hotels
 
 ### How do I add more rooms to an existing guesthouse or boutique hotel listing?
-Open the listing, click **Edit**, and increase the **room count (quantity)**. The calendar immediately uses the new total when it works out how many rooms are available each night.
+Open the listing, click **Edit**, and increase **Number of units**. The calendar immediately uses the new total when it works out how many units are available each night.
 → See: *Setting Up a Guesthouse or Boutique Hotel with Several Rooms*
 
 ### How do I take one room out of rotation for maintenance?
 Open **Calendars → Properties**, select the dates, and use **Block day** to block one room. The other rooms stay bookable.
 
 ### How does Booking.com sync work for a property with several rooms?
-Map the Booking.com room and rate plan to your SympleHost listing during the Booking.com connection flow. The room count on the listing is the inventory Booking.com sees, and the calendar adjusts the available count as rooms are booked or blocked. Availability, rates, and bookings sync through Channex.io after setup.
+Map the Booking.com room and rate plan to your SympleHost listing during the Booking.com connection flow. **Number of units** on the listing is the inventory Booking.com sees, and the calendar adjusts the available count as rooms are booked or blocked. Availability, rates, and bookings sync through Channex.io after setup.
 
 ### My Booking.com sync failed. What should I check?
 The most common cause is missing **bed configuration**. Open the listing and make sure specific bed types are selected (e.g. "1 Queen bed") — a generic bed count isn't enough for Booking.com.

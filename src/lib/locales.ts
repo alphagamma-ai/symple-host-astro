@@ -278,7 +278,7 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
   jp: {
     'set-room-quantity-for-guesthouses-and-boutique-hotels': {
       title: '複数の客室があるゲストハウス・ブティックホテルを設定する',
-      description: '1つの独立した物件として作成し、客室数（数量）を設定すると、SympleHostのカレンダーが客室在庫を管理します。',
+      description: '1つの独立した物件として作成し、Number of units（ユニット数）を設定すると、SympleHostのカレンダーが在庫を管理します。',
     },
     'add-team-members-and-roles': {
       title: 'チームメンバーを追加し、権限を割り当てる',
@@ -357,8 +357,8 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       description: 'AirbnbやBooking.com連携、レビュー管理、同期や表示に関するよくある問題をまとめました。',
     },
     'faqs-listings-and-pricing': {
-      title: 'リスティング・料金・客室数FAQ',
-      description: 'リスティングの追加・編集・価格設定と、ゲストハウスやブティックホテルの客室数の設定方法を説明します。',
+      title: 'リスティング・料金・Number of units FAQ',
+      description: 'リスティングの追加・編集・価格設定と、ゲストハウスやブティックホテルの Number of units の設定方法を説明します。',
     },
     'faqs-messaging-autopilot-guest-experience': {
       title: 'メッセージ・Autopilot・ゲスト体験FAQ',
@@ -480,7 +480,7 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
   id: {
     'set-room-quantity-for-guesthouses-and-boutique-hotels': {
       title: 'Menyiapkan Guesthouse atau Hotel Butik dengan Beberapa Kamar',
-      description: 'Buat satu properti mandiri, atur jumlah kamar (kuantitas), dan biarkan kalender SympleHost mengelola inventaris kamar tersebut.',
+      description: 'Buat satu properti mandiri (Standalone), atur Number of units, dan biarkan kalender SympleHost mengelola inventaris tersebut.',
     },
     'add-team-members-and-roles': {
       title: 'Menambahkan Anggota Tim dan Mengatur Peran',
@@ -559,8 +559,8 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       description: 'Masalah umum seputar Airbnb, Booking.com, review, sinkronisasi, dan tampilan data.',
     },
     'faqs-listings-and-pricing': {
-      title: 'FAQ Listing, Harga, dan Jumlah Kamar',
-      description: 'Panduan cepat untuk listing, pricing, dan cara mengatur jumlah kamar untuk guesthouse atau hotel butik.',
+      title: 'FAQ Listing, Harga, dan Number of units',
+      description: 'Panduan cepat untuk listing, pricing, dan cara mengatur Number of units untuk guesthouse atau hotel butik.',
     },
     'faqs-messaging-autopilot-guest-experience': {
       title: 'FAQ Pesan, Autopilot, dan Pengalaman Tamu',
