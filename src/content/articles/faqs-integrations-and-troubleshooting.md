@@ -22,7 +22,7 @@ SympleHost connects to major OTAs including **Airbnb**, **Booking.com**, **Exped
 Use **Airbnb Import** from **Listings → + New Property → Import** if you are bringing in an existing Airbnb listing. If the property already exists in SympleHost, open **Channel Manager**, choose **Airbnb**, and authorize the connection. Once linked, Airbnb bookings sync into SympleHost automatically.
 
 ### How do I connect my Booking.com account?
-Open **Channel Manager**, choose **Booking.com**, and follow the Booking.com connection flow. In the Booking.com Extranet, change the connectivity provider to **Channex.io** first, then return to SympleHost to enter the Hotel ID and map Booking.com rooms to the right listing or units. For multi-unit properties, make sure your listing is set up as multi-unit in SympleHost first.
+Open **Channel Manager**, choose **Booking.com**, and follow the Booking.com connection flow. In the Booking.com Extranet, change the connectivity provider to **Channex.io** first, then return to SympleHost to enter the Hotel ID and map Booking.com rooms to the right listing. For a guesthouse or boutique hotel with several rooms, set the Number of units on the listing first — the calendar handles that inventory.
 
 ### Will bookings from Airbnb and Booking.com show up automatically?
 Yes. Once an OTA is connected, new bookings sync into SympleHost automatically. They'll appear in your **Reservations** and on your calendar.
@@ -102,7 +102,7 @@ Your visibility depends on your **role and permissions**. If you're not an Accou
 Contact SympleHost support. To help the team diagnose faster, go to **Settings → General** and enable **Support Access** — this lets the team view your account to troubleshoot.
 
 ### My bookings from [OTA] aren't syncing.
-Check that the OTA is still connected in **Channel Manager**. If it shows as disconnected, reconnect it from there. If it's connected but bookings aren't appearing, there may be a mapping issue — verify your listing, unit, room type, and rate plan mappings.
+Check that the OTA is still connected in **Channel Manager**. If it shows as disconnected, reconnect it from there. If it's connected but bookings aren't appearing, there may be a mapping issue — verify your listing, room type, and rate plan mappings.
 
 ### I'm seeing an error I don't understand.
 Take a screenshot of the error and contact support. Most errors include a message that helps the team identify the issue quickly.

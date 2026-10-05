@@ -26,7 +26,7 @@ From the calendar you can:
 - open reservations, message guests, record payments, release deposits, or confirm eligible direct reservations
 - export pricing data for review outside SympleHost
 
-![SympleHost multi-property calendar with property rows, rates, booking bars, multi-unit rows, and a booking popover](/screenshots/manage-bookings-and-calendar/calendar-overview-current.png)
+![SympleHost multi-property calendar with property rows, rates, booking bars, room-availability rows, and a booking popover](/screenshots/manage-bookings-and-calendar/calendar-overview-current.png)
 
 ## Open the Property Calendar
 
@@ -53,7 +53,7 @@ You can also reorder property rows so the listings your team checks most often s
 
 ## Read the Calendar Grid
 
-Each row is a property, room type, or unit. Each column is a date.
+Each row is a property. Each column is a date.
 
 | Calendar item | What it means |
 | --- | --- |
@@ -62,25 +62,30 @@ Each row is a property, room type, or unit. Each column is a date.
 | **Pending indicator** | The booking still needs confirmation or payment attention. |
 | **Payment stripe** | For direct/SympleHost bookings, the calendar can show paid, pending, deposit paid, partial, overdue, unpaid, refunded, or held-payment states. |
 | **Blocked bar** | The date is unavailable because of a manual block, owner stay, maintenance, linked calendar, migration import, or channel sync. |
-| **Unavailable cell** | The unit or date cannot be booked from the calendar. |
-| **Pool badge** | For multi-unit listings, shows how many units are still available out of the total. |
+| **Unavailable cell** | The date cannot be booked from the calendar. |
+| **xN / UNITS badge** | For listings with **Number of units** above one, shows the unit total next to the property name (for example **x5** or **6 UNITS**). |
 | **Calendar-link pill** | Shows when a listing is connected to related calendar inventory. |
 
 Hover over rate cells to check price details where available. Click an open cell, reservation bar, or blocked bar to open the relevant actions.
 
-## Work With Multi-Unit Properties
+## Work With Guesthouses and Boutique Hotels
 
-Multi-unit listings can show a parent room-type row and separate unit lanes underneath it.
+If your guesthouse or boutique hotel is one **Standalone** property with several identical rooms, set **Number of units** on the listing. The calendar uses that number as your inventory for each night: every booking or block uses one unit, and the date stays bookable until all units are taken. See [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/).
 
-Use the parent room-type row when you need to manage shared pricing or availability. Individual unit lanes are useful for seeing where reservations or blocks sit, but some pricing and availability actions are controlled from the room-type row.
+![Calendar with unit lanes, xN and UNITS badges, and availability ratios like 0/6](/screenshots/manage-bookings-and-calendar/calendar-number-of-units.png)
 
-For multi-unit properties you can:
+For these listings the calendar can show:
 
-- expand or collapse the units under the room type
-- see available unit counts on each date
+- expandable **Unit 1**, **Unit 2**, … lanes under the property
+- **xN** or **UNITS** badges for the total inventory
+- per-date availability ratios such as **0/6** or **2/6**
+
+You can also:
+
+- see how many units are still available on each date
 - block a specific number of units for maintenance or owner use
-- create direct reservations against the available pool
-- review which unit lane a booking or block is sitting on
+- create direct reservations while units are still available
+- manage pricing and stay rules for the property as a whole
 
 ## Update an Open Date
 
@@ -107,7 +112,7 @@ Use **Availability** to update stay rules for one date or a range:
 - maximum nights
 - whether guests can check in
 - whether guests can check out
-- available unit count for multi-unit room-type rows
+- available unit count for listings with **Number of units** above one
 
 If you mark a date as unavailable, SympleHost creates the appropriate block or restriction for that date. If you are updating a large range and the platform asks you to shorten it, split the update into smaller ranges.
 
@@ -122,7 +127,7 @@ Common block reasons include:
 - blocked
 - other internal holds
 
-Add notes so your team understands why the block exists. For multi-unit listings, choose how many units should be blocked.
+Add notes so your team understands why the block exists. For a listing with **Number of units** above one, choose how many units should be blocked.
 
 ### New Reservation
 
@@ -188,7 +193,7 @@ Blocked dates can come from:
 - **Linked calendars or linked listing relationships**
 - **Channel-synced blocks** from an OTA or channel manager
 
-For manual blocks, you can usually edit the reason, notes, dates, and unit count. You can also unblock the date.
+For manual blocks, you can usually edit the reason, notes, dates, and number of rooms blocked. You can also unblock the date.
 
 Be careful with linked or channel-synced blocks. If the connected OTA or linked calendar still says the date is unavailable, the block may return on the next sync.
 
@@ -234,10 +239,6 @@ The full reservation workflow is covered here: [Checking Reservations in the Res
 
 ## Troubleshooting
 
-### I cannot update pricing or availability from a unit lane
-
-For some multi-unit listings, pricing and availability are managed at the room-type row rather than the individual unit lane. Go back to the parent room-type row and open the date from there.
-
 ### A date became blocked again after I unblocked it
 
 Check whether the block came from a linked calendar or channel sync. If the source OTA or linked calendar still has the date blocked, SympleHost may receive the block again during the next sync.
@@ -252,7 +253,7 @@ Open the reservation detail page and record the payment from there. This can hap
 
 ### The calendar feels too busy
 
-Use search, property filters, a shorter date range, collapsed multi-unit rows, or property row reordering so the listings your team checks most often stay near the top.
+Use search, property filters, a shorter date range, or property row reordering so the listings your team checks most often stay near the top.
 
 ## Related Articles
 

@@ -9,7 +9,6 @@ tags:
   - Listings
   - Availability
   - Channel Manager
-  - Multi-unit
 date: '2026-09-18'
 draft: false
 ---
@@ -188,5 +187,5 @@ Your role may not have permission to manage listings and linked calendars. Ask t
 
 - [How to Import Airbnb and Connect OTA Channels](/getting-started/import-listings-from-ota/)
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
-- [Adding a Multi-Unit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/)
+- [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/)
 - [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)

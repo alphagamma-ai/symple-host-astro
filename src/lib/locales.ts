@@ -276,9 +276,9 @@ type ArticleText = {
 export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
   en: {},
   jp: {
-    'add-multi-unit-listing-for-bookingcom': {
-      title: '複数ユニットのリスティングを手動で追加する',
-      description: 'ゲストハウス、小規模ホテル、アパートなど、複数の予約可能な部屋やユニットを持つ物件を設定します。',
+    'set-room-quantity-for-guesthouses-and-boutique-hotels': {
+      title: '複数の客室があるゲストハウス・ブティックホテルを設定する',
+      description: '1つの独立した物件として作成し、Number of units（ユニット数）を設定すると、SympleHostのカレンダーが在庫を管理します。',
     },
     'add-team-members-and-roles': {
       title: 'チームメンバーを追加し、権限を割り当てる',
@@ -356,9 +356,9 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       title: '連携・チャネル・レビュー・トラブルシューティングFAQ',
       description: 'AirbnbやBooking.com連携、レビュー管理、同期や表示に関するよくある問題をまとめました。',
     },
-    'faqs-listings-pricing-multi-unit': {
-      title: 'リスティング・料金・複数ユニットFAQ',
-      description: 'リスティングの追加・編集・価格設定と、Booking.com向け複数ユニット物件の扱いを説明します。',
+    'faqs-listings-and-pricing': {
+      title: 'リスティング・料金・Number of units FAQ',
+      description: 'リスティングの追加・編集・価格設定と、ゲストハウスやブティックホテルの Number of units の設定方法を説明します。',
     },
     'faqs-messaging-autopilot-guest-experience': {
       title: 'メッセージ・Autopilot・ゲスト体験FAQ',
@@ -478,9 +478,9 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
     },
   },
   id: {
-    'add-multi-unit-listing-for-bookingcom': {
-      title: 'Menambahkan Listing Multi-Unit untuk Booking.com',
-      description: 'Siapkan properti dengan beberapa kamar atau unit yang dapat dipesan, seperti guesthouse, apartemen, atau hotel kecil.',
+    'set-room-quantity-for-guesthouses-and-boutique-hotels': {
+      title: 'Menyiapkan Guesthouse atau Hotel Butik dengan Beberapa Kamar',
+      description: 'Buat satu properti mandiri (Standalone), atur Number of units, dan biarkan kalender SympleHost mengelola inventaris tersebut.',
     },
     'add-team-members-and-roles': {
       title: 'Menambahkan Anggota Tim dan Mengatur Peran',
@@ -558,9 +558,9 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
       title: 'FAQ Integrasi, Channel, Review, dan Troubleshooting',
       description: 'Masalah umum seputar Airbnb, Booking.com, review, sinkronisasi, dan tampilan data.',
     },
-    'faqs-listings-pricing-multi-unit': {
-      title: 'FAQ Listing, Harga, dan Multi-Unit',
-      description: 'Panduan cepat untuk listing, pricing, dan properti multi-unit untuk Booking.com.',
+    'faqs-listings-and-pricing': {
+      title: 'FAQ Listing, Harga, dan Number of units',
+      description: 'Panduan cepat untuk listing, pricing, dan cara mengatur Number of units untuk guesthouse atau hotel butik.',
     },
     'faqs-messaging-autopilot-guest-experience': {
       title: 'FAQ Pesan, Autopilot, dan Pengalaman Tamu',

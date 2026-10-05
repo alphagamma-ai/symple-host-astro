@@ -1,12 +1,12 @@
 ---
-title: Listings, Pricing & Multi-Unit FAQs
-description: How to add, edit, and price your listings — plus how multi-unit properties work with Booking.com.
+title: Listings, Pricing & Number of Units FAQs
+description: How to add, edit, and price your listings — plus how to set Number of units for a guesthouse or boutique hotel.
 category: platform-guides
 section: FAQs
 tags:
   - Listings
   - Pricing
-  - Multi-unit
+  - Number of units
   - Properties
 date: '2026-04-14'
 draft: false
@@ -18,19 +18,16 @@ draft: false
 Go to **Listings** and click **+ New Property**. If you already have Airbnb, use **Import** to pull in that listing first. Choose **Manual** only if you are starting from scratch or running a fully direct-booking business. Booking.com and other OTAs connect through Channel Manager after the property exists.
 → See: *Adding a Listing Manually*
 
-### What's the difference between a standalone and multi-unit listing?
-A **standalone** listing is a single bookable property — like a whole house or one apartment. A **multi-unit** listing is a property with multiple bookable rooms or units underneath it — like a guesthouse with five bedrooms or a small hotel with different room types.
-→ See: *Adding a Multi-Unit Listing Manually*
-
-### I have a guesthouse with multiple rooms. Should I create separate listings for each room?
-No — create one **multi-unit listing** and add each room as a unit underneath it. This keeps everything organized and is required if you plan to connect to Booking.com.
+### I have a guesthouse or boutique hotel with several rooms. Should I create separate listings for each room?
+No. Create the property once as a **Standalone** listing and set **Number of units** — identical rooms sold under that listing. The calendar handles that inventory, so each booking uses one unit and the date stays bookable until every unit is taken.
+→ See: *Setting Up a Guesthouse or Boutique Hotel with Several Rooms*
 
 ### Can I import my listings from Airbnb?
 Yes. Go to **Listings → + New Property → Import**, select Airbnb, and authorize the connection. You'll be able to choose which listings to import. Your listing details, photos, and settings will transfer over.
 → See: *How to Import Listings from an OTA*
 
 ### Can I import my listings from Booking.com?
-Booking.com is connected through **Channel Manager**, not the Airbnb import flow. First make sure the property exists in SympleHost. Then open **Channel Manager**, choose **Booking.com**, approve **Channex.io** as the connectivity provider in the Booking.com Extranet, enter the Hotel ID, and map Booking.com rooms to the correct SympleHost listing or units.
+Booking.com is connected through **Channel Manager**, not the Airbnb import flow. First make sure the property exists in SympleHost. Then open **Channel Manager**, choose **Booking.com**, approve **Channex.io** as the connectivity provider in the Booking.com Extranet, enter the Hotel ID, and map Booking.com rooms to the correct SympleHost listing.
 
 ### How do I edit a listing after creating it?
 Go to **Listings**, click on the listing you want to change, then click **Edit**. You can update the name, description, photos, amenities, house rules, and other details.
@@ -73,25 +70,19 @@ Yes. In your listing's pricing settings, you can configure guest-count pricing �
 ### What happens if two rate plans overlap the same dates?
 SympleHost prevents overlapping date ranges automatically. If you try to create a rate plan that conflicts with an existing one, you'll see an error. Adjust the dates to avoid the overlap.
 
-### How do I set pricing for each room type in a multi-unit property?
-Each unit or room type has its own pricing. Go to the unit's **Pricing** tab (accessible from the Units list on your property page) and set the rate there.
-
 ---
 
-## Multi-Unit Properties
+## Guesthouses & Boutique Hotels
 
-### How do I add rooms or units to an existing multi-unit listing?
-Go to **Listings → [Your Listing] → Units** tab and click **+ Add Unit**. Fill in the unit name, number, capacity, bed configuration, and photos.
-→ See: *Adding a Multi-Unit Listing Manually*
+### How do I add more rooms to an existing guesthouse or boutique hotel listing?
+Open the listing, click **Edit**, and increase **Number of units**. The calendar immediately uses the new total when it works out how many units are available each night.
+→ See: *Setting Up a Guesthouse or Boutique Hotel with Several Rooms*
 
-### Can I set different prices for different room types?
-Yes. Each unit has its own pricing. Go to the unit's **Pricing** tab to set its individual rate.
+### How do I take one room out of rotation for maintenance?
+Open **Calendars → Properties**, select the dates, and use **Block day** to block one room. The other rooms stay bookable.
 
-### Can I deactivate a single unit without deactivating the whole property?
-Yes. On the **Units** tab, each unit has its own **Active** toggle. Switch it off to take that unit out of rotation.
-
-### How does Booking.com sync work with multi-unit listings?
-SympleHost maps each Booking.com room type to the correct SympleHost unit and rate plan. Open **Channel Manager**, choose **Booking.com**, complete the Channex.io pre-flight checks, then map rooms during the Booking.com connection flow. Availability, rates, and bookings sync through Channex.io after setup.
+### How does Booking.com sync work for a property with several rooms?
+Map the Booking.com room and rate plan to your SympleHost listing during the Booking.com connection flow. **Number of units** on the listing is the inventory Booking.com sees, and the calendar adjusts the available count as rooms are booked or blocked. Availability, rates, and bookings sync through Channex.io after setup.
 
 ### My Booking.com sync failed. What should I check?
-The most common cause is missing **bed configuration** on one or more units. Open each unit and make sure specific bed types are selected (e.g. "1 Queen bed") — a generic bed count isn't enough for Booking.com.
+The most common cause is missing **bed configuration**. Open the listing and make sure specific bed types are selected (e.g. "1 Queen bed") — a generic bed count isn't enough for Booking.com.

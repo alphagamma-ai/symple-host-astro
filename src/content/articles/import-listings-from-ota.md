@@ -114,7 +114,7 @@ During setup, progress can appear in several places:
 
 These messages are temporary and only appear while a real import is running or needs attention, so your screen may move directly to the completed connection view.
 
-Do not start the same import again just because setup is still in progress. Larger or multi-unit listings can take several minutes while SympleHost creates rooms, rate plans, availability, pricing, and channel mappings.
+Do not start the same import again just because setup is still in progress. Larger listings, or properties with several rooms, can take several minutes while SympleHost creates rooms, rate plans, availability, pricing, and channel mappings.
 
 > **Give the first sync time to finish.** SympleHost shows the setup status while it sends availability, rates, reservations, and restrictions between systems. During this initial sync, an OTA calendar may temporarily appear blocked or not yet show the latest availability. This is a protective state while the calendars reconcile, not necessarily a problem with the connection. Owner blocks can also take a little time to reach every connected channel. Wait until the listing changes from **Setting up** to **Live / In sync**, then refresh the OTA calendar and check again before changing mappings or reconnecting the account.
 
@@ -170,12 +170,12 @@ SympleHost will notify you when the connection is approved.
 After approval:
 
 1. Open the Booking.com connection in Channel Manager.
-2. Match each Booking.com room or room type to the correct SympleHost property or unit.
+2. Match each Booking.com room or room type to the correct SympleHost listing.
 3. Match the correct rate plans.
 4. Review availability and pricing before starting sync.
 5. Save the mappings and complete the sync step.
 
-Do not map different physical rooms to the same SympleHost unit unless they genuinely share inventory.
+Do not map different room types to the same SympleHost listing unless they genuinely share the same rooms and **Number of units**.
 
 ## Connect Other Booking Platforms
 
@@ -186,7 +186,7 @@ For VRBO, Expedia, Agoda, MakeMyTrip, and Trip.com:
 3. Choose the platform.
 4. Enter the requested login, verification code, Extranet ID, Hotel ID, hotel code, or API credentials.
 5. Complete any connectivity-provider approval required in the OTA portal.
-6. Map the OTA listing, rooms, and rate plans to the correct SympleHost property or units.
+6. Map the OTA listing, rooms, and rate plans to the correct SympleHost listing.
 7. Start the sync and confirm the connection becomes live.
 
 The screens vary by platform, but the operating rule is the same: **connect the account, map the correct inventory, then verify sync health**.
@@ -234,7 +234,7 @@ Confirm that the Hotel ID is correct and that **Channex.io** is approved as the 
 
 ### A room is connected to the wrong property
 
-Stop before syncing more changes. Open the channel connection, review the room mapping, and match it to the correct SympleHost property or unit.
+Stop before syncing more changes. Open the channel connection, review the room mapping, and match it to the correct SympleHost listing.
 
 ### Availability or rates are not updating
 
@@ -248,6 +248,6 @@ Your role may not have permission to manage listings or channel connections. Ask
 
 - [How to Link Property Calendars](/platform-guides/link-property-calendars/)
 - [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
-- [Adding a Multi-Unit Listing Manually](/platform-guides/add-multi-unit-listing-for-bookingcom/)
+- [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/)
 - [How to Set Up Your Pricing & Rate Rules](/platform-guides/set-up-pricing-and-rate-rules/)
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)

@@ -65,7 +65,7 @@ India is not an Airbnb-only market. Ask which channels connect directly or throu
 Do not accept “supports Booking.com” as a complete answer. Check:
 
 - room and rate-plan mapping
-- multi-unit inventory
+- room inventory for guesthouses and boutique hotels with several rooms
 - taxes and fees
 - minimum stays and restrictions
 - reservation modifications and cancellations
