@@ -276,6 +276,10 @@ type ArticleText = {
 export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
   en: {},
   jp: {
+    'get-ical-link-add-to-google-calendar': {
+      title: 'リスティングのiCalリンクを取得してGoogleカレンダーに追加する',
+      description: 'SympleHostのCalendar syncタブでリスティングのiCal exportリンクを生成・コピーし、Googleカレンダーに追加してブロック済みの日付を確認します。',
+    },
     'airbnb-replies-show-listing-owner-name': {
       title: 'SympleHostから送ったAirbnbの返信がリスティング所有者の名前で表示される理由',
       description: 'SympleHostから送ったメッセージは、書いた共同ホストではなく、リスティングを所有するAirbnbアカウントの名前で表示されます。理由と、返信に署名を入れる回避策を説明します。',
@@ -486,6 +490,10 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
     },
   },
   id: {
+    'get-ical-link-add-to-google-calendar': {
+      title: 'Cara Mendapatkan Link iCal Listing dan Menambahkannya ke Google Calendar',
+      description: 'Buat dan salin link iCal export listing dari tab Calendar sync di SympleHost, lalu tambahkan ke Google Calendar untuk melihat tanggal yang diblokir.',
+    },
     'airbnb-replies-show-listing-owner-name': {
       title: 'Mengapa Airbnb Menampilkan Nama Pemilik Listing pada Balasan dari SympleHost',
       description: 'Airbnb menampilkan pesan dari SympleHost atas nama akun pemilik listing, bukan co-host yang menulisnya. Pelajari alasannya dan cara menandatangani balasan.',

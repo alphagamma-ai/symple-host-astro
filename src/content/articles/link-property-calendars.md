@@ -189,3 +189,4 @@ Your role may not have permission to manage listings and linked calendars. Ask t
 - [How to Manage Bookings & Your Calendar](/platform-guides/manage-bookings-and-calendar/)
 - [Setting Up a Guesthouse or Boutique Hotel with Several Rooms](/platform-guides/set-room-quantity-for-guesthouses-and-boutique-hotels/)
 - [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
+- [How to Get a Listing's iCal Link and Add It to Google Calendar](/platform-guides/get-ical-link-add-to-google-calendar/)
