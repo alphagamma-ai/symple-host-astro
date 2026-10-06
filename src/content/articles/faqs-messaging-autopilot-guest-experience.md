@@ -32,6 +32,10 @@ You can read and reply, translate guest messages, auto-translate your replies, a
 
 Yes. Once WhatsApp is connected, replies sent from the WhatsApp conversation in **Messages** go back to the guest through WhatsApp.
 
+### Why does Airbnb show a different name on replies I send from SympleHost?
+
+Airbnb shows every message sent through connected hosting software under the Airbnb account that owns the listing, even if a co-host wrote it. SympleHost can't change the sender name, and the message still reaches the guest normally. Sign your replies by name and add a sign-off to your automated messages. See [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/).
+
 ### Can I reply to Instagram DMs from SympleHost?
 
 Yes, after Instagram is connected and the guest has messaged your business or creator account first. Meta does not allow a business to initiate a new Instagram DM to a user who has never messaged it.

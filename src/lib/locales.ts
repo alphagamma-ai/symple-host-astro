@@ -276,6 +276,14 @@ type ArticleText = {
 export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
   en: {},
   jp: {
+    'airbnb-replies-show-listing-owner-name': {
+      title: 'SympleHostから送ったAirbnbの返信がリスティング所有者の名前で表示される理由',
+      description: 'SympleHostから送ったメッセージは、書いた共同ホストではなく、リスティングを所有するAirbnbアカウントの名前で表示されます。理由と、返信に署名を入れる回避策を説明します。',
+    },
+    'handle-multi-day-multi-service-requests': {
+      title: '複数日・複数サービスのリクエストを受けて一度で請求する',
+      description: 'ゲストからの複数日・複数サービスのリクエストを受け、スタッフの空きを確認してから、1つの見積もりと1回の支払い（オンラインまたは銀行振込）で確定します。',
+    },
     'set-room-quantity-for-guesthouses-and-boutique-hotels': {
       title: '複数の客室があるゲストハウス・ブティックホテルを設定する',
       description: '1つの独立した物件として作成し、Number of units（ユニット数）を設定すると、SympleHostのカレンダーが在庫を管理します。',
@@ -478,6 +486,14 @@ export const articleCopy: Record<Locale, Record<string, ArticleText>> = {
     },
   },
   id: {
+    'airbnb-replies-show-listing-owner-name': {
+      title: 'Mengapa Airbnb Menampilkan Nama Pemilik Listing pada Balasan dari SympleHost',
+      description: 'Airbnb menampilkan pesan dari SympleHost atas nama akun pemilik listing, bukan co-host yang menulisnya. Pelajari alasannya dan cara menandatangani balasan.',
+    },
+    'handle-multi-day-multi-service-requests': {
+      title: 'Menerima Permintaan Beberapa Layanan untuk Beberapa Hari dan Menagih Sekali',
+      description: 'Terima permintaan beberapa layanan untuk beberapa hari, pastikan tim Anda tersedia, lalu kirim satu penawaran dan terima satu pembayaran, online atau transfer bank.',
+    },
     'set-room-quantity-for-guesthouses-and-boutique-hotels': {
       title: 'Menyiapkan Guesthouse atau Hotel Butik dengan Beberapa Kamar',
       description: 'Buat satu properti mandiri (Standalone), atur Number of units, dan biarkan kalender SympleHost mengelola inventaris tersebut.',
