@@ -133,8 +133,6 @@ Service quotes are useful for:
 - paid extras that need a separate approval before payment
 - customised packages that are not part of the accommodation booking
 
-💡 **Tip:** If a guest wants several services across different days and you need to confirm staff first, see [Take Multi-Day, Multi-Service Requests and Charge Once](/platform-guides/handle-multi-day-multi-service-requests/).
-
 ---
 
 ## Add Discounts and Custom Items
@@ -251,5 +249,4 @@ Open the quote and check the expiration date. If it has expired, duplicate or re
 - [Managing Partial Payments and Deposits](/platform-guides/partial-payments-and-deposits/)
 - [How to Add a Direct Booking](/platform-guides/adding-direct-bookings/)
 - [Creating & Managing Services](/platform-guides/creating-and-managing-services/)
-- [Take Multi-Day, Multi-Service Requests and Charge Once](/platform-guides/handle-multi-day-multi-service-requests/)
 - [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
