@@ -527,6 +527,8 @@ Use these patterns as a starting point:
 
 If the guest should pay immediately, use a published checkout flow. If the team needs to confirm details first, use on-demand, custom arrangement, or a quote workflow before taking final payment.
 
+For guests who want several services across several days in one request, see [Take Multi-Day, Multi-Service Requests and Charge Once](/platform-guides/handle-multi-day-multi-service-requests/).
+
 ---
 
 ## Automations for Services
@@ -610,3 +612,4 @@ Service pricing uses your account currency. Open the top-right profile menu, the
 - [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
 - [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
 - [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+- [Take Multi-Day, Multi-Service Requests and Charge Once](/platform-guides/handle-multi-day-multi-service-requests/)

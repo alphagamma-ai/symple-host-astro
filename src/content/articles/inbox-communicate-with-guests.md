@@ -274,6 +274,10 @@ The current channel may not support attachments in SympleHost.
 
 Auto-translate appears only when SympleHost detects a guest language that differs from your interface language.
 
+### Airbnb shows my reply under another host's name
+
+Airbnb shows messages sent from SympleHost under the account that owns the listing, not the co-host who wrote them. Sign your replies by name so guests know who is writing. See [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/).
+
 ### A conversation link opens blank
 
 Refresh the page. If the link is stale or the thread was removed, SympleHost returns you to the conversation list and shows a warning.
@@ -288,3 +292,4 @@ Refresh the page. If the link is stale or the thread was removed, SympleHost ret
 - [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
 - [How to Create and Manage Quotes](/platform-guides/how-to-create-and-manage-quotations/)
 - [How to Check Reservations in the Reservations Module](/platform-guides/check-reservations-in-reservations-module/)
+- [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/)

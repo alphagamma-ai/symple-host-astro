@@ -175,3 +175,4 @@ Set **Messages → Autopilot** to **Suggestion**. That keeps AI drafting availab
 - [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
+- [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/)
