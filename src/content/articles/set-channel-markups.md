@@ -65,7 +65,7 @@ Repeat these steps for each OTA and each listing that needs a markup.
 
 ## See the Markup in the Channels Tab
 
-You can also see a listing's markup from the **Channels** tab in Channel Manager. Open the OTA connection from the Channels table. In the connection panel, each row under **Mapped listings** shows the markup as a pill, such as **+130.0%**.
+You can also see a listing's markup from the **Channels** tab in Channel Manager. Click **Edit** on the OTA row in the Channels table. In the connection panel, each row under **Mapped listings** shows the markup as a pill, such as **+130.0%**.
 
 ![Airbnb connection panel showing the mapped listing Airbnb flat with its listing ID, In sync status, a +130.0% markup pill, and Pricing, Settings, and Disconnect buttons](/screenshots/set-channel-markups/04-connection-panel-markup-pill.png)
 

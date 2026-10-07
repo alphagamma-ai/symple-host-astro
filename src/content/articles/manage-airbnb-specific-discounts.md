@@ -37,7 +37,7 @@ To change or remove a discount like this, do it in Airbnb.
 SympleHost has its own pricing settings for each OTA. These are separate from Airbnb's own discounts:
 
 - **Markup:** a percentage added to the rate for one listing on one OTA. See [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/).
-- **Length-of-stay discounts:** set in SympleHost. In **Channel Manager**, open the OTA connection from the **Channels** tab, click **Settings** on the mapped listing, and use **+ Add discount rule** under **LENGTH-OF-STAY DISCOUNTS** on the **Price** tab. See [How to Check a Listing's Settings for Each OTA](/platform-guides/check-listing-settings-per-ota/).
+- **Length-of-stay discounts:** set in SympleHost. In **Channel Manager**, click **Edit** on the OTA row in the **Channels** tab, click **Settings** on the mapped listing, and use **+ Add discount rule** under **LENGTH-OF-STAY DISCOUNTS** on the **Price** tab. See [How to Check a Listing's Settings for Each OTA](/platform-guides/check-listing-settings-per-ota/).
 
 ## Check the Final Guest Price on Airbnb
 

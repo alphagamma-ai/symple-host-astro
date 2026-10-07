@@ -91,7 +91,7 @@ Click **Save changes** to save, or **Close** to leave the panel.
 ### Open the OTA Connection
 
 1. Click the **Channels** tab.
-2. Find the OTA in the Channels table and open its connection. Each row has an **Edit** button.
+2. Find the OTA in the Channels table and click **Edit** on its row. The connection panel opens on the right.
 
 ![Channel Manager Channels tab with the summary bar, Connect OTA button, and the Channels table listing two Airbnb connections and a Booking.com connection with their Structure, Covers, and Sync status, and an arrow pointing to the Listing mapping tab](/screenshots/check-listing-settings-per-ota/04-channels-tab.png)
 
