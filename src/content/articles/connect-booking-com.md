@@ -82,11 +82,9 @@ An approved connection still needs correct mappings and a successful sync. Check
 
 ## Set a Markup for Booking.com
 
-Open the connection in **Channel Manager**, find the mapped listing or room, and click **Set markup** or the existing percentage. Enter your percentage and click **Save**.
+To set or change a markup for Booking.com, follow [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/). It has the current steps, screenshots, and example calculations.
 
-This markup applies to the selected channel mapping. Review each mapped room or listing separately.
-
-See [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/) for screenshots, calculations, and instructions for changing or resetting a markup.
+A markup applies to one listing on one channel. Review each mapped room or listing separately.
 
 ## Troubleshooting
 
