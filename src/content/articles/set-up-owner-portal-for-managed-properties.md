@@ -74,6 +74,8 @@ You can connect owners from the property owner access area or from **Settings â†
 5. Select the managed properties this owner should access.
 6. Send the invitation or save the access change.
 
+**Owner sign-in after the first time.** The invitation link works only once. When the owner finishes signing up, SympleHost takes them to their own Owner Portal login page. Each owner's page is different, so ask them to bookmark it. If they lose it, you can share their owner login link with them again.
+
 Owners only see the properties shared with their account. If one owner should see two villas and another owner should see only one, select the property access accordingly.
 
 If a property is not marked as managed yet, mark it as managed and save the management fee before inviting the owner.
@@ -195,6 +197,9 @@ Once an expense has been sent for owner approval, key details are locked to prot
 
 ### The property does not appear in Owner Reports
 Open the property's **Settings** tab and confirm **Mark as managed property** is enabled and saved.
+
+### The owner's invitation link doesn't work
+The invitation link works only once. Ask the owner to open their own owner login page (the page they landed on after signing up, or the link you shared) and click **Forgot password?** to reset their password.
 
 ### The owner cannot see a property
 Check the owner's team profile and confirm the property is selected in their listing access.
