@@ -9,13 +9,13 @@ tags:
   - Roles
   - Permissions
   - Setup
-date: 2026-04-09T00:00:00.000Z
+date: '2026-10-11'
 draft: false
 ---
 
 ## What Are Team Members & Roles?
 
-Team members are the people you invite to help manage your SympleHost account — from a co-host who handles guest communications to a cleaner who just needs to see the schedule. Each person gets a **role** that controls what they can access.
+Team members are the people you invite to help manage your SympleHost account — from a co-host who handles guest communications to a cleaner who just needs to see the schedule. People who sign in get a **role** that controls what they can access. People who only need their schedule can get a **Workforce portal** link instead — or both.
 
 Think of roles like keys to different rooms in your house — everyone on your team gets a key, but each key only opens the doors they need.
 
@@ -23,12 +23,25 @@ Think of roles like keys to different rooms in your house — everyone on your t
 
 ## Available Roles
 
-* **Account Admin** — Full access to everything — listings, bookings, billing, team management, and settings. For business partners or operations managers who need complete control.
-* **Account Manager** — Manage listings, bookings, and guest communications. Can handle day-to-day operations but can't manage team members or billing.
-* **Booking Coordinator** — Handle bookings and guest inquiries. Great for front-desk staff or virtual assistants focused on reservations.
-* **Staff** — Limited access for support and operational tasks. Ideal for cleaners, maintenance workers, or part-time helpers who need to see schedules but not change settings.
+When **Platform access** is turned on, you choose what the person does:
+
+* **Account Admin** — Full access to all features including team management.
+* **Account Manager** — Manage listings, bookings, and guest communications.
+* **Booking Coordinator** — Handle bookings and guest inquiries.
+* **Property Owner** — External partner who owns one or more listings — full visibility on their listings, no platform admin. See [Set Up the Owner Portal for Managed Properties](/platform-guides/set-up-owner-portal-for-managed-properties/).
 
 **Tip:** The **Account Owner** (that's you, if you created the account) has full access that can't be restricted. Only Account Admins can manage team members.
+
+***
+
+## Platform Access or Workforce Portal
+
+Under **What do they get?** you can turn on either option, or both — someone can work shifts and use the platform.
+
+* **Platform access** — they sign in and use the dashboard, with one of the roles above.
+* **Workforce portal** — they get a link to their own schedule. No sign-in needed. Choose the work they do, such as Cleaning, Maintenance, Operations, Tour guide, Instructor, Therapist, Chef, Driver, or General. The portal always shows the same thing: their own schedule.
+
+See [Add Workforce Members and Share the Cleaner Portal](/platform-guides/add-workforce-members-and-share-cleaner-portal/) for the workforce setup.
 
 ***
 
@@ -38,23 +51,18 @@ Prefer a quick demo? Watch [Invite Team Members](/videos/invite-team-members/) (
 
 1. Click your **profile photo or name** in the top right, then choose **Settings**.
 2. Click **Team Members**.
+3. Add a new member. The **Add a team member** page opens.
+4. Fill in their **Basic Information**: **Full Name**, **Email Address**, and **Phone Number**.
+5. Under **What do they get?**, turn on **Platform access**, **Workforce portal**, or both:
+   * **Platform access** — under **What do they do?**, pick **Account Admin**, **Account Manager**, **Booking Coordinator**, or **Property Owner**, then click **Done**.
+   * **Workforce portal** — under **What work do they do?**, pick the work type(s), then click **Done**.
 
-   You'll see a list of everyone currently on your team, with their name, email, role, and status.
-3. Click **Add Team Member** (the button in the top right).
-4. Fill in their **Basic Information**:
-   * **Full Name** — their full name as it should appear in the system
-   * **Email Address** — they'll use this to log in
-   * **Phone Number** — for account recovery and notifications
-5. Choose their **Role**:
-   * **Account Admin** — full access to all features including team management
-   * **Account Manager** — manage listings, bookings, and guest communications
-   * **Booking Coordinator** — handle bookings and guest inquiries
-   * **Staff** — limited access for support and operational tasks
-   Each role shows a short description underneath to help you decide.
-6. Choose an **Activation Method**:
-   * **Send Invitation Email** (recommended) — the team member receives an email with a link to set their own password and activate their account
-   * **Instant Activation** — you set a password for them right now, and their account is active immediately. You'll need to enter and confirm a password, and check the box confirming they accept the Terms and Conditions.
-7. Click **Save**.
+   ![Add a team member page with Platform access turned on, showing the four roles](/screenshots/add-team-members-and-roles/add-team-member-platform-access.png)
+
+   ![Add a team member page with Workforce portal turned on, showing work types](/screenshots/add-team-members-and-roles/add-team-member-workforce-portal.png)
+6. Under **Team chat access**, turn on **Allow access to team chat** if this member should message eligible teammates and join internal channels.
+7. Under **Which properties?**, choose **All properties** or **Only the ones I choose**.
+8. Finish the form and save.
 
 ***
 
@@ -103,7 +111,7 @@ Check that the email address was entered correctly. Ask them to check their spam
 
 ### A team member can see things they shouldn't
 
-Check their role — they may have been assigned a broader role than intended. Edit their profile and change them to a more restrictive role like **Booking Coordinator** or **Staff**.
+Check their role — they may have been assigned a broader role than intended. Edit their profile and change them to a more restrictive role like **Booking Coordinator**, or limit their properties under **Which properties?**
 
 ### I want to temporarily disable someone's access without deleting them
 

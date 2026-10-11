@@ -206,7 +206,7 @@ If a PriceLabs or other revenue management integration owns OTA rates, do not us
 ## Troubleshooting
 
 ### I don't see the Price Settings tab on my listing
-Make sure you've saved the listing first — Price Settings only appears on listings that have been fully created, not drafts. Pricing is also only visible to roles that can manage listings, typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to open the top-right profile menu and update your role under **Settings → Team**.
+Make sure you've saved the listing first — Price Settings only appears on listings that have been fully created, not drafts. Pricing is also only visible to roles that can manage listings, typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator**, ask your account owner to open the top-right profile menu and update your role under **Settings → Team**.
 
 ### I can't delete the Standard Rate
 The Base Rate / Standard Rate is your default rate plan and can't be removed. It ensures there is always a fallback price. You can edit its price and name, but not delete it.

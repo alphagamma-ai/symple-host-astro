@@ -111,7 +111,7 @@ If you know what you're looking for but can't remember where it lives, use the *
 - **Feature-based visibility** — Some sections only show when they are enabled for your account.
 - **Active page highlight** — The current page is highlighted in the sidebar so you always know where you are.
 - **Settings is separate** — Think of Settings as the "behind the scenes" area. Day-to-day work happens in the main sidebar; one-time configuration starts from the top-right profile menu.
-- **Role-based visibility** — Some menu items may not appear for all team members. What you see depends on your role and permissions. Account Admins see everything; Staff members see a focused view.
+- **Role-based visibility** — Some menu items may not appear for all team members. What you see depends on your role and permissions. Account Admins see everything; Property Owners get full visibility on their listings, with no platform admin.
 
 ---
 

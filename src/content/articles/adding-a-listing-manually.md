@@ -87,7 +87,7 @@ Before you connect Booking.com, Expedia, Agoda, VRBO, or other channels through 
 ## Troubleshooting
 
 ### I don't see the "+ New Property" button
-The **+ New Property** button is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator** or **Staff**, ask your account owner to update your role under **Settings** → **Team Members**.
+The **+ New Property** button is only visible to roles that can manage listings — typically **Account Owner**, **Account Admin**, or **Account Manager**. If your role is **Booking Coordinator**, ask your account owner to update your role under **Settings** → **Team Members**.
 
 ### Address search isn't working
 Switch to manual entry — fill in the **Street Address**, **City**, and **Country** fields directly instead of using the search bar.

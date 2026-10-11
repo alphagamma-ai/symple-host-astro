@@ -41,17 +41,21 @@ There are two common ways to add the person.
 6. Add extra capabilities if the same person handles more than one type of work.
 7. Save the invite.
 
-This creates the person as a **staff** team member with workforce capability.
+This creates the person as a **workforce member**.
 
 ### Option 2: From Settings Team
 
 1. Click your profile in the top right.
 2. Open **Settings**.
-3. Go to **Team → Members**.
-4. Add or edit the team member.
-5. Set the role to **Staff**.
-6. Save the member.
-7. Open **Operations → Workforce** to confirm the person appears, then update their workforce role or capabilities from the workforce member detail page if needed.
+3. Go to **Team Members** and add a member (or edit an existing one with the pencil **Edit** icon).
+4. Under **What do they get?**, turn on **Workforce portal**.
+5. Under **What work do they do?**, choose the work type(s), such as **Cleaning**, **Maintenance**, or **Operations**, then click **Done**.
+6. Finish the form and save.
+7. Open **Operations → Workforce** to confirm the person appears.
+
+The same person can also have **Platform access** if they need to sign in and use the dashboard. See [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/).
+
+The **Operations → Workforce** list shows each member's name, email, work type badge (for example **Task · Cleaning** or **Service · Tour guide**), status (**Active** or **Invited**), and a **Copy portal link** button. Use the **All**, **Tasks**, and **Services** filters or **Search workforce** to find someone.
 
 Use Settings when you also need to control data access, listing access, or broader account permissions. Use **Operations → Workforce** for the workforce-specific setup, including cleaner roles, extra capabilities, staff portal links, assignments, and working schedule.
 
@@ -123,7 +127,7 @@ This keeps the team conversation cleaner and gives managers a reliable operation
 
 ### The person does not appear in Workforce
 
-Check that the team member has the **Staff** role and a workforce type or capability, such as cleaning, maintenance, operations, inspection, or a service workforce role. The fastest route is usually **Operations → Workforce → Invite** because it creates the person as staff and asks for their workforce role in the same flow.
+Check that the team member has **Workforce portal** turned on with a work type, such as cleaning, maintenance, operations, inspection, or a service workforce role. The fastest route is usually **Operations → Workforce → Invite** because it creates the person as a workforce member and asks for their workforce role in the same flow.
 
 ### The cleaner cannot open the portal
 
