@@ -40,7 +40,7 @@ On **Connect your VRBO account**:
 1. Enter your VRBO **Username**.
 2. Enter your VRBO **Password**.
 3. Under **Minimum stay applies to**, choose **Arrival date only** (selected by default) or **Every night of the stay**. VRBO needs this before your rates can go live. Most hosts use arrival date only.
-4. Click **Sign in**. To pick a different channel, click **Back**.
+4. Click **Sign in**.
 
 ![Connect your VRBO account screen with Username and Password fields, Minimum stay applies to options, and Back and Sign in buttons](/screenshots/connect-vrbo/02-connect-account.png)
 
