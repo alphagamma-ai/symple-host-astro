@@ -211,7 +211,7 @@ The goal is simple: the assignee should know what success looks like before open
 
 ### I cannot see Operations or Command Center
 
-Your role may not have access. Staff users may only see their assigned work, while account admins and managers can usually see broader Operations tools.
+Your role may not have access. Workforce members see only their own schedule through their portal link, while account admins and managers can usually see broader Operations tools.
 
 ### I cannot create the task
 

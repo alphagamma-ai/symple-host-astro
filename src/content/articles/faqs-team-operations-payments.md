@@ -20,16 +20,16 @@ Go to **Settings → Team Members** and click **Invite Member**. Enter their nam
 → See: *How to Add Team Members & Assign Roles*
 
 ### What roles are available?
-SympleHost has four roles: **Account Admin** (full access), **Account Manager** (manages listings, bookings, guests), **Booking Coordinator** (handles reservations and guest communication), and **Staff** (limited access for tasks like cleaning).
+People with platform access get one of four roles: **Account Admin** (full access to all features including team management), **Account Manager** (manages listings, bookings, and guest communications), **Booking Coordinator** (handles bookings and guest inquiries), and **Property Owner** (full visibility on their listings, no platform admin). For cleaners and other shift workers, turn on the separate **Workforce portal** option instead — they get a link to their own schedule with no sign-in needed. See [How to Add Team Members & Assign Roles](/getting-started/add-team-members-and-roles/).
 
 ### Can I change someone's role after inviting them?
-Yes. Go to **Settings → Team Members**, click the team member, and update their role and permissions.
+Yes. Go to **Settings → Team Members**, click the **Edit** (pencil) icon next to the member, and update their role and permissions.
 
 ### How do I remove a team member?
 Go to **Settings → Team Members**, find the person, and remove them from the account.
 
 ### Why can't my team member see certain menu items?
-SympleHost uses role-based access. What each person sees depends on their role and permissions. For example, Staff members see a focused view with just their tasks, while Account Admins see everything.
+SympleHost uses role-based access. What each person sees depends on their role and permissions. For example, workforce members see only their own schedule through their portal link, while Account Admins see everything.
 
 ### What are external resources?
 External resources are contractors or third-party workers (like freelance cleaners) who aren't part of your core team. Manage them in **Settings → Team → External Resources**.
