@@ -111,7 +111,7 @@ Payments are only one part of direct booking readiness. Also review:
 
 - **Settings → Direct Bookings → Deposits**
 - **Settings → Direct Bookings → Cancellation Policy**
-- **Settings → Direct Bookings → Fees & Taxes**
+- **Settings → Direct Bookings → Fees & Taxes** (see [How to Set Up Fees and Taxes for Direct Bookings](/platform-guides/set-up-fees-and-taxes/))
 - **Settings → Direct Bookings → Guest Contact**
 - **Settings → Direct Bookings → Host Profile & Contact**
 
