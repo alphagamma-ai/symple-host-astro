@@ -27,6 +27,7 @@ For these channels, approve **Channex.io** as the connectivity provider in the O
 - [Connect Expedia](/getting-started/connect-expedia/)
 - [Connect Agoda](/getting-started/connect-agoda/)
 - [Connect Trip.com](/getting-started/connect-trip-com/)
+- [Connect MakeMyTrip](/getting-started/connect-makemytrip/)
 
 For VRBO, see [How to Connect VRBO to SympleHost](/getting-started/connect-vrbo/) — it uses your VRBO login and a verification code.
 
