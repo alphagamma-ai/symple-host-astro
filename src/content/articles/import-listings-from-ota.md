@@ -28,6 +28,8 @@ For these channels, approve **Channex.io** as the connectivity provider in the O
 - [Connect Agoda](/getting-started/connect-agoda/)
 - [Connect Trip.com](/getting-started/connect-trip-com/)
 
+For VRBO, see [How to Connect VRBO to SympleHost](/getting-started/connect-vrbo/) — it uses your VRBO login and a verification code.
+
 After connecting, use [How to Set Markups for All OTAs](/platform-guides/set-channel-markups/) to adjust each channel's prices.
 
 ## Choose the Right Starting Point
