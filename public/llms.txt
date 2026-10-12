@@ -4,7 +4,8 @@
 
 Site: https://help.symplehost.ai
 Product: https://www.symplehost.ai
-Partner API docs: https://help.symplehost.ai/partner-api.html
+Partner API reference: https://help.symplehost.ai/partner-api-scalar.html
+Partner API guide (worked examples): https://help.symplehost.ai/partner-api.html
 OpenAPI: https://help.symplehost.ai/openapi.json
 Developers: https://help.symplehost.ai/developers
 CLI: https://www.npmjs.com/package/symplehost (npm install -g symplehost)
@@ -33,7 +34,7 @@ Do not use this site for:
 1. Start at `/` or this `llms.txt` for orientation.
 2. Prefer article URLs under `/{category}/{slug}` and the parallel raw markdown at `/{category}/{slug}.md` (e.g. `/platform-guides/setting-up-autopilot.md`).
 3. Request `Accept: text/markdown` when available for compact text; otherwise use HTML (content is server-rendered).
-4. For partner integrations, read `/developers`, `/partner-api.html`, and `/openapi.json`.
+4. For partner integrations, read `/developers` and `/openapi.json` (the contract); `/partner-api-scalar.html` renders every endpoint, `/partner-api.html` has worked examples for the core ones.
 5. If a path 404s, recover via the sitemap, this file, or the homepage category grid.
 
 ## Key sections

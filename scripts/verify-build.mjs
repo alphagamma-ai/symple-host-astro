@@ -125,6 +125,23 @@ await check(
   },
 );
 
+await check("Partner API spec copies agree (run `pnpm run sync:spec` to refresh)", async () => {
+  const versions = {};
+  for (const path of ["openapi.json", "api/openapi.json"]) {
+    const spec = JSON.parse(await readFile(resolve(DIST, path), "utf8"));
+    versions[path] = `${spec.info?.version} / ${Object.keys(spec.paths ?? {}).length} paths`;
+  }
+  for (const path of ["openapi.yaml", "partner-api/openapi.yaml"]) {
+    const text = await readFile(resolve(DIST, path), "utf8");
+    const version = text.match(/^info:\n(?:[ \t].*\n|\n)*?[ \t]+version:\s*["']?([^"'\n]+)/m)?.[1];
+    const paths = text.match(/^ {2}\/\S*:\s*$/gm)?.length ?? 0;
+    versions[path] = `${version} / ${paths} paths`;
+  }
+  if (new Set(Object.values(versions)).size !== 1) {
+    throw new Error(`copies disagree: ${JSON.stringify(versions)}`);
+  }
+});
+
 if (failures.length > 0) {
   console.error(`\n${failures.length} check(s) failed`);
   process.exit(1);
