@@ -3,7 +3,7 @@ title: Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost
 description: Airbnb shows messages sent from SympleHost under the account that owns the listing, not the co-host who wrote them. Learn why, and how to sign replies so guests know who is writing.
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 6
+sectionOrder: 9
 tags:
   - Airbnb
   - Messages

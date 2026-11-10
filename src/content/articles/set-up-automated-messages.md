@@ -3,7 +3,7 @@ title: 'Scheduled Messages and Variables: Send the Right Message at the Right Ti
 description: 'Set up automation templates for booking confirmations, check-in details, checkout reminders and review requests, use variables so each message fills itself in, and check every message in Outgoing before it goes out.'
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 4
+sectionOrder: 3
 tags:
   - Scheduled Messages
   - Automated Messages
@@ -12,6 +12,8 @@ tags:
 date: '2026-11-11'
 draft: false
 ---
+
+> 📘 **Step 3 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 **Scheduled messages go out on their own at set moments in a guest's stay, like a booking confirmation, check-in details the day before arrival, or a review request after checkout. You write each one once, and SympleHost fills in the guest's details and sends it for every booking.**
 
@@ -183,6 +185,10 @@ Check that the automation is switched on, and that **Pause all automated guest m
 ### The timing looks wrong
 
 Check **before** vs **after** in the **When** step. "24 hours before check-in" and "24 hours after check-in" are very different. Also check your account's time zone.
+
+---
+
+**Next step:** [Step 4 — Choose your Autopilot mode](/platform-guides/autopilot-off-suggestion-on/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 

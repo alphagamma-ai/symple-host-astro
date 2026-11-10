@@ -3,7 +3,7 @@ title: "Unified Inbox for Guest Messages in SympleHost"
 description: "Use SympleHost Messages as a unified guest inbox for WhatsApp, Instagram, Messenger, Gmail, OTA messages, AI replies, assignments, and escalations."
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 1
+sectionOrder: 6
 tags:
   - Inbox
   - Messages
