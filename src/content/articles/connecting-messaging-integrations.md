@@ -1,6 +1,6 @@
 ---
-title: Connecting Messaging Integrations
-description: Connect WhatsApp, Instagram, Facebook Messenger, LINE, and Gmail so guest conversations appear in SympleHost Messages.
+title: 'Connect WhatsApp, Instagram, Facebook, Gmail and Website Chat'
+description: 'Connect WhatsApp, Instagram, Facebook Messenger, LINE, Gmail and website chat so every guest conversation lands in SympleHost Messages.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 2
@@ -13,11 +13,11 @@ tags:
   - LINE
   - Gmail
   - Meta
-date: '2026-08-10'
+date: '2026-11-11'
 draft: false
 ---
 
-**Connect WhatsApp, Instagram, Facebook Messenger, LINE, and Gmail so guest messages land in SympleHost Messages.**
+**Connect WhatsApp, Instagram, Facebook Messenger, LINE, Gmail and website chat so guest messages land in SympleHost Messages.**
 
 ---
 
@@ -32,8 +32,27 @@ draft: false
 | Instagram | Instagram DMs and replies, subject to Meta's reply window | Meta Login for Business |
 | LINE | LINE guest messages and replies | LINE Messaging API credentials |
 | Gmail | Email threads in Messages, label filtering, direct replies from the inbox | Google OAuth + label selection |
+| Website chat | A chat bubble on your website, answered by Concierge (Pro plan and above) | Switch on and add to your site |
 
 > **Important:** Gmail is available for inbox visibility and replying, but Gmail is not yet connected to message automation. Use labels to control what appears in SympleHost.
+
+---
+
+## Where to Find Integrations
+
+The quickest way in is from Messages:
+
+1. Go to **Messages** in the sidebar.
+2. Click the **Settings** tab at the top.
+3. Click **Integrations** in the left menu.
+
+You can also open the top-right profile menu, click **Settings**, then **Integrations**. Both lead to the same page.
+
+![The Integrations page with Messaging cards for WhatsApp Business, Instagram DM, Facebook Messenger, Gmail and Website chat, each showing Connected or Available with a Manage or Connect button](/screenshots/connect-messaging-channels/integrations.png)
+
+Each card shows **Connected** or **Available**. Click **Connect** to set a channel up, or **Manage** to see its details.
+
+Airbnb, Booking.com and other booking sites aren't connected here. Their guest messages arrive through your booking-site connections.
 
 ---
 
@@ -78,6 +97,15 @@ The whole flow happens in two places: the **SympleHost Integrations page** to ki
 4. Find the **WhatsApp** card and click **Connect**.
 
 ![The Integrations page in Settings, showing WhatsApp, Instagram, Messenger, and Gmail cards side by side — each card has a Connect button when not yet linked, and a Manage or Disconnect button once connected](/screenshots/connecting-messaging-integrations/integrations-page-overview.png)
+
+SympleHost asks **How do you want to connect?**
+
+- **Register New Number**: use a number that isn't on WhatsApp yet, or one you've removed from the WhatsApp app. Follow Steps 2–8 below.
+- **Connect Existing Business App**: keep using the WhatsApp Business app on your phone and see the same chats in SympleHost. You keep the app, 6 months of chat history syncs in, and messages you send from the app stay free.
+
+To connect an existing Business app, you need WhatsApp Business app version 2.24.17 or newer, a number that has been active for at least 7 days, and your phone nearby to scan a QR code. In Meta's window, choose **Use existing WhatsApp Business App number** and scan the QR code with the app.
+
+⚠️ **Important:** Once connected this way, disappearing messages, view-once media, live location and broadcast lists are switched off in the WhatsApp Business app.
 
 A pop-up window opens. This is Meta's Embedded Signup — everything from here through the success screen happens in Meta's window, not in SympleHost.
 
@@ -202,6 +230,8 @@ You can disconnect either card independently — turning off Messenger does not 
 
 > 💡 **Instagram's 24-hour rule.** Meta only lets you reply to an Instagram DM within 24 hours of the guest's last message. After that, the conversation is closed until the guest messages you again. This is a Meta restriction, not a SympleHost limitation.
 
+> 💡 **WhatsApp has the same 24-hour rule.** You can reply freely within 24 hours of the guest's last message. After that, a normal reply shows **Not delivered**, and resending won't help. To reach the guest again, send an approved WhatsApp message template, or wait for them to message you.
+
 ---
 
 ## How to Connect LINE
@@ -267,6 +297,32 @@ Finish setup to run the first sync. Recent matching Gmail threads will appear in
 Open **Messages**, choose a Gmail conversation, and reply from the email composer. Gmail conversations use an email-style composer with recipient, subject, and message body fields, while chat channels use the normal chat composer.
 
 You can filter and search Gmail conversations from the inbox like other channels. You can also hide a Gmail message inside SympleHost if it is not relevant; this keeps the workspace cleaner without treating Gmail automation as live.
+
+---
+
+## How to Add Website Chat
+
+Website chat puts a chat bubble on your website. Concierge answers visitors' questions, and they can carry on the conversation on WhatsApp, LINE or email.
+
+Website chat is available on the **Pro plan and above**. If the card says it isn't available yet, contact us to switch it on for your account.
+
+1. On the Integrations page, click **Connect** on the **Website chat** card.
+2. Switch it on.
+3. Choose where it appears:
+   - **SympleHost websites**: no code needed. The bubble appears on the sites you pick.
+   - **Other websites** (WordPress, Wix, Squarespace and others): copy the embed code and paste it just before the closing `</body>` tag of your site, or send it to your web developer. Add your site's address under **Only allowed on these addresses**; the bubble won't appear on any address that isn't listed.
+4. Pick the bubble's position (bottom left or right), its colour, and a greeting of up to 280 characters.
+5. Under **Let visitors continue on**, choose WhatsApp, LINE and/or email.
+
+Who answers follows your Autopilot setting: Concierge replies on its own when Autopilot is **On**, drafts for you in **Suggestion**, and stays quiet when it's **Off**. See [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
+
+---
+
+## Disconnecting a Channel
+
+Click **Manage** on the channel's card, then **Disconnect**, and confirm with **Yes, disconnect**.
+
+Messages already in your inbox are kept, and you can reconnect at any time.
 
 ---
 
@@ -351,5 +407,7 @@ You can revoke at the Meta level too:
 ## Related Articles
 
 - [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+- [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/)
+- [Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)
