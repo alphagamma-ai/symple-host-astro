@@ -24,6 +24,22 @@ draft: false
 
 ---
 
+## The Setup Path at a Glance
+
+Set up Messages in this order. Click a step to open its full guide.
+
+| Step | What to do | Why it matters |
+| --- | --- | --- |
+| **[1. Connect your channels](/platform-guides/connecting-messaging-integrations/)** | Connect WhatsApp, Instagram, Messenger, Gmail, LINE or website chat. | Guest messages need to reach SympleHost before anything else can help. |
+| **[2. Set up your Concierge](/platform-guides/organise-concierge-knowledge/)** | Fill in listing details and guidebooks, upload one document per listing and a General document, add rules, then test. | Concierge only knows what you teach it. |
+| **[3. Set up scheduled messages](/platform-guides/set-up-automated-messages/)** | Create booking, arrival, checkout and review messages, using variables. | Routine messages go out on time without anyone typing them. |
+| **[4. Choose your Autopilot mode](/platform-guides/autopilot-off-suggestion-on/)** | Start with **Suggestion**, move to **On** when the drafts are reliably right. | You stay in control while Concierge earns your trust. |
+| **[5. Translate and keep teaching](/platform-guides/translate-and-teach-concierge/)** | Translate guest messages, click **Fix this** on wrong replies, answer Action Items. | Every correction makes the next answer better. |
+
+New to the inbox itself? See [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/).
+
+---
+
 ## How Messages Fits Together
 
 Everything lives under **Messages** in the sidebar, in four tabs:
