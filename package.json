@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
     "verify:build": "node scripts/verify-build.mjs",
+    "sync:spec": "node scripts/sync-partner-spec.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -31,6 +32,7 @@
     ]
   },
   "devDependencies": {
-    "pagefind": "1.5.2"
+    "pagefind": "1.5.2",
+    "yaml": "^2.8.3"
   }
 }
