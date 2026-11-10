@@ -1,178 +1,194 @@
 ---
-title: Set Up Automated Messages
-description: Create scheduled guest messages from your operating SOPs so confirmations, check-in instructions, checkout reminders, and review requests go out at the right time.
+title: 'Scheduled Messages and Variables: Send the Right Message at the Right Time'
+description: 'Set up automation templates for booking confirmations, check-in details, checkout reminders and review requests, use variables so each message fills itself in, and check every message in Outgoing before it goes out.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 4
 tags:
-  - Automated Messages
-  - Message Automation
   - Scheduled Messages
+  - Automated Messages
+  - Variables
   - Messaging
-  - SOP
-date: '2026-08-10'
+date: '2026-11-11'
 draft: false
 ---
 
-**Automated Messages are planned messages that SympleHost sends when a reservation or service reaches a trigger. Use them for repeatable guest communication you already know should happen.**
+**Scheduled messages go out on their own at set moments in a guest's stay, like a booking confirmation, check-in details the day before arrival, or a review request after checkout. You write each one once, and SympleHost fills in the guest's details and sends it for every booking.**
 
 ---
 
-> **TL;DR:** Go to **Messages → Message Automation** to create or edit automated message rules. Use **time-based** rules for scheduled guest touchpoints, such as booking confirmation, check-in instructions, checkout reminders, and review requests. Use **Scheduled Messages** to review the actual messages queued from those rules before or after they send.
+> **TL;DR:** Create messages in **Messages → Scheduled messages → Automation templates**. Use **Insert variables** for anything that changes per guest or property, like the guest's name or the check-in time. Check what's about to go out in **Outgoing messages**.
 
-## Automated Messages vs Concierge
+---
 
-Automated Messages are not the same as Concierge.
+## Scheduled Messages vs Concierge
 
-| Automated Messages | Concierge |
+| Scheduled messages | Concierge |
 | --- | --- |
-| Planned and rule-based | Conversational and question-based |
-| Best for predictable guest touchpoints | Best for live guest questions |
-| Based on triggers such as reservation created, check-in, or checkout | Based on guest message content and available knowledge |
-| Usually more static | Learns from property data, notes, documents, rules, and past chats |
-| Similar to scheduled messages in an OTA or an SOP checklist | Similar to an AI guest assistant that can answer while your team is offline |
+| Go out at a set time, like "24 hours before check-in" | Reply when a guest asks something |
+| You write the message once | Concierge writes each answer from your knowledge |
+| Best for confirmations, check-in details, reminders, review requests | Best for questions you can't predict |
 
-If you know exactly when a message should go out, use Automated Messages. If the guest is asking a question and the answer depends on context, use Concierge.
+If you know exactly when a message should go out, use a scheduled message. If the guest is asking a question, Concierge answers it. See [Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/).
 
-## Where to Find Automated Messages
+---
 
-1. Open **Messages** from the sidebar.
-2. Click **Message Automation** in the top messaging tabs.
-3. Review existing rules or create a new one.
-4. Use **Scheduled Messages** to review messages that have been generated from active rules.
+## Where to Find It
 
-The messaging tab bar separates these areas:
+1. Go to **Messages** in the sidebar.
+2. Click the **Scheduled messages** tab at the top.
+3. In the left menu you'll see:
+   - **Automation templates**: the messages you set up, grouped by when they send.
+   - **Outgoing messages**: every message waiting to go out, sent, or stuck.
 
-- **Autopilot**: account-level AI mode and response delay
-- **Concierge**: AI knowledge, rules, training, and live behavior
-- **Message Automation**: rules and SOP templates
-- **Scheduled Messages**: upcoming or generated message instances
+Use the **Properties** and **Services** buttons to switch between messages for stays and messages for services you sell, like tours or transfers.
 
-## Start With the Starter Pack
+![Automation templates grouped into New Reservation, Check-in and Checkout, each with an on/off switch and the Create New button](/screenshots/scheduled-messages-and-variables/automation-templates.png)
 
-If this is your first time using Message Automation, SympleHost can help you create a starter pack. The starter pack is designed to be reviewed before you turn anything on.
+💡 **Tip:** New here? Click **▶ Take the tour** for a 4-step walkthrough of the page.
 
-Common starter automations include:
+---
 
-- **Welcome / booking confirmation** after a new reservation
-- **Arrival instructions** before check-in
-- **Checkout reminder** before departure
-- **Review request** after checkout
+## Start With the Recommended Starter Pack
 
-These should be treated as drafts first. Review the timing, channels, property scope, and message content before activating them.
+If you have no automations yet, SympleHost offers a **Recommended starter pack** with four messages:
 
-## Create a Time-Based Rule
-
-Use a time-based rule when the message should be sent before or after a reservation or service event.
-
-1. Go to **Messages → Message Automation**.
-2. Click **Create new** or choose a starter automation.
-3. Choose **Time-based**.
-4. Name the rule clearly, such as `Check-in instructions` or `Checkout reminder`.
-5. Choose the trigger event.
-6. Set the timing.
-7. Choose the channel.
-8. Choose whether it applies to all listings or selected listings.
-9. Add the message content or template instructions.
-10. Save the rule, then activate it when you are ready.
-
-For property reservations, the main triggers are:
-
-| Trigger | Example use |
+| Message | When it sends |
 | --- | --- |
-| **New reservation** | Booking confirmation or next steps |
-| **Check-in** | Arrival instructions, welcome message, mid-stay check-in |
-| **Checkout** | Checkout reminder or review request |
+| **Welcome message** | When a booking is confirmed |
+| **Arrival details** | 24 hours before check-in |
+| **Checkout reminder** | 12 hours before checkout |
+| **Review request** | 1 day after checkout |
 
-For services, automated messages can also use service booking triggers such as service booking confirmed, service start, or service end.
+They're added switched off, so nothing sends until you've read each one and switched it on.
 
-## Choose the Channel
+---
 
-Current supported automation channels are:
+## Create a Scheduled Message
 
-- **Email**
-- **OTA**
-- **Same channel** for response-based rules
+1. In **Automation templates**, click **+ Create New**. Or click **+ Add** inside a group, for example **Check-in**, to start with that timing already chosen.
+2. **When**: choose the moment it relates to, then how long before or after.
+   - **New Reservation**: when a booking is confirmed. Send **Immediately**, **15 min after**, **1 hour after** or a custom time.
+   - **Check-in**: the guest's arrival date, for example "24 hours before".
+   - **Checkout**: the guest's departure date, for example "24 hours before" or "1 day after".
+3. **Where**: choose how it's sent, for example **Email**, or **OTA** to send it through the booking site's own messages (Airbnb, Booking.com).
+4. **What**: write the message. Use **Insert variables** to add details that change for each guest (see below). For emails, add a **Subject**, or leave it blank to use the automation's name.
+5. **Which properties**: choose **All properties** or **Only some**.
+6. Save, then switch the automation on.
 
-WhatsApp, Instagram, and Messenger are not currently used for automated template sends until approved template support is in place. Gmail is available in the inbox for filtering and replies, but Gmail automation is not supported yet.
+### Only send in some cases
 
-## Choose the Audience
+Under **Send only when**, add conditions such as:
 
-For reservation automations, select whether the rule applies to:
+- **Stay length (nights)**: for example, only send for stays of 2 nights or more.
+- **Booking lead time (days)**: how far ahead the guest booked. This counts from when they booked, not from today.
 
-- **All listings**
-- **Selected listings only**
+Every condition must be true, or the message isn't sent. The template list shows the condition under the message name, for example "Only when stay length in nights ≥ 5".
 
-For new reservation automations, choose the reservation source scope:
+### Approve messages before they send
 
-- **Both** direct and OTA reservations
-- **OTA only**
-- **Direct only**
+Switch on **Review before sending** if you want to check each message first. Each one waits in **Outgoing messages → Awaiting approval** until you click **Approve**.
 
-Use selected listings when different properties have different check-in steps, access instructions, house rules, or local contacts.
+### AI-written messages
 
-## Write the Message Like an SOP
+A message marked **AI-written** has no fixed template yet. SympleHost writes it from your instructions and your Concierge knowledge, about 24 hours before it sends. Check a few in **Outgoing messages** before relying on them.
 
-Automated Messages work best when the content is clear, specific, and safe to send without a human rewriting it every time.
+### Example: Arrival details
 
-Good examples:
+```text
+Hi {guest first name},
 
-- "Send the guest the check-in time, smart lock instructions, parking note, Wi-Fi details, and emergency contact."
-- "Remind the guest that checkout is at 10am, ask them to switch off air conditioning, and tell them where to leave the keys."
-- "Thank the guest for staying and politely ask for a review after checkout."
+We're looking forward to welcoming you to {property name} on {check-in date}.
 
-Avoid vague instructions such as "send something nice" or "tell them everything they need." The rule should read like an operating SOP.
+Check-in is from {check-in time}. The address is {property address}.
+Your door code and Wi-Fi details are in your guidebook link.
 
-## Use Scheduled Messages to Review Sends
+If you need anything before you arrive, just reply to this message.
 
-The **Scheduled Messages** tab shows messages generated by your active automations.
+See you soon,
+The Ocean Stays team
+```
 
-Use it to:
+The parts in curly brackets show where variables go. Add each one with **Insert variables** rather than typing it yourself, so SympleHost recognises it.
 
-- Check what is scheduled to send
-- Pause or resume a message
-- Cancel a message
-- Send a message now
-- Regenerate content when details have changed
-- Add or remove attachments when supported
-- Review whether a compiled template is active
+---
 
-This is the best place to QA your automations after you activate them.
+## Use Variables
 
-## Recommended Setup Order
+Variables are the details that change from guest to guest or property to property. You write `guest first name` once, and each guest sees their own name.
 
-1. Create the check-in instruction rule first.
-2. Create the checkout reminder second.
-3. Add a booking confirmation if your OTA or direct booking flow does not already send one.
-4. Add a review request after checkout.
-5. Turn rules on one at a time.
-6. Check **Scheduled Messages** after each activation.
-7. Keep Concierge separate for live questions and edge cases.
+Find them in **Messages → Concierge → Variables**.
+
+![The Variables page listing a custom property_address variable and built-in variables like Guest name and Check-in date marked Filled automatically](/screenshots/scheduled-messages-and-variables/variables.png)
+
+### Built-in variables
+
+These say **Filled automatically** and come straight from the reservation: guest name, first name and last name, guest phone, number of guests and adults, property name, check-in and check-out date and time, number of nights, total booking amount, reservation number and OTA confirmation code. You don't need to set them up.
+
+### Create your own variable
+
+Use your own variables for things like a property address, a parking note or a WhatsApp number for your team.
+
+1. Click **+ New variable**.
+2. In **What it's called**, give it a clear name, for example "Parking instructions".
+3. Choose the type: **Text**, **Money**, **Phone** or **Link**.
+4. In **Value everywhere**, enter the value most properties use.
+5. If one property is different, click **+ Add exception**, pick the property, and enter its own value.
+
+Set it once for everything, and change it only where it differs.
+
+⚠️ **Important:** If a variable is empty for a property, messages that use it wait in **Outgoing messages** instead of sending with a blank. Fill in the value and they go out.
+
+---
+
+## Check Messages in Outgoing
+
+**Outgoing messages** shows every message your automations create, so you can catch problems before guests do.
+
+![Outgoing messages with filters and the Upcoming, Awaiting approval, Sent, Failed, Cancelled and All tabs, listing messages with their status and send time](/screenshots/scheduled-messages-and-variables/outgoing-messages.png)
+
+Use the tabs to filter: **Upcoming**, **Awaiting approval**, **Sent**, **Failed**, **Cancelled** or **All**. You can also filter by automation, property or guest.
+
+For each message you can:
+
+- **Send now**: send it straight away.
+- **Pause** / **Resume**: hold it, then let it continue.
+- **Edit**: change the wording for this guest only.
+- **Approve**: for messages that need review.
+- **Cancel message**: stop it. You can restore it later from the message's page.
+
+If messages didn't send, you'll see a banner at the top of **Messages**, such as "92 automated messages to guests weren't sent". Click **Review** to see them.
+
+---
 
 ## Troubleshooting
 
-### My automated message did not send
+### A message failed
 
-Check that the rule is active, the reservation matches the trigger and listing scope, the selected channel is supported, and the message appears in **Scheduled Messages**.
+Open it in **Outgoing messages → Failed** to see why. Common reasons:
+
+- **This guest has no email address on file.** Add the guest's email to the reservation.
+- **A detail isn't set for this property.** Click **Fill it in** and add the missing value, often a variable.
+- **This booking has no guest conversation to reply on.** OTA messages need an existing conversation on the booking site.
+- **Messages about a service can only be sent by email.**
+
+### A message was cancelled
+
+The message page says why: you cancelled it, the automation was switched off, the booking was cancelled, it didn't match the **Send only when** conditions, or another message in the same trip already covers it.
+
+### Nothing is sending at all
+
+Check that the automation is switched on, and that **Pause all automated guest messages** is off in **Messages → Settings → Current Autopilot**. Automated messages also stop if your subscription or trial has ended.
 
 ### The timing looks wrong
 
-Check the trigger, timing value, timing unit, and direction. For example, "24 hours before check-in" is different from "24 hours after check-in." Also confirm your workspace timezone in settings.
-
-### I need the AI to answer guest questions
-
-Use Concierge instead. Automated Messages are for planned sends. Concierge is for guest questions and contextual replies.
-
-### I want to approve AI replies first
-
-Set **Messages → Autopilot** to **Suggestion**. That keeps AI drafting available without allowing automatic replies.
+Check **before** vs **after** in the **When** step. "24 hours before check-in" and "24 hours after check-in" are very different. Also check your account's time zone.
 
 ---
 
 ## Related Articles
 
+- [Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing](/platform-guides/organise-concierge-knowledge/)
 - [Autopilot, Automated Messages, and Concierge: What Each One Does](/platform-guides/setting-up-autopilot/)
-- [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
-- [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 - [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/)
