@@ -34,7 +34,7 @@ Use **Automated Messages** for communication you already know should happen. Use
 
 Autopilot controls the default behavior for AI replies in **Messages**.
 
-Open **Messages → Autopilot** to choose one of three modes:
+Open **Messages → Settings → Current Autopilot** to choose one of three modes:
 
 | Mode | What happens |
 | --- | --- |
@@ -43,6 +43,8 @@ Open **Messages → Autopilot** to choose one of three modes:
 | **On** | AI can send replies automatically after the response delay. |
 
 If you choose **On**, set the response delay. The platform enforces a minimum delay of **20 seconds**. A delay gives your team time to jump in manually and keeps replies from feeling unnaturally instant.
+
+For step-by-step instructions and how to work in Suggestion mode, see [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
 
 ## When to Use Automated Messages
 
@@ -57,7 +59,7 @@ Use them when the message is mostly static and the timing is predictable:
 - A review request after checkout
 - Service booking confirmation or service reminders
 
-Automated Messages are configured in **Messages → Message Automation**. The **Scheduled Messages** tab is where you can review generated upcoming messages, pause or resume them, cancel them, send now, regenerate content, or check message status.
+Automated Messages are configured in **Messages → Scheduled messages → Automation templates**. **Outgoing messages**, on the same page, is where you can review generated upcoming messages, pause or resume them, cancel them, send now, regenerate content, or check message status.
 
 For the full setup guide, see [Set Up Automated Messages](/platform-guides/set-up-automated-messages/).
 
@@ -112,6 +114,7 @@ The strongest setup usually combines all three: automated messages for predictab
 
 ## Related Articles
 
+- [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 - [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
