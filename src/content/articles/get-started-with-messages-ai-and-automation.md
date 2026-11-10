@@ -20,7 +20,7 @@ draft: false
 
 > **TL;DR:** 1. Connect your channels. 2. Teach Concierge about your listings. 3. Set up scheduled messages. 4. Choose your Autopilot mode, starting with **Suggestion**. 5. Correct Concierge as you go. Each step below links to a full guide with screenshots.
 
-![Messages inbox with the tab bar, filters, conversation list, channel badges and guest context panel](/screenshots/inbox-communicate-with-guests/messages-list-tabs.png)
+![The Messages area in SympleHost: the Messages, Concierge, Scheduled messages and Settings tabs, with the Concierge Knowledge Base showing the General card and one card per listing](/screenshots/messages-setup-guide-hero.png)
 
 ---
 
