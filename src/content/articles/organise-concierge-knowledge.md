@@ -1,6 +1,6 @@
 ---
-title: How to Organise Concierge Knowledge
-description: 'Where each kind of information goes so Concierge answers guests correctly — rules for how it behaves, one document per listing, and a General document for facts every listing shares.'
+title: 'Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing'
+description: 'Teach Concierge about your listings step by step — the Knowledge Base, one document per listing, a General document for shared facts, rules for how it behaves, and testing before guests see it.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 5
@@ -13,7 +13,7 @@ date: '2026-11-11'
 draft: false
 ---
 
-**Concierge answers guests from what you teach it. When you put each kind of information in the right place, it finds the right answer more often and follows your instructions every time.**
+**Concierge answers guests from what you teach it. This guide walks you through setting it up in order: the Knowledge Base, your documents, your rules, and a test before any guest sees a reply.**
 
 ---
 
@@ -35,14 +35,14 @@ Think of Concierge like a new team member. You give them a short list of house r
 
 ---
 
-## Where to Find It
+## Step 1: Open the Knowledge Base
 
 1. Go to **Messages** in the sidebar.
 2. Click the **Concierge** tab at the top.
 3. In the left menu, click **Knowledge Base**.
 4. You'll see a **General** card at the top, followed by one card for each listing.
 
-<!-- Screenshot: The Concierge **Properties & services** page, with the **General** card at the top and listing cards below it, each showing its sources and rules count -->
+![The Concierge Knowledge Base, with the General card at the top and one card per listing showing its sources and rules](/screenshots/organise-concierge-knowledge/knowledge-base-general-and-listings.png)
 
 Each card opens a page with three tabs: **Knowledge**, **Rules** and **Test**.
 
@@ -50,7 +50,7 @@ Each card opens a page with three tabs: **Knowledge**, **Rules** and **Test**.
 
 ---
 
-## Before You Start: Fill In the Basics
+## Step 2: Fill In the Basics First
 
 Concierge already reads a lot from SympleHost itself. Fill these in first, and you won't need to repeat them in a document:
 
@@ -62,81 +62,7 @@ Concierge already reads a lot from SympleHost itself. Fill these in first, and y
 
 ---
 
-## Step 1: Write Your Rules
-
-Rules tell Concierge how to write and what it may or may not do: tone, style, pricing approvals and when to pass a question to your team.
-
-By default, Concierge speaks as your team ("we") and keeps replies to one or two sentences. Your own style rules always take priority, so only write rules for what you want done differently.
-
-1. Open the **General** card if the rule should apply to every listing. Open a listing's card if it applies to that listing only.
-2. Click the **Rules** tab.
-3. Click **Add topic**, give the rule a short name (for example "Writing style" or "Prices"), and save it.
-4. Choose how Concierge handles it: **Answers freely**, **Asks you first** (it comes to you) or **Never** (Concierge doesn't answer and hands the guest to you).
-5. Click the rule's name and write your instructions in **Guidance — how the concierge should behave**, in plain sentences.
-6. Click **Update rule**.
-
-<!-- Screenshot: The Rules zone on General, showing a short rule with the **Answers freely / Asks you first / Never** options and the character counter -->
-
-**Keep each rule short.** Concierge reads only the first **4,000 characters** of a rule. A counter appears as you get close, and you can't save a rule that's over the limit. You can add as many rules as you need, and all of them apply, so split long instructions into several focused rules. For example:
-
-- One rule for writing style
-- One rule for tone and persona
-- One rule for prices and approvals
-- One rule for when to hand a question to your team
-
-❌ Don't paste a whole manual into a rule. Facts belong in a document (see Step 2).
-
-### Example rules you can copy
-
-Change the details to match your business. Each one is a separate rule.
-
-**Topic: Writing style** · set to **Answers freely**
-
-```text
-Keep replies short: 2–4 sentences unless the guest asks for detail.
-Answer the question first, then add anything useful.
-Use the guest's first name once, at the start.
-Use simple English. No emojis, no exclamation marks in a row.
-Reply in the language the guest writes in.
-```
-
-**Topic: Tone and persona** · set to **Answers freely**
-
-```text
-You are the guest team at Ocean Stays. Sound warm, calm and helpful,
-like a friendly hotel front desk. Say "we" for the team.
-Never argue with a guest. If they are upset, apologise once and focus on the fix.
-```
-
-**Topic: Prices and discounts** · set to **Asks you first**
-
-```text
-Only quote prices that are written in our documents.
-Never offer a discount, free night, upgrade or refund yourself.
-If a guest asks for a lower price, say the team will check and reply shortly.
-```
-
-**Topic: Hand to the team** · set to **Never**
-
-```text
-Hand the conversation to the team for: refunds and cancellations,
-damage or breakages, safety or medical issues, complaints about staff,
-and any request to change booking dates.
-```
-
-**Topic: Pets** · set to **Answers freely**
-
-```text
-No pets, no exceptions. Politely tell the guest pets aren't allowed at any of our villas.
-```
-
-💡 **Tip:** If a guest asks for something your house rules don't allow, Concierge treats it as a possible exception and passes it to you. Add "no exceptions" to a rule, as above, when you want Concierge to give a polite no itself.
-
-💡 **Tip:** Choose the setting to match how much you trust Concierge on that topic. **Answers freely** means it replies on its own. **Asks you first** means the conversation also comes to you. **Never** means Concierge doesn't answer and hands the guest straight to your team.
-
----
-
-## Step 2: Upload One Document per Listing
+## Step 3: Upload One Document per Listing
 
 Each listing's facts go in its own document, uploaded on that listing.
 
@@ -145,7 +71,9 @@ Each listing's facts go in its own document, uploaded on that listing.
 3. Drag your file into the upload box, or click it to choose a file. Concierge accepts **DOCX, TXT or CSV** files up to **25MB**. PDFs aren't supported yet, so save a PDF as DOCX or TXT first.
 4. Wait until the status shows **Ready**. While it's **Processing** or **Learning…**, Concierge can't use it yet.
 
-<!-- Screenshot: A listing's Knowledge zone with one uploaded document showing the green **Ready** status -->
+![A listing's Knowledge tab with the quick note box, the Upload document area, and sources marked Ready, including the listing's guidebook](/screenshots/organise-concierge-knowledge/knowledge-tab-upload.png)
+
+💡 **Tip:** For a short fact, type it in **Type a quick note** and click **Teach it** instead of uploading a file. Notes work straight away.
 
 Documents can be as long as you need. Concierge searches them section by section, so:
 
@@ -193,7 +121,7 @@ Concierge only reads a listing's document when the guest is asking about that li
 
 ---
 
-## Step 3: Add a General Document for Shared Facts
+## Step 4: Add a General Document for Shared Facts
 
 Facts that are the same for every listing go in **one** document on **General**:
 
@@ -235,16 +163,102 @@ Cancellation: free up to 30 days before arrival; 50% after that.
 
 ---
 
-## Step 4: Test It
+## Step 5: Add Your Rules
+
+Rules tell Concierge how to write and what it may or may not do: tone, style, pricing approvals and when to pass a question to your team.
+
+By default, Concierge speaks as your team ("we") and keeps replies to one or two sentences. Your own style rules always take priority, so only write rules for what you want done differently.
+
+1. Open the **General** card if the rule should apply to every listing. Open a listing's card if it applies to that listing only.
+2. Click the **Rules** tab, then **Add topic**.
+
+![The Rules tab of a listing, with the Add topic button in the top right](/screenshots/organise-concierge-knowledge/rules-tab-add-topic.png)
+
+3. In **New topic**, give the rule a short name in **Topic**, for example "Writing style" or "Prices".
+4. Under **How should the concierge handle this?**, choose:
+   - **Respond**: Concierge answers on its own, using your knowledge.
+   - **Alert**: Concierge can answer briefly, and the conversation also comes to you.
+   - **Avoid**: Concierge doesn't answer and hands the guest to your team.
+5. Click **Save**.
+
+![The New topic panel with the Topic name, the Respond, Alert and Avoid options, and Save](/screenshots/organise-concierge-knowledge/new-topic-drawer.png)
+
+6. Back in the list, click the topic's name and write your instructions in **Guidance — how the concierge should behave**, in plain sentences. Click **Update rule**.
+
+In the rules list, these choices show as **Answers freely** (Respond), **Asks you first** (Alert) and **Never** (Avoid). Click a rule's setting to change it at any time.
+
+**Keep each rule short.** Concierge reads only the first **4,000 characters** of a rule. A counter appears as you get close, and you can't save a rule that's over the limit. You can add as many rules as you need, and all of them apply, so split long instructions into several focused rules. For example:
+
+- One rule for writing style
+- One rule for tone and persona
+- One rule for prices and approvals
+- One rule for when to hand a question to your team
+
+❌ Don't paste a whole manual into a rule. Facts belong in your documents (Steps 3 and 4).
+
+### Example rules you can copy
+
+Change the details to match your business. Each one is a separate rule.
+
+**Topic: Writing style** · set to **Respond**
+
+```text
+Keep replies short: 2–4 sentences unless the guest asks for detail.
+Answer the question first, then add anything useful.
+Use the guest's first name once, at the start.
+Use simple English. No emojis, no exclamation marks in a row.
+Reply in the language the guest writes in.
+```
+
+**Topic: Tone and persona** · set to **Respond**
+
+```text
+You are the guest team at Ocean Stays. Sound warm, calm and helpful,
+like a friendly hotel front desk. Say "we" for the team.
+Never argue with a guest. If they are upset, apologise once and focus on the fix.
+```
+
+**Topic: Prices and discounts** · set to **Alert**
+
+```text
+Only quote prices that are written in our documents.
+Never offer a discount, free night, upgrade or refund yourself.
+If a guest asks for a lower price, say the team will check and reply shortly.
+```
+
+**Topic: Hand to the team** · set to **Avoid**
+
+```text
+Hand the conversation to the team for: refunds and cancellations,
+damage or breakages, safety or medical issues, complaints about staff,
+and any request to change booking dates.
+```
+
+**Topic: Pets** · set to **Respond**
+
+```text
+No pets, no exceptions. Politely tell the guest pets aren't allowed at any of our villas.
+```
+
+💡 **Tip:** If a guest asks for something your house rules don't allow, Concierge treats it as a possible exception and passes it to you. Add "no exceptions" to a rule, as above, when you want Concierge to give a polite no itself.
+
+💡 **Tip:** Choose the setting to match how much you trust Concierge on that topic. **Respond** means it replies on its own. **Alert** means the conversation also comes to you. **Avoid** means Concierge doesn't answer and hands the guest straight to your team.
+
+---
+
+## Step 6: Test Before Guests See It
 
 1. Open a listing's card and click the **Test** tab. It unlocks once at least one document or note shows **Ready**.
-2. Ask a question the way a guest would, for example "Are there extra charges for a wedding?"
-3. Check the answer and the **Sources** it used.
-4. If it's wrong or missing, fix the document or rule, then ask again.
+2. Pick the guest's stage (**Inquiry**, **Before stay**, **During stay** or **After stay**) and, if you like, a real **Reservation**.
+3. Type a question the way a guest would and click **Send**, for example "Are there extra charges for a wedding?"
+4. Check the answer and the **Sources** it used.
+5. If it's wrong or missing, fix the document or rule, then ask again.
 
-<!-- Screenshot: The Practice panel with a guest question, Concierge's reply, and the Sources list showing the listing's document -->
+![The Test tab: pick the guest's stage (Inquiry, Before stay, During stay, After stay), optionally a reservation, then type a question like a guest would](/screenshots/organise-concierge-knowledge/test-tab-practice.png)
 
 Nothing in the Test tab is sent to real guests.
+
+Once the answers look right, choose how Concierge replies to real guests in **Messages → Settings → Current Autopilot**: **Off**, **Suggestion** (it drafts, you send) or **On** (it replies on its own). We suggest starting with **Suggestion**.
 
 ---
 
