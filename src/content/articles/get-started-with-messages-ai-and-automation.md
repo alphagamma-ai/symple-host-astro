@@ -1,157 +1,151 @@
 ---
-title: Get Started with Messages, AI, and Automation
-description: Learn the first-time setup path for connected messaging channels, the unified inbox, Autopilot, Automated Messages, Scheduled Messages, and Concierge.
+title: 'Set Up Guest Messaging: The Complete Guide'
+description: 'Everything you need to set up guest messaging in SympleHost, in five steps: connect your channels, set up Concierge, schedule messages, choose your Autopilot mode, and keep Concierge learning.'
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 2
+sectionOrder: 0
 tags:
   - Messages
-  - AI
-  - Autopilot
-  - Automated Messages
   - Concierge
-date: '2026-08-11'
+  - Autopilot
+  - Scheduled Messages
+  - Getting Started
+date: '2026-11-11'
 draft: false
 ---
 
-**Use this guide the first time you set up guest messaging and AI in SympleHost. It explains what each Messages tool does, what to configure first, and how to turn automation on without losing control of guest experience.**
+**This is the one place to start with guest messaging. Follow the five steps in order, and by the end every guest conversation lands in one inbox, routine messages go out on their own, and Concierge answers guest questions the way your team would.**
 
 ---
 
-![Messages inbox with the latest tab bar, filters, conversation list, channel badges, and guest context panel](/screenshots/inbox-communicate-with-guests/messages-list-tabs.png)
+> **TL;DR:** 1. Connect your channels. 2. Teach Concierge about your listings. 3. Set up scheduled messages. 4. Choose your Autopilot mode, starting with **Suggestion**. 5. Correct Concierge as you go. Each step below links to a full guide with screenshots.
 
-## The First-Time Setup Path
+![The Messages area in SympleHost: the Messages, Concierge, Scheduled messages and Settings tabs, with the Concierge Knowledge Base showing the General card and one card per listing](/screenshots/messages-setup-guide-hero.png)
 
-Set up Messages in this order:
+---
+
+## The Setup Path at a Glance
+
+Set up Messages in this order. Click a step to open its full guide.
 
 | Step | What to do | Why it matters |
 | --- | --- | --- |
-| **1. Connect channels** | Connect the messaging integrations your team uses. | Messages need a source before the inbox and AI can help. |
-| **2. Learn the Inbox** | Review filters, status tabs, channel badges, guest context, and reservation details. | Your team needs one place to read, reply, assign, and escalate. |
-| **3. Choose Autopilot mode** | Start with **Suggestion** before allowing automatic replies. | This lets AI draft replies while your team checks accuracy. |
-| **4. Create Automated Messages** | Add predictable SOP messages for booking, arrival, checkout, and reviews. | These reduce repeat manual work without needing AI judgment. |
-| **5. Teach Concierge** | Add property facts, rules, notes, documents, and brand voice. | Concierge needs accurate knowledge before it answers guest questions. |
-| **6. Go live gradually** | Turn on one property, channel, or workflow at a time. | Gradual rollout makes it easier to spot issues and improve replies. |
+| **[1. Connect your channels](/platform-guides/connecting-messaging-integrations/)** | Connect WhatsApp, Instagram, Messenger, Gmail, LINE or website chat. | Guest messages need to reach SympleHost before anything else can help. |
+| **[2. Set up your Concierge](/platform-guides/organise-concierge-knowledge/)** | Fill in listing details and guidebooks, upload one document per listing and a General document, add rules, then test. | Concierge only knows what you teach it. |
+| **[3. Set up scheduled messages](/platform-guides/set-up-automated-messages/)** | Create booking, arrival, checkout and review messages, using variables. | Routine messages go out on time without anyone typing them. |
+| **[4. Choose your Autopilot mode](/platform-guides/autopilot-off-suggestion-on/)** | Start with **Suggestion**, move to **On** when the drafts are reliably right. | You stay in control while Concierge earns your trust. |
+| **[5. Translate and keep teaching](/platform-guides/translate-and-teach-concierge/)** | Translate guest messages, click **Fix this** on wrong replies, answer Action Items. | Every correction makes the next answer better. |
 
-## The Simple Mental Model
-
-| Tool | Best way to think about it | Use it for |
-| --- | --- | --- |
-| **Inbox** | The shared guest communication workspace | Reading, filtering, replying, assigning, and tracking conversations |
-| **Integrations** | The channels that bring conversations into SympleHost | OTA messages, WhatsApp, Instagram, Messenger, LINE, Gmail, and other supported channels |
-| **Autopilot** | The permission switch for AI replies | Choosing **Off**, **Suggestion**, or **On** and setting the response delay |
-| **Automated Messages** | Scheduled SOP messages | Booking confirmations, check-in instructions, checkout reminders, review requests |
-| **Scheduled Messages** | The queue created by automation rules | Reviewing, pausing, cancelling, sending now, or regenerating upcoming messages |
-| **Concierge** | The contextual AI guest assistant | Answering live guest questions using property data, past chats, notes, documents, rules, and brand voice |
-
-Automated Messages are for communication you can plan in advance. Concierge is for live questions where the answer depends on context.
-
-## Connect Your Messaging Channels
-
-Open the top-right profile menu, click **Settings**, then go to **Integrations**.
-
-![Settings integrations page showing available messaging integrations including WhatsApp, Messenger, Instagram, LINE, and Gmail](/screenshots/connecting-messaging-integrations/integrations-page-overview.png)
-
-Connect the channels that matter for your operation:
-
-- **OTA channels** for reservation-related guest messages.
-- **WhatsApp, Instagram, Messenger, and LINE** when those channels are part of your guest communication flow.
-- **Gmail** when your team handles guest or enquiry email from a shared inbox.
-
-Gmail can be filtered by label and replied to directly from Messages, but Gmail automation is not supported yet. Use Gmail in the inbox for visibility and manual replies, then use supported channels for automation where available.
-
-## Learn the Inbox Before Turning on AI
-
-Start in **Messages** and make sure your team understands the basics:
-
-- Use status tabs and filters to find conversations that need attention.
-- Check the channel badge so replies go back to the right place.
-- Review the guest, customer, reservation, and property context before replying.
-- Assign or escalate conversations that need a team member.
-- Keep sensitive topics manual until your rules are clear.
-
-This is important because AI should support the workflow your team already understands. The inbox remains the place where humans can review, correct, and take over.
-
-## Start Autopilot in Suggestion Mode
-
-Open **Messages -> Autopilot**.
-
-Choose one of these modes:
-
-| Mode | What happens |
-| --- | --- |
-| **Off** | AI does not reply. Your team handles messages manually. |
-| **Suggestion** | AI drafts replies for your team to review and send. |
-| **On** | AI can send replies automatically after the response delay. |
-
-For a first rollout, use **Suggestion**. This gives your team the benefit of AI drafts while you check tone, facts, escalation behavior, and property-specific accuracy.
-
-If you later choose **On**, set a response delay. SympleHost enforces a minimum delay of **20 seconds**, which gives your team time to jump in before AI sends.
-
-## Add Automated Messages for Predictable Touchpoints
-
-Use **Messages -> Message Automation** for messages that should happen at known points in the stay.
-
-Good first automations are:
-
-- Booking confirmation or next steps after a new reservation.
-- Arrival instructions before check-in.
-- Welcome or in-stay check-in after arrival.
-- Checkout reminder before departure.
-- Review request after checkout.
-
-Use **Scheduled Messages** to review the actual messages generated from active rules. This is where you can check timing, pause or resume messages, cancel messages, send now, regenerate content, and monitor status.
-
-## Teach Concierge Before Letting It Reply
-
-Use **Messages -> Concierge** to teach the AI what it should know and how it should behave.
-
-Start with:
-
-- Property access details, check-in method, parking, Wi-Fi, amenities, and house rules.
-- Emergency contacts and issues that should be escalated.
-- Notes for common corrections or property-specific details.
-- Documents such as house manuals, welcome books, service menus, and policies.
-- Brand voice, tone, and language preferences.
-- Upsells such as early check-in, late checkout, transfers, food packs, tours, or services, when configured.
-
-Concierge can answer while your team is offline because it uses property data, reservation context, past chats, notes, uploaded documents, and your rules. It still needs to be taught and tested before you allow automatic replies.
-
-## Recommended First 24 Hours
-
-1. Connect your main messaging channels.
-2. Open the Inbox and confirm conversations are arriving with the right channel badges.
-3. Turn **Autopilot** to **Suggestion**.
-4. Add or review core Automated Messages for check-in, checkout, and review requests.
-5. Open **Scheduled Messages** and check what will be sent.
-6. Add Concierge knowledge for Wi-Fi, parking, check-in, checkout, house rules, emergency contacts, and common guest questions.
-7. Test Concierge with real questions from your past conversations.
-8. Keep refunds, complaints, safety issues, and VIP guest handling manual until your escalation rules are ready.
-
-## What Not to Confuse
-
-| Do not confuse | Difference |
-| --- | --- |
-| **Operations Automations** and **Message Automation** | Operations automations create staff tasks. Message Automation sends guest messages. |
-| **Task Reminders** and **Scheduled Messages** | Task Reminders notify staff about work. Scheduled Messages are guest messages queued from message rules. |
-| **Automated Messages** and **Concierge** | Automated Messages are planned and rule-based. Concierge answers live questions using context. |
-| **Gmail Inbox support** and **Gmail automation** | Gmail can be filtered and replied to from Messages, but Gmail automation is not supported yet. |
-
-## Common Mistakes to Avoid
-
-- Turning Autopilot **On** before the team has reviewed AI suggestions.
-- Using Automated Messages for guest questions that need live context.
-- Expecting Concierge to know property details that have not been added or synced.
-- Letting AI answer refunds, safety issues, major complaints, owner-sensitive stays, or VIP situations without escalation rules.
-- Activating too many message rules at once without checking **Scheduled Messages**.
+New to the inbox itself? See [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/).
 
 ---
 
-## Related Articles
+## How Messages Fits Together
+
+Everything lives under **Messages** in the sidebar, in four tabs:
+
+| Tab | What it's for |
+| --- | --- |
+| **Messages** | The inbox: every guest conversation from every channel, in one list |
+| **Concierge** | What your AI assistant knows, its rules, testing, and questions it handed to you |
+| **Scheduled messages** | Messages that go out on their own, like check-in details and review requests |
+| **Settings** | Autopilot mode, Concierge voice, and your connected channels |
+
+Think of it like a front desk. The inbox is the desk, Concierge is the assistant who answers questions, scheduled messages are the reminders that go out on time, and Autopilot decides how much the assistant can do without asking you.
+
+---
+
+## Step 1: Connect Your Channels
+
+**What you'll do:** Connect WhatsApp, Instagram, Facebook Messenger, Gmail, LINE or website chat, so guest messages arrive in your SympleHost inbox. Airbnb and Booking.com messages arrive through your booking-site connections.
+
+**Where:** **Messages → Settings → Integrations**
+
+**Time:** About 10 minutes per channel
+
+👉 **[Read the full guide: Connect WhatsApp, Instagram, Facebook, Gmail and Website Chat](/platform-guides/connecting-messaging-integrations/)**
+
+Once connected, open the **Messages** tab and check that conversations are arriving with the right channel badge. New to the inbox? See [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/).
+
+---
+
+## Step 2: Set Up Your Concierge
+
+**What you'll do:** Teach Concierge about your listings so it can answer guest questions. Fill in your listing details and guidebooks, upload one document per listing and one General document for shared facts, add rules for how Concierge should behave, then test it.
+
+**Where:** **Messages → Concierge → Knowledge Base**
+
+**Time:** About an hour for your first few listings
+
+👉 **[Read the full guide: Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/)**
+
+💡 **Tip:** This step makes the biggest difference. Concierge only knows what you teach it, so take your time here.
+
+---
+
+## Step 3: Set Up Scheduled Messages
+
+**What you'll do:** Create the messages every guest should get at set times, like a booking confirmation, arrival details the day before check-in, a checkout reminder and a review request. Use variables so each message fills in the guest's name, dates and property details.
+
+**Where:** **Messages → Scheduled messages → Automation templates**
+
+**Time:** About 20 minutes with the starter pack
+
+👉 **[Read the full guide: Scheduled Messages and Variables](/platform-guides/set-up-automated-messages/)**
+
+---
+
+## Step 4: Choose Your Autopilot Mode
+
+**What you'll do:** Decide how Concierge replies to real guests: **Off**, **Suggestion** (it drafts, you send) or **On** (it replies on its own). Set how Concierge sounds, and learn how to change the mode for one guest.
+
+**Where:** **Messages → Settings → Current Autopilot**
+
+**Time:** 5 minutes
+
+👉 **[Read the full guide: Autopilot — Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/)**
+
+⚠️ **Important:** Start with **Suggestion**. Switch to **On** only once you're sending most drafts without editing them.
+
+---
+
+## Step 5: Translate and Keep Teaching Concierge
+
+**What you'll do:** Read and reply to guests in any language. Under each Concierge reply, click **Fix this** when it's wrong, so the next guest gets the right answer. Answer the questions Concierge couldn't, and save them for future guests.
+
+**Where:** In each conversation, and in **Messages → Concierge → Action Items**
+
+**Time:** A few minutes a day
+
+👉 **[Read the full guide: Translate Guest Messages and Teach Concierge](/platform-guides/translate-and-teach-concierge/)**
+
+---
+
+## Your First Day Checklist
+
+- [ ] Main channels connected and messages arriving in the inbox
+- [ ] Listing details and guidebooks filled in, with no typos in check-in and check-out times
+- [ ] One document per listing and one General document uploaded and showing **Ready**
+- [ ] Rules added for writing style, prices, and topics to hand to your team
+- [ ] Concierge tested with 5–10 real guest questions in the **Test** tab
+- [ ] Starter scheduled messages reviewed and switched on
+- [ ] Autopilot set to **Suggestion**
+
+---
+
+## Common Mistakes to Avoid
+
+- Turning Autopilot **On** before you've reviewed Concierge's drafts for a while
+- Putting instructions like "always be formal" in a document instead of a rule
+- Uploading the same document on General and every listing
+- Switching on many scheduled messages at once without checking **Outgoing messages**
+- Letting Concierge handle refunds, damage or complaints without a rule set to **Avoid** or **Alert**
+
+---
+
+## More About Messages
 
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
-- [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 - [Autopilot, Automated Messages, and Concierge: What Each One Does](/platform-guides/setting-up-autopilot/)
-- [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
-- [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
-- [How to Set Up Recurring Task Reminders](/platform-guides/set-up-recurring-task-reminders/)
+- [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/)
+- [Guest Messaging, Unified Inbox, Autopilot and Concierge FAQs](/platform-guides/faqs-messaging-autopilot-guest-experience/)

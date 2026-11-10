@@ -3,7 +3,7 @@ title: 'Connect WhatsApp, Instagram, Facebook, Gmail and Website Chat'
 description: 'Connect WhatsApp, Instagram, Facebook Messenger, LINE, Gmail and website chat so every guest conversation lands in SympleHost Messages.'
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 2
+sectionOrder: 1
 tags:
   - Messaging
   - Integrations
@@ -16,6 +16,8 @@ tags:
 date: '2026-11-11'
 draft: false
 ---
+
+> 📘 **Step 1 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 **Connect WhatsApp, Instagram, Facebook Messenger, LINE, Gmail and website chat so guest messages land in SympleHost Messages.**
 
@@ -401,6 +403,10 @@ You can revoke at the Meta level too:
 - Instagram only works on **Business or Creator** accounts linked to a Facebook Page.
 - Messages from connected channels flow into **Messages**, alongside supported OTA messaging.
 - Send yourself a test message after connecting — the round-trip should complete in under 10 seconds.
+
+---
+
+**Next step:** [Step 2 — Set up your Concierge](/platform-guides/organise-concierge-knowledge/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 

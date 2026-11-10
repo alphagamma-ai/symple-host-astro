@@ -3,7 +3,7 @@ title: 'Autopilot, Automated Messages, and Concierge: What Each One Does'
 description: 'Understand the difference between Autopilot settings, automated scheduled messages, and Concierge before turning on AI guest messaging.'
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 3
+sectionOrder: 7
 tags:
   - Autopilot
   - AI

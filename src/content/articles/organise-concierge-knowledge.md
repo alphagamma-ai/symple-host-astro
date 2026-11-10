@@ -3,7 +3,7 @@ title: 'Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing'
 description: 'Teach Concierge about your listings step by step — the Knowledge Base, one document per listing, a General document for shared facts, rules for how it behaves, and testing before guests see it.'
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 5
+sectionOrder: 2
 tags:
   - Concierge
   - AI
@@ -12,6 +12,8 @@ tags:
 date: '2026-11-11'
 draft: false
 ---
+
+> 📘 **Step 2 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 **Concierge answers guests from what you teach it. This guide walks you through setting it up in order: the Knowledge Base, your documents, your rules, and a test before any guest sees a reply.**
 
@@ -288,6 +290,10 @@ The document is only on one listing. Upload it on every listing it applies to.
 ### Concierge says it will check with the team for a question my document answers
 
 The guest may not have said which listing they mean, so Concierge only had General. Add a short line about that topic to your General document.
+
+---
+
+**Next step:** [Step 3 — Set up scheduled messages](/platform-guides/set-up-automated-messages/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 

@@ -13,6 +13,8 @@ date: '2026-11-11'
 draft: false
 ---
 
+> 📘 **Step 5 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
+
 **Guests write in many languages, and Concierge won't get every answer right on day one. SympleHost lets you translate messages in both directions and correct Concierge right where you spot a mistake.**
 
 ---
@@ -120,6 +122,10 @@ Fixes from a conversation apply to that conversation's listing. If the answer is
 ### I don't see Good or Fix this
 
 These buttons appear under replies Concierge sent. They don't appear under messages you wrote yourself.
+
+---
+
+**You've finished the setup.** [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 

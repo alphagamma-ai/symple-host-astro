@@ -3,7 +3,7 @@ title: 'Autopilot: Choose Off, Suggestion or On'
 description: 'Decide how Concierge replies to guests — not at all, as drafts you approve, or on its own — and how to work day to day in Suggestion mode.'
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 5
+sectionOrder: 4
 tags:
   - Autopilot
   - Concierge
@@ -12,6 +12,8 @@ tags:
 date: '2026-11-11'
 draft: false
 ---
+
+> 📘 **Step 4 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 **Autopilot decides what Concierge is allowed to do with real guests: stay quiet, draft replies for you to approve, or reply on its own. Most hosts start on Suggestion and switch to On once they trust the answers.**
 
@@ -151,6 +153,10 @@ That conversation may be set to **Auto-replying**. Click its **Autopilot** setti
 ### A draft keeps giving the wrong answer
 
 Fix the knowledge, not just the draft. Check the listing's document, your General document and your rules, then try the question in the **Test** tab.
+
+---
+
+**Next step:** [Step 5 — Translate and keep teaching Concierge](/platform-guides/translate-and-teach-concierge/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 

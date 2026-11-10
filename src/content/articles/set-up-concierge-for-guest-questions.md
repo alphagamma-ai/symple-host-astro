@@ -3,7 +3,7 @@ title: Set Up Concierge for Guest Questions
 description: Teach Concierge your property knowledge, rules, brand voice, and escalation preferences so it can answer guest questions with the right context.
 category: platform-guides
 section: Messaging & guest communication
-sectionOrder: 5
+sectionOrder: 8
 tags:
   - Concierge
   - AI
@@ -13,6 +13,8 @@ tags:
 date: '2026-08-10'
 draft: false
 ---
+
+> 📘 **Setting Concierge up for the first time?** Follow the step-by-step guide: [Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing](/platform-guides/organise-concierge-knowledge/). This article gives a broader overview.
 
 **Concierge is the AI guest assistant inside SympleHost. It helps answer guest questions using your property knowledge, rules, past chats, documents, notes, reservation context, and brand voice.**
 
