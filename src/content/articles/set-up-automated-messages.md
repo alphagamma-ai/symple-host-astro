@@ -74,6 +74,8 @@ They're added switched off, so nothing sends until you've read each one and swit
    - **Check-in**: the guest's arrival date, for example "24 hours before".
    - **Checkout**: the guest's departure date, for example "24 hours before" or "1 day after".
 3. **Where**: choose how it's sent, for example **Email**, or **OTA** to send it through the booking site's own messages (Airbnb, Booking.com).
+
+   ⚠️ **Important:** Scheduled messages go out by **Email** or **OTA**, meaning the booking site's conversation (Airbnb, Booking.com or Expedia). They can't be sent on WhatsApp, Instagram or Messenger yet. Messages for services can only go by email. For a guest who booked directly and only talks to you on WhatsApp, make sure you have their email address, or send those messages yourself. Concierge still answers their questions on WhatsApp.
 4. **What**: write the message. Use **Insert variables** to add details that change for each guest (see below). For emails, add a **Subject**, or leave it blank to use the automation's name.
 5. **Which properties**: choose **All properties** or **Only some**.
 6. Save, then switch the automation on.

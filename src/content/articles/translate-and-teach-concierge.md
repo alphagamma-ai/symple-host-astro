@@ -78,7 +78,9 @@ Click **Fix this** when the reply was wrong or incomplete.
 
 You'll see **Fixed — the concierge will answer this way next time.**
 
-Your fix is saved as a lesson for the listing the guest was asking about. If the conversation isn't linked to a listing, it applies to all your listings.
+Your fix is saved as a lesson for the listing the guest was asking about.
+
+If the conversation isn't linked to a listing, for example a WhatsApp chat where the guest hasn't booked yet, the fix is saved for your team's reference only. Concierge won't use it in guest replies, even though the confirmation message says it will. The same applies to fixes saved as "All properties (host copilot only)". To teach something for every listing, add it to your General document or as a quick note on General instead.
 
 **Good fix:** "Check-in is from 3 pm. If you arrive earlier, you can leave your bags at reception from 11 am."
 
@@ -87,6 +89,8 @@ Your fix is saved as a lesson for the listing the guest was asking about. If the
 ### Find and manage your fixes
 
 Each fix appears as a **Lesson** source in that listing's **Knowledge** tab (**Messages → Concierge → Knowledge Base**, then open the listing). Switch it off to pause it, or click the bin to delete it.
+
+Fixes made in the **Test** tab work slightly differently. You type the answer and click **Teach it**, and it's saved as a quick note on the listing the Test tab is set to (or on General), not as a Lesson. You can edit or pause it the same way.
 
 ![A listing's Knowledge tab showing a Lesson: correction source and the listing's guidebook, both marked Ready](/screenshots/translate-and-teach-concierge/lesson-in-knowledge-tab.png)
 
@@ -117,7 +121,7 @@ The link only appears when the guest's message is in a different language from t
 
 ### My fix didn't change the answer for another listing
 
-Fixes from a conversation apply to that conversation's listing. If the answer is the same everywhere, add it to your General document instead.
+A fix is saved for the listing the conversation was about. To make it apply everywhere, add the same fact to your General document, or as a quick note on General.
 
 ### I don't see Good or Fix this
 

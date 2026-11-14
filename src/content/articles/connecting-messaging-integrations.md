@@ -1,5 +1,5 @@
 ---
-title: 'Connect WhatsApp, Instagram, Facebook, Gmail and Website Chat'
+title: 'Connect WhatsApp, Instagram, Facebook, LINE, Gmail and Website Chat'
 description: 'Connect WhatsApp, Instagram, Facebook Messenger, LINE, Gmail and website chat so every guest conversation lands in SympleHost Messages.'
 category: platform-guides
 section: Messaging & guest communication
@@ -339,7 +339,7 @@ Once a platform shows as **Connected**, send yourself a test message to confirm 
    - **LINE:** send a LINE message to the connected LINE Official Account.
    - **Gmail:** send a test email that matches one of the synced Gmail labels.
 2. In SympleHost, open **Messages** in the sidebar.
-3. The message should appear within 5–10 seconds.
+3. The message should appear within about 10 seconds.
 
 If it shows up, you are done. Reply directly from SympleHost; the response appears on the original platform from your business identity. You can then assign the conversation, escalate it, translate messages, or use supported AI tools from the same thread. For Gmail, use SympleHost for direct inbox replies and filtering, but keep automation workflows on supported channels only.
 
@@ -402,7 +402,7 @@ You can revoke at the Meta level too:
 - Gmail can be filtered and replied to from SympleHost, but Gmail automation is not supported yet.
 - Instagram only works on **Business or Creator** accounts linked to a Facebook Page.
 - Messages from connected channels flow into **Messages**, alongside supported OTA messaging.
-- Send yourself a test message after connecting — the round-trip should complete in under 10 seconds.
+- Send yourself a test message after connecting — the message should arrive within about 10 seconds.
 
 ---
 
