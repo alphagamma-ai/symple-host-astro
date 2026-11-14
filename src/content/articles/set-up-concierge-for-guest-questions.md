@@ -1,6 +1,6 @@
 ---
 title: Set Up Concierge for Guest Questions
-description: Teach Concierge your property knowledge, rules, brand voice, and escalation preferences so it can answer guest questions with the right context.
+description: Teach Concierge your property knowledge, rules and brand voice so it can answer guest questions with the right context.
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 8
@@ -50,9 +50,8 @@ Use Concierge when you need an answer that adapts to the guest's question. Use A
 
 1. Open **Messages** from the sidebar.
 2. Click **Concierge** in the top messaging tabs.
-3. Open **Properties** to manage knowledge for General, each property, or supported services.
-4. Open **Settings** to manage go-live, brand voice, and behavior.
-5. Use **Test** or the practice area before allowing live replies.
+3. Click **Knowledge Base** to manage knowledge for General, each listing, or services.
+4. Use **Test** or the practice area before allowing live replies.
 
 The Concierge tab may only appear on accounts where Concierge is enabled.
 
@@ -64,7 +63,7 @@ Concierge works best when you teach it in layers.
 | --- | --- |
 | **Property facts** | Address, access details, check-in method, Wi-Fi, parking, amenities, house rules |
 | **Notes** | Short corrections or operating details your team already knows |
-| **Documents** | House manuals, welcome books, PDF guides, service menus, policies |
+| **Documents** | House manuals, welcome books, service menus, policies, as DOCX, TXT or CSV files (PDFs aren't supported yet) |
 | **Past messages** | Real examples of how guests ask questions and how your team replies |
 | **Review insights** | Guest feedback that reveals missing or unclear property information |
 | **Rules** | What Concierge should always do, never do, or escalate |
@@ -85,6 +84,8 @@ Concierge has different scopes so the right answer can be used in the right plac
 
 Use account-wide knowledge for universal policies. Use property-level knowledge for anything that changes from one listing to another.
 
+If a listing entry and a General entry disagree, the listing entry wins.
+
 ## Add Notes and Documents
 
 Inside a Concierge property or General page:
@@ -97,9 +98,11 @@ Inside a Concierge property or General page:
 
 Good notes are specific:
 
-- "For Ocean Villa, the Wi-Fi network is OceanGuest and the password is sent in the check-in message."
+- "For Ocean Villa, guests can use the beach towels in the hallway cupboard. Pool towels are by the pool."
 - "Guests can request early check-in, but only confirm it after checking the calendar and housekeeping status."
 - "If a guest reports no hot water, ask them to check the switch in the hallway first, then escalate to maintenance."
+
+⚠️ **Important:** Don't put door codes or Wi-Fi passwords in notes or documents. Use the guidebook's Wi-Fi and access code fields.
 
 ## Add Rules
 
@@ -120,27 +123,11 @@ Examples:
 - "If the guest reports a safety issue, apologize, ask for their current location, and escalate immediately."
 - "For early check-in, say it may be possible but must be confirmed by the team."
 
-## Configure Brand Voice
+Each rule is set to **Respond**, **Alert** or **Avoid**. See [Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/), Step 5.
 
-Open **Concierge → Settings** and use **Brand Voice** to control how Concierge sounds.
+## Configure How Concierge Sounds
 
-You can generate a brand voice from URLs or write one from scratch. Review and confirm the draft before making it active. Keep it practical: tone, greeting style, level of warmth, language preferences, and any phrases your team uses or avoids.
-
-## Configure Behavior
-
-The behavior settings control how Concierge handles live conversations.
-
-Settings include:
-
-- Escalation threshold
-- Topics that should be escalated
-- Whether early check-in can be offered
-- Whether late checkout can be offered
-- AI transparency behavior
-- Conversation closing
-- The fallback message Concierge uses when it should defer
-
-Use the defer message for cases where Concierge should not answer directly. For example: "I am checking this with the team and will get back to you shortly."
+How Concierge sounds is set in the Concierge voice card under **Messages → Settings**. See [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
 
 ## Test Before Going Live
 
@@ -197,7 +184,7 @@ Check the knowledge scope. The answer may have been added to one property when i
 
 ### Concierge should not answer a topic
 
-Add an escalation rule or update the behavior settings so Concierge defers and hands the topic to your team.
+Add a rule for that topic set to **Avoid**, so Concierge doesn't answer and hands the guest to your team.
 
 ### Concierge is trained but not replying live
 

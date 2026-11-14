@@ -14,7 +14,7 @@ date: '2026-11-11'
 draft: false
 ---
 
-**This is the one place to start with guest messaging. Follow the five steps in order, and by the end every guest conversation lands in one inbox, routine messages go out on their own, and Concierge answers guest questions the way your team would.**
+**This is the one place to start with guest messaging. Follow the five steps in order, and by the end every guest conversation lands in one inbox, routine messages go out on their own, and Concierge answers guest questions the way your team would.** (Scheduled messages go out by email or through Airbnb and Booking.com. See Step 3.)
 
 ---
 
@@ -63,7 +63,7 @@ Think of it like a front desk. The inbox is the desk, Concierge is the assistant
 
 **Time:** About 10 minutes per channel
 
-👉 **[Read the full guide: Connect WhatsApp, Instagram, Facebook, Gmail and Website Chat](/platform-guides/connecting-messaging-integrations/)**
+👉 **[Read the full guide: Connect WhatsApp, Instagram, Facebook, LINE, Gmail and Website Chat](/platform-guides/connecting-messaging-integrations/)**
 
 Once connected, open the **Messages** tab and check that conversations are arriving with the right channel badge. New to the inbox? See [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/).
 
@@ -126,6 +126,7 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 - [ ] Main channels connected and messages arriving in the inbox
 - [ ] Listing details and guidebooks filled in, with no typos in check-in and check-out times
 - [ ] One document per listing and one General document uploaded and showing **Ready**
+- [ ] Old or duplicate sources on each Knowledge tab paused, including any SympleHost added for you
 - [ ] Rules added for writing style, prices, and topics to hand to your team
 - [ ] Concierge tested with 5–10 real guest questions in the **Test** tab
 - [ ] Starter scheduled messages reviewed and switched on
@@ -140,6 +141,8 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 - Uploading the same document on General and every listing
 - Switching on many scheduled messages at once without checking **Outgoing messages**
 - Letting Concierge handle refunds, damage or complaints without a rule set to **Avoid** or **Alert**
+- Creating the same rule topic on General and on a listing with different instructions
+- Uploading a new version of a document without pausing the old one
 
 ---
 

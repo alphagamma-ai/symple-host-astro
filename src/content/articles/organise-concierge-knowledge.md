@@ -48,7 +48,7 @@ Think of Concierge like a new team member. You give them a short list of house r
 
 Each card opens a page with three tabs: **Knowledge**, **Rules** and **Test**.
 
-💡 **Tip:** A listing card that says **Inherits from General** has no knowledge of its own yet. Concierge will only use what's in General for it. General knowledge is always used alongside each listing's own knowledge, so you never need to copy it onto listings.
+💡 **Tip:** A listing card that says **Inherits from General** has no knowledge of its own yet. Concierge will only use what's in General for it. General knowledge is available in every conversation alongside the listing's own knowledge, so you never need to copy it onto listings. If a listing document and the General document say different things, Concierge goes with the listing document.
 
 ---
 
@@ -81,6 +81,8 @@ Documents can be as long as you need. Concierge searches them section by section
 
 - **Use clear headings**, for example "Events and weddings", "Fees" and "Pool and spa". Headings help Concierge find the right section.
 - **Write prices and numbers exactly** as you want them quoted.
+
+For each guest question, Concierge picks the few sections that best match it, from this listing's documents and from General together. It doesn't read every document in full each time. That's why one clear heading per topic matters more than how long the document is. It's also why an outdated paragraph can still be picked up and quoted until you remove or pause it (see **Good Habits**).
 
 ### Example listing document
 
@@ -119,7 +121,9 @@ Notice how each topic has its own heading, and every price says exactly what it 
 
 ### If several listings share the same building or facts
 
-Concierge only reads a listing's document when the guest is asking about that listing. If three villas share one complex, upload the same document on **each** listing guests can book, including any whole-complex listing.
+Concierge automatically uses the documents of the listing the conversation is linked to, for example through the guest's booking or inquiry, plus General. If a guest asks by name about one of your other listings, Concierge can look up that listing's details and documents to answer (never door codes or Wi-Fi). So keep every listing's documents accurate, not only the ones guests book most.
+
+If three villas share one complex, upload the same document on **each** listing guests can book, including any whole-complex listing. Uploading one document on several listings is fine. What to avoid is uploading the same document on General **and** on listings (see **Good Habits**).
 
 ---
 
@@ -163,6 +167,8 @@ Payment: full payment 14 days before arrival.
 Cancellation: free up to 30 days before arrival; 50% after that.
 ```
 
+💡 **Tip:** Concierge keeps quoting a promotion for as long as it's in a document, even after its end date. When an offer ends, update the document, or pause it (see **Good Habits**), on the day it ends.
+
 ---
 
 ## Step 5: Add Your Rules
@@ -187,7 +193,7 @@ By default, Concierge speaks as your team ("we") and keeps replies to one or two
 
 6. Back in the list, click the topic's name and write your instructions in **Guidance — how the concierge should behave**, in plain sentences. Click **Update rule**.
 
-In the rules list, these choices show as **Answers freely** (Respond), **Asks you first** (Alert) and **Never** (Avoid). Click a rule's setting to change it at any time.
+In the rules list, these choices show as **Answers freely** (Respond), **Asks you first** (Alert) and **Never** (Avoid). Despite its label, Alert does not hold the reply. If your knowledge covers the question, Concierge answers briefly and flags the conversation to you at the same time. If you want Concierge to say nothing until you've replied, use Avoid. Click a rule's setting to change it at any time.
 
 **Keep each rule short.** Concierge reads only the first **4,000 characters** of a rule. A counter appears as you get close, and you can't save a rule that's over the limit. You can add as many rules as you need, and all of them apply, so split long instructions into several focused rules. For example:
 
@@ -195,6 +201,10 @@ In the rules list, these choices show as **Answers freely** (Respond), **Asks yo
 - One rule for tone and persona
 - One rule for prices and approvals
 - One rule for when to hand a question to your team
+
+**General rules and listing rules both apply.** In a conversation about Ocean Villa, Concierge follows every General rule and every Ocean Villa rule together. If a General rule and a listing rule on the same topic disagree, there's no automatic winner, and replies can go either way. So don't create the same topic twice. Keep the rule on General, and for a listing that's different, add a separate listing rule that says so plainly, for example a topic "Pets – Garden Villa" with "At Garden Villa only, small dogs are welcome for USD 20 per night."
+
+**Saved reply.** A rule set to **Respond** can also have a **Saved reply (sent verbatim, optional)**. When the rule applies, Concierge sends that text word for word instead of writing its own. Use it when the exact wording matters, such as a fixed "no" to a request you never allow. To add one, save the topic first, then click its name in the rules list. The New topic panel doesn't have this field. A saved reply is ignored on rules set to Alert or Avoid. For those, put the wording you want in the guidance instead.
 
 ❌ Don't paste a whole manual into a rule. Facts belong in your documents (Steps 3 and 4).
 
@@ -239,10 +249,14 @@ and any request to change booking dates.
 **Topic: Pets** · set to **Respond**
 
 ```text
-No pets, no exceptions. Politely tell the guest pets aren't allowed at any of our villas.
+Pets are not allowed at any of our villas, no exceptions. If a guest asks to bring a pet,
+say politely that we can't accommodate pets. Don't offer to check with the team.
 ```
 
-💡 **Tip:** If a guest asks for something your house rules don't allow, Concierge treats it as a possible exception and passes it to you. Add "no exceptions" to a rule, as above, when you want Concierge to give a polite no itself.
+💡 **Tip:** Concierge treats "not allowed" in your listing settings as the answer and tells the guest politely. If your rules, guidebook or documents say something different, what you wrote wins over the listing setting. So keep them consistent:
+
+- For a firm no, untick **Pets allowed** (and the other house rules) in the listing's details. If you want the wording controlled, add a rule that says what to tell the guest, for example "If a guest asks to bring a pet, say politely that pets aren't allowed at any of our villas. Don't offer to check with the team."
+- If the real policy is "usually no, but we sometimes allow it", say that in a rule: "Tell the guest pets aren't usually allowed and that the team will confirm." Set the rule to **Alert** so the conversation comes to you. Otherwise Concierge will simply say no.
 
 💡 **Tip:** Choose the setting to match how much you trust Concierge on that topic. **Respond** means it replies on its own. **Alert** means the conversation also comes to you. **Avoid** means Concierge doesn't answer and hands the guest straight to your team.
 
@@ -256,6 +270,10 @@ No pets, no exceptions. Politely tell the guest pets aren't allowed at any of ou
 4. Check the answer and the **Sources** it used.
 5. If it's wrong or missing, fix the document or rule, then ask again.
 
+Rule changes can take up to a minute to show in Test. If an answer hasn't changed straight away, wait a moment and ask again. Real guest conversations pick up rule changes on their next message.
+
+To correct a Test answer, click **Fix this**, type the right answer the way you'd text a guest, and click **Teach it**. It's saved as a quick note on the listing the Test tab is set to, or on General if none is selected. You can edit or pause it later on the Knowledge tab. Good and Fix this feedback in Test is saved, but nothing is sent to guests.
+
 ![The Test tab: pick the guest's stage (Inquiry, Before stay, During stay, After stay), optionally a reservation, then type a question like a guest would](/screenshots/organise-concierge-knowledge/test-tab-practice.png)
 
 Nothing in the Test tab is sent to real guests.
@@ -266,10 +284,28 @@ Once the answers look right, choose how Concierge replies to real guests in **Me
 
 ## Good Habits
 
-- **Keep each fact in one place.** If a rule and a document say different things, the rule wins. Duplicates are how outdated answers creep in.
-- **Pause old notes instead of stacking new ones.** When you add a note that overlaps an older one, SympleHost asks whether to **Pause older note**. Say yes unless both are still true.
-- **Upload each document once per place it belongs.** The same rules document uploaded on General *and* on several listings doesn't help and makes things harder to update.
-- **Clean up after reorganising.** Once your new rules and documents are in, delete old uploads and any long rules that contain a whole pasted document.
+- **Keep each fact in one place.** If a rule and a document disagree, the rule wins. If a listing document and the General document disagree, the listing document wins. Between two entries for the same place, the more recently updated one wins. Even so, duplicates are how outdated answers creep in, so fix the old copy rather than relying on these.
+
+- **Upload each document once per place it belongs.** The same document on several listings that share facts is fine. The same document on General and on every listing doesn't help, and gives you more copies to update.
+
+- **Pause what's out of date.** Every source on a Knowledge tab has a switch on the right.
+  - Turn it off and the source shows **Paused**. Concierge stops using it straight away, and the content is kept so you can turn it back on later.
+  - The bin icon deletes the source immediately, with no confirmation.
+
+  Pause rather than delete when you're not sure.
+
+- **When SympleHost offers to pause an older note, usually say yes.** After you save a quick note, or save an edit to one, SympleHost checks for older notes that seem to say the same thing and offers **Pause older note** or **Keep both**. Choose Pause unless both are still true. The check only compares quick notes with each other. It doesn't run for uploaded documents, sources SympleHost adds for you, or notes taught from the Test tab, so pause those old versions yourself.
+
+- **Check the sources you didn't add.** The Knowledge tab also lists sources SympleHost adds for you:
+  - your listing details;
+  - the guidebook;
+  - text imported from booking sites;
+  - documents attached to the listing elsewhere in SympleHost;
+  - lessons saved with **Fix this** in conversations.
+
+  These are often where outdated answers come from. Read them once, and pause any that are wrong. Basic listing settings are always read straight from the listing, even if you pause its source: check-in and check-out times, house rules (pets, smoking, parties, children) and amenities. To change those, edit the listing itself.
+
+- **Clean up after reorganising.** Once your new documents are in, pause or remove the old uploads they replace. You can't pause or delete a rule yet. To retire one, click its name and replace its guidance with the new, short version, or change its setting. A rule created by the **Train concierge** chat can be turned off with **Revert**, under "Saved from Train concierge". A turned-off rule shows crossed out.
 
 ---
 
@@ -290,6 +326,14 @@ The document is only on one listing. Upload it on every listing it applies to.
 ### Concierge says it will check with the team for a question my document answers
 
 The guest may not have said which listing they mean, so Concierge only had General. Add a short line about that topic to your General document.
+
+### Concierge still gives an old answer after I uploaded a new document
+
+The old document, or an older note, is still switched on, and Concierge may pick it up. Open the listing's Knowledge tab, and General's too, then pause or remove the old source.
+
+### A General rule and a listing rule seem to fight each other
+
+Both apply in that listing's conversations, and neither automatically wins. Keep one topic in one place: put the shared rule on General, and make the listing's exception its own topic that says "At [listing] only…".
 
 ---
 
