@@ -1,6 +1,6 @@
 ---
 title: 'Autopilot: Choose Off, Suggestion or On'
-description: 'Decide how your co-host replies to guests — not at all, as drafts you approve, or on its own — and how to work day to day in Suggestion mode.'
+description: 'Decide how AI Co-Host replies to guests — not at all, as drafts you approve, or on its own — and how to work day to day in Suggestion mode.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 4
@@ -15,11 +15,11 @@ draft: false
 
 > 📘 **Step 4 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
-**Autopilot decides what your co-host is allowed to do with real guests: stay quiet, draft replies for you to approve, or reply on its own. Most hosts start on Suggestion and switch to On once they trust the answers.**
+**Autopilot decides what AI Co-Host is allowed to do with real guests: stay quiet, draft replies for you to approve, or reply on its own. Most hosts start on Suggestion and switch to On once they trust the answers.**
 
 ---
 
-> **TL;DR:** Go to **Messages → Settings → Current Autopilot** and pick **Off**, **Suggestion** or **On**. Start with **Suggestion**: Your co-host drafts every reply and you decide what gets sent. You can also change the mode for one guest from the conversation itself.
+> **TL;DR:** Go to **Messages → Settings → Current Autopilot** and pick **Off**, **Suggestion** or **On**. Start with **Suggestion**: AI Co-Host drafts every reply and you decide what gets sent. You can also change the mode for one guest from the conversation itself.
 
 ---
 
@@ -27,13 +27,13 @@ draft: false
 
 | Mode | What happens | Good for |
 | --- | --- | --- |
-| **Off** | Your co-host doesn't reply. You answer every message yourself. | While you're still setting up |
-| **Suggestion** | Your co-host drafts a reply. You review it, edit it if needed, and send it. | Your first weeks, or if you like to check every message |
-| **On** | Your co-host replies by itself after a short delay. | Once its test answers are consistently right |
+| **Off** | AI Co-Host doesn't reply. You answer every message yourself. | While you're still setting up |
+| **Suggestion** | AI Co-Host drafts a reply. You review it, edit it if needed, and send it. | Your first weeks, or if you like to check every message |
+| **On** | AI Co-Host replies by itself after a short delay. | Once its test answers are consistently right |
 
 Think of **Suggestion** like a new team member who writes drafts for you to check before anything goes out. **On** is the same team member after they've earned your trust.
 
-Before you choose Suggestion or On, set up what your co-host knows. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
+Before you choose Suggestion or On, set up what AI Co-Host knows. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
 
 ---
 
@@ -48,13 +48,13 @@ Before you choose Suggestion or On, set up what your co-host knows. See [Set Up 
 
 ### Response delay
 
-When Autopilot is **On**, your co-host waits before it replies. The default is **60 seconds** and the minimum is **20 seconds**. The wait gives your team a chance to jump in first, and it keeps replies from feeling robotic.
+When Autopilot is **On**, AI Co-Host waits before it replies. The default is **60 seconds** and the minimum is **20 seconds**. The wait gives your team a chance to jump in first, and it keeps replies from feeling robotic.
 
 ---
 
 ## Working in Suggestion Mode
 
-In Suggestion mode, your co-host writes a draft whenever a guest messages you. You'll find it in the conversation in **Messages**, in a **Suggested Reply** box.
+In Suggestion mode, AI Co-Host writes a draft whenever a guest messages you. You'll find it in the conversation in **Messages**, in a **Suggested Reply** box.
 
 For each draft, you can:
 
@@ -71,7 +71,7 @@ If the guest sends another message before you reply, the older draft is replaced
 
 ## Change the Mode for One Guest
 
-Sometimes you want your co-host to step back for one guest, for example a VIP or a guest with a complaint, without changing it for everyone.
+Sometimes you want AI Co-Host to step back for one guest, for example a VIP or a guest with a complaint, without changing it for everyone.
 
 1. Open the conversation in **Messages**.
 2. Find **Autopilot** in the bar above the messages.
@@ -85,7 +85,7 @@ This only changes that guest. Everyone else keeps your account-wide mode.
 
 ## Handing a Conversation to Your Team
 
-Your co-host passes a conversation to you when it can't answer confidently, or when a rule is set to **Avoid**. You can also do it yourself:
+AI Co-Host passes a conversation to you when it can't answer confidently, or when a rule is set to **Avoid**. You can also do it yourself:
 
 1. Open the conversation and click **Escalate**.
 2. Add a note so your team knows why.
@@ -97,18 +97,18 @@ SympleHost also spots conversations that look finished, for example when the gue
 
 ---
 
-## Set How Your Co-Host Sounds
+## Set How AI Co-Host Sounds
 
-On the same **Current Autopilot** page, the **Co-host voice** card controls how replies sound:
+On the same **Current Autopilot** page, the **AI Co-Host voice** card controls how replies sound:
 
 - **Tone**: Formal, Friendly or Casual.
 - **Enthusiasm**: Reserved, Warm or Enthusiastic.
 - **Says it is AI**: Never, Only if asked, or Always.
-- **Hand-off message**: what your co-host tells a guest when it passes the conversation to your team, for example "Let me check with the team and get back to you shortly."
-- **Let finished conversations end**: when the guest's question is answered, your co-host stops instead of sending a filler reply like "You're welcome!"
+- **Hand-off message**: what AI Co-Host tells a guest when it passes the conversation to your team, for example "Let me check with the team and get back to you shortly."
+- **Let finished conversations end**: when the guest's question is answered, AI Co-Host stops instead of sending a filler reply like "You're welcome!"
 - **Written voice**: a description of how you write to guests. Click **Generate from my replies** to have SympleHost draft one from your past messages. Nothing changes until you click **Use this**.
 
-![The Co-host voice card with Tone, Enthusiasm, Says it is AI, Hand-off message, Let finished conversations end and Written voice](/screenshots/autopilot-off-suggestion-on/co-host-voice.png)
+![The AI Co-Host voice card with Tone, Enthusiasm, Says it is AI, Hand-off message, Let finished conversations end and Written voice](/screenshots/autopilot-off-suggestion-on/co-host-voice.png)
 
 💡 **Tip:** For anything more specific, like "never use emojis" or "sign off as The Ocean Stays Team", add a rule. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
 
@@ -116,10 +116,10 @@ On the same **Current Autopilot** page, the **Co-host voice** card controls how 
 
 ## Pause Everything at Once
 
-**Pause all automated guest messages** (at the top of the Current Autopilot page) stops every automatic message to guests: scheduled messages, your co-host's auto-replies, booking emails and balance collection.
+**Pause all automated guest messages** (at the top of the Current Autopilot page) stops every automatic message to guests: scheduled messages, AI Co-Host's auto-replies, booking emails and balance collection.
 
 - Nothing is cancelled. Queued messages are kept.
-- Your co-host keeps drafting replies for you to send yourself.
+- AI Co-Host keeps drafting replies for you to send yourself.
 - You can still send messages yourself as normal.
 
 When you switch it back off, messages that came due during the pause wait in **Scheduled messages → Outgoing messages**, so you can choose to send or dismiss each one.
@@ -142,11 +142,11 @@ You can switch back to **Suggestion** at any time.
 
 ## Troubleshooting
 
-### Your co-host isn't drafting or replying at all
+### AI Co-Host isn't drafting or replying at all
 
 Check three things: the mode in **Current Autopilot** isn't **Off**, the conversation's own **Autopilot** isn't set to **Off**, and **Pause all automated guest messages** is switched off.
 
-### Your co-host replies on its own, but I only wanted drafts
+### AI Co-Host replies on its own, but I only wanted drafts
 
 That conversation may be set to **Auto-replying**. Click its **Autopilot** setting and switch it to **Suggesting**.
 
@@ -156,7 +156,7 @@ Fix the knowledge, not just the draft. Check the listing's document, your Genera
 
 ---
 
-**Next step:** [Step 5 — Translate and keep teaching your co-host](/platform-guides/translate-and-teach-your-co-host/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
+**Next step:** [Step 5 — Translate and keep teaching AI Co-Host](/platform-guides/translate-and-teach-your-co-host/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 

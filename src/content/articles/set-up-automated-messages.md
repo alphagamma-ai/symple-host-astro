@@ -28,10 +28,10 @@ draft: false
 | Scheduled messages | AI Co-Host |
 | --- | --- |
 | Go out at a set time, like "24 hours before check-in" | Reply when a guest asks something |
-| You write the message once | Your co-host writes each answer from your knowledge |
+| You write the message once | AI Co-Host writes each answer from your knowledge |
 | Best for confirmations, check-in details, reminders, review requests | Best for questions you can't predict |
 
-If you know exactly when a message should go out, use a scheduled message. If the guest is asking a question, your co-host answers it. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
+If you know exactly when a message should go out, use a scheduled message. If the guest is asking a question, AI Co-Host answers it. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
 
 ---
 
@@ -75,7 +75,7 @@ They're added switched off, so nothing sends until you've read each one and swit
    - **Checkout**: the guest's departure date, for example "24 hours before" or "1 day after".
 3. **Where**: choose how it's sent, for example **Email**, or **OTA** to send it through the booking site's own messages (Airbnb, Booking.com).
 
-   ⚠️ **Important:** Scheduled messages go out by **Email** or **OTA**, meaning the booking site's conversation (Airbnb, Booking.com or Expedia). They can't be sent on WhatsApp, Instagram or Messenger yet. Messages for services can only go by email. For a guest who booked directly and only talks to you on WhatsApp, make sure you have their email address, or send those messages yourself. Your co-host still answers their questions on WhatsApp.
+   ⚠️ **Important:** Scheduled messages go out by **Email** or **OTA**, meaning the booking site's conversation (Airbnb, Booking.com or Expedia). They can't be sent on WhatsApp, Instagram or Messenger yet. Messages for services can only go by email. For a guest who booked directly and only talks to you on WhatsApp, make sure you have their email address, or send those messages yourself. AI Co-Host still answers their questions on WhatsApp.
 4. **What**: write the message. Use **Insert variables** to add details that change for each guest (see below). For emails, add a **Subject**, or leave it blank to use the automation's name.
 5. **Which properties**: choose **All properties** or **Only some**.
 6. Save, then switch the automation on.
@@ -95,7 +95,7 @@ Switch on **Review before sending** if you want to check each message first. Eac
 
 ### AI-written messages
 
-A message marked **AI-written** has no fixed template yet. SympleHost writes it from your instructions and your co-host's knowledge, about 24 hours before it sends. Check a few in **Outgoing messages** before relying on them.
+A message marked **AI-written** has no fixed template yet. SympleHost writes it from your instructions and AI Co-Host's knowledge, about 24 hours before it sends. Check a few in **Outgoing messages** before relying on them.
 
 ### Example: Arrival details
 

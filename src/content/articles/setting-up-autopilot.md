@@ -63,9 +63,9 @@ Automated Messages are configured in **Messages → Scheduled messages → Autom
 
 For the full setup guide, see [Set Up Automated Messages](/platform-guides/set-up-automated-messages/).
 
-## When to Use Your Co-Host
+## When to Use AI Co-Host
 
-Your co-host is for live guest questions and situations where the guest may ask the same thing in different ways.
+AI Co-Host is for live guest questions and situations where the guest may ask the same thing in different ways.
 
 It can answer questions while your team is asleep because it uses context from:
 
@@ -78,7 +78,7 @@ It can answer questions while your team is asleep because it uses context from:
 - Brand voice and behavioral settings
 - Upsell configuration, when enabled
 
-Your co-host gets better when you teach it. Add property notes, upload documents, import past messages, review unanswered questions, and test replies before letting it answer guests automatically.
+AI Co-Host gets better when you teach it. Add property notes, upload documents, import past messages, review unanswered questions, and test replies before letting it answer guests automatically.
 
 For the full setup guide, see [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/).
 
@@ -92,7 +92,7 @@ Here is the recommended mental model:
 4. **AI Co-Host** answers guest questions using your knowledge base and rules.
 5. Your team can still assign, escalate, or reply manually from any conversation.
 
-The strongest setup usually combines all three: automated messages for predictable guest touchpoints, your co-host for live questions, and human escalation for sensitive or unusual cases.
+The strongest setup usually combines all three: automated messages for predictable guest touchpoints, AI Co-Host for live questions, and human escalation for sensitive or unusual cases.
 
 ## Recommended Rollout
 
@@ -100,13 +100,13 @@ The strongest setup usually combines all three: automated messages for predictab
 2. Turn **Autopilot** to **Suggestion** so your team can review AI replies.
 3. Add core **Automated Messages** for check-in, checkout, and review requests.
 4. Teach your **AI Co-Host** with property facts, notes, documents, and rules.
-5. Test your co-host's replies from the practice area.
+5. Test AI Co-Host's replies from the practice area.
 6. Turn **Autopilot** to **On** only once your content and rules are clean.
 
 ## Common Mistakes to Avoid
 
 - Do not use Automated Messages for questions that need live context or judgment.
-- Do not turn your co-host live before adding accurate check-in, house rules, contact, and emergency information.
+- Do not turn AI Co-Host live before adding accurate check-in, house rules, contact, and emergency information.
 - Do not assume Gmail is part of automation yet. Gmail can be filtered and replied to from Messages, but Gmail automation is not supported yet.
 - Do not leave sensitive topics fully automated. Use escalation rules and manual handling for complaints, refunds, safety issues, owner-sensitive stays, and VIP guests.
 

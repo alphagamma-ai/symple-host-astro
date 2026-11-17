@@ -1,6 +1,6 @@
 # SympleHost Knowledge Base
 
-> Official help center, guides, and platform documentation for SympleHost — AI co-host and property management software for short-term rentals.
+> Official help center, guides, and platform documentation for SympleHost — AI Co-Host and property management software for short-term rentals.
 
 Site: https://help.symplehost.ai
 Product: https://www.symplehost.ai

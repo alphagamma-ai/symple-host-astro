@@ -19,4 +19,4 @@ See how Messages works as the main guest inbox: search and filter conversations,
 
 ## Steps Shown
 
-Open Messages, connect messaging channels, use planned automations for SOP messages, and use your co-host for live guest questions.
+Open Messages, connect messaging channels, use planned automations for SOP messages, and use AI Co-Host for live guest questions.

@@ -1,6 +1,6 @@
 ---
 title: 'Set Up Guest Messaging: The Complete Guide'
-description: 'Everything you need to set up guest messaging in SympleHost, in five steps: connect your channels, set up your co-host, schedule messages, choose your Autopilot mode, and keep your co-host learning.'
+description: 'Everything you need to set up guest messaging in SympleHost, in five steps: connect your channels, set up AI Co-Host, schedule messages, choose your Autopilot mode, and keep AI Co-Host learning.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 0
@@ -14,11 +14,11 @@ date: '2026-11-11'
 draft: false
 ---
 
-**This is the one place to start with guest messaging. Follow the five steps in order, and by the end every guest conversation lands in one inbox, routine messages go out on their own, and your co-host answers guest questions the way your team would.** (Scheduled messages go out by email or through Airbnb and Booking.com. See Step 3.)
+**This is the one place to start with guest messaging. Follow the five steps in order, and by the end every guest conversation lands in one inbox, routine messages go out on their own, and AI Co-Host answers guest questions the way your team would.** (Scheduled messages go out by email or through Airbnb and Booking.com. See Step 3.)
 
 ---
 
-> **TL;DR:** 1. Connect your channels. 2. Teach your co-host about your listings. 3. Set up scheduled messages. 4. Choose your Autopilot mode, starting with **Suggestion**. 5. Correct your co-host as you go. Each step below links to a full guide with screenshots.
+> **TL;DR:** 1. Connect your channels. 2. Teach AI Co-Host about your listings. 3. Set up scheduled messages. 4. Choose your Autopilot mode, starting with **Suggestion**. 5. Correct AI Co-Host as you go. Each step below links to a full guide with screenshots.
 
 ![The Messages area in SympleHost: the Messages, AI Co-Host, Scheduled messages and Settings tabs, with the AI Co-Host Knowledge Base showing the General card and one card per listing](/screenshots/messages-setup-guide-hero.png)
 
@@ -31,9 +31,9 @@ Set up Messages in this order. Click a step to open its full guide.
 | Step | What to do | Why it matters |
 | --- | --- | --- |
 | **[1. Connect your channels](/platform-guides/connecting-messaging-integrations/)** | Connect WhatsApp, Instagram, Messenger, Gmail, LINE or website chat. | Guest messages need to reach SympleHost before anything else can help. |
-| **[2. Set up your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/)** | Fill in listing details and guidebooks, upload one document per listing and a General document, add rules, then test. | Your co-host only knows what you teach it. |
+| **[2. Set up your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/)** | Fill in listing details and guidebooks, upload one document per listing and a General document, add rules, then test. | AI Co-Host only knows what you teach it. |
 | **[3. Set up scheduled messages](/platform-guides/set-up-automated-messages/)** | Create booking, arrival, checkout and review messages, using variables. | Routine messages go out on time without anyone typing them. |
-| **[4. Choose your Autopilot mode](/platform-guides/autopilot-off-suggestion-on/)** | Start with **Suggestion**, move to **On** when the drafts are reliably right. | You stay in control while your co-host earns your trust. |
+| **[4. Choose your Autopilot mode](/platform-guides/autopilot-off-suggestion-on/)** | Start with **Suggestion**, move to **On** when the drafts are reliably right. | You stay in control while AI Co-Host earns your trust. |
 | **[5. Translate and keep teaching](/platform-guides/translate-and-teach-your-co-host/)** | Translate guest messages, click **Fix this** on wrong replies, answer Action Items. | Every correction makes the next answer better. |
 
 New to the inbox itself? See [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/).
@@ -49,9 +49,9 @@ Everything lives under **Messages** in the sidebar, in four tabs:
 | **Messages** | The inbox: every guest conversation from every channel, in one list |
 | **AI Co-Host** | What your AI assistant knows, its rules, testing, and questions it handed to you |
 | **Scheduled messages** | Messages that go out on their own, like check-in details and review requests |
-| **Settings** | Autopilot mode, Co-host voice, and your connected channels |
+| **Settings** | Autopilot mode, AI Co-Host voice, and your connected channels |
 
-Think of it like a front desk. The inbox is the desk, your co-host is the assistant who answers questions, scheduled messages are the reminders that go out on time, and Autopilot decides how much the assistant can do without asking you.
+Think of it like a front desk. The inbox is the desk, AI Co-Host is the assistant who answers questions, scheduled messages are the reminders that go out on time, and Autopilot decides how much the assistant can do without asking you.
 
 ---
 
@@ -71,7 +71,7 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 
 ## Step 2: Set Up Your AI Co-Host
 
-**What you'll do:** Teach your co-host about your listings so it can answer guest questions. Fill in your listing details and guidebooks, upload one document per listing and one General document for shared facts, add rules for how your co-host should behave, then test it.
+**What you'll do:** Teach AI Co-Host about your listings so it can answer guest questions. Fill in your listing details and guidebooks, upload one document per listing and one General document for shared facts, add rules for how AI Co-Host should behave, then test it.
 
 **Where:** **Messages → AI Co-Host → Knowledge Base**
 
@@ -79,7 +79,7 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 
 👉 **[Read the full guide: Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/)**
 
-💡 **Tip:** This step makes the biggest difference. Your co-host only knows what you teach it, so take your time here.
+💡 **Tip:** This step makes the biggest difference. AI Co-Host only knows what you teach it, so take your time here.
 
 ---
 
@@ -97,7 +97,7 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 
 ## Step 4: Choose Your Autopilot Mode
 
-**What you'll do:** Decide how your co-host replies to real guests: **Off**, **Suggestion** (it drafts, you send) or **On** (it replies on its own). Set how your co-host sounds, and learn how to change the mode for one guest.
+**What you'll do:** Decide how AI Co-Host replies to real guests: **Off**, **Suggestion** (it drafts, you send) or **On** (it replies on its own). Set how AI Co-Host sounds, and learn how to change the mode for one guest.
 
 **Where:** **Messages → Settings → Current Autopilot**
 
@@ -109,15 +109,15 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 
 ---
 
-## Step 5: Translate and Keep Teaching Your Co-Host
+## Step 5: Translate and Keep Teaching AI Co-Host
 
-**What you'll do:** Read and reply to guests in any language. Under each co-host reply, click **Fix this** when it's wrong, so the next guest gets the right answer. Answer the questions your co-host couldn't, and save them for future guests.
+**What you'll do:** Read and reply to guests in any language. Under each AI Co-Host reply, click **Fix this** when it's wrong, so the next guest gets the right answer. Answer the questions AI Co-Host couldn't, and save them for future guests.
 
 **Where:** In each conversation, and in **Messages → AI Co-Host → Action Items**
 
 **Time:** A few minutes a day
 
-👉 **[Read the full guide: Translate Guest Messages and Teach Your Co-Host](/platform-guides/translate-and-teach-your-co-host/)**
+👉 **[Read the full guide: Translate Guest Messages and Teach AI Co-Host](/platform-guides/translate-and-teach-your-co-host/)**
 
 ---
 
@@ -128,7 +128,7 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 - [ ] One document per listing and one General document uploaded and showing **Ready**
 - [ ] Old or duplicate sources on each Knowledge tab paused, including any SympleHost added for you
 - [ ] Rules added for writing style, prices, and topics to hand to your team
-- [ ] Your co-host tested with 5–10 real guest questions in the **Test** tab
+- [ ] AI Co-Host tested with 5–10 real guest questions in the **Test** tab
 - [ ] Starter scheduled messages reviewed and switched on
 - [ ] Autopilot set to **Suggestion**
 
@@ -136,11 +136,11 @@ Once connected, open the **Messages** tab and check that conversations are arriv
 
 ## Common Mistakes to Avoid
 
-- Turning Autopilot **On** before you've reviewed your co-host's drafts for a while
+- Turning Autopilot **On** before you've reviewed AI Co-Host's drafts for a while
 - Putting instructions like "always be formal" in a document instead of a rule
 - Uploading the same document on General and every listing
 - Switching on many scheduled messages at once without checking **Outgoing messages**
-- Letting your co-host handle refunds, damage or complaints without a rule set to **Avoid** or **Alert**
+- Letting AI Co-Host handle refunds, damage or complaints without a rule set to **Avoid** or **Alert**
 - Creating the same rule topic on General and on a listing with different instructions
 - Uploading a new version of a document without pausing the old one
 

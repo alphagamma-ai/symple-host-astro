@@ -129,7 +129,7 @@ Examples include booking confirmations, check-in instructions, checkout reminder
 
 AI Co-Host is the AI guest assistant that answers live guest questions using your property data, reservation context, notes, uploaded documents, past chats, rules, brand voice, and upsell settings.
 
-Use your co-host for questions guests ask in real time. Use Automated Messages for planned messages that should go out at a specific point in the stay.
+Use AI Co-Host for questions guests ask in real time. Use Automated Messages for planned messages that should go out at a specific point in the stay.
 
 → See: [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/)
 

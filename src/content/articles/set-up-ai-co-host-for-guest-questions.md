@@ -1,6 +1,6 @@
 ---
 title: Set Up AI Co-Host for Guest Questions
-description: Teach your co-host your property knowledge, rules and brand voice so it can answer guest questions with the right context.
+description: Teach AI Co-Host your property knowledge, rules and brand voice so it can answer guest questions with the right context.
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 8
@@ -20,11 +20,11 @@ draft: false
 
 ---
 
-> **TL;DR:** Use **Messages → AI Co-Host** to teach the AI what it should know, how it should answer, when it should escalate, and what it can offer guests. Your co-host is different from Automated Messages: it answers live guest questions, while Automated Messages send planned messages at scheduled moments.
+> **TL;DR:** Use **Messages → AI Co-Host** to teach the AI what it should know, how it should answer, when it should escalate, and what it can offer guests. AI Co-Host is different from Automated Messages: it answers live guest questions, while Automated Messages send planned messages at scheduled moments.
 
-## What Your Co-Host Is For
+## What AI Co-Host Is For
 
-Your co-host is for the questions guests ask when your team is busy, offline, or asleep:
+AI Co-Host is for the questions guests ask when your team is busy, offline, or asleep:
 
 - "What is the Wi-Fi password?"
 - "Can we check in early?"
@@ -33,7 +33,7 @@ Your co-host is for the questions guests ask when your team is busy, offline, or
 - "Can you arrange airport transfer?"
 - "The air conditioning is not working. What should I do?"
 
-Your co-host can answer these questions because it has access to your SympleHost context and the knowledge you teach it.
+AI Co-Host can answer these questions because it has access to your SympleHost context and the knowledge you teach it.
 
 ## AI Co-Host vs Automated Messages
 
@@ -44,7 +44,7 @@ Your co-host can answer these questions because it has access to your SympleHost
 | Gets better as you teach it | Stays mostly static until you edit the rule |
 | Best for guest support, FAQs, issue triage, and upsell suggestions | Best for confirmations, check-in instructions, checkout reminders, and review requests |
 
-Use your co-host when you need an answer that adapts to the guest's question. Use Automated Messages when the message should go out at a predictable point in the stay.
+Use AI Co-Host when you need an answer that adapts to the guest's question. Use Automated Messages when the message should go out at a predictable point in the stay.
 
 ## Where to Find AI Co-Host
 
@@ -55,9 +55,9 @@ Use your co-host when you need an answer that adapts to the guest's question. Us
 
 The AI Co-Host tab may only appear on accounts where it is enabled.
 
-## What Your Co-Host Can Learn From
+## What AI Co-Host Can Learn From
 
-Your co-host works best when you teach it in layers.
+AI Co-Host works best when you teach it in layers.
 
 | Knowledge source | What to add |
 | --- | --- |
@@ -66,15 +66,15 @@ Your co-host works best when you teach it in layers.
 | **Documents** | House manuals, welcome books, service menus, policies, as DOCX, TXT or CSV files (PDFs aren't supported yet) |
 | **Past messages** | Real examples of how guests ask questions and how your team replies |
 | **Review insights** | Guest feedback that reveals missing or unclear property information |
-| **Rules** | What your co-host should always do, never do, or escalate |
+| **Rules** | What AI Co-Host should always do, never do, or escalate |
 | **Brand voice** | How the assistant should sound across replies |
-| **Upsells** | Paid extras your co-host can mention or offer when appropriate |
+| **Upsells** | Paid extras AI Co-Host can mention or offer when appropriate |
 
 Start with property facts and house rules first. Then add documents and notes for anything guests frequently ask about.
 
-## Teach Your Co-Host at the Right Scope
+## Teach AI Co-Host at the Right Scope
 
-Your co-host has different scopes so the right answer can be used in the right place.
+AI Co-Host has different scopes so the right answer can be used in the right place.
 
 | Scope | Use it for |
 | --- | --- |
@@ -106,7 +106,7 @@ Good notes are specific:
 
 ## Add Rules
 
-Rules tell your co-host how to behave in sensitive or policy-heavy situations.
+Rules tell AI Co-Host how to behave in sensitive or policy-heavy situations.
 
 Use rules for:
 
@@ -125,13 +125,13 @@ Examples:
 
 Each rule is set to **Respond**, **Alert** or **Avoid**. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/), Step 5.
 
-## Configure How Your Co-Host Sounds
+## Configure How AI Co-Host Sounds
 
-How your co-host sounds is set in the Co-host voice card under **Messages → Settings**. See [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
+How AI Co-Host sounds is set in the AI Co-Host voice card under **Messages → Settings**. See [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
 
 ## Test Before Going Live
 
-Before turning your co-host live:
+Before turning AI Co-Host live:
 
 1. Add at least one ready knowledge source.
 2. Add important rules.
@@ -142,9 +142,9 @@ Before turning your co-host live:
 
 The go-live area links back to **Messages → Autopilot** because Autopilot controls whether AI is allowed to suggest or send replies.
 
-## Use Your Co-Host for Upsells
+## Use AI Co-Host for Upsells
 
-Your co-host can support upsells when you configure the offer clearly.
+AI Co-Host can support upsells when you configure the offer clearly.
 
 Examples:
 
@@ -155,11 +155,11 @@ Examples:
 - Local experiences
 - Food, drinks, or welcome packs
 
-For each upsell, make sure the price, availability rules, guest-facing explanation, and fulfillment process are clear. Your co-host should not offer something your team cannot actually deliver.
+For each upsell, make sure the price, availability rules, guest-facing explanation, and fulfillment process are clear. AI Co-Host should not offer something your team cannot actually deliver.
 
-## Keep Your Co-Host Sharp
+## Keep AI Co-Host Sharp
 
-Your co-host improves when you maintain its knowledge.
+AI Co-Host improves when you maintain its knowledge.
 
 Review it regularly when:
 
@@ -170,25 +170,25 @@ Review it regularly when:
 - New services or upsells become available
 - Reviews mention confusing instructions
 
-Use action items and answered-question review areas to find gaps, then teach your co-host with a note, document, or rule.
+Use action items and answered-question review areas to find gaps, then teach AI Co-Host with a note, document, or rule.
 
 ## Troubleshooting
 
-### Your co-host gives a weak or incomplete answer
+### AI Co-Host gives a weak or incomplete answer
 
 Add a more specific note, upload a better source document, or create a rule for that situation. Then test the same question again.
 
-### Your co-host answers correctly for one property but not another
+### AI Co-Host answers correctly for one property but not another
 
 Check the knowledge scope. The answer may have been added to one property when it should be account-wide, or added account-wide when it should be property-specific.
 
-### Your co-host should not answer a topic
+### AI Co-Host should not answer a topic
 
-Add a rule for that topic set to **Avoid**, so your co-host doesn't answer and hands the guest to your team.
+Add a rule for that topic set to **Avoid**, so AI Co-Host doesn't answer and hands the guest to your team.
 
-### Your co-host is trained but not replying live
+### AI Co-Host is trained but not replying live
 
-Check **Messages → Autopilot**. Your co-host's knowledge can be ready, but Autopilot still controls whether AI is off, suggestion-only, or allowed to auto-reply.
+Check **Messages → Autopilot**. AI Co-Host's knowledge can be ready, but Autopilot still controls whether AI is off, suggestion-only, or allowed to auto-reply.
 
 ---
 
