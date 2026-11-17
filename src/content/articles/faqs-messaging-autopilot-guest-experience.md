@@ -1,6 +1,6 @@
 ---
-title: "Guest Messaging, Unified Inbox, Autopilot and Concierge FAQs"
-description: "Answers to common questions about SympleHost guest messaging, unified inbox channels, WhatsApp replies, Autopilot, Concierge, translation, and escalation."
+title: "Guest Messaging, Unified Inbox, Autopilot and AI Co-Host FAQs"
+description: "Answers to common questions about SympleHost guest messaging, unified inbox channels, WhatsApp replies, Autopilot, AI Co-Host, translation, and escalation."
 category: platform-guides
 section: FAQs
 tags:
@@ -99,7 +99,7 @@ It appears only when SympleHost can detect a guest language that differs from yo
 
 Autopilot is the account-level control for AI guest replies. It can be off, suggest replies for review, or allow AI to send replies automatically after a delay.
 
-→ See: [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+→ See: [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot/)
 
 ### How do I turn on Autopilot?
 
@@ -125,13 +125,13 @@ Examples include booking confirmations, check-in instructions, checkout reminder
 
 → See: [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
 
-### What is Concierge?
+### What is AI Co-Host?
 
-Concierge is the AI guest assistant that answers live guest questions using your property data, reservation context, notes, uploaded documents, past chats, rules, brand voice, and upsell settings.
+AI Co-Host is the AI guest assistant that answers live guest questions using your property data, reservation context, notes, uploaded documents, past chats, rules, brand voice, and upsell settings.
 
-Use Concierge for questions guests ask in real time. Use Automated Messages for planned messages that should go out at a specific point in the stay.
+Use AI Co-Host for questions guests ask in real time. Use Automated Messages for planned messages that should go out at a specific point in the stay.
 
-→ See: [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
+→ See: [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/)
 
 ### Autopilot is not responding. What should I check?
 

@@ -93,7 +93,7 @@ Stay connected:
 
 ## See Symplehost in action
 
-Your AI co-host never sleeps, so you can. Here is a quick look at how Symplehost keeps guest operations moving across channels.
+Your AI Co-Host never sleeps, so you can. Here is a quick look at how Symplehost keeps guest operations moving across channels.
 
 <video controls preload="metadata" width="100%" poster="/screenshots/events/symplehost-ai-cohost-thumbnail.svg" style="border-radius:10px;background:#000;">
   <source src="/videos/symplehost-booth-loop.mp4" type="video/mp4">

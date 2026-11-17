@@ -609,4 +609,4 @@ Service pricing uses your account currency. Open the top-right profile menu, the
 - [Manage Bookings and Calendar](/platform-guides/manage-bookings-and-calendar/)
 - [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)
 - [How to Set Up Payments](/getting-started/set-up-payments-stripe/)
-- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+- [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot/)

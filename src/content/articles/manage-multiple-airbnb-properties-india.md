@@ -99,7 +99,7 @@ Separate communication into three layers:
 | --- | --- | --- |
 | **Scheduled automation** | Send consistent information at the correct time | Booking confirmation, check-in instructions, checkout reminder, review request |
 | **Live inbox** | Handle active conversations | Date questions, arrival updates, maintenance issues |
-| **AI Concierge** | Answer contextual questions and escalate exceptions | Property rules, amenities, local recommendations, approved upsells |
+| **AI Co-Host** | Answer contextual questions and escalate exceptions | Property rules, amenities, local recommendations, approved upsells |
 
 Use WhatsApp and other messaging integrations according to their supported capabilities. Automation should reduce repetitive work without hiding urgent guest issues.
 

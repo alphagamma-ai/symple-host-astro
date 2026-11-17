@@ -121,7 +121,7 @@ Every attendee will receive a **free copy of the Million Dollar Host e-book**, v
 
 ## See Symplehost in action
 
-Your AI co-host keeps routine guest and team workflows moving, so operators can spend less time chasing updates and more time improving the business.
+Your AI Co-Host keeps routine guest and team workflows moving, so operators can spend less time chasing updates and more time improving the business.
 
 <video controls preload="metadata" width="100%" poster="/screenshots/events/symplehost-ai-cohost-thumbnail.svg" style="border-radius:10px;background:#000;">
   <source src="/videos/symplehost-booth-loop.mp4" type="video/mp4">

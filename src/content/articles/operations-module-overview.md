@@ -93,7 +93,7 @@ Operations is for staff work and internal workflows. It is not the same as guest
 | --- | --- |
 | Assign a cleaner after checkout | **Operations → Tasks** or **Operations → Automations** |
 | Send check-in instructions to a guest | **Messages → Automated Messages** |
-| Let AI answer a guest question | **Concierge** |
+| Let AI answer a guest question | **AI Co-Host** |
 | Record a repair receipt | **Operations → Expenses** |
 | Ask an owner to approve a cost | **Operations → Expenses** and Owner Portal |
 

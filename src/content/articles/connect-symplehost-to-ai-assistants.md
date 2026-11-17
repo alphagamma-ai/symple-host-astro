@@ -289,6 +289,6 @@ That immediately revokes access on SympleHost's side — the token stops working
 
 - [SympleHost Partner API Reference](/platform-guides/symplehost-partner-api-reference/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations)
-- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot)
+- [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests)
 - [Navigating SympleHost](/getting-started/navigating-symplehost)

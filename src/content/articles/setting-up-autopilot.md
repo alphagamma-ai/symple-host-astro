@@ -1,6 +1,6 @@
 ---
-title: 'Autopilot, Automated Messages, and Concierge: What Each One Does'
-description: 'Understand the difference between Autopilot settings, automated scheduled messages, and Concierge before turning on AI guest messaging.'
+title: 'Autopilot, Automated Messages, and AI Co-Host: What Each One Does'
+description: 'Understand the difference between Autopilot settings, automated scheduled messages, and AI Co-Host before turning on AI guest messaging.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 7
@@ -9,16 +9,16 @@ tags:
   - AI
   - Messaging
   - Automation
-  - Concierge
+  - AI Co-Host
 date: '2026-08-10'
 draft: false
 ---
 
-**SympleHost has three different messaging tools that work together: Autopilot, Automated Messages, and Concierge. They are related, but they do different jobs.**
+**SympleHost has three different messaging tools that work together: Autopilot, Automated Messages, and AI Co-Host. They are related, but they do different jobs.**
 
 ---
 
-> **TL;DR:** **Autopilot** is the account-level control for whether AI is off, suggesting replies, or allowed to auto-reply. **Automated Messages** are planned messages that go out when a reservation or service reaches a specific trigger. **Concierge** is the AI guest assistant that answers real guest questions using your property data, past chats, notes, uploaded documents, brand voice, and rules.
+> **TL;DR:** **Autopilot** is the account-level control for whether AI is off, suggesting replies, or allowed to auto-reply. **Automated Messages** are planned messages that go out when a reservation or service reaches a specific trigger. **AI Co-Host** is the AI guest assistant that answers real guest questions using your property data, past chats, notes, uploaded documents, brand voice, and rules.
 
 ## The Simple Difference
 
@@ -26,9 +26,9 @@ draft: false
 | --- | --- | --- |
 | **Autopilot** | The switch that controls AI participation | Choosing Off, Suggestion, or On and setting the response delay |
 | **Automated Messages** | Scheduled SOP messages | Booking confirmations, check-in instructions, checkout reminders, review requests |
-| **Concierge** | The always-learning guest assistant | Answering guest questions, using property context, handling common requests, surfacing upsells |
+| **AI Co-Host** | The always-learning guest assistant | Answering guest questions, using property context, handling common requests, surfacing upsells |
 
-Use **Automated Messages** for communication you already know should happen. Use **Concierge** for guest questions you cannot fully predict.
+Use **Automated Messages** for communication you already know should happen. Use **AI Co-Host** for guest questions you cannot fully predict.
 
 ## What Autopilot Controls
 
@@ -63,9 +63,9 @@ Automated Messages are configured in **Messages → Scheduled messages → Autom
 
 For the full setup guide, see [Set Up Automated Messages](/platform-guides/set-up-automated-messages/).
 
-## When to Use Concierge
+## When to Use AI Co-Host
 
-Concierge is for live guest questions and situations where the guest may ask the same thing in different ways.
+AI Co-Host is for live guest questions and situations where the guest may ask the same thing in different ways.
 
 It can answer questions while your team is asleep because it uses context from:
 
@@ -78,9 +78,9 @@ It can answer questions while your team is asleep because it uses context from:
 - Brand voice and behavioral settings
 - Upsell configuration, when enabled
 
-Concierge gets better when you teach it. Add property notes, upload documents, import past messages, review unanswered questions, and test replies before letting it answer guests automatically.
+AI Co-Host gets better when you teach it. Add property notes, upload documents, import past messages, review unanswered questions, and test replies before letting it answer guests automatically.
 
-For the full setup guide, see [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/).
+For the full setup guide, see [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/).
 
 ## How They Work Together
 
@@ -89,24 +89,24 @@ Here is the recommended mental model:
 1. **Messages** is where conversations arrive.
 2. **Autopilot** decides whether AI can suggest or send replies.
 3. **Automated Messages** send planned communication at the right time.
-4. **Concierge** answers guest questions using your knowledge base and rules.
+4. **AI Co-Host** answers guest questions using your knowledge base and rules.
 5. Your team can still assign, escalate, or reply manually from any conversation.
 
-The strongest setup usually combines all three: automated messages for predictable guest touchpoints, Concierge for live questions, and human escalation for sensitive or unusual cases.
+The strongest setup usually combines all three: automated messages for predictable guest touchpoints, AI Co-Host for live questions, and human escalation for sensitive or unusual cases.
 
 ## Recommended Rollout
 
 1. Connect your messaging channels first.
 2. Turn **Autopilot** to **Suggestion** so your team can review AI replies.
 3. Add core **Automated Messages** for check-in, checkout, and review requests.
-4. Teach **Concierge** with property facts, notes, documents, and rules.
-5. Test Concierge replies from the practice area.
+4. Teach your **AI Co-Host** with property facts, notes, documents, and rules.
+5. Test AI Co-Host's replies from the practice area.
 6. Turn **Autopilot** to **On** only once your content and rules are clean.
 
 ## Common Mistakes to Avoid
 
 - Do not use Automated Messages for questions that need live context or judgment.
-- Do not turn Concierge live before adding accurate check-in, house rules, contact, and emergency information.
+- Do not turn AI Co-Host live before adding accurate check-in, house rules, contact, and emergency information.
 - Do not assume Gmail is part of automation yet. Gmail can be filtered and replied to from Messages, but Gmail automation is not supported yet.
 - Do not leave sensitive topics fully automated. Use escalation rules and manual handling for complaints, refunds, safety issues, owner-sensitive stays, and VIP guests.
 
@@ -118,4 +118,4 @@ The strongest setup usually combines all three: automated messages for predictab
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 - [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
-- [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
+- [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/)
