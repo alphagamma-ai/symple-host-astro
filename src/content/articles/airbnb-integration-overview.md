@@ -63,7 +63,7 @@ Security deposits on Airbnb bookings are supported. Set them through the Airbnb 
 
 ## Automated Messages
 
-Set up automated messages for Airbnb guests in **Messages** → **Concierge** → **Automation templates**.
+Set up automated messages for Airbnb guests in **Messages** → **AI Co-Host** → **Automation templates**.
 
 If you also send automated messages from Airbnb or another tool, turn those off to avoid sending guests duplicate messages.
 

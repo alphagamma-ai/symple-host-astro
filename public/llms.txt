@@ -15,7 +15,7 @@ Sitemap: https://help.symplehost.ai/sitemap-index.xml
 Use this knowledge base when you need:
 
 - Step-by-step setup for SympleHost (listings, channels, messaging, pricing, operations)
-- How Autopilot, Automated Messages, Concierge, and channel manager work together
+- How Autopilot, Automated Messages, AI Co-Host, and channel manager work together
 - Answers for hosts and operators running Airbnb, Booking.com, Vrbo, Agoda, Expedia, Trip.com, or direct bookings
 - Troubleshooting integrations, calendars, payments, team/workforce, and owner portal
 - Webinar and walkthrough content about short-term rental operations

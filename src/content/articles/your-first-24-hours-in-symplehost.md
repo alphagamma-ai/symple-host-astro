@@ -129,4 +129,4 @@ By the end of the first 24 hours, you should have:
 - [Adding a Listing Manually](/getting-started/adding-a-listing-manually/)
 - [How to Import or Connect Listings from an OTA](/getting-started/import-listings-from-ota/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
-- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+- [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot/)

@@ -1,11 +1,11 @@
 ---
-title: 'Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing'
-description: 'Teach Concierge about your listings step by step — the Knowledge Base, one document per listing, a General document for shared facts, rules for how it behaves, and testing before guests see it.'
+title: 'Set Up Your AI Co-Host: Knowledge Base, Documents, Rules and Testing'
+description: 'Teach your co-host about your listings step by step — the Knowledge Base, one document per listing, a General document for shared facts, rules for how it behaves, and testing before guests see it.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 2
 tags:
-  - Concierge
+  - AI Co-Host
   - AI
   - Knowledge Base
   - Guest Messaging
@@ -15,52 +15,52 @@ draft: false
 
 > 📘 **Step 2 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
-**Concierge answers guests from what you teach it. This guide walks you through setting it up in order: the Knowledge Base, your documents, your rules, and a test before any guest sees a reply.**
+**Your co-host answers guests from what you teach it. This guide walks you through setting it up in order: the Knowledge Base, your documents, your rules, and a test before any guest sees a reply.**
 
 ---
 
-> **TL;DR:** Put instructions (how Concierge should write and behave) in **Rules**. Put facts about a listing in **one document on that listing**. Put facts that are the same for every listing in **one document on General**. Then test your setup in the **Test** tab.
+> **TL;DR:** Put instructions (how your co-host should write and behave) in **Rules**. Put facts about a listing in **one document on that listing**. Put facts that are the same for every listing in **one document on General**. Then test your setup in the **Test** tab.
 
 ---
 
 ## The Three Places Information Goes
 
-Think of Concierge like a new team member. You give them a short list of house rules for how to talk to guests, a binder for each villa, and one shared binder for things that apply everywhere.
+Think of your co-host like a new team member. You give them a short list of house rules for how to talk to guests, a binder for each villa, and one shared binder for things that apply everywhere.
 
 | What it is | Where it goes | Example |
 | --- | --- | --- |
-| **How Concierge should behave** | **Rules** | "Write short, friendly replies. Never confirm a price that isn't in our documents." |
+| **How your co-host should behave** | **Rules** | "Write short, friendly replies. Never confirm a price that isn't in our documents." |
 | **Facts about one listing** | A document on **that listing** | Room layout, event fees, pool rules, check-in steps for Ocean Villa |
 | **Facts that are the same everywhere** | A document on **General** | Airport transfers, emergency contacts, safety tips, current promotions |
 
-⚠️ **Important:** Concierge reads documents as information to answer from, not as instructions. If you write "always reply in a formal tone" inside a document, Concierge won't apply it as a rule. Instructions only work when you add them as **Rules**.
+⚠️ **Important:** Your co-host reads documents as information to answer from, not as instructions. If you write "always reply in a formal tone" inside a document, your co-host won't apply it as a rule. Instructions only work when you add them as **Rules**.
 
 ---
 
 ## Step 1: Open the Knowledge Base
 
 1. Go to **Messages** in the sidebar.
-2. Click the **Concierge** tab at the top.
+2. Click the **AI Co-Host** tab at the top.
 3. In the left menu, click **Knowledge Base**.
 4. You'll see a **General** card at the top, followed by one card for each listing.
 
-![The Concierge Knowledge Base, with the General card at the top and one card per listing showing its sources and rules](/screenshots/organise-concierge-knowledge/knowledge-base-general-and-listings.png)
+![The AI Co-Host Knowledge Base, with the General card at the top and one card per listing showing its sources and rules](/screenshots/organise-ai-co-host-knowledge/knowledge-base-general-and-listings.png)
 
 Each card opens a page with three tabs: **Knowledge**, **Rules** and **Test**.
 
-💡 **Tip:** A listing card that says **Inherits from General** has no knowledge of its own yet. Concierge will only use what's in General for it. General knowledge is available in every conversation alongside the listing's own knowledge, so you never need to copy it onto listings. If a listing document and the General document say different things, Concierge goes with the listing document.
+💡 **Tip:** A listing card that says **Inherits from General** has no knowledge of its own yet. Your co-host will only use what's in General for it. General knowledge is available in every conversation alongside the listing's own knowledge, so you never need to copy it onto listings. If a listing document and the General document say different things, your co-host goes with the listing document.
 
 ---
 
 ## Step 2: Fill In the Basics First
 
-Concierge already reads a lot from SympleHost itself. Fill these in first, and you won't need to repeat them in a document:
+Your co-host already reads a lot from SympleHost itself. Fill these in first, and you won't need to repeat them in a document:
 
 - **Listing details:** address, bedrooms, capacity, check-in and check-out times, amenities, and the pets, smoking, parties and children settings.
-- **Guidebook** (in **Guest books**): check-in steps, Wi-Fi, laundry, amenities and house rules. Concierge reads each guidebook directly. You'll see it listed as **"[Listing name] Guidebook"** in that listing's **Knowledge** tab, and edits in Guest books update it automatically.
+- **Guidebook** (in **Guest books**): check-in steps, Wi-Fi, laundry, amenities and house rules. Your co-host reads each guidebook directly. You'll see it listed as **"[Listing name] Guidebook"** in that listing's **Knowledge** tab, and edits in Guest books update it automatically.
 - **Recommendations** (in **Guest books → Recommendations**): restaurants and things to do nearby. Without them, questions like "where should we eat tonight?" go to your team.
 
-⚠️ **Important:** Concierge repeats whatever your listing and guidebook say. Check them for typos, for example a check-out time of 22:00 instead of 10:00, and fill in empty sections before you go live.
+⚠️ **Important:** Your co-host repeats whatever your listing and guidebook say. Check them for typos, for example a check-out time of 22:00 instead of 10:00, and fill in empty sections before you go live.
 
 ---
 
@@ -70,19 +70,19 @@ Each listing's facts go in its own document, uploaded on that listing.
 
 1. Open the listing's card.
 2. Click the **Knowledge** tab.
-3. Drag your file into the upload box, or click it to choose a file. Concierge accepts **DOCX, TXT or CSV** files up to **25MB**. PDFs aren't supported yet, so save a PDF as DOCX or TXT first.
-4. Wait until the status shows **Ready**. While it's **Processing** or **Learning…**, Concierge can't use it yet.
+3. Drag your file into the upload box, or click it to choose a file. Your co-host accepts **DOCX, TXT or CSV** files up to **25MB**. PDFs aren't supported yet, so save a PDF as DOCX or TXT first.
+4. Wait until the status shows **Ready**. While it's **Processing** or **Learning…**, your co-host can't use it yet.
 
-![A listing's Knowledge tab with the quick note box, the Upload document area, and sources marked Ready, including the listing's guidebook](/screenshots/organise-concierge-knowledge/knowledge-tab-upload.png)
+![A listing's Knowledge tab with the quick note box, the Upload document area, and sources marked Ready, including the listing's guidebook](/screenshots/organise-ai-co-host-knowledge/knowledge-tab-upload.png)
 
 💡 **Tip:** For a short fact, type it in **Type a quick note** and click **Teach it** instead of uploading a file. Notes work straight away.
 
-Documents can be as long as you need. Concierge searches them section by section, so:
+Documents can be as long as you need. Your co-host searches them section by section, so:
 
-- **Use clear headings**, for example "Events and weddings", "Fees" and "Pool and spa". Headings help Concierge find the right section.
+- **Use clear headings**, for example "Events and weddings", "Fees" and "Pool and spa". Headings help your co-host find the right section.
 - **Write prices and numbers exactly** as you want them quoted.
 
-For each guest question, Concierge picks the few sections that best match it, from this listing's documents and from General together. It doesn't read every document in full each time. That's why one clear heading per topic matters more than how long the document is. It's also why an outdated paragraph can still be picked up and quoted until you remove or pause it (see **Good Habits**).
+For each guest question, your co-host picks the few sections that best match it, from this listing's documents and from General together. It doesn't read every document in full each time. That's why one clear heading per topic matters more than how long the document is. It's also why an outdated paragraph can still be picked up and quoted until you remove or pause it (see **Good Habits**).
 
 ### Example listing document
 
@@ -117,11 +117,11 @@ No smoking indoors. Pets not allowed. Quiet hours 10 pm – 7 am.
 
 Notice how each topic has its own heading, and every price says exactly what it covers.
 
-⚠️ **Important:** Don't put door codes or Wi-Fi passwords in documents. Add them to the listing's guidebook instead, in the Wi-Fi and access code fields. Concierge only shares those with guests who have a confirmed, paid stay, from the day before check-in.
+⚠️ **Important:** Don't put door codes or Wi-Fi passwords in documents. Add them to the listing's guidebook instead, in the Wi-Fi and access code fields. Your co-host only shares those with guests who have a confirmed, paid stay, from the day before check-in.
 
 ### If several listings share the same building or facts
 
-Concierge automatically uses the documents of the listing the conversation is linked to, for example through the guest's booking or inquiry, plus General. If a guest asks by name about one of your other listings, Concierge can look up that listing's details and documents to answer (never door codes or Wi-Fi). So keep every listing's documents accurate, not only the ones guests book most.
+Your co-host automatically uses the documents of the listing the conversation is linked to, for example through the guest's booking or inquiry, plus General. If a guest asks by name about one of your other listings, your co-host can look up that listing's details and documents to answer (never door codes or Wi-Fi). So keep every listing's documents accurate, not only the ones guests book most.
 
 If three villas share one complex, upload the same document on **each** listing guests can book, including any whole-complex listing. Uploading one document on several listings is fine. What to avoid is uploading the same document on General **and** on listings (see **Good Habits**).
 
@@ -136,7 +136,7 @@ Facts that are the same for every listing go in **one** document on **General**:
 - Promotions and offers that apply everywhere
 - Company-wide policies
 
-**Add a short overview for guests who haven't picked a listing yet.** In some chats, especially on WhatsApp, a guest asks a question before saying which listing they mean. In that case Concierge only has your General document. Add a few lines there such as "Ocean Villa and Garden Villa both host weddings. Ask which one the guest is interested in."
+**Add a short overview for guests who haven't picked a listing yet.** In some chats, especially on WhatsApp, a guest asks a question before saying which listing they mean. In that case your co-host only has your General document. Add a few lines there such as "Ocean Villa and Garden Villa both host weddings. Ask which one the guest is interested in."
 
 ### Example General document
 
@@ -167,44 +167,44 @@ Payment: full payment 14 days before arrival.
 Cancellation: free up to 30 days before arrival; 50% after that.
 ```
 
-💡 **Tip:** Concierge keeps quoting a promotion for as long as it's in a document, even after its end date. When an offer ends, update the document, or pause it (see **Good Habits**), on the day it ends.
+💡 **Tip:** Your co-host keeps quoting a promotion for as long as it's in a document, even after its end date. When an offer ends, update the document, or pause it (see **Good Habits**), on the day it ends.
 
 ---
 
 ## Step 5: Add Your Rules
 
-Rules tell Concierge how to write and what it may or may not do: tone, style, pricing approvals and when to pass a question to your team.
+Rules tell your co-host how to write and what it may or may not do: tone, style, pricing approvals and when to pass a question to your team.
 
-By default, Concierge speaks as your team ("we") and keeps replies to one or two sentences. Your own style rules always take priority, so only write rules for what you want done differently.
+By default, your co-host speaks as your team ("we") and keeps replies to one or two sentences. Your own style rules always take priority, so only write rules for what you want done differently.
 
 1. Open the **General** card if the rule should apply to every listing. Open a listing's card if it applies to that listing only.
 2. Click the **Rules** tab, then **Add topic**.
 
-![The Rules tab of a listing, with the Add topic button in the top right](/screenshots/organise-concierge-knowledge/rules-tab-add-topic.png)
+![The Rules tab of a listing, with the Add topic button in the top right](/screenshots/organise-ai-co-host-knowledge/rules-tab-add-topic.png)
 
 3. In **New topic**, give the rule a short name in **Topic**, for example "Writing style" or "Prices".
-4. Under **How should the concierge handle this?**, choose:
-   - **Respond**: Concierge answers on its own, using your knowledge.
-   - **Alert**: Concierge can answer briefly, and the conversation also comes to you.
-   - **Avoid**: Concierge doesn't answer and hands the guest to your team.
+4. Under **How should your co-host handle this?**, choose:
+   - **Respond**: Your co-host answers on its own, using your knowledge.
+   - **Alert**: Your co-host can answer briefly, and the conversation also comes to you.
+   - **Avoid**: Your co-host doesn't answer and hands the guest to your team.
 5. Click **Save**.
 
-![The New topic panel with the Topic name, the Respond, Alert and Avoid options, and Save](/screenshots/organise-concierge-knowledge/new-topic-drawer.png)
+![The New topic panel with the Topic name, the Respond, Alert and Avoid options, and Save](/screenshots/organise-ai-co-host-knowledge/new-topic-drawer.png)
 
-6. Back in the list, click the topic's name and write your instructions in **Guidance — how the concierge should behave**, in plain sentences. Click **Update rule**.
+6. Back in the list, click the topic's name and write your instructions in **Guidance — how your co-host should behave**, in plain sentences. Click **Update rule**.
 
-In the rules list, these choices show as **Answers freely** (Respond), **Asks you first** (Alert) and **Never** (Avoid). Despite its label, Alert does not hold the reply. If your knowledge covers the question, Concierge answers briefly and flags the conversation to you at the same time. If you want Concierge to say nothing until you've replied, use Avoid. Click a rule's setting to change it at any time.
+In the rules list, these choices show as **Answers freely** (Respond), **Asks you first** (Alert) and **Never** (Avoid). Despite its label, Alert does not hold the reply. If your knowledge covers the question, your co-host answers briefly and flags the conversation to you at the same time. If you want your co-host to say nothing until you've replied, use Avoid. Click a rule's setting to change it at any time.
 
-**Keep each rule short.** Concierge reads only the first **4,000 characters** of a rule. A counter appears as you get close, and you can't save a rule that's over the limit. You can add as many rules as you need, and all of them apply, so split long instructions into several focused rules. For example:
+**Keep each rule short.** Your co-host reads only the first **4,000 characters** of a rule. A counter appears as you get close, and you can't save a rule that's over the limit. You can add as many rules as you need, and all of them apply, so split long instructions into several focused rules. For example:
 
 - One rule for writing style
 - One rule for tone and persona
 - One rule for prices and approvals
 - One rule for when to hand a question to your team
 
-**General rules and listing rules both apply.** In a conversation about Ocean Villa, Concierge follows every General rule and every Ocean Villa rule together. If a General rule and a listing rule on the same topic disagree, there's no automatic winner, and replies can go either way. So don't create the same topic twice. Keep the rule on General, and for a listing that's different, add a separate listing rule that says so plainly, for example a topic "Pets – Garden Villa" with "At Garden Villa only, small dogs are welcome for USD 20 per night."
+**General rules and listing rules both apply.** In a conversation about Ocean Villa, your co-host follows every General rule and every Ocean Villa rule together. If a General rule and a listing rule on the same topic disagree, there's no automatic winner, and replies can go either way. So don't create the same topic twice. Keep the rule on General, and for a listing that's different, add a separate listing rule that says so plainly, for example a topic "Pets – Garden Villa" with "At Garden Villa only, small dogs are welcome for USD 20 per night."
 
-**Saved reply.** A rule set to **Respond** can also have a **Saved reply (sent verbatim, optional)**. When the rule applies, Concierge sends that text word for word instead of writing its own. Use it when the exact wording matters, such as a fixed "no" to a request you never allow. To add one, save the topic first, then click its name in the rules list. The New topic panel doesn't have this field. A saved reply is ignored on rules set to Alert or Avoid. For those, put the wording you want in the guidance instead.
+**Saved reply.** A rule set to **Respond** can also have a **Saved reply (sent verbatim, optional)**. When the rule applies, your co-host sends that text word for word instead of writing its own. Use it when the exact wording matters, such as a fixed "no" to a request you never allow. To add one, save the topic first, then click its name in the rules list. The New topic panel doesn't have this field. A saved reply is ignored on rules set to Alert or Avoid. For those, put the wording you want in the guidance instead.
 
 ❌ Don't paste a whole manual into a rule. Facts belong in your documents (Steps 3 and 4).
 
@@ -253,12 +253,12 @@ Pets are not allowed at any of our villas, no exceptions. If a guest asks to bri
 say politely that we can't accommodate pets. Don't offer to check with the team.
 ```
 
-💡 **Tip:** Concierge treats "not allowed" in your listing settings as the answer and tells the guest politely. If your rules, guidebook or documents say something different, what you wrote wins over the listing setting. So keep them consistent:
+💡 **Tip:** Your co-host treats "not allowed" in your listing settings as the answer and tells the guest politely. If your rules, guidebook or documents say something different, what you wrote wins over the listing setting. So keep them consistent:
 
 - For a firm no, untick **Pets allowed** (and the other house rules) in the listing's details. If you want the wording controlled, add a rule that says what to tell the guest, for example "If a guest asks to bring a pet, say politely that pets aren't allowed at any of our villas. Don't offer to check with the team."
-- If the real policy is "usually no, but we sometimes allow it", say that in a rule: "Tell the guest pets aren't usually allowed and that the team will confirm." Set the rule to **Alert** so the conversation comes to you. Otherwise Concierge will simply say no.
+- If the real policy is "usually no, but we sometimes allow it", say that in a rule: "Tell the guest pets aren't usually allowed and that the team will confirm." Set the rule to **Alert** so the conversation comes to you. Otherwise your co-host will simply say no.
 
-💡 **Tip:** Choose the setting to match how much you trust Concierge on that topic. **Respond** means it replies on its own. **Alert** means the conversation also comes to you. **Avoid** means Concierge doesn't answer and hands the guest straight to your team.
+💡 **Tip:** Choose the setting to match how much you trust your co-host on that topic. **Respond** means it replies on its own. **Alert** means the conversation also comes to you. **Avoid** means your co-host doesn't answer and hands the guest straight to your team.
 
 ---
 
@@ -274,11 +274,11 @@ Rule changes can take up to a minute to show in Test. If an answer hasn't change
 
 To correct a Test answer, click **Fix this**, type the right answer the way you'd text a guest, and click **Teach it**. It's saved as a quick note on the listing the Test tab is set to, or on General if none is selected. You can edit or pause it later on the Knowledge tab. Good and Fix this feedback in Test is saved, but nothing is sent to guests.
 
-![The Test tab: pick the guest's stage (Inquiry, Before stay, During stay, After stay), optionally a reservation, then type a question like a guest would](/screenshots/organise-concierge-knowledge/test-tab-practice.png)
+![The Test tab: pick the guest's stage (Inquiry, Before stay, During stay, After stay), optionally a reservation, then type a question like a guest would](/screenshots/organise-ai-co-host-knowledge/test-tab-practice.png)
 
 Nothing in the Test tab is sent to real guests.
 
-Once the answers look right, choose how Concierge replies to real guests in **Messages → Settings → Current Autopilot**: **Off**, **Suggestion** (it drafts, you send) or **On** (it replies on its own). We suggest starting with **Suggestion**.
+Once the answers look right, choose how your co-host replies to real guests in **Messages → Settings → Current Autopilot**: **Off**, **Suggestion** (it drafts, you send) or **On** (it replies on its own). We suggest starting with **Suggestion**.
 
 ---
 
@@ -289,7 +289,7 @@ Once the answers look right, choose how Concierge replies to real guests in **Me
 - **Upload each document once per place it belongs.** The same document on several listings that share facts is fine. The same document on General and on every listing doesn't help, and gives you more copies to update.
 
 - **Pause what's out of date.** Every source on a Knowledge tab has a switch on the right.
-  - Turn it off and the source shows **Paused**. Concierge stops using it straight away, and the content is kept so you can turn it back on later.
+  - Turn it off and the source shows **Paused**. Your co-host stops using it straight away, and the content is kept so you can turn it back on later.
   - The bin icon deletes the source immediately, with no confirmation.
 
   Pause rather than delete when you're not sure.
@@ -305,31 +305,31 @@ Once the answers look right, choose how Concierge replies to real guests in **Me
 
   These are often where outdated answers come from. Read them once, and pause any that are wrong. Basic listing settings are always read straight from the listing, even if you pause its source: check-in and check-out times, house rules (pets, smoking, parties, children) and amenities. To change those, edit the listing itself.
 
-- **Clean up after reorganising.** Once your new documents are in, pause or remove the old uploads they replace. You can't pause or delete a rule yet. To retire one, click its name and replace its guidance with the new, short version, or change its setting. A rule created by the **Train concierge** chat can be turned off with **Revert**, under "Saved from Train concierge". A turned-off rule shows crossed out.
+- **Clean up after reorganising.** Once your new documents are in, pause or remove the old uploads they replace. You can't pause or delete a rule yet. To retire one, click its name and replace its guidance with the new, short version, or change its setting. A rule created by the **Train your co-host** chat can be turned off with **Revert**, under "Saved from Train your co-host". A turned-off rule shows crossed out.
 
 ---
 
 ## Troubleshooting
 
-### Concierge ignores how I asked it to write
+### Your co-host ignores how I asked it to write
 
 Your instructions are probably inside a document. Move them into **Rules**. Documents are only used as facts.
 
 ### Part of a long rule isn't followed
 
-Concierge reads only the first 4,000 characters of a rule. Split it into several shorter rules.
+Your co-host reads only the first 4,000 characters of a rule. Split it into several shorter rules.
 
-### Concierge answers for one villa but not another
+### Your co-host answers for one villa but not another
 
 The document is only on one listing. Upload it on every listing it applies to.
 
-### Concierge says it will check with the team for a question my document answers
+### Your co-host says it will check with the team for a question my document answers
 
-The guest may not have said which listing they mean, so Concierge only had General. Add a short line about that topic to your General document.
+The guest may not have said which listing they mean, so your co-host only had General. Add a short line about that topic to your General document.
 
-### Concierge still gives an old answer after I uploaded a new document
+### Your co-host still gives an old answer after I uploaded a new document
 
-The old document, or an older note, is still switched on, and Concierge may pick it up. Open the listing's Knowledge tab, and General's too, then pause or remove the old source.
+The old document, or an older note, is still switched on, and your co-host may pick it up. Open the listing's Knowledge tab, and General's too, then pause or remove the old source.
 
 ### A General rule and a listing rule seem to fight each other
 
@@ -343,6 +343,6 @@ Both apply in that listing's conversations, and neither automatically wins. Keep
 
 ## Related Articles
 
-- [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
-- [Autopilot, Automated Messages, and Concierge: What Each One Does](/platform-guides/setting-up-autopilot/)
+- [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/)
+- [Autopilot, Automated Messages, and AI Co-Host: What Each One Does](/platform-guides/setting-up-autopilot/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)

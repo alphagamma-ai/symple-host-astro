@@ -83,7 +83,7 @@ Once you understand where everything lives, use the setup articles below to make
    → See: [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 
 5. **Use Autopilot in suggestion mode first** — Let AI draft replies before you allow automatic sending.
-   → See: [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+   → See: [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot/)
 
 6. **Create or review your first reservation** — Confirm guest details, dates, payment status, and the handoff tasks your team needs.
    → See: [Creating a Reservation Manually](/platform-guides/creating-a-reservation-manually/)

@@ -54,7 +54,7 @@ When you reply to an Airbnb guest in **Messages**, end the message with your nam
 
 Add a sign-off to each automation template that goes to Airbnb guests:
 
-1. Go to **Messages** and open the **Concierge** tab.
+1. Go to **Messages** and open the **AI Co-Host** tab.
 2. In the left menu, under **Scheduled Messages**, click **Automation templates**.
 3. Open a template that goes to Airbnb guests.
 4. At the end of the message, add your sign-off, for example "Warm regards, Maya".

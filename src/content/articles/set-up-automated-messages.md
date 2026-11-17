@@ -23,15 +23,15 @@ draft: false
 
 ---
 
-## Scheduled Messages vs Concierge
+## Scheduled Messages vs AI Co-Host
 
-| Scheduled messages | Concierge |
+| Scheduled messages | AI Co-Host |
 | --- | --- |
 | Go out at a set time, like "24 hours before check-in" | Reply when a guest asks something |
-| You write the message once | Concierge writes each answer from your knowledge |
+| You write the message once | Your co-host writes each answer from your knowledge |
 | Best for confirmations, check-in details, reminders, review requests | Best for questions you can't predict |
 
-If you know exactly when a message should go out, use a scheduled message. If the guest is asking a question, Concierge answers it. See [Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/).
+If you know exactly when a message should go out, use a scheduled message. If the guest is asking a question, your co-host answers it. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
 
 ---
 
@@ -75,7 +75,7 @@ They're added switched off, so nothing sends until you've read each one and swit
    - **Checkout**: the guest's departure date, for example "24 hours before" or "1 day after".
 3. **Where**: choose how it's sent, for example **Email**, or **OTA** to send it through the booking site's own messages (Airbnb, Booking.com).
 
-   ⚠️ **Important:** Scheduled messages go out by **Email** or **OTA**, meaning the booking site's conversation (Airbnb, Booking.com or Expedia). They can't be sent on WhatsApp, Instagram or Messenger yet. Messages for services can only go by email. For a guest who booked directly and only talks to you on WhatsApp, make sure you have their email address, or send those messages yourself. Concierge still answers their questions on WhatsApp.
+   ⚠️ **Important:** Scheduled messages go out by **Email** or **OTA**, meaning the booking site's conversation (Airbnb, Booking.com or Expedia). They can't be sent on WhatsApp, Instagram or Messenger yet. Messages for services can only go by email. For a guest who booked directly and only talks to you on WhatsApp, make sure you have their email address, or send those messages yourself. Your co-host still answers their questions on WhatsApp.
 4. **What**: write the message. Use **Insert variables** to add details that change for each guest (see below). For emails, add a **Subject**, or leave it blank to use the automation's name.
 5. **Which properties**: choose **All properties** or **Only some**.
 6. Save, then switch the automation on.
@@ -95,7 +95,7 @@ Switch on **Review before sending** if you want to check each message first. Eac
 
 ### AI-written messages
 
-A message marked **AI-written** has no fixed template yet. SympleHost writes it from your instructions and your Concierge knowledge, about 24 hours before it sends. Check a few in **Outgoing messages** before relying on them.
+A message marked **AI-written** has no fixed template yet. SympleHost writes it from your instructions and your co-host's knowledge, about 24 hours before it sends. Check a few in **Outgoing messages** before relying on them.
 
 ### Example: Arrival details
 
@@ -121,7 +121,7 @@ The parts in curly brackets show where variables go. Add each one with **Insert 
 
 Variables are the details that change from guest to guest or property to property. You write `guest first name` once, and each guest sees their own name.
 
-Find them in **Messages → Concierge → Variables**.
+Find them in **Messages → AI Co-Host → Variables**.
 
 ![The Variables page listing a custom property_address variable and built-in variables like Guest name and Check-in date marked Filled automatically](/screenshots/scheduled-messages-and-variables/variables.png)
 
@@ -196,7 +196,7 @@ Check **before** vs **after** in the **When** step. "24 hours before check-in" a
 
 ## Related Articles
 
-- [Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing](/platform-guides/organise-concierge-knowledge/)
-- [Autopilot, Automated Messages, and Concierge: What Each One Does](/platform-guides/setting-up-autopilot/)
+- [Set Up Your AI Co-Host: Knowledge Base, Documents, Rules and Testing](/platform-guides/organise-ai-co-host-knowledge/)
+- [Autopilot, Automated Messages, and AI Co-Host: What Each One Does](/platform-guides/setting-up-autopilot/)
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
 - [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/)

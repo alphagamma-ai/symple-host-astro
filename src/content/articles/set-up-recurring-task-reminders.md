@@ -15,7 +15,7 @@ draft: false
 
 This guide is for **Operations automations and staff task reminders**. These tools create or remind people about operational work. They do not send guest messages.
 
-If you are setting up guest-message automation, AI replies, Autopilot, or Concierge, start with [Get Started with Messages, AI, and Automation](/platform-guides/get-started-with-messages-ai-and-automation/) instead.
+If you are setting up guest-message automation, AI replies, Autopilot, or AI Co-Host, start with [Get Started with Messages, AI, and Automation](/platform-guides/get-started-with-messages-ai-and-automation/) instead.
 
 ![Operations Automations screen showing trigger-based task automation rules](/screenshots/operations-owner-portal/operations-automations.png)
 
@@ -142,7 +142,7 @@ Edit the automation and update the assignee. If a team member, provider, or team
 
 ### Guest messages are not being sent
 
-This article is for Operations tasks. For guest messages, use [Set Up Automated Messages](/platform-guides/set-up-automated-messages/) or [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/).
+This article is for Operations tasks. For guest messages, use [Set Up Automated Messages](/platform-guides/set-up-automated-messages/) or [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/).
 
 ## Related Articles
 

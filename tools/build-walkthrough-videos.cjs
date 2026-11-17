@@ -53,7 +53,7 @@ const walkthroughs = [
       ['Step 1', 'Open Messages', 'public/screenshots/inbox-communicate-with-guests/messages-list-tabs.png', 'Use tabs, filters, and channel context to find conversations that need attention.'],
       ['Step 2', 'Connect messaging channels', 'public/screenshots/connecting-messaging-integrations/integrations-page-overview.png', 'Connect supported channels such as WhatsApp, Instagram, Messenger, LINE, and Gmail.'],
       ['Step 3', 'Use planned automations', 'public/screenshots/operations-owner-portal/operations-automations.png', 'Scheduled messages handle repeatable SOPs such as check-in reminders and follow-ups.'],
-      ['Step 4', 'Use Concierge for live questions', 'public/screenshots/inbox-communicate-with-guests/messages-list-tabs.png', 'Concierge helps answer guest questions using property context, past chats, and taught knowledge.']
+      ['Step 4', 'Use your co-host for live questions', 'public/screenshots/inbox-communicate-with-guests/messages-list-tabs.png', 'Your co-host helps answer guest questions using property context, past chats, and taught knowledge.']
     ]
   },
   {

@@ -194,7 +194,7 @@ SympleHost combines the workflows an Indian Airbnb or homestay operator usually 
 - channel management for additional OTAs
 - pricing and rate rules
 - unified guest messaging and supported messaging integrations
-- automated messages and AI Concierge
+- automated messages and AI Co-Host
 - reservations, payments, deposits, and quotations
 - direct-booking websites and checkout pages
 - task templates, workforce coordination, and cleaner access

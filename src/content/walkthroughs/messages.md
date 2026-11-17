@@ -14,9 +14,9 @@ See how Messages works as the main guest inbox: search and filter conversations,
 
 1. Open Messages and show filters, status tabs, channel badges, and conversation count.
 2. Open one guest conversation and show guest/reservation context.
-3. Point to Autopilot, Concierge, Message Automation, and Scheduled Messages.
+3. Point to Autopilot, AI Co-Host, Message Automation, and Scheduled Messages.
 4. Explain the difference between planned messages and AI answers.
 
 ## Steps Shown
 
-Open Messages, connect messaging channels, use planned automations for SOP messages, and use Concierge for live guest questions.
+Open Messages, connect messaging channels, use planned automations for SOP messages, and use your co-host for live guest questions.

@@ -57,7 +57,7 @@ Across the top of Messages, you may see:
 | --- | --- |
 | **Messages** | The main guest inbox and conversation workspace. |
 | **Autopilot** | Account-level AI reply mode and response delay settings. |
-| **Concierge** | Guest knowledge, AI ground rules, and answer improvement workflows when enabled for the account. |
+| **AI Co-Host** | Guest knowledge, AI ground rules, and answer improvement workflows when enabled for the account. |
 | **Message Automation** | Scheduled guest touchpoints around booking, check-in, checkout, and services. |
 | **Scheduled Messages** | Upcoming automated messages that are prepared, held, sent, or need review. |
 | **Integrations** | Messaging channel connections such as WhatsApp, Instagram, Messenger, and Gmail. |
@@ -287,9 +287,9 @@ Refresh the page. If the link is stale or the thread was removed, SympleHost ret
 ## Related Articles
 
 - [Connecting Messaging Integrations](/platform-guides/connecting-messaging-integrations/)
-- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+- [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot/)
 - [Set Up Automated Messages](/platform-guides/set-up-automated-messages/)
-- [Set Up Concierge for Guest Questions](/platform-guides/set-up-concierge-for-guest-questions/)
+- [Set Up AI Co-Host for Guest Questions](/platform-guides/set-up-ai-co-host-for-guest-questions/)
 - [How to Create and Manage Quotes](/platform-guides/how-to-create-and-manage-quotations/)
 - [How to Check Reservations in the Reservations Module](/platform-guides/check-reservations-in-reservations-module/)
 - [Why Airbnb Shows the Listing Owner's Name on Replies Sent from SympleHost](/platform-guides/airbnb-replies-show-listing-owner-name/)

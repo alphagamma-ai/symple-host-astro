@@ -34,7 +34,7 @@ draft: false
 | Instagram | Instagram DMs and replies, subject to Meta's reply window | Meta Login for Business |
 | LINE | LINE guest messages and replies | LINE Messaging API credentials |
 | Gmail | Email threads in Messages, label filtering, direct replies from the inbox | Google OAuth + label selection |
-| Website chat | A chat bubble on your website, answered by Concierge (Pro plan and above) | Switch on and add to your site |
+| Website chat | A chat bubble on your website, answered by your co-host (Pro plan and above) | Switch on and add to your site |
 
 > **Important:** Gmail is available for inbox visibility and replying, but Gmail is not yet connected to message automation. Use labels to control what appears in SympleHost.
 
@@ -304,7 +304,7 @@ You can filter and search Gmail conversations from the inbox like other channels
 
 ## How to Add Website Chat
 
-Website chat puts a chat bubble on your website. Concierge answers visitors' questions, and they can carry on the conversation on WhatsApp, LINE or email.
+Website chat puts a chat bubble on your website. Your co-host answers visitors' questions, and they can carry on the conversation on WhatsApp, LINE or email.
 
 Website chat is available on the **Pro plan and above**. If the card says it isn't available yet, contact us to switch it on for your account.
 
@@ -316,7 +316,7 @@ Website chat is available on the **Pro plan and above**. If the card says it isn
 4. Pick the bubble's position (bottom left or right), its colour, and a greeting of up to 280 characters.
 5. Under **Let visitors continue on**, choose WhatsApp, LINE and/or email.
 
-Who answers follows your Autopilot setting: Concierge replies on its own when Autopilot is **On**, drafts for you in **Suggestion**, and stays quiet when it's **Off**. See [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
+Who answers follows your Autopilot setting: your co-host replies on its own when Autopilot is **On**, drafts for you in **Suggestion**, and stays quiet when it's **Off**. See [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/).
 
 ---
 
@@ -406,14 +406,14 @@ You can revoke at the Meta level too:
 
 ---
 
-**Next step:** [Step 2 — Set up your Concierge](/platform-guides/organise-concierge-knowledge/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
+**Next step:** [Step 2 — Set up your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/) · [Back to the complete guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
 ---
 
 ## Related Articles
 
-- [Autopilot, Automated Messages, and Concierge](/platform-guides/setting-up-autopilot/)
+- [Autopilot, Automated Messages, and AI Co-Host](/platform-guides/setting-up-autopilot/)
 - [Autopilot: Choose Off, Suggestion or On](/platform-guides/autopilot-off-suggestion-on/)
-- [Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/)
+- [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
 - [Welcome to SympleHost](/getting-started/welcome-to-symplehost/)

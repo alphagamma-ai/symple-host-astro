@@ -1,11 +1,11 @@
 ---
-title: 'Translate Guest Messages and Teach Concierge With Good or Fix This'
-description: 'Read and answer guests in any language, and correct Concierge straight from the conversation so the next guest gets the right answer.'
+title: 'Translate Guest Messages and Teach Your Co-Host With Good or Fix This'
+description: 'Read and answer guests in any language, and correct your co-host straight from the conversation so the next guest gets the right answer.'
 category: platform-guides
 section: Messaging & guest communication
 sectionOrder: 5
 tags:
-  - Concierge
+  - AI Co-Host
   - Translation
   - AI
   - Guest Messaging
@@ -15,11 +15,11 @@ draft: false
 
 > 📘 **Step 5 of 5** in [Set Up Guest Messaging: The Complete Guide](/platform-guides/get-started-with-messages-ai-and-automation/)
 
-**Guests write in many languages, and Concierge won't get every answer right on day one. SympleHost lets you translate messages in both directions and correct Concierge right where you spot a mistake.**
+**Guests write in many languages, and your co-host won't get every answer right on day one. SympleHost lets you translate messages in both directions and correct your co-host right where you spot a mistake.**
 
 ---
 
-> **TL;DR:** Click **Translate** under a guest's message to read it in your language, or switch on automatic translation in **Settings → General**. Under every Concierge reply, click **Good** if it was right or **Fix this** to write the correct answer. Concierge uses your fix next time.
+> **TL;DR:** Click **Translate** under a guest's message to read it in your language, or switch on automatic translation in **Settings → General**. Under every co-host reply, click **Good** if it was right or **Fix this** to write the correct answer. Your co-host uses your fix next time.
 
 ---
 
@@ -31,7 +31,7 @@ When a guest writes in a different language from yours, a **Translate** link app
 2. Click **Translate** under the guest's message.
 3. The message changes to your language. Click **Show original** to see what the guest wrote.
 
-The guest's original message never changes, and Concierge always reads the original.
+The guest's original message never changes, and your co-host always reads the original.
 
 ### Translate every guest message automatically
 
@@ -58,29 +58,29 @@ The guest gets your reply in their language, with your original text underneath.
 
 ---
 
-## Teach Concierge From a Conversation
+## Teach Your Co-Host From a Conversation
 
-Under every reply Concierge sends, you'll see **Was this a good reply?** with two buttons.
+Under every reply your co-host sends, you'll see **Was this a good reply?** with two buttons.
 
-![Under a Concierge reply: Was this a good reply? with the Good and Fix this buttons](/screenshots/translate-and-teach-concierge/good-fix-this.png)
+![Under a co-host reply: Was this a good reply? with the Good and Fix this buttons](/screenshots/translate-and-teach-your-co-host/good-fix-this.png)
 
 ### Good
 
-Click **Good** when the reply was right. SympleHost records it so we can track how well Concierge is doing. It doesn't change future answers, so you don't need to click it on every reply.
+Click **Good** when the reply was right. SympleHost records it so we can track how well your co-host is doing. It doesn't change future answers, so you don't need to click it on every reply.
 
 ### Fix this
 
 Click **Fix this** when the reply was wrong or incomplete.
 
 1. Click **Fix this** under the reply.
-2. In **What should the concierge say instead?**, write the answer you'd want a guest to get. Write it as the full, correct answer, not as a note about what went wrong.
+2. In **What should your co-host say instead?**, write the answer you'd want a guest to get. Write it as the full, correct answer, not as a note about what went wrong.
 3. Click **Save fix**.
 
-You'll see **Fixed — the concierge will answer this way next time.**
+You'll see **Fixed — your co-host will answer this way next time.**
 
 Your fix is saved as a lesson for the listing the guest was asking about.
 
-If the conversation isn't linked to a listing, for example a WhatsApp chat where the guest hasn't booked yet, the fix is saved for your team's reference only. Concierge won't use it in guest replies, even though the confirmation message says it will. The same applies to fixes saved as "All properties (host copilot only)". To teach something for every listing, add it to your General document or as a quick note on General instead.
+If the conversation isn't linked to a listing, for example a WhatsApp chat where the guest hasn't booked yet, the fix is saved for your team's reference only. Your co-host won't use it in guest replies, even though the confirmation message says it will. The same applies to fixes saved as "All properties (host copilot only)". To teach something for every listing, add it to your General document or as a quick note on General instead.
 
 **Good fix:** "Check-in is from 3 pm. If you arrive earlier, you can leave your bags at reception from 11 am."
 
@@ -88,25 +88,25 @@ If the conversation isn't linked to a listing, for example a WhatsApp chat where
 
 ### Find and manage your fixes
 
-Each fix appears as a **Lesson** source in that listing's **Knowledge** tab (**Messages → Concierge → Knowledge Base**, then open the listing). Switch it off to pause it, or click the bin to delete it.
+Each fix appears as a **Lesson** source in that listing's **Knowledge** tab (**Messages → AI Co-Host → Knowledge Base**, then open the listing). Switch it off to pause it, or click the bin to delete it.
 
 Fixes made in the **Test** tab work slightly differently. You type the answer and click **Teach it**, and it's saved as a quick note on the listing the Test tab is set to (or on General), not as a Lesson. You can edit or pause it the same way.
 
-![A listing's Knowledge tab showing a Lesson: correction source and the listing's guidebook, both marked Ready](/screenshots/translate-and-teach-concierge/lesson-in-knowledge-tab.png)
+![A listing's Knowledge tab showing a Lesson: correction source and the listing's guidebook, both marked Ready](/screenshots/translate-and-teach-your-co-host/lesson-in-knowledge-tab.png)
 
-💡 **Tip:** If you find yourself writing the same fix more than once, the fact is missing from your documents. Add it to the listing's document or your General document so it's in one place. See [Set Up Your Concierge](/platform-guides/organise-concierge-knowledge/).
+💡 **Tip:** If you find yourself writing the same fix more than once, the fact is missing from your documents. Add it to the listing's document or your General document so it's in one place. See [Set Up Your AI Co-Host](/platform-guides/organise-ai-co-host-knowledge/).
 
 ---
 
-## Answer Questions Concierge Couldn't Answer
+## Answer Questions Your Co-Host Couldn't Answer
 
-When Concierge can't answer, the question lands in **Messages → Concierge → Action Items**.
+When your co-host can't answer, the question lands in **Messages → AI Co-Host → Action Items**.
 
 1. Open the item.
 2. Write the correct reply.
 3. Choose what to do with it:
    - **Send to guest**: replies to this guest only.
-   - **Save for future guests**: adds your answer to Concierge's knowledge without sending it.
+   - **Save for future guests**: adds your answer to your co-host's knowledge without sending it.
    - **Send to guest and save**: does both.
 
 Choosing **Save** means the next guest who asks gets the answer straight away.
@@ -125,7 +125,7 @@ A fix is saved for the listing the conversation was about. To make it apply ever
 
 ### I don't see Good or Fix this
 
-These buttons appear under replies Concierge sent. They don't appear under messages you wrote yourself.
+These buttons appear under replies your co-host sent. They don't appear under messages you wrote yourself.
 
 ---
 
@@ -135,6 +135,6 @@ These buttons appear under replies Concierge sent. They don't appear under messa
 
 ## Related Articles
 
-- [Set Up Your Concierge: Knowledge Base, Documents, Rules and Testing](/platform-guides/organise-concierge-knowledge/)
+- [Set Up Your AI Co-Host: Knowledge Base, Documents, Rules and Testing](/platform-guides/organise-ai-co-host-knowledge/)
 - [Using Messages: the unified guest inbox](/platform-guides/inbox-communicate-with-guests/)
-- [Autopilot, Automated Messages, and Concierge: What Each One Does](/platform-guides/setting-up-autopilot/)
+- [Autopilot, Automated Messages, and AI Co-Host: What Each One Does](/platform-guides/setting-up-autopilot/)
