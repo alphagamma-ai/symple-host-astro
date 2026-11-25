@@ -32,6 +32,35 @@ export function localizePath(path: string, locale: Locale): string {
   return `${prefix}${withoutLocale}`;
 }
 
+/**
+ * Top-level sections that exist only in English: there is no /id or /jp
+ * route behind them. Linking the language switcher to `/jp/about/` etc. sent
+ * Google to ~40 404s (ALP-6149). The server 301s any such URL back to English.
+ */
+export const ENGLISH_ONLY_SECTIONS = [
+  'videos',
+  'webinars',
+  'webinars-and-videos',
+  'about',
+  'contact',
+  'privacy',
+  'developers',
+] as const;
+
+const ENGLISH_ONLY_PATTERN = new RegExp(
+  `^/(?:(?:jp|id)/)?(?:${ENGLISH_ONLY_SECTIONS.join('|')})(?:/|$)`,
+);
+
+export function isEnglishOnlyPath(path: string): boolean {
+  return ENGLISH_ONLY_PATTERN.test(path);
+}
+
+/** Language-switcher target: the localized page, or the locale home when the page is English-only. */
+export function localeSwitchHref(path: string, locale: Locale): string {
+  if (locale !== DEFAULT_LOCALE && isEnglishOnlyPath(path)) return localizePath('/', locale);
+  return localizePath(path, locale);
+}
+
 export const uiCopy = {
   en: {
     siteTitle: 'SympleHost Knowledge Base',
