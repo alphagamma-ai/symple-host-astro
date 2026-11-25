@@ -20,6 +20,15 @@ draft: false
 
 ---
 
+## Before You Start
+
+You need two things to start your 14-day trial:
+
+- **A business email address.** Personal email providers such as Gmail, Yahoo or Outlook can't be used for a host account. If you run your business from a personal address, email [support@symplehost.ai](mailto:support@symplehost.ai) and we'll set you up.
+- **A payment card.** You add it when you start your trial. It isn't charged during the trial, and you can cancel anytime before the trial ends. Accounts billed in Indian rupees (INR) can start the trial without a card.
+
+---
+
 ## What Is the Onboarding Flow?
 
 When you first sign up for SympleHost, you'll walk through a short setup wizard — six steps that get your account ready to use. You only do this once, and you can skip optional steps and come back to them later.
@@ -31,7 +40,7 @@ When you first sign up for SympleHost, you'll walk through a short setup wizard 
 ### Step 1: Sign Up
 
 1. Go to the SympleHost signup page.
-2. Enter your **Email address**, **First name**, **Last name**, **Password**, and **Confirm password**.
+2. Enter your **Email address** (use your business email), **First name**, **Last name**, **Password**, and **Confirm password**.
 3. Check the box to accept the **Terms & Conditions**.
 4. Click **Sign Up**.
 
@@ -139,6 +148,9 @@ While you're there, you can also update your **Workspace Name** — it's what sh
 
 ### I didn't receive the verification email
 Check your spam or junk folder first. If it's not there, go back to the verification page and click **Resend**. Make sure the email address shown (partially masked for privacy) is correct. If it's wrong, click **Change email** to fix it.
+
+### It says my email is a personal email provider
+Sign up with your company email address instead. If you run your business from a personal address, email [support@symplehost.ai](mailto:support@symplehost.ai) and we'll set you up.
 
 ### I accidentally skipped a step during onboarding
 No problem. You can update your profile anytime from **Settings → Profile**, and your company details from **Settings → General** and **Settings → Company**.
