@@ -16,6 +16,7 @@ import express from 'express';
 import compression from 'compression';
 
 const MARKDOWN_TYPE = 'text/markdown; charset=utf-8';
+const ENGLISH_ONLY_LOCALIZED = /^\/(?:jp|id)\/((?:videos|webinars|webinars-and-videos|about|contact|privacy|developers)(?:\/.*)?)$/;
 const FALLBACK_404_MD = '# Page not found\n\nSee https://help.symplehost.ai/llms.txt\n';
 
 /** Mirror of the worker's Accept test: an explicit text/markdown wins, but a
@@ -59,6 +60,16 @@ export function createApp(dist = fileURLToPath(new URL('../dist', import.meta.ur
     const target = categoryRedirects[pathname];
     if (target) return res.redirect(301, req.path.endsWith('.md') && !target.includes('#') ? target.replace(/\/$/, '') + '.md' : target);
     next();
+  });
+
+  // English-only sections have no /id or /jp route (ALP-6149). Older builds of
+  // the language switcher linked to them anyway, so Google crawls URLs like
+  // /jp/about/ and /id/videos/messages/ — send those to the English page.
+  app.use((req, res, next) => {
+    const match = req.path.match(ENGLISH_ONLY_LOCALIZED);
+    if (!match) return next();
+    const query = req.originalUrl.slice(req.path.length);
+    return res.redirect(301, `/${match[1]}${query}`);
   });
 
   const notFoundMd = existsSync(path.join(dist, '404.md'))

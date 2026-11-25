@@ -5,6 +5,7 @@ import {
   LOCALE_LABELS,
   LOCALE_LANG,
   LOCALES,
+  localeSwitchHref,
   localizePath,
   type Locale,
   uiCopy,
@@ -243,7 +244,7 @@ const organizationJsonLd = {
         <nav class="locale-switcher" aria-label={copy.language}>
           {LOCALES.map((item) => (
             <a
-              href={localizePath(currentPath, item)}
+              href={localeSwitchHref(currentPath, item)}
               class:list={['locale-link', { active: item === locale }]}
               aria-current={item === locale ? 'page' : undefined}
             >
