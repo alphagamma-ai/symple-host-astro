@@ -46,7 +46,7 @@ No. SympleHost combines supported channels into **Messages**. You can still see 
 
 ### Why does one guest have more than one thread?
 
-The same guest can contact you through more than one channel, such as WhatsApp and email. Messages can show a channel strip so you can switch between sibling conversations without mixing channel histories.
+The same guest can contact you through more than one channel, such as WhatsApp and email, and each OTA stay has its own conversation. Messages can show a channel strip so you can switch between sibling conversations without mixing channel histories.
 
 ### Can I search old email conversations?
 
