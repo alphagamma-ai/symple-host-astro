@@ -3,7 +3,7 @@ title: Navigating SympleHost — Where to Find Everything
 description: A visual guide to the sidebar, main sections, and settings so you always know where to go.
 category: getting-started
 section: Start here
-sectionOrder: 2
+sectionOrder: 3
 tags:
   - Navigation
   - Overview

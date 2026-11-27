@@ -2,8 +2,8 @@
 title: Creating Your Account & Workspace
 description: Sign up for SympleHost and set up your profile, workspace, company details, and team in a few minutes.
 category: getting-started
-section: Set up your account
-sectionOrder: 1
+section: Start here
+sectionOrder: 2
 tags:
   - Onboarding
   - Account
