@@ -364,15 +364,14 @@ const faqMeta = {
       padding: 0.85rem 0.95rem;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: #fff;
+      background: var(--color-white);
       color: var(--foreground);
       font-size: 0.88rem;
       font-weight: 600;
-      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+      transition: border-color 0.15s, transform 0.15s;
     }
     .section-chip:hover {
       border-color: var(--primary);
-      box-shadow: 0 10px 24px rgba(39, 17, 63, 0.08);
       transform: translateY(-1px);
     }
     .section-chip strong {
@@ -405,8 +404,7 @@ const faqMeta = {
       padding: 1.15rem;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 14px 34px rgba(39, 17, 63, 0.04);
+      background: var(--color-white);
     }
     .platform-section-head {
       display: flex;
@@ -480,6 +478,13 @@ const faqMeta = {
       color: var(--muted-foreground);
       margin-bottom: 0.75rem;
     }
+    /* Uppercase kicker variant (the platform-section heading above overrides
+       it back to a normal heading). */
+    .section-group > .section-heading {
+      font-family: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+      font-weight: 500;
+      color: var(--color-dark-gray);
+    }
     .articles {
       display: flex;
       flex-direction: column;
@@ -528,15 +533,15 @@ const faqMeta = {
       font-size: 1rem;
       font-family: inherit;
       color: var(--foreground);
-      background: white;
+      background: var(--color-white);
       border: 1px solid var(--border);
       border-radius: 8px;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.15s;
     }
     #faq-search-input:focus {
-      outline: none;
+      outline: 2px solid var(--color-dark-gray);
+      outline-offset: 2px;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px var(--primary-50);
     }
     .faq-search-meta {
       margin: 0.5rem 0 0;
@@ -612,11 +617,12 @@ const faqMeta = {
       font-size: 0.9rem;
     }
     .browse-heading {
+      font-family: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted-foreground);
+      color: var(--color-dark-gray);
       margin: 0 0 1rem;
     }
 

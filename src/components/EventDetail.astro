@@ -162,9 +162,11 @@ const scheduleLabel = dateTbd
     .sep { margin: 0 0.4rem; }
 
     .event {
-      --hero-ink: #2d174f;
-      --hero-accent: #f59e0b;
-      --hero-accent-dark: #b45309;
+      /* hero-ink: dark fills (chips, number badges); text uses dark-gray.
+         hero-accent: small accents on the light hero/content (bullets). */
+      --hero-ink: var(--color-navy);
+      --hero-accent: var(--color-coral);
+      --hero-accent-dark: var(--color-coral);
     }
     .event-hero {
       position: relative;
@@ -175,24 +177,9 @@ const scheduleLabel = dateTbd
       overflow: hidden;
       padding: 2.5rem;
       margin-bottom: 1.25rem;
-      border: 1px solid rgba(127, 86, 217, 0.22);
+      border: 1px solid var(--color-light-gray);
       border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 245, 255, 0.82)),
-        radial-gradient(circle at 15% 18%, rgba(245, 158, 11, 0.16), transparent 28rem),
-        linear-gradient(145deg, #fffaf0 0%, #f5f3ff 58%, #ffffff 100%);
-      box-shadow: 0 24px 70px rgba(88, 28, 135, 0.13);
-    }
-    .event-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(88, 28, 135, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(88, 28, 135, 0.055) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(135deg, #000 0%, transparent 70%);
+      background: var(--color-light);
     }
     .event-hero-copy,
     .event-hero-panel {
@@ -216,10 +203,10 @@ const scheduleLabel = dateTbd
     }
     .event-type {
       font-size: 0.7rem;
-      font-weight: 800;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #ffffff;
+      color: var(--color-white);
       background: var(--hero-ink);
       padding: 0.32rem 0.7rem;
       border-radius: 999px;
@@ -227,23 +214,23 @@ const scheduleLabel = dateTbd
     .event-date {
       font-size: 0.9rem;
       font-weight: 700;
-      color: var(--hero-ink);
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(127, 86, 217, 0.16);
+      color: var(--color-dark-gray);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-gray);
       border-radius: 999px;
       padding: 0.28rem 0.72rem;
     }
     .event-title {
       font-size: clamp(2.4rem, 5vw, 4.75rem);
       font-weight: 900;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       letter-spacing: 0;
       line-height: 1.02;
       max-width: 12ch;
       margin-bottom: 1.1rem;
     }
     .event-desc {
-      color: #4b3a5f;
+      color: var(--color-dark-gray);
       font-size: 1.12rem;
       line-height: 1.65;
       max-width: 43rem;
@@ -254,7 +241,6 @@ const scheduleLabel = dateTbd
       background: #000000;
       border-radius: 14px;
       display: block;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
     }
     .cohosts {
       display: flex;
@@ -263,17 +249,16 @@ const scheduleLabel = dateTbd
       flex-wrap: wrap;
       padding: 0.95rem 1.1rem;
       margin-bottom: 2.25rem;
-      background: #ffffff;
-      border: 1px solid rgba(127, 86, 217, 0.16);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-gray);
       border-radius: 14px;
-      box-shadow: 0 12px 34px rgba(88, 28, 135, 0.07);
     }
     .cohosts-label {
       font-size: 0.7rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #6b5a7a;
+      color: var(--color-dark-gray);
     }
     .cohosts-logos {
       display: flex;
@@ -298,14 +283,14 @@ const scheduleLabel = dateTbd
       display: block;
       padding: 3px 4px;
       box-sizing: content-box;
-      background: #fff;
+      background: var(--color-white);
       border: 1px solid var(--border-light);
       border-radius: 6px;
     }
     .cohost-name {
       font-size: 0.9rem;
       font-weight: 700;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       letter-spacing: 0;
     }
     .cohosts-sep {
@@ -319,21 +304,20 @@ const scheduleLabel = dateTbd
       flex-direction: column;
       justify-content: center;
       min-height: 300px;
-      background: #ffffff;
-      border: 1px solid rgba(88, 28, 135, 0.18);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-gray);
       border-radius: 16px;
       padding: 2rem;
       text-align: left;
-      box-shadow: 0 18px 48px rgba(88, 28, 135, 0.16);
     }
     .register-title {
       font-size: 1.55rem;
       font-weight: 900;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       margin: 0 0 0.4rem;
     }
     .register-meta {
-      color: #5d506b;
+      color: var(--color-gray);
       font-size: 0.95rem;
       line-height: 1.55;
       margin: 0 0 1.4rem;
@@ -350,21 +334,21 @@ const scheduleLabel = dateTbd
       line-height: 1.4;
     }
     .register-time-primary {
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       font-size: 1.04rem;
       font-weight: 850;
     }
     .register-time-primary span {
       display: block;
       margin-bottom: 0.22rem;
-      color: #9a3412;
+      color: var(--color-dark-gray);
       font-size: 0.68rem;
-      font-weight: 850;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
     .register-time-secondary {
-      color: #5d506b;
+      color: var(--color-gray);
       font-size: 0.92rem;
       font-weight: 650;
     }
@@ -373,8 +357,8 @@ const scheduleLabel = dateTbd
       margin-top: 0.25rem;
       padding: 0.24rem 0.58rem;
       border-radius: 999px;
-      background: #f5f3ff;
-      color: #4b3a5f;
+      background: var(--color-light);
+      color: var(--color-dark-gray);
       font-size: 0.78rem;
       font-weight: 800;
     }
@@ -382,22 +366,22 @@ const scheduleLabel = dateTbd
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--hero-accent), #f97316);
-      color: #ffffff;
+      background: var(--color-violet);
+      color: var(--color-white);
+      border: 1px solid var(--color-violet);
       font-weight: 900;
       font-size: 1rem;
       min-height: 52px;
       padding: 0.9rem 1.35rem;
       border-radius: 10px;
       text-decoration: none;
-      box-shadow: 0 14px 30px rgba(249, 115, 22, 0.28);
-      transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+      transition: transform 0.15s, background-color 0.15s, color 0.15s, border-color 0.15s;
     }
     .register-btn:hover {
-      color: #ffffff;
+      background: var(--color-white);
+      color: var(--color-dark-gray);
+      border-color: var(--color-dark-gray);
       transform: translateY(-1px);
-      filter: saturate(1.08);
-      box-shadow: 0 18px 38px rgba(249, 115, 22, 0.34);
     }
     .register-note {
       color: var(--muted-foreground);
@@ -407,10 +391,10 @@ const scheduleLabel = dateTbd
     .attendee-offer {
       margin-top: 1rem;
       padding: 0.9rem;
-      border: 1px solid rgba(245, 158, 11, 0.34);
+      border: 1px solid var(--color-light-gray);
       border-radius: 12px;
-      background: rgba(255, 247, 237, 0.8);
-      color: #4b2e05;
+      background: var(--color-light);
+      color: var(--color-dark-gray);
     }
     .attendee-offer strong {
       display: block;
@@ -419,14 +403,14 @@ const scheduleLabel = dateTbd
     }
     .attendee-offer p {
       margin: 0.35rem 0 0;
-      color: #694515;
+      color: var(--color-gray);
       font-size: 0.84rem;
       line-height: 1.5;
     }
     .attendee-offer a {
       display: inline-flex;
       margin-top: 0.45rem;
-      color: #9a3412;
+      color: var(--color-violet);
       font-size: 0.82rem;
       font-weight: 750;
       text-decoration: underline;
@@ -439,16 +423,17 @@ const scheduleLabel = dateTbd
       margin-bottom: 1.2rem;
     }
     .section-heading {
+      font-family: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
       font-size: 0.75rem;
-      font-weight: 800;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #6b5a7a;
+      color: var(--color-dark-gray);
       margin-bottom: 0.35rem;
     }
     .section-intro {
       margin: 0;
-      color: #4b3a5f;
+      color: var(--color-dark-gray);
       font-size: 1rem;
       line-height: 1.6;
     }
@@ -462,22 +447,21 @@ const scheduleLabel = dateTbd
       min-height: 100%;
       gap: 1.1rem;
       padding: 1.35rem;
-      background: #ffffff;
-      border: 1px solid rgba(127, 86, 217, 0.16);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-gray);
       border-radius: 16px;
-      box-shadow: 0 14px 34px rgba(88, 28, 135, 0.08);
     }
     .speaker-grid :global(.speaker-avatar) {
       width: 132px;
       height: 132px;
-      border: 3px solid #ffffff;
-      box-shadow: 0 0 0 1px rgba(127, 86, 217, 0.2), 0 10px 22px rgba(88, 28, 135, 0.14);
+      border: 3px solid var(--color-white);
+      outline: 1px solid var(--color-light-gray);
     }
     .speaker-grid :global(.speaker-text) {
       width: 100%;
     }
     .speaker-grid :global(.speaker-name) {
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       font-size: 1rem;
       font-weight: 800;
       margin-top: 0.2rem;
@@ -495,13 +479,13 @@ const scheduleLabel = dateTbd
     .event-content :global(h2) {
       font-size: 1.55rem;
       font-weight: 900;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       margin: 2.35rem 0 0.75rem;
     }
     .event-content :global(h3) {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       margin: 1.5rem 0 0.5rem;
     }
     .event-content :global(p) { margin-bottom: 1rem; }
@@ -523,23 +507,9 @@ const scheduleLabel = dateTbd
       overflow: hidden;
       min-height: 210px;
       padding: 1.15rem;
-      border: 1px solid rgba(127, 86, 217, 0.16);
+      border: 1px solid var(--color-light-gray);
       border-radius: 16px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 251, 235, 0.72)),
-        radial-gradient(circle at 100% 0%, rgba(245, 158, 11, 0.18), transparent 8rem);
-      box-shadow: 0 14px 34px rgba(88, 28, 135, 0.07);
-    }
-    .event-content :global(.learn-card::before) {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(88, 28, 135, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(88, 28, 135, 0.045) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: linear-gradient(145deg, #000 0%, transparent 72%);
+      background: var(--color-light);
     }
     .event-content :global(.learn-card span),
     .event-content :global(.learn-card strong),
@@ -556,21 +526,21 @@ const scheduleLabel = dateTbd
       margin-bottom: 0.9rem;
       border-radius: 999px;
       background: var(--hero-ink);
-      color: #ffffff;
+      color: var(--color-white);
       font-size: 0.72rem;
       font-weight: 850;
       letter-spacing: 0.05em;
     }
     .event-content :global(.learn-card strong) {
       display: block;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       font-size: 1.03rem;
       font-weight: 850;
       line-height: 1.25;
       margin-bottom: 0.55rem;
     }
     .event-content :global(.learn-card p) {
-      color: #5d506b;
+      color: var(--color-gray);
       font-size: 0.9rem;
       line-height: 1.6;
       margin: 0;
@@ -581,18 +551,17 @@ const scheduleLabel = dateTbd
       gap: 0.8rem;
       margin: 1rem 0 2rem;
       padding: 1.15rem;
-      border: 1px solid rgba(127, 86, 217, 0.14);
+      border: 1px solid var(--color-light-gray);
       border-radius: 16px;
-      background: #ffffff;
-      box-shadow: 0 14px 34px rgba(88, 28, 135, 0.06);
+      background: var(--color-white);
     }
     .event-content :global(.audience-grid div) {
       position: relative;
       min-height: 70px;
       padding: 0.8rem 0.9rem 0.8rem 2.45rem;
       border-radius: 12px;
-      background: #faf7ff;
-      color: #3f3150;
+      background: var(--color-light);
+      color: var(--color-dark-gray);
       font-size: 0.91rem;
       font-weight: 650;
       line-height: 1.48;
@@ -605,8 +574,7 @@ const scheduleLabel = dateTbd
       width: 0.68rem;
       height: 0.68rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--hero-accent), #f97316);
-      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.16);
+      background: var(--hero-accent);
     }
     .event-content :global(a) {
       color: var(--primary);
@@ -662,19 +630,19 @@ const scheduleLabel = dateTbd
       overflow-x: auto;
     }
     .event-content :global(thead) {
-      background: #fff7ed;
+      background: var(--color-light);
     }
     .event-content :global(th) {
       text-align: left;
       font-weight: 700;
-      color: var(--hero-ink);
+      color: var(--color-dark-gray);
       padding: 0.7rem 0.9rem;
-      border-bottom: 2px solid rgba(245, 158, 11, 0.28);
+      border-bottom: 2px solid var(--color-light-gray);
       white-space: nowrap;
     }
     .event-content :global(td) {
       padding: 0.7rem 0.9rem;
-      border-bottom: 1px solid #eee7f5;
+      border-bottom: 1px solid var(--color-light-gray);
       vertical-align: top;
       color: var(--foreground);
     }
@@ -682,7 +650,7 @@ const scheduleLabel = dateTbd
       border-bottom: none;
     }
     .event-content :global(tbody tr:hover) {
-      background: #fffbeb;
+      background: var(--color-light);
     }
     @media (max-width: 860px) {
       .event-hero {

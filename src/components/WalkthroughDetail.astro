@@ -65,9 +65,9 @@ const { Content } = await render(walkthrough);
       margin-bottom: 1.5rem;
     }
     .eyebrow {
-      color: var(--primary);
+      color: var(--color-dark-gray);
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin: 0 0 0.45rem;
@@ -91,20 +91,19 @@ const { Content } = await render(walkthrough);
       margin: 1rem 0 0;
       padding: 0.4rem 0.65rem;
       border-radius: 999px;
-      background: var(--primary-50);
-      color: var(--primary);
+      background: var(--color-light);
+      color: var(--color-dark-gray);
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
     .player-shell {
       overflow: hidden;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-gray);
       border-radius: 14px;
       padding: 0.75rem;
-      box-shadow: 0 16px 42px rgba(49, 24, 85, 0.08);
     }
     .player-shell video {
       width: 100%;
@@ -119,9 +118,9 @@ const { Content } = await render(walkthrough);
       place-items: center;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      background: var(--primary-50);
+      background: var(--color-light);
       border-radius: 10px;
-      border: 1px dashed var(--primary-200);
+      border: 1px dashed var(--color-light-gray);
     }
     .coming-soon img {
       width: 100%;
@@ -133,8 +132,8 @@ const { Content } = await render(walkthrough);
       position: absolute;
       left: 1rem;
       bottom: 1rem;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-gray);
       border-radius: 999px;
       color: var(--heading-color);
       font-size: 0.78rem;

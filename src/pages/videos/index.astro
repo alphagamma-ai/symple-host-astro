@@ -76,9 +76,9 @@ const sortedWalkthroughs = walkthroughs.sort((a, b) => (a.data.order ?? 0) - (b.
       max-width: 48rem;
     }
     .eyebrow {
-      color: var(--primary);
+      color: var(--color-dark-gray);
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.4rem;
@@ -98,11 +98,12 @@ const sortedWalkthroughs = walkthroughs.sort((a, b) => (a.data.order ?? 0) - (b.
       margin-bottom: 3rem;
     }
     .section-heading {
+      font-family: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted-foreground);
+      color: var(--color-dark-gray);
       margin: 0 0 1rem;
     }
     .grid {
@@ -121,20 +122,18 @@ const sortedWalkthroughs = walkthroughs.sort((a, b) => (a.data.order ?? 0) - (b.
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: #ffffff;
+      background: var(--color-white);
       border: 1px solid var(--border);
       border-radius: 12px;
       color: var(--foreground);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.15s;
     }
     .walkthrough-card:hover {
-      border-color: var(--primary-300);
-      box-shadow: 0 2px 8px rgba(127, 86, 217, 0.1);
+      border-color: var(--color-violet);
     }
     .walkthrough-thumb {
       aspect-ratio: 16 / 9;
-      background: var(--primary-50);
+      background: var(--color-light);
     }
     .walkthrough-thumb img {
       width: 100%;
