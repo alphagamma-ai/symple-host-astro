@@ -16,12 +16,6 @@ draft: false
 
 If you manage homes for owners, the Airbnb account often belongs to the owner, not to you. Instead of asking for their Airbnb password, send them an invite link. The owner signs in to Airbnb themselves, approves the connection, and picks which listings to share with you.
 
-<video controls preload="metadata" poster="/screenshots/invite-owner-connect-airbnb/poster.png" style="width:100%;border-radius:12px;border:1px solid #e5e7eb;">
-  <source src="/videos/invite-owner-connect-airbnb.mp4" type="video/mp4" />
-</video>
-
-*What the owner sees: checking their Airbnb privacy settings, opening your invite link, approving on Airbnb, choosing listings, and watching setup finish (about 1 minute).*
-
 ---
 
 ## What Is an Owner Invite?
@@ -78,6 +72,16 @@ To cancel a link you no longer want used, click **Revoke** next to it.
 ## Part 2: What the Owner Does
 
 Send these steps to the owner along with the link.
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:12px;margin:16px 0;border:1px solid #e5e7eb;border-radius:12px;">
+  <video controls preload="metadata" poster="/screenshots/invite-owner-connect-airbnb/poster.png" style="width:280px;max-width:100%;border-radius:8px;">
+    <source src="/videos/invite-owner-connect-airbnb.mp4" type="video/mp4" />
+  </video>
+  <div style="flex:1;min-width:200px;">
+    <strong>Prefer to watch? (about 1 minute)</strong><br />
+    See the owner's side end to end: checking the Airbnb privacy setting, opening the invite link, approving on Airbnb, choosing listings, and setup finishing. You can send this video to the owner too.
+  </div>
+</div>
 
 1. **Before you start, check your Airbnb privacy setting.** In Airbnb, go to **Profile** → **Account settings** → **Privacy**. Scroll to **Data privacy** and make sure **Help improve AI-powered features** is turned on. If it's off, Airbnb can block the connection. (More on this in [Troubleshooting](#the-owner-cant-finish-connecting-on-airbnb) below.)
 2. Open the invite link. You'll see a page that says *[Your company] would like to connect your Airbnb listings*.
