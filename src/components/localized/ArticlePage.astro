@@ -171,8 +171,10 @@ const formattedDate = article.data.date
     <span>{articleTitle}</span>
   </nav>
 
-  {article.data.category === 'getting-started' && locale === 'en' && (
-    <GettingStartedPath compact currentSlug={article.id} locale={locale} />
+  {/* The setup path lives on the welcome article only; every step is covered
+      by its own Getting Started article, so it isn't repeated on each page. */}
+  {article.id === 'welcome-to-symplehost' && locale === 'en' && (
+    <GettingStartedPath currentSlug={article.id} locale={locale} />
   )}
 
   <article class="article">

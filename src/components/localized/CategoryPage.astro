@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-import GettingStartedPath from '../GettingStartedPath.astro';
 import {
   DEFAULT_LOCALE,
   getArticleDescription,
@@ -34,11 +33,11 @@ const articles = await getCollection('articles', ({ data }) =>
 const SECTION_ORDER: Record<string, string[]> = {
   'getting-started': [
     'Start here',
-    'Set up your account',
-    'Know your workspace',
     'Connect your listings',
     'Your first reservations',
+    'Set up your account',
     'Set up payments',
+    'Know your workspace',
   ],
   'platform-guides': [
     'Messaging & guest communication',
@@ -221,10 +220,6 @@ const faqMeta = {
 
   {category.id === 'faqs' && articles.length > 0 && (
     <h2 class="browse-heading">{copy.browseByTopic}</h2>
-  )}
-
-  {category.id === 'getting-started' && locale === 'en' && (
-    <GettingStartedPath locale={locale} />
   )}
 
   {articles.length === 0 ? (
