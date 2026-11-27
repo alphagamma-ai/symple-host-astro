@@ -31,7 +31,7 @@ Screenshots to capture (place in /public/screenshots/connect-symplehost-to-ai-as
 
 ---
 
-> **TL;DR:** SympleHost offers a secure connector (built on the open **MCP** standard) that links your account to AI assistants like Claude. To set it up, open your AI app's connector settings, paste **`https://mcp.symplehost.ai/mcp`**, and sign in with your SympleHost email and password. The whole thing takes about two minutes. By default the assistant gets **read-only** access — it can look things up but can't change anything. You can also grant **action** access (reply to guests, manage tasks, update calendar and pricing) on the permission screen. Your password is entered on SympleHost's own login page — the AI never sees or stores it — and the assistant can only ever see what your own role lets you see in the web app. Remove the connector any time to cut off access instantly.
+> **TL;DR:** SympleHost offers a secure connector (built on the open **MCP** standard) that links your account to AI assistants like Claude. To set it up, open your AI app's connector settings, paste **`https://mcp.symplehost.ai/mcp`**, and sign in with your SympleHost email and password. The whole thing takes about two minutes. The assistant can look things up and, with **action** access, reply to guests and reviews, manage tasks, and update calendar and pricing. Most AI apps ask you before running an action. Your password is entered on SympleHost's own login page — the AI never sees or stores it — and the assistant can only ever see what your own role lets you see in the web app. Remove the connector in your AI app any time to disconnect.
 
 ---
 
@@ -92,6 +92,7 @@ Here's the full picture of what the assistant can access:
 | Manage tasks | Creates tasks; updates status, priority, or assignee; marks them complete |
 | Block / unblock dates | Blocks or frees a calendar date |
 | Update pricing | Sets the nightly price for specific dates |
+| Respond to a review | Posts a reply to a guest review. The reply is public on the OTA |
 
 > 💡 **Bookings are read-only on purpose.** Your assistant can look at bookings and reservations all day long, but it can never create, change, or cancel one. That's a deliberate safety decision — booking changes always go through SympleHost or your channel.
 
@@ -136,16 +137,16 @@ A SympleHost sign-in page opens. Enter your **SympleHost email and password** �
 
 ![The SympleHost-hosted sign-in page that opens during the connect flow, asking for email and password](/screenshots/connect-symplehost-to-ai-assistants/symplehost-login-page.png)
 
-> 🔒 **You're typing your password into SympleHost, not into Claude.** This login page is served by SympleHost itself. The AI app never sees, receives, or stores your password — it only receives a secure, revocable access token after you sign in. More on this in [Is My Data Safe?](#is-my-data-safe)
+> 🔒 **You're typing your password into SympleHost, not into Claude.** This sign-in page is run by SympleHost (on mcp.symplehost.ai). The AI app never sees, receives, or stores your password — it only receives a secure, revocable access token after you sign in. More on this in [Is My Data Safe?](#is-my-data-safe)
 
 ### Step 4: Choose what the assistant is allowed to do
 
-After signing in, you'll see a **permission screen**. This is where you decide how much the assistant can do:
+After signing in, you'll see a **permission screen** listing what your AI app is asking for:
 
-- **Read access** is always included — looking up listings, bookings, guests, the inbox, and tasks.
-- **Action access** is optional — replying to guests, managing tasks, and updating your calendar and pricing. Approve this only if you want the assistant to make changes on your behalf.
+- **Read access** — looking up listings, bookings, guests, the inbox, and tasks.
+- **Action access** — replying to guests and reviews, managing tasks, and updating your calendar and pricing.
 
-Pick what you're comfortable with and confirm.
+The screen shows the permissions your AI app requested. Most AI apps, including Claude, request both. Review them and approve.
 
 ![The permission/consent screen showing read access plus the optional "take actions" permission, with an approve button](/screenshots/connect-symplehost-to-ai-assistants/consent-permissions-screen.png)
 
@@ -167,7 +168,7 @@ Claude Desktop uses the same connector flow:
 2. Go to **Settings → Connectors**.
 3. Click **Add custom connector**.
 4. Paste **`https://mcp.symplehost.ai/mcp`** and confirm.
-5. Sign in with your SympleHost email and password, then choose read-only or read + action access on the permission screen.
+5. Sign in with your SympleHost email and password, then review and approve the permissions on the permission screen.
 
 Once it shows as connected, you can use it in any conversation.
 
@@ -177,12 +178,13 @@ Once it shows as connected, you can use it in any conversation.
 
 It helps to think of the connection in two levels:
 
-- **Read-only** — the assistant can answer questions and summarise, but it cannot change anything in your account. This is the default and a great way to start.
-- **Read + action** — the assistant can also reply to guests, manage tasks, and update your calendar and pricing — but only when you ask it to, and (for messages) only after you confirm.
+- **Read** — the assistant can answer questions and summarise.
+- **Action** — the assistant can also reply to guests and reviews, manage tasks, and update your calendar and pricing.
+
+Most AI apps, including Claude, ask you before running an action, and you can set this per tool in the app's connector settings. SympleHost doesn't add its own confirmation step, so if you want the assistant to only read, set the action tools to "always ask" or turn them off in your AI app.
 
 A few guardrails worth repeating:
 
-- **You set the level during setup.** If you only granted read access and later want the assistant to take action, just remove the connector and reconnect, this time approving action access.
 - **Bookings are always read-only**, regardless of what you grant.
 - **Pricing and date changes are explicit.** The assistant updates a date or price only when you tell it to, for the specific dates you name.
 
@@ -214,8 +216,8 @@ Short answer: yes — the connector was designed so that linking an AI assistant
 
 - **Your password is never shared with the AI.** You type it into SympleHost's own sign-in page. The AI app only ever receives a temporary, revocable access token — never your password, and never your underlying SympleHost login.
 - **The assistant only sees what *you* can see.** It connects as you, so your existing permissions, the listings you can access, and the privacy masking on guest details all apply exactly as they do in the web app.
-- **Actions need your permission.** Read-only is the default. Anything that changes your account requires you to grant action access during setup — and sending a guest message is something you confirm.
-- **Disconnecting cuts access immediately.** Remove the connector in your AI app and the connection is revoked on SympleHost's side right away. No lingering access.
+- **Actions need action access.** Anything that changes your account needs the action permission, and most AI apps ask you before running an action. Bookings can't be changed at all.
+- **You can disconnect any time.** Remove the connector in your AI app. If your app revokes the token when you remove it, access stops at once; otherwise the short-lived access token expires within an hour.
 - **Bank-grade handling under the hood.** Access tokens are encrypted at rest, and connections use modern OAuth 2.1 security (the same family of standards behind "Sign in with…" buttons across the web).
 
 > 🔒 **Rule of thumb:** the connector can never do more than *you* can do in SympleHost, and you can pull the plug any time.
@@ -248,7 +250,7 @@ To stop an AI assistant from accessing your SympleHost account:
 1. Open the connector settings in your AI app (e.g. **Claude → Settings → Connectors**).
 2. Find **SympleHost** and **remove / delete** the connector.
 
-That immediately revokes access on SympleHost's side — the token stops working at once. To use the assistant with your account again later, just reconnect with the steps above.
+If your AI app revokes the token on removal, access stops at once; otherwise the short-lived access token expires within an hour. To use the assistant with your account again later, just reconnect with the steps above.
 
 ---
 
@@ -279,9 +281,9 @@ That immediately revokes access on SympleHost's side — the token stops working
 
 - The SympleHost connector links your account to Claude (and other MCP-capable AI tools) using the open **MCP** standard.
 - Setup is one URL — **`https://mcp.symplehost.ai/mcp`** — plus your SympleHost email and password, in about two minutes.
-- **Read-only by default;** grant **action access** during setup if you want the assistant to reply to guests, manage tasks, and update your calendar and pricing.
+- The connection can **read** your account and, with **action access**, reply to guests and reviews, manage tasks, and update your calendar and pricing. Most AI apps ask before each action.
 - Your **password is never shared with the AI**, the assistant only sees **what your role allows**, and **bookings stay read-only**.
-- **Disconnect any time** by removing the connector — access is revoked instantly.
+- **Disconnect any time** by removing the connector in your AI app.
 
 ---
 
