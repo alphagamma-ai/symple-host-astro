@@ -82,21 +82,19 @@ const upcomingWebinarsCount = webinarEvents.filter((event) => isUpcoming(event))
       flex-direction: column;
       min-height: 220px;
       padding: 1.5rem;
-      background: #ffffff;
+      background: var(--color-white);
       border: 1px solid var(--border);
       border-radius: 12px;
       color: var(--foreground);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.15s;
     }
     .split-card:hover {
-      border-color: var(--primary-300);
-      box-shadow: 0 2px 8px rgba(127, 86, 217, 0.1);
+      border-color: var(--color-violet);
     }
     .split-kicker {
-      color: var(--primary);
+      color: var(--color-dark-gray);
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;

@@ -107,21 +107,18 @@ const currentIndex = currentSlug
   .setup-path {
     margin: 0 0 3rem;
     padding: 1.25rem;
-    border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+    border: 1px solid var(--color-light-gray);
     border-radius: 8px;
-    background:
-      linear-gradient(135deg, rgba(127, 86, 217, 0.08), rgba(255, 255, 255, 0) 48%),
-      #fff;
-    box-shadow: 0 18px 44px rgba(88, 28, 135, 0.08);
+    background: var(--color-white);
   }
   .setup-path-head {
     max-width: 40rem;
     margin-bottom: 1.25rem;
   }
   .setup-kicker {
-    color: var(--primary-700);
+    color: var(--color-dark-gray);
     font-size: 0.72rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.08em;
     line-height: 1.2;
     margin-bottom: 0.4rem;
@@ -156,7 +153,7 @@ const currentIndex = currentSlug
     right: -0.5rem;
     width: 1rem;
     height: 1px;
-    background: var(--primary-200);
+    background: var(--color-light-gray);
     z-index: 2;
   }
   .setup-card {
@@ -168,14 +165,13 @@ const currentIndex = currentSlug
     padding: 1rem;
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.88);
+    background: var(--color-white);
     color: var(--foreground);
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    transition: border-color 0.15s, transform 0.15s;
   }
   .setup-card:hover {
     color: var(--foreground);
-    border-color: var(--primary-300);
-    box-shadow: 0 14px 28px rgba(88, 28, 135, 0.12);
+    border-color: var(--color-violet);
     transform: translateY(-2px);
   }
   .setup-number {
@@ -184,18 +180,17 @@ const currentIndex = currentSlug
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
+    background: var(--color-violet);
+    color: var(--color-white);
     font-size: 0.75rem;
     font-weight: 800;
     line-height: 1;
     margin-bottom: 0.8rem;
-    box-shadow: 0 8px 18px rgba(127, 86, 217, 0.28);
   }
   .setup-label {
-    color: var(--primary-700);
+    color: var(--color-dark-gray);
     font-size: 0.68rem;
-    font-weight: 800;
+    font-weight: 500;
     letter-spacing: 0.08em;
     line-height: 1.2;
     margin-bottom: 0.45rem;
@@ -216,20 +211,17 @@ const currentIndex = currentSlug
   }
   .setup-link {
     align-self: end;
-    color: var(--primary-700);
+    color: var(--color-violet);
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.2;
   }
   .setup-step.current .setup-card {
-    border-color: var(--primary);
-    background:
-      linear-gradient(180deg, rgba(127, 86, 217, 0.1), rgba(255, 255, 255, 0) 70%),
-      #fff;
-    box-shadow: 0 16px 34px rgba(88, 28, 135, 0.14);
+    border-color: var(--color-violet);
+    background: var(--color-light);
   }
   .setup-step.done .setup-number {
-    background: var(--primary-700);
+    background: var(--color-violet);
   }
 
   .setup-path.compact {
@@ -238,11 +230,8 @@ const currentIndex = currentSlug
     z-index: 8;
     margin: 0 0 1.75rem;
     padding: 0.8rem;
-    background:
-      linear-gradient(135deg, rgba(127, 86, 217, 0.1), rgba(255, 255, 255, 0) 42%),
-      rgba(255, 255, 255, 0.96);
+    background: var(--color-white);
     backdrop-filter: blur(14px);
-    box-shadow: 0 12px 30px rgba(88, 28, 135, 0.1);
   }
   .setup-path.compact .setup-path-head {
     display: flex;

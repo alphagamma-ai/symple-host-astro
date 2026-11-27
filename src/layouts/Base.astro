@@ -147,25 +147,42 @@ const organizationJsonLd = {
     <script is:inline type="module" src="/pagefind/pagefind-component-ui.js"></script>
     <style is:global>
       :root {
-        --primary-50: #faf5ff;
-        --primary-100: #f3e8ff;
-        --primary-200: #e9d5ff;
-        --primary-300: #d8b4fe;
-        --primary-400: #c084fc;
-        --primary-500: #7F56D9;
-        --primary-600: #7F56D9;
-        --primary-700: #6941C6;
-        --primary-800: #6b21a8;
-        --primary-900: #581c87;
+        /* Brand palette, Nov 2026 (Michelle's token mapping,
+           "SympleHost-Design-Tokens-Mappting-202611"). Same values as the
+           marketing site (symple-host-website app/globals.css). */
+        --color-violet: #6C47FF;        /* primary brand accent; also success */
+        --color-lime: #A6FF3B;          /* highlights on dark only; never text on light */
+        --color-navy: #120B40;          /* primary dark background */
+        --color-indigo: #2A1A8F;        /* secondary dark background */
+        --color-white: #FFFFFF;
+        --color-light: #F4F6FF;         /* light background, chips, tints */
+        --color-coral: #FF6C5B;         /* warning */
+        --color-magenta: #FF2B65;       /* error */
+        --color-dark-gray: #1E1E1E;     /* headings, strongest text */
+        --color-gray: #5A6271;          /* body text */
+        --color-medium-gray: #8A919B;   /* hints, placeholders, muted */
+        --color-light-gray: #D0D8E4;    /* borders; body text on dark */
 
-        --background: #fafafa;
-        --foreground: #18181b;
-        --heading-color: #581c87;
-        --muted-foreground: #71717a;
-        --muted-light: #a1a1aa;
-        --border: #e4e4e7;
-        --border-light: #f2f4f7;
-        --primary: #7F56D9;
+        /* Existing names, now pointing at the new palette. */
+        --primary-50: var(--color-light);
+        --primary-100: var(--color-light);
+        --primary-200: var(--color-light-gray);
+        --primary-300: var(--color-light-gray);
+        --primary-400: var(--color-violet);
+        --primary-500: var(--color-violet);
+        --primary-600: var(--color-violet);
+        --primary-700: var(--color-violet);
+        --primary-800: var(--color-indigo);
+        --primary-900: var(--color-navy);
+
+        --background: var(--color-white);
+        --foreground: var(--color-dark-gray);
+        --heading-color: var(--color-dark-gray);
+        --muted-foreground: var(--color-gray);
+        --muted-light: var(--color-medium-gray);
+        --border: var(--color-light-gray);
+        --border-light: var(--color-light-gray);
+        --primary: var(--color-violet);
 
         /* Pagefind Component UI theme. Declared here (after its stylesheet)
            so these also override Pagefind's prefers-color-scheme: dark block —
@@ -184,9 +201,14 @@ const organizationJsonLd = {
         --pf-outline-focus: var(--primary);
         --pf-skeleton: var(--border-light);
         --pf-skeleton-shine: #ffffff;
-        --pf-modal-backdrop: rgba(24, 24, 27, 0.45);
+        --pf-modal-backdrop: rgba(18, 11, 64, 0.45);
         --pf-modal-max-width: 40rem;
         --pf-dropdown-z-index: 60;
+        /* No shadows in the Nov 2026 brand. */
+        --pf-shadow-sm: none;
+        --pf-shadow-md: none;
+        --pf-shadow-lg: none;
+        --pf-shadow: none;
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -283,7 +305,7 @@ const organizationJsonLd = {
 
     <style>
       .header {
-        background: #ffffff;
+        background: var(--color-white);
         border-bottom: 1px solid var(--border-light);
         position: sticky;
         top: 0;
@@ -302,13 +324,13 @@ const organizationJsonLd = {
         display: flex;
         align-items: center;
         gap: 0.6rem;
-        color: #2E2E2E;
+        color: var(--color-dark-gray);
         font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
         font-weight: 700;
         font-size: 1.25rem;
         white-space: nowrap;
       }
-      .logo:hover { color: #2E2E2E; }
+      .logo:hover { color: var(--color-dark-gray); }
       .logo-img {
         display: block;
         height: 28px;
@@ -321,7 +343,7 @@ const organizationJsonLd = {
         flex: 1;
       }
       .nav-link {
-        color: #2E2E2E;
+        color: var(--color-dark-gray);
         font-size: 1.2rem;
         font-weight: 400;
         white-space: nowrap;
@@ -330,7 +352,7 @@ const organizationJsonLd = {
       .nav-link:hover { color: var(--primary); }
       .header-gradient {
         height: 3px;
-        background: linear-gradient(90deg, var(--primary-400), var(--primary), var(--primary-400));
+        background: var(--color-violet);
       }
       .locale-switcher {
         display: flex;
@@ -340,10 +362,10 @@ const organizationJsonLd = {
         padding: 0.2rem;
         border: 1px solid var(--border-light);
         border-radius: 999px;
-        background: #ffffff;
+        background: var(--color-white);
       }
       .locale-link {
-        color: #2E2E2E;
+        color: var(--color-dark-gray);
         font-size: 0.78rem;
         font-weight: 600;
         line-height: 1;
@@ -355,7 +377,7 @@ const organizationJsonLd = {
         color: var(--primary);
       }
       .locale-link.active {
-        color: #ffffff;
+        color: var(--color-white);
         background: var(--primary);
       }
 
